@@ -1,0 +1,422 @@
+services:
+  mysql:
+    image: docker.m.daocloud.io/library/mysql:8.0
+    container_name: orep-mysql
+    env_file:
+      - ./.env.production
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-time-zone=+08:00
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+      - ./sql/ppt_tables.sql:/docker-entrypoint-initdb.d/02-ppt.sql:ro
+      - ./sql/ppt_history_tables.sql:/docker-entrypoint-initdb.d/03-ppt-history.sql:ro
+      - ./sql/meeting_recording_upgrade.sql:/docker-entrypoint-initdb.d/04-recording.sql:ro
+      - ./sql/monitor_tables.sql:/docker-entrypoint-initdb.d/05-monitor.sql:ro
+      - ./sql/backend-resources/create_ai_score_report_table.sql:/docker-entrypoint-initdb.d/11-ai-score-report.sql:ro
+      - ./sql/backend-resources/create_ai_scoring_session_tables.sql:/docker-entrypoint-initdb.d/17-ai-scoring-session.sql:ro
+      - ./sql/backend-resources/upgrade_ai_scoring_session_p7_schema.sql:/docker-entrypoint-initdb.d/18-ai-scoring-session-p7-upgrade.sql:ro
+      - ./sql/backend-resources/upgrade_ai_scoring_p8_rule_engine.sql:/docker-entrypoint-initdb.d/19-ai-scoring-p8-rule-engine-upgrade.sql:ro
+      - ./sql/backend-resources/migrate_ai_score_report_transparent_remediation_v3.sql:/docker-entrypoint-initdb.d/20-ai-score-transparent-remediation-v3.sql:ro
+      - ./sql/backend-resources/upgrade_ai_score_speaker_attribution_v1.sql:/docker-entrypoint-initdb.d/21-ai-score-speaker-attribution-v1.sql:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: docker.m.daocloud.io/library/redis:7-alpine
+    container_name: orep-redis
+    env_file:
+      - ./.env.production
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD}"]
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a $${REDIS_PASSWORD} ping | grep PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  minio:
+    image: docker.m.daocloud.io/minio/minio:latest
+    container_name: orep-minio
+    env_file:
+      - ./.env.production
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    command: server /data --console-address ":9001"
+    volumes:
+      - ${OREP_STORAGE_ROOT}/minio:/data
+    restart: unless-stopped
+
+  livekit:
+    image: docker.m.daocloud.io/livekit/livekit-server:v1.9.12
+    container_name: orep-livekit
+    command: --config /etc/livekit.yaml
+    volumes:
+      - ./livekit/livekit.rendered.yaml:/etc/livekit.yaml:ro
+    ports:
+      - "7881:7881/tcp"
+      - "50100-50200:50100-50200/udp"
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: orep-backend
+    env_file:
+      - ./.env.production
+    environment:
+      JAVA_TOOL_OPTIONS: ${JAVA_OPTS}
+      SERVER_PORT: 8080
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD}
+      SPRING_MAIL_HOST: ${SPRING_MAIL_HOST}
+      SPRING_MAIL_PORT: ${SPRING_MAIL_PORT}
+      SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME}
+      SPRING_MAIL_PASSWORD: ${SPRING_MAIL_PASSWORD}
+      OREP_EMAIL_FROM: ${OREP_EMAIL_FROM}
+      OREP_EMAIL_PYTHON_FALLBACK_ENABLED: ${OREP_EMAIL_PYTHON_FALLBACK_ENABLED}
+      OREP_EMAIL_PYTHON_BIN: ${OREP_EMAIL_PYTHON_BIN}
+      SPRING_MAIL_SMTP_AUTH: ${SPRING_MAIL_SMTP_AUTH}
+      SPRING_MAIL_SMTP_STARTTLS_ENABLE: ${SPRING_MAIL_SMTP_STARTTLS_ENABLE}
+      SPRING_MAIL_SMTP_STARTTLS_REQUIRED: ${SPRING_MAIL_SMTP_STARTTLS_REQUIRED}
+      SPRING_MAIL_SMTP_SSL_ENABLE: ${SPRING_MAIL_SMTP_SSL_ENABLE}
+      SPRING_MAIL_SMTP_SSL_PROTOCOLS: ${SPRING_MAIL_SMTP_SSL_PROTOCOLS}
+      SPRING_MAIL_SMTP_SSL_TRUST: ${SPRING_MAIL_SMTP_SSL_TRUST}
+      SPRING_MAIL_SMTP_SSL_CHECK_SERVER_IDENTITY: ${SPRING_MAIL_SMTP_SSL_CHECK_SERVER_IDENTITY}
+      SPRING_MAIL_SMTP_SOCKET_FACTORY_CLASS: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_CLASS}
+      SPRING_MAIL_SMTP_SOCKET_FACTORY_PORT: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_PORT}
+      SPRING_MAIL_SMTP_SOCKET_FACTORY_FALLBACK: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_FALLBACK}
+      SPRING_MAIL_SMTP_CONNECTION_TIMEOUT: ${SPRING_MAIL_SMTP_CONNECTION_TIMEOUT}
+      SPRING_MAIL_SMTP_TIMEOUT: ${SPRING_MAIL_SMTP_TIMEOUT}
+      SPRING_MAIL_SMTP_WRITE_TIMEOUT: ${SPRING_MAIL_SMTP_WRITE_TIMEOUT}
+      OREP_JWT_SECRET: ${JWT_SECRET}
+      OREP_COLLABORATION_ENABLED: ${OREP_COLLABORATION_ENABLED:-false}
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET}
+      LIVEKIT_WS_URL: ${LIVEKIT_WS_URL}
+      LIVEKIT_EGRESS_API_URL: http://livekit:7880
+      LIVEKIT_EGRESS_S3_ENDPOINT: http://minio:9000
+      LIVEKIT_EGRESS_S3_ACCESS_KEY: ${MINIO_ROOT_USER}
+      LIVEKIT_EGRESS_S3_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      LIVEKIT_EGRESS_S3_BUCKET: ${MINIO_BUCKET_RECORDINGS}
+      MINIO_ENDPOINT: http://minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      MINIO_BUCKET: ${MINIO_BUCKET_RECORDINGS}
+      FILE_UPLOAD_DIR: /app/uploads
+      RECORDING_MODE: bot
+      RECORDING_BOT_URL: http://recording-bot:8091
+      RECORDING_BOT_SECRET: ${RECORDING_BOT_SECRET}
+      RECORDING_CALLBACK_BASE_URL: http://backend:8080
+      # Backend → AI scoring service (Docker network DNS, NOT 127.0.0.1)
+      AI_SCORING_BASE_URL: http://ai-scoring:8090
+      # AI → Backend（小启拉评分等 internal API；禁止 127.0.0.1）
+      BACKEND_INTERNAL_URL: http://backend:8080
+      # Empty: same absolute path /app/uploads as ai-scoring (shared volume below)
+      AI_SCORING_FILE_ROOT: ""
+      # score-session is accepted quickly but AI can be CPU-starved during long ASR/diarization
+      AI_SCORING_CONNECT_TIMEOUT_MS: "10000"
+      AI_SCORING_READ_TIMEOUT_MS: "120000"
+      # 启发 Office — Collabora Online（WOPI）
+      # collabora-url：容器内 discovery（必须 Docker 内网，勿用公网）
+      # collabora-public-url：浏览器 iframe / 资源前缀
+      # wopi-public-base-url：Collabora 回调 WOPI 的公网基址
+      OREP_INSPIRE_OFFICE_ENABLED: ${OREP_INSPIRE_OFFICE_ENABLED:-true}
+      # 与 coolwsd service_root=/collabora 对齐：discovery 走 /collabora/hosting/discovery
+      OREP_COLLABORA_URL: ${OREP_COLLABORA_URL:-http://collabora:9980/collabora}
+      OREP_COLLABORA_PUBLIC_URL: ${OREP_COLLABORA_PUBLIC_URL:-https://www.jingsaidanao.com/collabora}
+      OREP_WOPI_PUBLIC_BASE_URL: ${OREP_WOPI_PUBLIC_BASE_URL:-https://www.jingsaidanao.com}
+    volumes:
+      - ${OREP_STORAGE_ROOT}/backend/uploads:/app/uploads
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_started
+      livekit:
+        condition: service_started
+      # ai-scoring is optional at boot; AI_SCORING_BASE_URL points at http://ai-scoring:8090
+    restart: unless-stopped
+
+  # 启发 Office 编辑内核（Collabora Online Development Edition，MPL 可定制）
+  collabora:
+    # 国内镜像加速（与官方 collabora/code:latest 同源；拉不动时可改回 collabora/code:latest）
+    image: ${COLLABORA_IMAGE:-docker.m.daocloud.io/collabora/code:latest}
+    container_name: orep-collabora
+    environment:
+      username: ${COLLABORA_ADMIN_USER:-admin}
+      password: ${COLLABORA_ADMIN_PASSWORD:-S3cRet}
+      # 允许访问的 WOPI Host（生产填公网域名；本地用 host.docker.internal）
+      aliasgroup1: ${COLLABORA_ALIASGROUP1:-https://www.jingsaidanao.com:443}
+      # CSP 以挂载的 coolwsd.xml 为准（须含 style-src 'unsafe-inline'）
+      extra_params: >-
+        --o:ssl.enable=false
+        --o:ssl.termination=true
+      DONT_GEN_SSL_CERT: "true"
+    volumes:
+      - ./collabora/coolwsd.xml:/etc/coolwsd/coolwsd.xml:ro
+      # 去品牌：仅轻量 CSS/JS（禁止改 notebookbar 布局）；logo 用空 SVG
+      - ./collabora/branding.css:/usr/share/coolwsd/browser/dist/branding.css:ro
+      - ./collabora/branding.js:/usr/share/coolwsd/browser/dist/branding.js:ro
+      - ./collabora/empty-logo.svg:/usr/share/coolwsd/browser/dist/images/toolbar-bg-logo-notebookbar.svg:ro
+      - ./collabora/empty-logo.svg:/usr/share/coolwsd/browser/dist/images/toolbar-bg-logo.svg:ro
+      - ./collabora/empty-logo.svg:/usr/share/coolwsd/browser/dist/images/toolbar-bg-logo-dark.svg:ro
+      - ./collabora/empty-logo.svg:/usr/share/coolwsd/browser/dist/images/full-logo.svg:ro
+      - ./collabora/empty-logo.svg:/usr/share/coolwsd/browser/dist/images/full-logo-white.svg:ro
+      - ./collabora/empty-logo.svg:/usr/share/coolwsd/browser/dist/images/collabora-office-white.svg:ro
+      # CODE UI 请求的图标名与镜像资源名不一致 → 别名补齐，消 404（不影响编辑）
+      - ./collabora/icon-aliases/lc_insertfooter.svg:/usr/share/coolwsd/browser/dist/images/lc_insertfooter.svg:ro
+      - ./collabora/icon-aliases/lc_insertheader.svg:/usr/share/coolwsd/browser/dist/images/lc_insertheader.svg:ro
+      - ./collabora/icon-aliases/lc_hyphenation.svg:/usr/share/coolwsd/browser/dist/images/lc_hyphenation.svg:ro
+      - ./collabora/icon-aliases/lc_bodyparastyle.svg:/usr/share/coolwsd/browser/dist/images/lc_bodyparastyle.svg:ro
+      - ./collabora/icon-aliases/lc_showtwopages.svg:/usr/share/coolwsd/browser/dist/images/lc_showtwopages.svg:ro
+      - ./collabora/icon-aliases/lc_multiplepages.svg:/usr/share/coolwsd/browser/dist/images/lc_multiplepages.svg:ro
+      - ./collabora/icon-aliases/lc_showmultiplepages.svg:/usr/share/coolwsd/browser/dist/images/lc_showmultiplepages.svg:ro
+      - ./collabora/icon-aliases/lc_showonepage.svg:/usr/share/coolwsd/browser/dist/images/lc_showonepage.svg:ro
+      - ./collabora/icon-aliases/lc_sr20006.svg:/usr/share/coolwsd/browser/dist/images/lc_sr20006.svg:ro
+      - ./collabora/icon-aliases/lc_alignleft.svg:/usr/share/coolwsd/browser/dist/images/lc_alignleft.svg:ro
+      - ./collabora/icon-aliases/lc_charbackcolor.svg:/usr/share/coolwsd/browser/dist/images/lc_charbackcolor.svg:ro
+      - ./collabora/icon-aliases/lc_fonts.svg:/usr/share/coolwsd/browser/dist/images/lc_fonts.svg:ro
+      - ./collabora/icon-aliases/lc_incrementindent.svg:/usr/share/coolwsd/browser/dist/images/lc_incrementindent.svg:ro
+      - ./collabora/icon-aliases/lc_resetattributes.svg:/usr/share/coolwsd/browser/dist/images/lc_resetattributes.svg:ro
+    # CODE 文档进程依赖 coolmount；缺 SYS_ADMIN 会反复 Failed to exec coolmount
+    cap_add:
+      - MKNOD
+      - SYS_ADMIN
+    security_opt:
+      - seccomp:unconfined
+    mem_limit: 2g
+    restart: unless-stopped
+    # 生产经 nginx 反代，可不暴露 9980；本地调试可取消注释
+    # ports:
+    #   - "9980:9980"
+
+  ai-scoring:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    container_name: orep-ai-scoring
+    # PPT upload sessions live in process memory (+ disk sidecar). Multi-worker
+    # made POST /upload and POST /generate land on different processes and return
+    # "Session not found." Keep a single worker; long ASR jobs already use
+    # background threads/processes inside the app.
+    command:
+      - uvicorn
+      - main:app
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "8090"
+      - --workers
+      - "1"
+    env_file:
+      - ./.env.production
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8090
+      AI_SERVICE_RELOAD: "false"
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      BACKEND_CALLBACK_URL: http://backend:8080/api/ai-score/callback
+      CHAT_CALLBACK_URL: http://backend:8080/api/ai-chat/callback
+      BACKEND_INTERNAL_URL: http://backend:8080
+      ASSISTANT_INTERNAL_TOKEN: ${OREP_ASSISTANT_INTERNAL_TOKEN:-OREP_ASSISTANT_INTERNAL_DEV_TOKEN}
+      LIVE_CAMERA_SUBSCRIBER_ENABLED: ${LIVE_CAMERA_SUBSCRIBER_ENABLED:-false}
+      LIVEKIT_INTERNAL_WS_URL: ws://livekit:7880
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET}
+      UPLOAD_DIR: /app/uploads
+      OREP_JWT_SECRET: ${JWT_SECRET}
+      OREP_PDF_FONT_PATH: /usr/share/fonts/truetype/wqy/wqy-microhei.ttc
+      OREP_REPORT_FONT_BOLD: /usr/share/fonts/truetype/wqy/wqy-zenhei.ttc
+      # Match local defaults: cloud ASR text + local diarization / 3D-Speaker / LR-ASD
+      LOCAL_SPEAKER_DIARIZATION_ENABLED: "true"
+      LOCAL_DIARIZATION_MODEL_DIR: /app/models/speaker-diarization
+      LOCAL_3D_SPEAKER_ENABLED: "true"
+      LOCAL_3D_SPEAKER_PUBLICATION_ENABLED: "true"
+      LOCAL_3D_SPEAKER_REQUIRED: "false"
+      LOCAL_3D_SPEAKER_RUNTIME_DIR: /app/models/3d-speaker/runtime
+      LOCAL_3D_SPEAKER_PYTHON: /app/models/3d-speaker/runtime/.venv/bin/python
+      LOCAL_3D_SPEAKER_TIMEOUT_SECONDS: "2400"
+      LOCAL_ACTIVE_SPEAKER_ENABLED: "true"
+      LOCAL_ACTIVE_SPEAKER_REQUIRED: "false"
+      LOCAL_ACTIVE_SPEAKER_RUNTIME_DIR: /app/models/active-speaker/lr-asd-runtime
+      LOCAL_ACTIVE_SPEAKER_PYTHON: /app/models/active-speaker/lr-asd-runtime/.venv/bin/python
+      LOCAL_ACTIVE_SPEAKER_TIMEOUT_SECONDS: "2400"
+      SPEAKER_ATTRIBUTION_ENABLED: "true"
+      SPEAKER_ATTRIBUTION_SHADOW_MODE: "false"
+      # Long roadshows (50+ min) need more than the 15m default while DashScope ASR runs
+      PRIMARY_EVIDENCE_TIMEOUT_SECONDS: "3600"
+      LOCAL_DIARIZATION_TIMEOUT_SECONDS: "3600"
+      # Isolate sherpa native crashes; long audio uses windowed diarization + global recluster
+      LOCAL_DIARIZATION_ISOLATED_PROCESS: "true"
+      LOCAL_DIARIZATION_CHUNK_SECONDS: "600"
+      LOCAL_DIARIZATION_CHUNK_OVERLAP_SECONDS: "15"
+      LOCAL_DIARIZATION_FULL_PASS_MAX_SECONDS: "720"
+      # fun-asr concurrent Recognition.call crashes the uvicorn worker (silent "Child process died")
+      ASR_CHUNK_MAX_WORKERS: "1"
+      # PPT agent job queue (MySQL orep DB — same instance as backend)
+      MYSQL_HOST: mysql
+      MYSQL_PORT: "3306"
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-orep}
+      # inline = API process runs pipeline (safe default); queue = only enqueue, ppt-worker runs jobs
+      PPT_EXECUTION_MODE: ${PPT_EXECUTION_MODE:-queue}
+    volumes:
+      # MUST share backend uploads so pipeline absolute paths (/app/uploads/ai-score/...) resolve.
+      # AI also writes ASR chunks/results here; historical data lived under ai-scoring/uploads.
+      - ${OREP_STORAGE_ROOT}/backend/uploads:/app/uploads
+      # Local speaker models/runtimes (Linux venvs built on host under this path)
+      - ${OREP_STORAGE_ROOT}/ai-scoring/models:/app/models
+      # Base CPython used by host-built venvs (uv python install 3.11)
+      - /root/.local/share/uv/python:/root/.local/share/uv/python:ro
+    depends_on:
+      - minio
+      - backend
+      - livekit
+      - mysql
+    restart: unless-stopped
+
+  # PPT generation worker: claims queued jobs from MySQL, runs heavy pipeline
+  # outside the API process so PDF/LLM crashes don't take down /api/ppt/status.
+  ppt-worker:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    container_name: orep-ppt-worker
+    command:
+      - python
+      - ppt_worker.py
+    env_file:
+      - ./.env.production
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: "3306"
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-orep}
+      PPT_EXECUTION_MODE: queue
+      UPLOAD_DIR: /app/uploads
+      OREP_JWT_SECRET: ${JWT_SECRET}
+      MIMO_API_KEY: ${MIMO_API_KEY:-}
+      MIMO_BASE_URL: ${MIMO_BASE_URL:-}
+      DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:-}
+      IMAGE2_API_KEY: ${IMAGE2_API_KEY:-}
+      IMAGE2_BASE_URL: ${IMAGE2_BASE_URL:-}
+      PPT_WORKER_ID: ppt-worker-1
+    volumes:
+      - ${OREP_STORAGE_ROOT}/backend/uploads:/app/uploads
+      - ${OREP_STORAGE_ROOT}/ai-scoring/models:/app/models
+      - /root/.local/share/uv/python:/root/.local/share/uv/python:ro
+    depends_on:
+      - mysql
+      - ai-scoring
+    restart: unless-stopped
+
+  recording-bot:
+    build:
+      context: ./recording-bot
+      dockerfile: Dockerfile
+    container_name: orep-recording-bot
+    env_file:
+      - ./.env.production
+    environment:
+      LIVEKIT_URL: ws://livekit:7880
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET}
+      BOT_PORT: 8091
+      BACKEND_CALLBACK_BASE_URL: http://backend:8080
+      RECORDING_BOT_SECRET: ${RECORDING_BOT_SECRET}
+      RECORDINGS_DIR: /app/recordings
+    volumes:
+      - ${OREP_STORAGE_ROOT}/recording-bot/recordings:/app/recordings
+    depends_on:
+      - livekit
+      - backend
+      - minio
+    restart: unless-stopped
+    shm_size: "1gb"
+
+  signaling:
+    build:
+      context: ./signaling
+      dockerfile: Dockerfile
+    container_name: orep-signaling
+    environment:
+      PORT: 3000
+    restart: unless-stopped
+
+  frontend-user:
+    build:
+      context: ./frontend/user
+      dockerfile: Dockerfile
+    container_name: orep-user
+    depends_on:
+      backend:
+        condition: service_started
+    restart: unless-stopped
+
+  frontend-admin:
+    build:
+      context: ./frontend/admin
+      dockerfile: Dockerfile
+    container_name: orep-admin
+    depends_on:
+      backend:
+        condition: service_started
+    restart: unless-stopped
+
+  frontend-teacher:
+    build:
+      context: ./frontend/teacher
+      dockerfile: Dockerfile
+    container_name: orep-teacher
+    restart: unless-stopped
+
+  nginx:
+    image: docker.m.daocloud.io/library/nginx:alpine
+    container_name: orep-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - frontend-user
+      - frontend-admin
+      - frontend-teacher
+      - backend
+      - ai-scoring
+      - signaling
+      - livekit
+      - collabora
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+  redis_data:

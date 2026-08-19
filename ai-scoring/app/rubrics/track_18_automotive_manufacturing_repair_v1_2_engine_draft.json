@@ -1,0 +1,1831 @@
+{
+  "trackId": "18",
+  "trackName": "汽车制造与维修赛道",
+  "ruleVersion": "v1.2-engine-draft",
+  "ruleHash": "sha256:886bd7ebe1ce950233fb4568a5934047317af148e7265f6c77b274e10ab68cad",
+  "status": "pilot",
+  "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/汽车制造与维修赛道.md",
+  "sourceType": "track_inference",
+  "evidenceFamily": "装备制造交通类",
+  "keyTasks": [
+    "总装/检测",
+    "故障诊断",
+    "三电系统维护",
+    "智能网联调试",
+    "售后服务",
+    "质量控制"
+  ],
+  "highValueEvidence": [
+    "诊断报告",
+    "维修工单",
+    "检测数据",
+    "拆装流程",
+    "客户服务记录",
+    "安全规范"
+  ],
+  "advancedDirections": [
+    "新能源三电",
+    "智能网联",
+    "诊断平台",
+    "数字化售后",
+    "质量追溯"
+  ],
+  "dimensions": [
+    {
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 60,
+      "observationCodes": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 10,
+      "observationCodes": [
+        "O06",
+        "O07",
+        "O08"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 10,
+      "observationCodes": [
+        "O09",
+        "O10",
+        "O11"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 10,
+      "observationCodes": [
+        "O12",
+        "O13"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 10,
+      "observationCodes": [
+        "O14",
+        "O15"
+      ],
+      "sourceType": "official"
+    }
+  ],
+  "evidenceLevels": [
+    {
+      "level": "E0",
+      "name": "无证据",
+      "capRatio": 0.2,
+      "hardCondition": "没有转写、画面、材料或历史记录能支撑该观测点",
+      "sourceType": "official"
+    },
+    {
+      "level": "E1",
+      "name": "口号式主张",
+      "capRatio": 0.3,
+      "hardCondition": "只有结论或口号，没有方法、数据、画面或材料",
+      "sourceType": "official"
+    },
+    {
+      "level": "E2",
+      "name": "解释性证据",
+      "capRatio": 0.5,
+      "hardCondition": "有流程、架构、方法或口头解释，但缺少量化和现场验证",
+      "sourceType": "official"
+    },
+    {
+      "level": "E3",
+      "name": "内部量化证据",
+      "capRatio": 0.7,
+      "hardCondition": "有内部测试、成本测算、性能指标或样本数据，但缺少真实场景或第三方验证",
+      "sourceType": "official"
+    },
+    {
+      "level": "E4",
+      "name": "场景验证证据",
+      "capRatio": 0.85,
+      "hardCondition": "有现场演示、试点案例、用户反馈、前后对比或真实场景材料",
+      "sourceType": "official"
+    },
+    {
+      "level": "E5",
+      "name": "独立可核验证据",
+      "capRatio": 1.0,
+      "hardCondition": "有第三方报告、认证、审计、客户验收、公开 benchmark 或可复现实验",
+      "sourceType": "official"
+    }
+  ],
+  "evidenceCaps": {
+    "E0": 0.2,
+    "E1": 0.3,
+    "E2": 0.5,
+    "E3": 0.7,
+    "E4": 0.85,
+    "E5": 1.0
+  },
+  "observations": [
+    {
+      "observationCode": "O01",
+      "observationName": "操作规范性",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 10.0,
+      "trackDefinition": "是否按汽车制造、新能源汽车、智能网联、检测维修、销售服务的岗位流程完成关键任务，并能用过程记录证明规范闭环。",
+      "claimTypes": [
+        "流程规范",
+        "符合标准",
+        "操作专业",
+        "已完成关键任务"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与总装/检测、故障诊断、三电系统维护、智能网联调试、售后服务、质量控制相关的过程动作或记录",
+        "说明责任人、时间、结果和异常处理"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "诊断报告等证据是否有对象、时间、方法、结果",
+        "是否存在只讲流程、不展示记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头规范主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真：最高 7.0 分",
+        "流程、记录、结果闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O01-evidence-gap",
+          "reason": "操作规范性缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O01-evidence-repair",
+          "condition": "补齐操作规范性的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕操作规范性补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O02",
+      "observationName": "技能熟练度",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 15.0,
+      "trackDefinition": "是否能熟练完成总装/检测、故障诊断、三电系统维护、智能网联调试、售后服务、质量控制中的关键操作，并解释动作、参数、工具或服务流程。",
+      "claimTypes": [
+        "操作熟练",
+        "演示流畅",
+        "能处理异常"
+      ],
+      "requiredInfo": [
+        "展示关键操作过程，而不只展示结果",
+        "说明工具/设备/系统/服务动作的选择原因",
+        "说明异常、失误或临场切换方案"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "关键帧是否看到真实操作",
+        "转写是否解释操作原因和参数",
+        "材料是否包含操作记录或结果记录"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何现场操作、过程演示或可验证操作材料",
+        "团队无法说明关键动作、参数、工具或设备使用方法",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "无现场操作：最高 5.2 分",
+        "有演示但不能解释：最高 9.0 分",
+        "操作、解释、结果一致：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O02-evidence-gap",
+          "reason": "技能熟练度缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 3.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O02-evidence-repair",
+          "condition": "补齐技能熟练度的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 2.25,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕技能熟练度补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O03",
+      "observationName": "任务难易度",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 15.0,
+      "trackDefinition": "任务是否覆盖汽车制造、新能源汽车、智能网联、检测维修、销售服务的真实复杂场景，而不是单点展示或概念包装。",
+      "claimTypes": [
+        "任务复杂",
+        "解决真实难题",
+        "多环节协同"
+      ],
+      "requiredInfo": [
+        "说明真实服务对象、场景和约束",
+        "展示任务链条和多个环节协同",
+        "说明难点、解决过程和结果"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "是否形成输入-处理-输出-反馈闭环",
+        "是否有多环节协同证据",
+        "复杂度是否由材料和演示共同支撑"
+      ],
+      "zeroScoreTriggers": [
+        "没有明确任务对象、场景或任务链条",
+        "仅为单点展示/概念介绍且不构成赛道岗位任务",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "单点展示：最高 5.2 分",
+        "有场景但链条不完整：最高 8.2 分",
+        "复杂任务经过验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O03-evidence-gap",
+          "reason": "任务难易度缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 3.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O03-evidence-repair",
+          "condition": "补齐任务难易度的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 2.25,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕任务难易度补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O04",
+      "observationName": "技术先进性",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 15.0,
+      "trackDefinition": "是否合理采用新能源三电、智能网联、诊断平台、数字化售后、质量追溯，并证明相对传统方案、基线或现有流程有改进。",
+      "claimTypes": [
+        "技术先进",
+        "智能化",
+        "行业领先",
+        "效率或质量提升"
+      ],
+      "requiredInfo": [
+        "说明技术路径和差异化机制",
+        "给出参照对象、指标和测试/验证方法",
+        "说明适用边界和风险"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "是否只有热点词而无落地位置",
+        "是否有对比对象和指标口径",
+        "是否有真实场景、第三方或用户验证"
+      ],
+      "zeroScoreTriggers": [
+        "没有说明技术/工艺/方法路径",
+        "只有热门词或先进性口号，且没有任何落地位置",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有先进性口号：最高 3.0 分",
+        "有方案无指标：最高 6.8 分",
+        "有内部指标无基线：最高 9.8 分",
+        "有对比或第三方验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O04-evidence-gap",
+          "reason": "技术先进性缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 3.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O04-evidence-repair",
+          "condition": "补齐技术先进性的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 2.25,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕技术先进性补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O05",
+      "observationName": "现场讲解效果",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 5.0,
+      "trackDefinition": "是否在有限路演时间内把问题、方案、关键能力、证据、风险和下一步讲清楚。",
+      "claimTypes": [
+        "讲解清楚",
+        "重点突出",
+        "路演完整"
+      ],
+      "requiredInfo": [
+        "讲清问题、对象、方案、证据和结果",
+        "让讲解与PPT/关键帧同步",
+        "主动说明风险、边界和缺口"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "转写结构是否完整",
+        "高分主张是否能在路演内自证",
+        "画面、PPT和讲解是否矛盾"
+      ],
+      "zeroScoreTriggers": [
+        "讲解严重偏题，无法识别项目问题、方案和证据",
+        "路演内容与提交材料或演示画面大面积不一致",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只讲故事无证据：最高 2.2 分",
+        "表达好但证据弱：最高 3.5 分",
+        "主张与证据同步：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O05-evidence-gap",
+          "reason": "现场讲解效果缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 1.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O05-evidence-repair",
+          "condition": "补齐现场讲解效果的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.75,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕现场讲解效果补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O06",
+      "observationName": "职业道德与行为规范",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 4.0,
+      "trackDefinition": "是否遵守汽车制造、新能源汽车、智能网联、检测维修、销售服务相关合规、诚信、知识产权、隐私/版权、职业伦理和服务边界。",
+      "claimTypes": [
+        "合规",
+        "诚信",
+        "安全可靠",
+        "尊重权益"
+      ],
+      "requiredInfo": [
+        "说明来源、授权、边界和责任",
+        "说明知识产权、隐私/版权或伦理处理",
+        "说明学生真实贡献"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "是否存在冒充自研、夸大宣传或来源不明",
+        "是否展示授权、脱敏、版权或合规材料",
+        "成员贡献和材料是否一致"
+      ],
+      "zeroScoreTriggers": [
+        "出现明确侵权、隐私泄露、伪造成果、越权服务或诚信红线",
+        "关键来源、授权或职业边界完全缺失且涉及风险",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "未说明来源/边界：最高 2.0 分",
+        "有说明无材料：最高 3.0 分",
+        "有可追溯材料：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O06-evidence-gap",
+          "reason": "职业道德与行为规范缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 0.8,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O06-evidence-repair",
+          "condition": "补齐职业道德与行为规范的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.6,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕职业道德与行为规范补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O07",
+      "observationName": "工匠精神",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 3.0,
+      "trackDefinition": "是否体现质量意识、细节打磨、迭代改进和问题闭环。",
+      "claimTypes": [
+        "精益求精",
+        "多轮优化",
+        "质量稳定"
+      ],
+      "requiredInfo": [
+        "展示问题记录或改进前状态",
+        "展示改进措施和执行过程",
+        "展示改进后的结果对比"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "是否有版本、批次、试制、整改或复盘记录",
+        "是否只展示最终成品",
+        "改进结果是否可量化或可观察"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何质量控制、迭代、改进或细节打磨证据",
+        "对明显质量问题完全无识别、无解释、无改进",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "无迭代记录：最高 1.5 分",
+        "有描述无结果：最高 2.2 分",
+        "有问题-措施-结果闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O07-evidence-gap",
+          "reason": "工匠精神缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 0.6,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O07-evidence-repair",
+          "condition": "补齐工匠精神的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.45,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕工匠精神补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O08",
+      "observationName": "安全意识",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 3.0,
+      "trackDefinition": "是否识别并控制汽车制造、新能源汽车、智能网联、检测维修、销售服务中的关键安全风险。",
+      "claimTypes": [
+        "安全可控",
+        "风险可控",
+        "符合安全要求"
+      ],
+      "requiredInfo": [
+        "列出关键风险",
+        "展示防护措施或安全记录",
+        "说明异常或应急处理"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "关键帧和材料是否呈现防护、检查、应急、权限或告知",
+        "是否只说重视安全而无记录",
+        "是否存在红线风险"
+      ],
+      "zeroScoreTriggers": [
+        "存在明显人身、设备、数据、食品、医疗、交通或公共安全风险且未处置",
+        "完全没有风险识别和安全措施",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "无安全证据：最高 1.5 分",
+        "口头说明：最高 2.1 分",
+        "有操作和记录：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O08-evidence-gap",
+          "reason": "安全意识缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 0.6,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O08-evidence-repair",
+          "condition": "补齐安全意识的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.45,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕安全意识补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O09",
+      "observationName": "实用性",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 4.0,
+      "trackDefinition": "是否解决明确服务对象或真实场景中的具体问题。",
+      "claimTypes": [
+        "可落地",
+        "用户需要",
+        "解决痛点"
+      ],
+      "requiredInfo": [
+        "说明服务对象、场景和痛点",
+        "展示使用流程或应用过程",
+        "展示反馈、运行或试用结果"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "是否只讲市场或愿景",
+        "是否有真实/模拟真实使用证据",
+        "反馈是否有对象、时间和结果"
+      ],
+      "zeroScoreTriggers": [
+        "没有明确服务对象、应用场景或实际问题",
+        "方案无法在本赛道真实场景中使用",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "无用户/场景：最高 2.0 分",
+        "有场景无验证：最高 3.0 分",
+        "有验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O09-evidence-gap",
+          "reason": "实用性缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 0.8,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O09-evidence-repair",
+          "condition": "补齐实用性的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.6,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕实用性补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O10",
+      "observationName": "经济性",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 3.0,
+      "trackDefinition": "是否说明成本、资源、效率、投入产出和推广可行性。",
+      "claimTypes": [
+        "降本增效",
+        "成本低",
+        "可推广"
+      ],
+      "requiredInfo": [
+        "列出成本构成和资源消耗",
+        "说明效率或收益口径",
+        "说明维护、推广或长期投入"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "是否遗漏关键成本",
+        "收益是否有计算口径",
+        "是否用一次性资源冒充长期可行"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何成本、资源、效率或投入产出信息",
+        "经济性主张与材料明显矛盾",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "无成本数据：最高 1.5 分",
+        "粗略估算：最高 2.2 分",
+        "口径完整：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O10-evidence-gap",
+          "reason": "经济性缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 0.6,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O10-evidence-repair",
+          "condition": "补齐经济性的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.45,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕经济性补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O11",
+      "observationName": "可持续性",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 3.0,
+      "trackDefinition": "是否能长期运行、维护、复制、迭代，并符合绿色低碳或可持续发展要求。",
+      "claimTypes": [
+        "可持续",
+        "可复制",
+        "长期可运营"
+      ],
+      "requiredInfo": [
+        "说明长期维护机制",
+        "说明培训、交接、资源或供应保障",
+        "说明绿色低碳或持续迭代安排"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "是否依赖一次性演示、单个成员或临时环境",
+        "是否有维护计划和资源保障",
+        "是否具备复制条件"
+      ],
+      "zeroScoreTriggers": [
+        "项目只能一次性展示，完全没有维护、复制、交接或长期运行可能",
+        "持续运行所需关键资源完全缺失",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "无长期机制：最高 1.5 分",
+        "有计划无材料：最高 2.2 分",
+        "有机制和证据：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O11-evidence-gap",
+          "reason": "可持续性缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 0.6,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O11-evidence-repair",
+          "condition": "补齐可持续性的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.45,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕可持续性补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O12",
+      "observationName": "团队精神",
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 5.0,
+      "trackDefinition": "团队成员是否围绕真实岗位链条分工，且贡献可追溯。",
+      "claimTypes": [
+        "分工明确",
+        "团队协同",
+        "人人有贡献"
+      ],
+      "requiredInfo": [
+        "说明成员角色和任务",
+        "展示成员成果对应关系",
+        "证明关键工作由团队完成"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "成员陈述、材料记录、成果模块是否一致",
+        "是否只有姓名分工",
+        "是否存在外部人员替代完成"
+      ],
+      "zeroScoreTriggers": [
+        "无法识别团队分工和成员贡献",
+        "关键工作明显由外部人员完成且未说明",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有姓名分工：最高 2.5 分",
+        "有贡献记录：最高 4.0 分",
+        "成员均能对应成果：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O12-evidence-gap",
+          "reason": "团队精神缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 1.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O12-evidence-repair",
+          "condition": "补齐团队精神的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.75,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕团队精神补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O13",
+      "observationName": "沟通协作",
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 5.0,
+      "trackDefinition": "团队是否有交接、联调、服务协作、问题处理和复盘闭环。",
+      "claimTypes": [
+        "协作顺畅",
+        "共同解决问题"
+      ],
+      "requiredInfo": [
+        "展示协作流程或交接机制",
+        "展示问题处理过程",
+        "展示复盘或闭环结果"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "问题是否有负责人、过程和结果",
+        "协作是否有记录而非口头分工",
+        "成员口径是否一致"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何协作、交接、联调、服务配合或复盘证据",
+        "成员说法互相矛盾且影响任务真实性",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "无协作证据：最高 2.5 分",
+        "有流程无闭环：最高 3.8 分",
+        "闭环完整：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O13-evidence-gap",
+          "reason": "沟通协作缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 1.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O13-evidence-repair",
+          "condition": "补齐沟通协作的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.75,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕沟通协作补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O14",
+      "observationName": "创新意识",
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 4.0,
+      "trackDefinition": "是否围绕汽车制造、新能源汽车、智能网联、检测维修、销售服务的真实痛点提出差异化改进，而非换名、包装或堆概念。",
+      "claimTypes": [
+        "原创",
+        "首创",
+        "创新性强"
+      ],
+      "requiredInfo": [
+        "说明原痛点或原流程",
+        "说明新方案差异点",
+        "说明风险边界和执行方式"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "是否只是换名、换包装或堆热点",
+        "是否有传统方案对比",
+        "是否与岗位能力相关"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何差异化想法或改进点",
+        "所谓创新与本赛道任务无关",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有创意口号：最高 1.6 分",
+        "有想法无验证：最高 2.6 分",
+        "有对比和验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O14-evidence-gap",
+          "reason": "创新意识缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 0.8,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O14-evidence-repair",
+          "condition": "补齐创新意识的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.6,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕创新意识补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O15",
+      "observationName": "创新成效",
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 6.0,
+      "trackDefinition": "创新是否产生可验证的质量、效率、安全、成本、体验、传播或可持续提升。",
+      "claimTypes": [
+        "效果显著",
+        "提升明显",
+        "更好更快更省"
+      ],
+      "requiredInfo": [
+        "说明指标和对比对象",
+        "说明样本/周期和评价方法",
+        "展示结果、限制和失败样本"
+      ],
+      "acceptableEvidence": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录",
+        "安全规范"
+      ],
+      "evidenceVerificationMethods": [
+        "指标是否有口径、样本和基线",
+        "是否只展示最优结果",
+        "是否能被材料或场景复核"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何效果、反馈、对比或结果证据",
+        "效果数据明显伪造或与材料矛盾",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "无量化结果：最高 2.1 分",
+        "有数据无口径：最高 3.6 分",
+        "有基线和验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-18-O15-evidence-gap",
+          "reason": "创新成效缺少可核验证据或存在赛道高频风险",
+          "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+          "deductionScore": 1.2,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-18-O15-evidence-repair",
+          "condition": "补齐创新成效的对象、过程、结果和可核验证据",
+          "acceptableMaterials": [
+            "诊断报告",
+            "维修工单",
+            "检测数据",
+            "拆装流程",
+            "客户服务记录"
+          ],
+          "recoverableScore": 0.9,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只展示车辆功能",
+        "高压安全缺失",
+        "故障诊断链不完整",
+        "维修数据不可复核"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "红线风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕创新成效补齐汽车制造与维修赛道的关键证据、过程记录和结果验证材料。",
+      "sourceType": "track_inference"
+    }
+  ],
+  "deductionRules": [
+    {
+      "deductionId": "D-18-O01-evidence-gap",
+      "reason": "操作规范性缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 2.0,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O02-evidence-gap",
+      "reason": "技能熟练度缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 3.0,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O03-evidence-gap",
+      "reason": "任务难易度缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 3.0,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O04-evidence-gap",
+      "reason": "技术先进性缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 3.0,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O05-evidence-gap",
+      "reason": "现场讲解效果缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 1.0,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O06-evidence-gap",
+      "reason": "职业道德与行为规范缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 0.8,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O07-evidence-gap",
+      "reason": "工匠精神缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 0.6,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O08-evidence-gap",
+      "reason": "安全意识缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 0.6,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O09-evidence-gap",
+      "reason": "实用性缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 0.8,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O10-evidence-gap",
+      "reason": "经济性缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 0.6,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O11-evidence-gap",
+      "reason": "可持续性缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 0.6,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O12-evidence-gap",
+      "reason": "团队精神缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 1.0,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O13-evidence-gap",
+      "reason": "沟通协作缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 1.0,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O14-evidence-gap",
+      "reason": "创新意识缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 0.8,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "D-18-O15-evidence-gap",
+      "reason": "创新成效缺少可核验证据或存在赛道高频风险",
+      "trigger": "- 只展示车辆功能；高压安全缺失；故障诊断链不完整；维修数据不可复核",
+      "deductionScore": 1.2,
+      "severity": "P1",
+      "sourceType": "track_inference"
+    }
+  ],
+  "recoveryRules": [
+    {
+      "recoveryId": "R-18-O01-evidence-repair",
+      "condition": "补齐操作规范性的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 1.5,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O02-evidence-repair",
+      "condition": "补齐技能熟练度的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 2.25,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O03-evidence-repair",
+      "condition": "补齐任务难易度的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 2.25,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O04-evidence-repair",
+      "condition": "补齐技术先进性的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 2.25,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O05-evidence-repair",
+      "condition": "补齐现场讲解效果的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.75,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O06-evidence-repair",
+      "condition": "补齐职业道德与行为规范的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.6,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O07-evidence-repair",
+      "condition": "补齐工匠精神的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.45,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O08-evidence-repair",
+      "condition": "补齐安全意识的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.45,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O09-evidence-repair",
+      "condition": "补齐实用性的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.6,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O10-evidence-repair",
+      "condition": "补齐经济性的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.45,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O11-evidence-repair",
+      "condition": "补齐可持续性的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.45,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O12-evidence-repair",
+      "condition": "补齐团队精神的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.75,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O13-evidence-repair",
+      "condition": "补齐沟通协作的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.75,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O14-evidence-repair",
+      "condition": "补齐创新意识的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.6,
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "R-18-O15-evidence-repair",
+      "condition": "补齐创新成效的对象、过程、结果和可核验证据",
+      "acceptableMaterials": [
+        "诊断报告",
+        "维修工单",
+        "检测数据",
+        "拆装流程",
+        "客户服务记录"
+      ],
+      "recoverableScore": 0.9,
+      "sourceType": "orep_training"
+    }
+  ],
+  "riskPatterns": [
+    "只展示车辆功能",
+    "高压安全缺失",
+    "故障诊断链不完整",
+    "维修数据不可复核"
+  ],
+  "qualityGates": {
+    "minimumTestSamplesBeforePipeline": 5,
+    "minimumAdmissionSamplesPerTrack": 10,
+    "recommendedSamplesBeforeActive": 30,
+    "minimumLowEvidenceSamples": 2,
+    "minimumMiddleSamples": 2,
+    "minimumHighEvidenceSamples": 2,
+    "minimumDemoFailureOrMissingMaterialSamples": 1,
+    "requiresEvidenceExtraction": true,
+    "requiresRuleEngineScoring": true,
+    "requiresReportGeneration": true,
+    "requiresRuleAdmissionAudit": true,
+    "requiresHumanSpotCheck": true,
+    "requiresQualityReport": true,
+    "requiresOfficialInferenceTrainingSeparation": true
+  },
+  "pilotPromotion": {
+    "promotedAt": "2026-07-05T17:30:00+08:00",
+    "promotionMode": "generated_admission_assets",
+    "sourceMode": "synthetic_from_local_markdown",
+    "activeAllowed": false,
+    "note": "通过生成准入资产候选门禁，可进入pilot演练；不得等同真实原始样本上线准入。"
+  }
+}

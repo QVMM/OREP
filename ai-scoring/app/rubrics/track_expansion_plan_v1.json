@@ -1,0 +1,1800 @@
+{
+  "version": "stage8-track-expansion-plan-v1",
+  "generatedAt": "2026-07-05T15:10:00+08:00",
+  "sourcePlan": "docs/OREP_AI评分规则引擎主导改造方案.md#十一阶段八从2个赛道扩展到42个赛道",
+  "sourceRuleDirectory": "42赛道梯度评分规则v1.2-证据审查版",
+  "status": "expansion_ready_plan",
+  "globalAdmissionGate": {
+    "minimumTestSamplesBeforePipeline": 5,
+    "minimumAdmissionSamplesPerTrack": 10,
+    "recommendedSamplesBeforeActive": 30,
+    "minimumLowEvidenceSamples": 2,
+    "minimumMiddleSamples": 2,
+    "minimumHighEvidenceSamples": 2,
+    "minimumDemoFailureOrMissingMaterialSamples": 1,
+    "requiresEvidenceExtraction": true,
+    "requiresRuleEngineScoring": true,
+    "requiresReportGeneration": true,
+    "requiresRuleAdmissionAudit": true,
+    "requiresHumanSpotCheck": true,
+    "requiresQualityReport": true,
+    "requiresOfficialInferenceTrainingSeparation": true
+  },
+  "preconditions": [
+    "两个试点赛道规则引擎分数稳定",
+    "同一证据快照下复评分数一致",
+    "每个观测点都有证据等级和证据锚点",
+    "报告可解释为什么不是满分",
+    "扣分追回闭环可运行",
+    "评审团争议复核不破坏主评分",
+    "新旧流水线对比完成",
+    "两个试点赛道达到2.5.4试点准入标准",
+    "两个试点赛道规则准入审计结论可进入active",
+    "失败态、降级态、人工复核态在前端和后台均可见"
+  ],
+  "batches": [
+    {
+      "batchId": "B1-technical",
+      "batchName": "第一批：技术类赛道",
+      "validationFocus": [
+        "技术演示证据",
+        "系统运行结果",
+        "测试数据",
+        "工程复杂度",
+        "标准与安全边界"
+      ],
+      "tracks": [
+        {
+          "trackId": "42",
+          "trackName": "人工智能赛道",
+          "status": "pilot_completed",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/人工智能赛道.md",
+          "evidenceFocus": [
+            "模型或系统演示",
+            "测试数据",
+            "算法效果对比",
+            "部署运行截图",
+            "安全边界说明"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          }
+        },
+        {
+          "trackId": "27",
+          "trackName": "新一代信息技术赛道",
+          "status": "pilot_completed",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新一代信息技术赛道.md",
+          "evidenceFocus": [
+            "系统架构",
+            "运行日志",
+            "数据链路",
+            "网络或平台演示",
+            "安全与性能指标"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          }
+        },
+        {
+          "trackId": "26",
+          "trackName": "电子电器与集成电路赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/电子电器与集成电路赛道.md",
+          "evidenceFocus": [
+            "电路设计图",
+            "测试波形",
+            "芯片或板卡样机",
+            "可靠性测试",
+            "安全标准"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_26_electronics_integrated_circuit_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_26_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_26_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_26_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T16:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "14",
+          "trackName": "智能装备应用赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/智能装备应用赛道.md",
+          "evidenceFocus": [
+            "装备运行视频",
+            "控制流程",
+            "工况数据",
+            "故障处理记录",
+            "安全防护措施"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_14_smart_equipment_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_14_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_14_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_14_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T16:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "12",
+          "trackName": "机械设计与制造赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机械设计与制造赛道.md",
+          "evidenceFocus": [
+            "CAD或工艺图",
+            "加工过程",
+            "精度检测",
+            "装配调试",
+            "质量控制记录"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_12_mechanical_design_manufacturing_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_12_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_12_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_12_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T16:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "13",
+          "trackName": "机电设备安装与运维赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+          "evidenceFocus": [
+            "安装流程",
+            "运维记录",
+            "设备参数",
+            "故障诊断",
+            "安全操作规范"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_13_mechatronic_installation_maintenance_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_13_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_13_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_13_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T16:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "batchId": "B2-engineering-manufacturing",
+      "batchName": "第二批：工程与制造类赛道",
+      "validationFocus": [
+        "规范流程",
+        "安全风险",
+        "工艺过程",
+        "设备或工程证据",
+        "质量检测结果"
+      ],
+      "tracks": [
+        {
+          "trackId": "09",
+          "trackName": "土木建筑设计与管理赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+          "evidenceFocus": [
+            "设计图纸",
+            "BIM模型",
+            "施工组织",
+            "成本进度",
+            "规范符合性"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_09_civil_design_management_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_09_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_09_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_09_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "10",
+          "trackName": "土木建筑施工赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑施工赛道.md",
+          "evidenceFocus": [
+            "施工工序",
+            "现场安全",
+            "质量验收",
+            "材料记录",
+            "设备使用"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_10_civil_construction_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_10_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_10_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_10_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "11",
+          "trackName": "水利赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/水利赛道.md",
+          "evidenceFocus": [
+            "水工方案",
+            "监测数据",
+            "防汛安全",
+            "施工或运维记录",
+            "生态影响说明"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_11_water_conservancy_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_11_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_11_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_11_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "07",
+          "trackName": "能源动力赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/能源动力赛道.md",
+          "evidenceFocus": [
+            "能效数据",
+            "设备运行",
+            "安全监测",
+            "节能方案",
+            "运维记录"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_07_energy_power_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_07_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_07_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_07_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "08",
+          "trackName": "材料赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/材料赛道.md",
+          "evidenceFocus": [
+            "材料配方",
+            "性能测试",
+            "制备工艺",
+            "检测报告",
+            "应用验证"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_08_materials_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_08_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_08_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_08_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "21",
+          "trackName": "化工技术赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+          "evidenceFocus": [
+            "工艺流程",
+            "安全合规",
+            "反应数据",
+            "检测结果",
+            "环保处置"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_21_chemical_technology_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_21_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_21_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_21_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "18",
+          "trackName": "汽车制造与维修赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/汽车制造与维修赛道.md",
+          "evidenceFocus": [
+            "车辆诊断",
+            "维修流程",
+            "装调记录",
+            "检测数据",
+            "安全规范"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_18_automotive_manufacturing_repair_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_18_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_18_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_18_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "15",
+          "trackName": "轨道交通运输赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/轨道交通运输赛道.md",
+          "evidenceFocus": [
+            "运输组织",
+            "设备状态",
+            "安全规程",
+            "调度数据",
+            "应急处置"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_15_rail_transport_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_15_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_15_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_15_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "16",
+          "trackName": "航空交通运输赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+          "evidenceFocus": [
+            "运行保障",
+            "安全检查",
+            "流程规范",
+            "设备记录",
+            "风险处置"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_16_air_transport_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_16_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_16_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_16_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "17",
+          "trackName": "船舶交通运输赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/船舶交通运输赛道.md",
+          "evidenceFocus": [
+            "航运流程",
+            "设备维护",
+            "安全检查",
+            "作业记录",
+            "应急预案"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_17_ship_transport_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_17_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_17_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_17_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        },
+        {
+          "trackId": "19",
+          "trackName": "道路与管道运输赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/道路与管道运输赛道.md",
+          "evidenceFocus": [
+            "路线或管网方案",
+            "运维记录",
+            "安全巡检",
+            "流量数据",
+            "异常处置"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_19_road_pipeline_transport_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_19_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_19_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_19_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T17:30:00+08:00",
+            "promotionMode": "generated_admission_assets",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "batchId": "B3-agriculture-ecology-resources",
+      "batchName": "第三批：农林牧渔、生态与资源类赛道",
+      "validationFocus": [
+        "场景真实性",
+        "数据采集",
+        "环境或生产证据",
+        "可持续性",
+        "现场操作和安全"
+      ],
+      "tracks": [
+        {
+          "trackId": "01",
+          "trackName": "现代农业赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+          "evidenceFocus": [
+            "生产场景",
+            "种植或养殖数据",
+            "农机或设施演示",
+            "产量质量",
+            "可持续措施"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_01_modern_agriculture_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_01_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_01_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_01_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T19:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "02",
+          "trackName": "林业赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/林业赛道.md",
+          "evidenceFocus": [
+            "林地场景",
+            "监测数据",
+            "育苗或管护流程",
+            "生态效益",
+            "安全作业"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_02_forestry_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_02_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_02_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_02_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T19:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "03",
+          "trackName": "畜牧与水产赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+          "evidenceFocus": [
+            "养殖现场",
+            "疫病防控",
+            "生长数据",
+            "水质或饲喂记录",
+            "产品质量"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_03_animal_husbandry_aquaculture_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_03_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_03_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_03_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T19:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "04",
+          "trackName": "地质勘察与地理测绘赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/地质勘察与地理测绘赛道.md",
+          "evidenceFocus": [
+            "测绘数据",
+            "勘察流程",
+            "设备记录",
+            "成果图件",
+            "精度校验"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_04_geological_survey_mapping_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_04_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_04_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_04_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T19:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "05",
+          "trackName": "资源开采赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+          "evidenceFocus": [
+            "开采方案",
+            "安全监测",
+            "设备运行",
+            "资源利用率",
+            "环保处置"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_05_resource_mining_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_05_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_05_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_05_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T19:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "06",
+          "trackName": "生态保护与环境治理赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生态保护与环境治理赛道.md",
+          "evidenceFocus": [
+            "污染监测",
+            "治理工艺",
+            "前后对比",
+            "生态指标",
+            "长效运维"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_06_ecological_environment_governance_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_06_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_06_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_06_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T19:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        }
+      ]
+    },
+    {
+      "batchId": "B4-healthcare",
+      "batchName": "第四批：医药健康类赛道",
+      "validationFocus": [
+        "合规边界",
+        "伦理安全",
+        "操作规范",
+        "服务对象",
+        "风险提示"
+      ],
+      "tracks": [
+        {
+          "trackId": "20",
+          "trackName": "生物技术赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+          "evidenceFocus": [
+            "实验流程",
+            "检测数据",
+            "样本来源",
+            "安全伦理",
+            "应用验证"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_20_biotechnology_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_20_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_20_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_20_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T21:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "25",
+          "trackName": "医疗器械制造与运维赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/医疗器械制造与运维赛道.md",
+          "evidenceFocus": [
+            "器械原型",
+            "检测校准",
+            "临床边界",
+            "运维记录",
+            "风险提示"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_25_medical_device_manufacturing_maintenance_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_25_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_25_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_25_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T21:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "28",
+          "trackName": "医药生产与经营赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/医药生产与经营赛道.md",
+          "evidenceFocus": [
+            "生产经营流程",
+            "质量追溯",
+            "合规资质",
+            "库存配送",
+            "风险管理"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_28_pharmaceutical_production_operation_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_28_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_28_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_28_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T21:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "29",
+          "trackName": "医学技术赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/医学技术赛道.md",
+          "evidenceFocus": [
+            "操作规范",
+            "检测图像或数据",
+            "质量控制",
+            "服务边界",
+            "隐私合规"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_29_medical_technology_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_29_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_29_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_29_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T21:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "30",
+          "trackName": "康复治疗与护理赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/康复治疗与护理赛道.md",
+          "evidenceFocus": [
+            "康复评估",
+            "护理流程",
+            "服务记录",
+            "风险预案",
+            "效果跟踪"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_30_rehabilitation_care_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_30_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_30_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_30_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T21:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "31",
+          "trackName": "健康养老与婴幼儿托育赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+          "evidenceFocus": [
+            "服务流程",
+            "对象评估",
+            "安全照护",
+            "人员资质",
+            "持续记录"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_31_elderly_childcare_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_31_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_31_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_31_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T21:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        }
+      ]
+    },
+    {
+      "batchId": "B5-service-finance-commerce-culture",
+      "batchName": "第五批：服务、财经、商贸与文体类赛道",
+      "validationFocus": [
+        "服务流程",
+        "用户价值",
+        "成本与效益",
+        "表达呈现",
+        "团队协作",
+        "成果证明"
+      ],
+      "tracks": [
+        {
+          "trackId": "32",
+          "trackName": "财经赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/财经赛道.md",
+          "evidenceFocus": [
+            "财务模型",
+            "风险控制",
+            "合规边界",
+            "经营数据",
+            "成本收益"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_32_finance_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_32_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_32_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_32_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "33",
+          "trackName": "商贸赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/商贸赛道.md",
+          "evidenceFocus": [
+            "商业流程",
+            "客户证据",
+            "渠道数据",
+            "交易记录",
+            "运营复盘"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_33_commerce_trade_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_33_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_33_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_33_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "34",
+          "trackName": "物流与供应链赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+          "evidenceFocus": [
+            "仓配流程",
+            "物流数据",
+            "供应链协同",
+            "时效成本",
+            "异常处理"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_34_logistics_supply_chain_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_34_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_34_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_34_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "35",
+          "trackName": "旅游赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+          "evidenceFocus": [
+            "服务线路",
+            "用户体验",
+            "安全保障",
+            "运营数据",
+            "文化资源证明"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_35_tourism_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_35_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_35_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_35_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "36",
+          "trackName": "餐饮赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/餐饮赛道.md",
+          "evidenceFocus": [
+            "菜品制作",
+            "食品安全",
+            "成本控制",
+            "服务流程",
+            "顾客反馈"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_36_catering_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_36_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_36_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_36_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "37",
+          "trackName": "艺术设计赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/艺术设计赛道.md",
+          "evidenceFocus": [
+            "设计过程",
+            "作品呈现",
+            "用户或场景需求",
+            "材料工艺",
+            "版权说明"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_37_art_design_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_37_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_37_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_37_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "38",
+          "trackName": "表演艺术赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+          "evidenceFocus": [
+            "表演片段",
+            "训练过程",
+            "舞台呈现",
+            "协作记录",
+            "观众反馈"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_38_performing_arts_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_38_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_38_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_38_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "39",
+          "trackName": "新闻传播赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+          "evidenceFocus": [
+            "选题策划",
+            "采编流程",
+            "传播数据",
+            "内容合规",
+            "作品成果"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_39_journalism_communication_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_39_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_39_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_39_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "40",
+          "trackName": "教育与体育赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+          "evidenceFocus": [
+            "教学或训练方案",
+            "学习数据",
+            "现场组织",
+            "安全保障",
+            "效果评估"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_40_education_sports_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_40_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_40_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_40_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "41",
+          "trackName": "公共安全、管理与服务赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/公共安全、管理与服务赛道.md",
+          "evidenceFocus": [
+            "服务流程",
+            "应急预案",
+            "管理记录",
+            "公共价值",
+            "风险处置"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_41_public_safety_management_service_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_41_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_41_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_41_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "22",
+          "trackName": "轻工赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/轻工赛道.md",
+          "evidenceFocus": [
+            "产品工艺",
+            "质量检测",
+            "用户需求",
+            "材料设备",
+            "生产记录"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_22_light_industry_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_22_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_22_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_22_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "23",
+          "trackName": "纺织服装赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/纺织服装赛道.md",
+          "evidenceFocus": [
+            "版型工艺",
+            "面料证明",
+            "制作过程",
+            "穿着效果",
+            "市场反馈"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_23_textile_apparel_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_23_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_23_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_23_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        },
+        {
+          "trackId": "24",
+          "trackName": "食品与粮食赛道",
+          "status": "pilot_generated",
+          "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/食品与粮食赛道.md",
+          "evidenceFocus": [
+            "加工流程",
+            "食品安全",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "admissionGate": {
+            "minimumTestSamplesBeforePipeline": 5,
+            "minimumAdmissionSamplesPerTrack": 10,
+            "recommendedSamplesBeforeActive": 30,
+            "minimumLowEvidenceSamples": 2,
+            "minimumMiddleSamples": 2,
+            "minimumHighEvidenceSamples": 2,
+            "minimumDemoFailureOrMissingMaterialSamples": 1,
+            "requiresEvidenceExtraction": true,
+            "requiresRuleEngineScoring": true,
+            "requiresReportGeneration": true,
+            "requiresRuleAdmissionAudit": true,
+            "requiresHumanSpotCheck": true,
+            "requiresQualityReport": true,
+            "requiresOfficialInferenceTrainingSeparation": true
+          },
+          "structuredRuleFile": "ai-scoring/app/rubrics/track_24_food_grain_v1_2_engine_draft.json",
+          "structuredRuleStatus": "pilot_generated",
+          "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_24_admission_manifest.generated.json",
+          "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_24_rule_admission_audit.generated.json",
+          "qualityReport": "ai-scoring/app/evaluation/track_admission/track_24_quality_report.generated.json",
+          "pilotPromotion": {
+            "promotedAt": "2026-07-05T23:00:00+08:00",
+            "promotionType": "synthetic_admission_pilot",
+            "sourceMode": "synthetic_from_local_markdown",
+            "activeAllowed": false,
+            "activeBlockReason": "requires_real_raw_samples_before_active"
+          }
+        }
+      ]
+    }
+  ],
+  "completionAcceptance": [
+    "每个赛道都有结构化规则文件",
+    "每个赛道都有15个观测点配置",
+    "每个赛道都有证据等级上限",
+    "每个赛道都有至少10条准入样本并持续积累到30条以上",
+    "每个赛道都能完成证据抽取、规则算分、报告生成",
+    "系统可以按赛道自动加载对应规则",
+    "报告能显示当前赛道规则版本",
+    "后台能统计各赛道评分稳定性",
+    "每个赛道都有规则准入审计表",
+    "每个赛道都有人工抽查记录",
+    "每个赛道都能区分官方依据、赛道化推导和OREP训练规则",
+    "每个赛道都有至少一轮评分质量报告"
+  ]
+}

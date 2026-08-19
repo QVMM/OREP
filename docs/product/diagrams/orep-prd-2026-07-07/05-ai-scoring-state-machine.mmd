@@ -1,0 +1,15 @@
+stateDiagram-v2
+  [*] --> created: 创建评分会话
+  created --> prepared: 上传视频/绑定录制/准备证据
+  prepared --> processing: start
+  processing --> extracting: 提取音频/视频帧/转写
+  extracting --> scoring: 规则评分/LLM评分
+  scoring --> reporting: 生成结构化报告
+  reporting --> completed: 回调成功
+  processing --> failed: 处理失败
+  extracting --> failed
+  scoring --> failed
+  reporting --> failed
+  failed --> processing: restart
+  processing --> cancelled: cancel
+  completed --> jury_review: 发起评审团

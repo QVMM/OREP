@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%; height: 100%;
+            background: #1a1a2e;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* ---- 视频网格 ---- */
+        .grid {
+            display: grid;
+            gap: 4px;
+            padding: 4px;
+            width: 100%; height: 100%;
+        }
+        .grid[data-count="1"]  { grid-template-columns: 1fr; }
+        .grid[data-count="2"]  { grid-template-columns: 1fr 1fr; }
+        .grid[data-count="3"]  { grid-template-columns: 1fr 1fr 1fr; }
+        .grid[data-count="4"]  { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+        .grid[data-count="5"],
+        .grid[data-count="6"]  { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
+        .grid[data-count="big"]{ grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+        .tile {
+            position: relative;
+            background: #16213e;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .tile video {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            background: #111;
+        }
+        .tile .tag {
+            position: absolute;
+            bottom: 6px; left: 6px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+        }
+
+        /* ---- 连接状态 ---- */
+        .overlay {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            color: #666; font-size: 14px; gap: 10px;
+            z-index: 5;
+        }
+        .overlay .dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #f44336;
+            animation: blink 1.2s infinite;
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        .overlay.ok .dot { background: #4CAF50; }
+        .overlay.hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="grid" id="grid" data-count="1">
+        <div class="overlay" id="overlay">
+            <div class="dot"></div>
+            <span>正在连接视频...</span>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    // ---- 参数 ----
+    const params  = new URLSearchParams(location.search);
+    const roomId  = location.pathname.split('/').pop();
+    const userId  = params.get('userId')   || '0';
+    const userName = params.get('username') || '用户';
+
+    let socket = null, localStream = null, screenStream = null;
+    const peers = {};
+
+    // ---- 通知父页面 ----
+    const tell = (type, data) => {
+        try { parent.postMessage({ source: 'orep-video', type, ...data }, '*'); } catch {}
+    };
+
+    // ---- 网格布局 ----
+    function layout() {
+        const n = Object.keys(peers).length + (localStream ? 1 : 0);
+        const g = document.getElementById('grid');
+        g.setAttribute('data-count', n <= 0 ? '1' : n <= 6 ? String(n) : 'big');
+    }
+
+    // ---- 磁贴 ----
+    function addTile(id, stream, label, local) {
+        let el = document.getElementById('t-' + id);
+        if (!el) {
+            el = document.createElement('div');
+            el.className = 'tile'; el.id = 't-' + id;
+            el.innerHTML = `<video autoplay playsinline ${local ? 'muted' : ''}></video><div class="tag">${label}</div>`;
+            document.getElementById('grid').appendChild(el);
+        }
+        el.querySelector('video').srcObject = stream;
+        layout();
+    }
+    function rmTile(id) {
+        const el = document.getElementById('t-' + id);
+        if (el) el.remove();
+        layout();
+    }
+
+    // ---- 本地媒体 ----
+    async function getMedia() {
+        try {
+            localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        } catch {
+            try {
+                localStream = await navigator.mediaDevices.getUserMedia({ video: false, audio: true });
+            } catch (e) {
+                tell('error', { message: '无法访问摄像头/麦克风: ' + e.message });
+                return false;
+            }
+        }
+        document.getElementById('overlay').classList.add('hidden');
+        addTile('local', localStream, userName, true);
+        return true;
+    }
+
+    // ---- WebRTC ----
+    function mkPeer(sid, offer) {
+        const pc = new RTCPeerConnection({
+            iceServers: [
+                { urls: 'stun:stun.l.google.com:19302' },
+                { urls: 'stun:stun1.l.google.com:19302' }
+            ]
+        });
+        if (localStream) localStream.getTracks().forEach(t => pc.addTrack(t, localStream));
+
+        pc.onicecandidate = e => { if (e.candidate) socket.emit('ice-candidate', { to: sid, candidate: e.candidate }); };
+        pc.ontrack = e => { if (e.streams?.[0]) addTile(sid, e.streams[0], peers[sid]?.name || '远端', false); };
+
+        peers[sid] = { pc, name: peers[sid]?.name };
+
+        if (offer) {
+            pc.createOffer().then(o => { pc.setLocalDescription(o); socket.emit('offer', { to: sid, offer: o }); });
+        }
+        return pc;
+    }
+
+    // ---- 屏幕共享 ----
+    async function toggleScreen() {
+        if (screenStream) {
+            screenStream.getTracks().forEach(t => t.stop());
+            screenStream = null;
+            socket.emit('screen-share-stopped', { roomId });
+            if (localStream) addTile('local', localStream, userName, true);
+            tell('screenChanged', { sharing: false });
+            return;
+        }
+        try {
+            screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+            addTile('local', screenStream, userName + ' (屏幕)', true);
+            socket.emit('screen-share-started', { roomId });
+            tell('screenChanged', { sharing: true });
+            screenStream.getVideoTracks()[0].onended = () => {
+                screenStream = null;
+                socket.emit('screen-share-stopped', { roomId });
+                if (localStream) addTile('local', localStream, userName, true);
+                tell('screenChanged', { sharing: false });
+            };
+        } catch { tell('screenChanged', { sharing: false }); }
+    }
+
+    // ---- 父页面命令 ----
+    addEventListener('message', async e => {
+        const m = e.data;
+        if (!m || m.source !== 'orep-meeting') return;
+        switch (m.action) {
+            case 'toggleMic':
+                if (localStream) {
+                    const on = localStream.getAudioTracks()[0]?.enabled;
+                    localStream.getAudioTracks().forEach(t => t.enabled = !on);
+                    tell('muteChanged', { muted: on });
+                }
+                break;
+            case 'toggleCam':
+                if (localStream) {
+                    const on = localStream.getVideoTracks()[0]?.enabled;
+                    localStream.getVideoTracks().forEach(t => t.enabled = !on);
+                    tell('camChanged', { off: on });
+                }
+                break;
+            case 'toggleScreen': await toggleScreen(); break;
+            case 'sendChat':
+                if (socket) socket.emit('chat-message', { roomId, message: m.text, type: 'text' });
+                break;
+        }
+    });
+
+    // ---- Socket.IO ----
+    function initSocket() {
+        const ov = document.getElementById('overlay');
+
+        socket = io({ transports: ['websocket', 'polling'], timeout: 10000 });
+
+        socket.on('connect', () => {
+            ov.classList.add('ok');
+            ov.querySelector('span').textContent = '已连接';
+            tell('connected', {});
+            socket.emit('join-room', { roomId, userId, username: userName });
+        });
+
+        socket.on('connect_error', err => tell('error', { message: '连接失败: ' + err.message }));
+
+        socket.on('room-users', users => {
+            users.forEach(u => { peers[u.socketId] = { name: u.username }; mkPeer(u.socketId, true); });
+            layout();
+        });
+
+        socket.on('user-joined', d => {
+            peers[d.socketId] = { name: d.username };
+            mkPeer(d.socketId, false);
+            layout();
+            tell('peerUpdate', { count: Object.keys(peers).length });
+        });
+
+        socket.on('offer', async d => {
+            let p = peers[d.from]?.pc;
+            if (!p) p = mkPeer(d.from, false);
+            peers[d.from].name = d.username;
+            await p.setRemoteDescription(d.offer);
+            const a = await p.createAnswer();
+            await p.setLocalDescription(a);
+            socket.emit('answer', { to: d.from, answer: a });
+        });
+
+        socket.on('answer', async d => { const p = peers[d.from]?.pc; if (p) await p.setRemoteDescription(d.answer); });
+
+        socket.on('ice-candidate', async d => {
+            const p = peers[d.from]?.pc;
+            if (p) try { await p.addIceCandidate(d.candidate); } catch {}
+        });
+
+        socket.on('user-left', d => {
+            if (peers[d.socketId]?.pc) peers[d.socketId].pc.close();
+            delete peers[d.socketId];
+            rmTile(d.socketId);
+            tell('peerUpdate', { count: Object.keys(peers).length });
+        });
+
+        // 聊天转发到父页面
+        socket.on('chat-message', d => {
+            tell('chat', { sender: d.username, content: d.message, type: d.type || 'text', time: d.timestamp });
+        });
+    }
+
+    // ---- 启动 ----
+    (async () => { await getMedia(); initSocket(); })();
+    </script>
+</body>
+</html>

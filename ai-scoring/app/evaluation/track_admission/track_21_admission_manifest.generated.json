@@ -1,0 +1,1010 @@
+{
+  "version": "stage8-second-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T17:00:00+08:00",
+  "trackId": "21",
+  "trackName": "化工技术赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_21_chemical_technology_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_21-01-high_score",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:38f452bacea4ed66149e98513e755193af75687b4393c9361409bb9949deb5cf",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_21-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键任务、结果和边界说明充分"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-01-high_score:claim-1",
+        "transcript:track_21-01-high_score:claim-2",
+        "transcript:track_21-01-high_score:claim-3"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_21-02-high_score",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:f2787fd71aa9a7e53240af34d7cc24a06dcf53411671e0d1b7da8bdb166f1b9f",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_21-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键任务、结果和边界说明充分"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-02-high_score:claim-1",
+        "transcript:track_21-02-high_score:claim-2",
+        "transcript:track_21-02-high_score:claim-3"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_21-03-middle_score",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:a530ae31d1774f329d7d857cbaa94f0bba63a6599f61e4542f9f86a79c0f988b",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_21-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "核心流程可验证，但对比指标和复盘证据仍需补强"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-03-middle_score:claim-1",
+        "transcript:track_21-03-middle_score:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-middle_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-middle_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-middle_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_21-04-middle_score",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:c1a586a7b62cb889728047257f5ba63c68adf20767733dd59d7f6e26c0e1a99d",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_21-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "核心流程可验证，但对比指标和复盘证据仍需补强"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-04-middle_score:claim-1",
+        "transcript:track_21-04-middle_score:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-middle_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-middle_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-middle_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_21-05-low_evidence",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:bf475a487b13cc4bd69f4cb070a668a22494ea6b3d98236f77c886ec37f81676",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_21-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "主张较强但证据锚点不足，需要人工复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-05-low_evidence:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-low_evidence"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-low_evidence"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-low_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_21-06-low_evidence",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:7324876a4768082053429e45c3055a3dfc12e37c47e7fefdbf31d619c26b1e6e",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_21-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "主张较强但证据锚点不足，需要人工复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-06-low_evidence:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-low_evidence"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-low_evidence"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-low_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_21-07-demo_failure",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:d35e005df1ba6b60413b353eff7cd00462daab8058ca1f29f2e6b704f1a8e269",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_21-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 62,
+      "humanDeductionNotes": [
+        "现场演示失败或缺少连续运行证据"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-07-demo_failure:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-demo_failure"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-demo_failure"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-demo_failure"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_21-08-low_score",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:9ed62011b1850089633eae781a72bff2a0bae04a12996a3816fcbb83d35b00f5",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_21-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 58,
+      "humanDeductionNotes": [
+        "任务链条和核心证据均不足"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-08-low_score:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-low_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-low_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-low_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_21-09-material_sufficient",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:5bea7189f7853b6ca440dd45a45e4360bfdb726fccd5441ae4fc0b37be9d05c9",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_21-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 84,
+      "humanDeductionNotes": [
+        "材料较充分，但现场表达和证据定位仍可优化"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-09-material_sufficient:claim-1",
+        "transcript:track_21-09-material_sufficient:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_21-10-boundary_dispute",
+      "trackId": "21",
+      "trackName": "化工技术赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/化工技术赛道.md",
+      "inputSnapshotHash": "sha256:8fe23733525e1cb89779692bc235023e2d5fbd5915f42c2bd50bcb9e8dae6969",
+      "frozenInputFiles": {
+        "video": "frozen://track_21-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_21-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_21-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 76,
+      "humanDeductionNotes": [
+        "分数接近边界，需专家校准复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_21-10-boundary_dispute:claim-1",
+        "transcript:track_21-10-boundary_dispute:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-boundary_dispute"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-boundary_dispute"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "流程图",
+                "操作记录",
+                "检测谱图/数据"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-21-boundary_dispute"
+          ]
+        }
+      ]
+    }
+  ]
+}

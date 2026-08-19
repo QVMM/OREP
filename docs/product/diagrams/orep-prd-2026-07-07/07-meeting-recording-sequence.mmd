@@ -1,0 +1,27 @@
+sequenceDiagram
+  participant T as 教师/创建者
+  participant U as 学生/评审
+  participant FE as 用户端
+  participant BE as Spring Boot后端
+  participant LK as LiveKit/信令
+  participant RB as Recording Bot
+  participant DB as MySQL
+
+  T->>FE: 创建会议
+  FE->>BE: POST /api/meeting/create
+  BE->>DB: 写入 meeting
+  BE-->>FE: 返回会议号/密码
+  U->>FE: 输入会议号/密码
+  FE->>BE: POST /api/meeting/join-by-code
+  BE->>DB: 写入 meeting_participant
+  FE->>BE: GET /api/livekit/token
+  BE->>LK: 生成房间Token
+  FE->>LK: 加入音视频房间
+  T->>FE: 开始录制
+  FE->>BE: POST /api/recording/start
+  BE->>RB: 请求录制
+  RB->>LK: 加入房间并录制
+  T->>FE: 停止录制/会议结束
+  RB->>BE: POST /api/recording/bot-complete
+  BE->>DB: 写入 meeting_recording
+  BE-->>FE: 会议历史可查看录制

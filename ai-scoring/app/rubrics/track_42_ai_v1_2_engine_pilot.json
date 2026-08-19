@@ -1,0 +1,3358 @@
+{
+  "trackId": "42",
+  "trackName": "人工智能赛道",
+  "ruleVersion": "v1.2-engine-pilot",
+  "ruleHash": "sha256:201a12855c306bf4f35ed3f7306b35eed8f1b200ed161d3212d0d737b4eb72b5",
+  "status": "pilot",
+  "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/人工智能赛道.md",
+  "sourceType": "track_inference",
+  "evidenceFamily": "信息电子人工智能类",
+  "dimensions": [
+    {
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 60,
+      "observationCodes": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 10,
+      "observationCodes": [
+        "O06",
+        "O07",
+        "O08"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 10,
+      "observationCodes": [
+        "O09",
+        "O10",
+        "O11"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 10,
+      "observationCodes": [
+        "O12",
+        "O13"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 10,
+      "observationCodes": [
+        "O14",
+        "O15"
+      ],
+      "sourceType": "official"
+    }
+  ],
+  "evidenceLevels": [
+    {
+      "level": "E0",
+      "name": "无证据",
+      "capRatio": 0.2,
+      "hardCondition": "没有转写、画面、材料或历史记录能支撑该观测点",
+      "sourceType": "official"
+    },
+    {
+      "level": "E1",
+      "name": "口号式主张",
+      "capRatio": 0.3,
+      "hardCondition": "只有结论或口号，没有方法、数据、画面或材料",
+      "sourceType": "official"
+    },
+    {
+      "level": "E2",
+      "name": "解释性证据",
+      "capRatio": 0.5,
+      "hardCondition": "有流程、架构、方法或口头解释，但缺少量化和现场验证",
+      "sourceType": "official"
+    },
+    {
+      "level": "E3",
+      "name": "内部量化证据",
+      "capRatio": 0.7,
+      "hardCondition": "有内部测试、成本测算、性能指标或样本数据，但缺少真实场景或第三方验证",
+      "sourceType": "official"
+    },
+    {
+      "level": "E4",
+      "name": "场景验证证据",
+      "capRatio": 0.85,
+      "hardCondition": "有现场演示、试点案例、用户反馈、前后对比或真实场景材料",
+      "sourceType": "official"
+    },
+    {
+      "level": "E5",
+      "name": "独立可核验证据",
+      "capRatio": 1.0,
+      "hardCondition": "有第三方报告、认证、审计、客户验收、公开 benchmark 或可复现实验",
+      "sourceType": "official"
+    }
+  ],
+  "evidenceCaps": {
+    "E0": 0.2,
+    "E1": 0.3,
+    "E2": 0.5,
+    "E3": 0.7,
+    "E4": 0.85,
+    "E5": 1.0
+  },
+  "observations": [
+    {
+      "observationCode": "O01",
+      "observationName": "操作规范性",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 10.0,
+      "trackDefinition": "是否按AI模型开发、数据处理、算法应用、智能系统集成、模型评估与治理的岗位流程完成关键任务，并能用过程记录证明规范闭环。",
+      "claimTypes": [
+        "流程规范",
+        "符合标准",
+        "操作专业",
+        "已完成关键任务"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与数据采集清洗、模型训练评估、系统部署、提示词/智能体设计、AI安全合规相关的过程动作或记录",
+        "说明责任人、时间、结果和异常处理"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "数据集说明等证据是否有对象、时间、方法、结果",
+        "是否存在只讲流程、不展示记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 2.0,
+        "E1": 3.0,
+        "E2": 5.0,
+        "E3": 7.0,
+        "E4": 8.5,
+        "E5": 10.0
+      },
+      "scoreCapRules": [
+        "只有口头规范主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真：最高 7.0 分",
+        "流程、记录、结果闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O01-D01",
+          "deductionType": "missing_evidence",
+          "reason": "操作规范性缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 1.6,
+          "maxRecoverablePoints": 1.6,
+          "requiredFix": "补充操作规范性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O01-D02",
+          "deductionType": "weak_evidence",
+          "reason": "操作规范性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 1.0,
+          "maxRecoverablePoints": 1.0,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O01-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "操作规范性存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 1.4,
+          "maxRecoverablePoints": 1.4,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O01-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 1.6,
+          "requiredFix": "补齐操作规范性的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O01-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 1.0,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐操作规范性证据链",
+        "action": "补齐流程记录、标准映射、关键控制点和结果材料。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O02",
+      "observationName": "技能熟练度",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 15.0,
+      "trackDefinition": "是否能熟练完成数据采集清洗、模型训练评估、系统部署、提示词/智能体设计、AI安全合规中的关键操作，并解释动作、参数、工具或服务流程。",
+      "claimTypes": [
+        "操作熟练",
+        "演示流畅",
+        "能处理异常"
+      ],
+      "requiredInfo": [
+        "展示关键操作过程，而不只展示结果",
+        "说明工具/设备/系统/服务动作的选择原因",
+        "说明异常、失误或临场切换方案"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "关键帧是否看到真实操作",
+        "转写是否解释操作原因和参数",
+        "材料是否包含操作记录或结果记录"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何现场操作、过程演示或可验证操作材料",
+        "团队无法说明关键动作、参数、工具或设备使用方法",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 3.0,
+        "E1": 4.5,
+        "E2": 7.5,
+        "E3": 10.5,
+        "E4": 12.75,
+        "E5": 15.0
+      },
+      "scoreCapRules": [
+        "无现场操作：最高 5.2 分",
+        "有演示但不能解释：最高 9.0 分",
+        "操作、解释、结果一致：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O02-D01",
+          "deductionType": "missing_evidence",
+          "reason": "技能熟练度缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 2.4,
+          "maxRecoverablePoints": 2.4,
+          "requiredFix": "补充技能熟练度对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O02-D02",
+          "deductionType": "weak_evidence",
+          "reason": "技能熟练度只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 1.5,
+          "maxRecoverablePoints": 1.5,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O02-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "技能熟练度存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 2.1,
+          "maxRecoverablePoints": 2.1,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O02-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 2.4,
+          "requiredFix": "补齐技能熟练度的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O02-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 1.5,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐技能熟练度证据链",
+        "action": "补充关键操作画面、参数说明和异常处理预案。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O03",
+      "observationName": "任务难易度",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 15.0,
+      "trackDefinition": "任务是否覆盖AI模型开发、数据处理、算法应用、智能系统集成、模型评估与治理的真实复杂场景，而不是单点展示或概念包装。",
+      "claimTypes": [
+        "任务复杂",
+        "解决真实难题",
+        "多环节协同"
+      ],
+      "requiredInfo": [
+        "说明真实服务对象、场景和约束",
+        "展示任务链条和多个环节协同",
+        "说明难点、解决过程和结果"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "是否形成输入-处理-输出-反馈闭环",
+        "是否有多环节协同证据",
+        "复杂度是否由材料和演示共同支撑"
+      ],
+      "zeroScoreTriggers": [
+        "没有明确任务对象、场景或任务链条",
+        "仅为单点展示/概念介绍且不构成赛道岗位任务",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 3.0,
+        "E1": 4.5,
+        "E2": 7.5,
+        "E3": 10.5,
+        "E4": 12.75,
+        "E5": 15.0
+      },
+      "scoreCapRules": [
+        "单点展示：最高 5.2 分",
+        "有场景但链条不完整：最高 8.2 分",
+        "复杂任务经过验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O03-D01",
+          "deductionType": "missing_evidence",
+          "reason": "任务难易度缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 2.4,
+          "maxRecoverablePoints": 2.4,
+          "requiredFix": "补充任务难易度对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O03-D02",
+          "deductionType": "weak_evidence",
+          "reason": "任务难易度只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 1.5,
+          "maxRecoverablePoints": 1.5,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O03-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "任务难易度存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 2.1,
+          "maxRecoverablePoints": 2.1,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O03-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 2.4,
+          "requiredFix": "补齐任务难易度的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O03-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 1.5,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐任务难易度证据链",
+        "action": "补充任务流程、复杂场景、难点处理和结果验证材料。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O04",
+      "observationName": "技术先进性",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 15.0,
+      "trackDefinition": "是否合理采用大模型应用、多模态、智能体、边缘AI、可信AI、MLOps，并证明相对传统方案、基线或现有流程有改进。",
+      "claimTypes": [
+        "技术先进",
+        "智能化",
+        "行业领先",
+        "效率或质量提升"
+      ],
+      "requiredInfo": [
+        "说明技术路径和差异化机制",
+        "给出参照对象、指标和测试/验证方法",
+        "说明适用边界和风险"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "是否只有热点词而无落地位置",
+        "是否有对比对象和指标口径",
+        "是否有真实场景、第三方或用户验证"
+      ],
+      "zeroScoreTriggers": [
+        "没有说明技术/工艺/方法路径",
+        "只有热门词或先进性口号，且没有任何落地位置",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 3.0,
+        "E1": 4.5,
+        "E2": 7.5,
+        "E3": 10.5,
+        "E4": 12.75,
+        "E5": 15.0
+      },
+      "scoreCapRules": [
+        "只有先进性口号：最高 3.0 分",
+        "有方案无指标：最高 6.8 分",
+        "有内部指标无基线：最高 9.8 分",
+        "有对比或第三方验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O04-D01",
+          "deductionType": "missing_evidence",
+          "reason": "技术先进性缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 2.4,
+          "maxRecoverablePoints": 2.4,
+          "requiredFix": "补充技术先进性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O04-D02",
+          "deductionType": "weak_evidence",
+          "reason": "技术先进性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 1.5,
+          "maxRecoverablePoints": 1.5,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O04-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "技术先进性存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 2.1,
+          "maxRecoverablePoints": 2.1,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O04-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 2.4,
+          "requiredFix": "补齐技术先进性的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O04-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 1.5,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐技术先进性证据链",
+        "action": "补充传统方案对比、指标口径、测试方法、真实场景或第三方验证。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O05",
+      "observationName": "现场讲解效果",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 5.0,
+      "trackDefinition": "是否在有限路演时间内把问题、方案、关键能力、证据、风险和下一步讲清楚。",
+      "claimTypes": [
+        "讲解清楚",
+        "重点突出",
+        "路演完整"
+      ],
+      "requiredInfo": [
+        "讲清问题、对象、方案、证据和结果",
+        "让讲解与PPT/关键帧同步",
+        "主动说明风险、边界和缺口"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "转写结构是否完整",
+        "高分主张是否能在路演内自证",
+        "画面、PPT和讲解是否矛盾"
+      ],
+      "zeroScoreTriggers": [
+        "讲解严重偏题，无法识别项目问题、方案和证据",
+        "路演内容与提交材料或演示画面大面积不一致",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 1.0,
+        "E1": 1.5,
+        "E2": 2.5,
+        "E3": 3.5,
+        "E4": 4.25,
+        "E5": 5.0
+      },
+      "scoreCapRules": [
+        "只讲故事无证据：最高 2.2 分",
+        "表达好但证据弱：最高 3.5 分",
+        "主张与证据同步：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O05-D01",
+          "deductionType": "missing_evidence",
+          "reason": "现场讲解效果缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.8,
+          "maxRecoverablePoints": 0.8,
+          "requiredFix": "补充现场讲解效果对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O05-D02",
+          "deductionType": "weak_evidence",
+          "reason": "现场讲解效果只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.5,
+          "maxRecoverablePoints": 0.5,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O05-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "现场讲解效果存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.7,
+          "maxRecoverablePoints": 0.7,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O05-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.8,
+          "requiredFix": "补齐现场讲解效果的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O05-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.5,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐现场讲解效果证据链",
+        "action": "重写路演脚本，补充“主张-证据-页码/时间戳”对应关系。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O06",
+      "observationName": "职业道德与行为规范",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 4.0,
+      "trackDefinition": "是否遵守AI模型开发、数据处理、算法应用、智能系统集成、模型评估与治理相关合规、诚信、知识产权、隐私/版权、职业伦理和服务边界。",
+      "claimTypes": [
+        "合规",
+        "诚信",
+        "安全可靠",
+        "尊重权益"
+      ],
+      "requiredInfo": [
+        "说明来源、授权、边界和责任",
+        "说明知识产权、隐私/版权或伦理处理",
+        "说明学生真实贡献"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "是否存在冒充自研、夸大宣传或来源不明",
+        "是否展示授权、脱敏、版权或合规材料",
+        "成员贡献和材料是否一致"
+      ],
+      "zeroScoreTriggers": [
+        "出现明确侵权、隐私泄露、伪造成果、越权服务或诚信红线",
+        "关键来源、授权或职业边界完全缺失且涉及风险",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.8,
+        "E1": 1.2,
+        "E2": 2.0,
+        "E3": 2.8,
+        "E4": 3.4,
+        "E5": 4.0
+      },
+      "scoreCapRules": [
+        "未说明来源/边界：最高 2.0 分",
+        "有说明无材料：最高 3.0 分",
+        "有可追溯材料：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O06-D01",
+          "deductionType": "missing_evidence",
+          "reason": "职业道德与行为规范缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.64,
+          "maxRecoverablePoints": 0.64,
+          "requiredFix": "补充职业道德与行为规范对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O06-D02",
+          "deductionType": "weak_evidence",
+          "reason": "职业道德与行为规范只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.4,
+          "maxRecoverablePoints": 0.4,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O06-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "职业道德与行为规范存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.56,
+          "maxRecoverablePoints": 0.56,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O06-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.64,
+          "requiredFix": "补齐职业道德与行为规范的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O06-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.4,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐职业道德与行为规范证据链",
+        "action": "补充来源、授权、脱敏/版权、角色边界和贡献记录。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O07",
+      "observationName": "工匠精神",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 3.0,
+      "trackDefinition": "是否体现质量意识、细节打磨、迭代改进和问题闭环。",
+      "claimTypes": [
+        "精益求精",
+        "多轮优化",
+        "质量稳定"
+      ],
+      "requiredInfo": [
+        "展示问题记录或改进前状态",
+        "展示改进措施和执行过程",
+        "展示改进后的结果对比"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "是否有版本、批次、试制、整改或复盘记录",
+        "是否只展示最终成品",
+        "改进结果是否可量化或可观察"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何质量控制、迭代、改进或细节打磨证据",
+        "对明显质量问题完全无识别、无解释、无改进",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.6,
+        "E1": 0.9,
+        "E2": 1.5,
+        "E3": 2.1,
+        "E4": 2.55,
+        "E5": 3.0
+      },
+      "scoreCapRules": [
+        "无迭代记录：最高 1.5 分",
+        "有描述无结果：最高 2.2 分",
+        "有问题-措施-结果闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O07-D01",
+          "deductionType": "missing_evidence",
+          "reason": "工匠精神缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.48,
+          "maxRecoverablePoints": 0.48,
+          "requiredFix": "补充工匠精神对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O07-D02",
+          "deductionType": "weak_evidence",
+          "reason": "工匠精神只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.3,
+          "maxRecoverablePoints": 0.3,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O07-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "工匠精神存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.42,
+          "maxRecoverablePoints": 0.42,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O07-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.48,
+          "requiredFix": "补齐工匠精神的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O07-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.3,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐工匠精神证据链",
+        "action": "补充缺陷/问题清单、改进记录、前后对比和复盘。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O08",
+      "observationName": "安全意识",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 3.0,
+      "trackDefinition": "是否识别并控制AI模型开发、数据处理、算法应用、智能系统集成、模型评估与治理中的关键安全风险。",
+      "claimTypes": [
+        "安全可控",
+        "风险可控",
+        "符合安全要求"
+      ],
+      "requiredInfo": [
+        "列出关键风险",
+        "展示防护措施或安全记录",
+        "说明异常或应急处理"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "关键帧和材料是否呈现防护、检查、应急、权限或告知",
+        "是否只说重视安全而无记录",
+        "是否存在红线风险"
+      ],
+      "zeroScoreTriggers": [
+        "存在明显人身、设备、数据、食品、医疗、交通或公共安全风险且未处置",
+        "完全没有风险识别和安全措施",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.6,
+        "E1": 0.9,
+        "E2": 1.5,
+        "E3": 2.1,
+        "E4": 2.55,
+        "E5": 3.0
+      },
+      "scoreCapRules": [
+        "无安全证据：最高 1.5 分",
+        "口头说明：最高 2.1 分",
+        "有操作和记录：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O08-D01",
+          "deductionType": "missing_evidence",
+          "reason": "安全意识缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.48,
+          "maxRecoverablePoints": 0.48,
+          "requiredFix": "补充安全意识对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O08-D02",
+          "deductionType": "weak_evidence",
+          "reason": "安全意识只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.3,
+          "maxRecoverablePoints": 0.3,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O08-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "安全意识存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.42,
+          "maxRecoverablePoints": 0.42,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O08-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.48,
+          "requiredFix": "补齐安全意识的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O08-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.3,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐安全意识证据链",
+        "action": "补充风险清单、防护流程、应急处置和安全记录。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O09",
+      "observationName": "实用性",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 4.0,
+      "trackDefinition": "是否解决明确服务对象或真实场景中的具体问题。",
+      "claimTypes": [
+        "可落地",
+        "用户需要",
+        "解决痛点"
+      ],
+      "requiredInfo": [
+        "说明服务对象、场景和痛点",
+        "展示使用流程或应用过程",
+        "展示反馈、运行或试用结果"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "是否只讲市场或愿景",
+        "是否有真实/模拟真实使用证据",
+        "反馈是否有对象、时间和结果"
+      ],
+      "zeroScoreTriggers": [
+        "没有明确服务对象、应用场景或实际问题",
+        "方案无法在本赛道真实场景中使用",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.8,
+        "E1": 1.2,
+        "E2": 2.0,
+        "E3": 2.8,
+        "E4": 3.4,
+        "E5": 4.0
+      },
+      "scoreCapRules": [
+        "无用户/场景：最高 2.0 分",
+        "有场景无验证：最高 3.0 分",
+        "有验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O09-D01",
+          "deductionType": "missing_evidence",
+          "reason": "实用性缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.64,
+          "maxRecoverablePoints": 0.64,
+          "requiredFix": "补充实用性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O09-D02",
+          "deductionType": "weak_evidence",
+          "reason": "实用性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.4,
+          "maxRecoverablePoints": 0.4,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O09-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "实用性存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.56,
+          "maxRecoverablePoints": 0.56,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O09-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.64,
+          "requiredFix": "补齐实用性的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O09-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.4,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐实用性证据链",
+        "action": "补充用户访谈、试用记录、运行数据或场景复盘。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O10",
+      "observationName": "经济性",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 3.0,
+      "trackDefinition": "是否说明成本、资源、效率、投入产出和推广可行性。",
+      "claimTypes": [
+        "降本增效",
+        "成本低",
+        "可推广"
+      ],
+      "requiredInfo": [
+        "列出成本构成和资源消耗",
+        "说明效率或收益口径",
+        "说明维护、推广或长期投入"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "是否遗漏关键成本",
+        "收益是否有计算口径",
+        "是否用一次性资源冒充长期可行"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何成本、资源、效率或投入产出信息",
+        "经济性主张与材料明显矛盾",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.6,
+        "E1": 0.9,
+        "E2": 1.5,
+        "E3": 2.1,
+        "E4": 2.55,
+        "E5": 3.0
+      },
+      "scoreCapRules": [
+        "无成本数据：最高 1.5 分",
+        "粗略估算：最高 2.2 分",
+        "口径完整：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O10-D01",
+          "deductionType": "missing_evidence",
+          "reason": "经济性缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.48,
+          "maxRecoverablePoints": 0.48,
+          "requiredFix": "补充经济性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O10-D02",
+          "deductionType": "weak_evidence",
+          "reason": "经济性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.3,
+          "maxRecoverablePoints": 0.3,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O10-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "经济性存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.42,
+          "maxRecoverablePoints": 0.42,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O10-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.48,
+          "requiredFix": "补齐经济性的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O10-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.3,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐经济性证据链",
+        "action": "补充成本表、资源清单、效率对比和投入产出口径。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O11",
+      "observationName": "可持续性",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 3.0,
+      "trackDefinition": "是否能长期运行、维护、复制、迭代，并符合绿色低碳或可持续发展要求。",
+      "claimTypes": [
+        "可持续",
+        "可复制",
+        "长期可运营"
+      ],
+      "requiredInfo": [
+        "说明长期维护机制",
+        "说明培训、交接、资源或供应保障",
+        "说明绿色低碳或持续迭代安排"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "是否依赖一次性演示、单个成员或临时环境",
+        "是否有维护计划和资源保障",
+        "是否具备复制条件"
+      ],
+      "zeroScoreTriggers": [
+        "项目只能一次性展示，完全没有维护、复制、交接或长期运行可能",
+        "持续运行所需关键资源完全缺失",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.6,
+        "E1": 0.9,
+        "E2": 1.5,
+        "E3": 2.1,
+        "E4": 2.55,
+        "E5": 3.0
+      },
+      "scoreCapRules": [
+        "无长期机制：最高 1.5 分",
+        "有计划无材料：最高 2.2 分",
+        "有机制和证据：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O11-D01",
+          "deductionType": "missing_evidence",
+          "reason": "可持续性缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.48,
+          "maxRecoverablePoints": 0.48,
+          "requiredFix": "补充可持续性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O11-D02",
+          "deductionType": "weak_evidence",
+          "reason": "可持续性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.3,
+          "maxRecoverablePoints": 0.3,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O11-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "可持续性存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.42,
+          "maxRecoverablePoints": 0.42,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O11-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.48,
+          "requiredFix": "补齐可持续性的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O11-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.3,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐可持续性证据链",
+        "action": "补充维护计划、培训材料、资源方案、版本路线和绿色措施。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O12",
+      "observationName": "团队精神",
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 5.0,
+      "trackDefinition": "团队成员是否围绕真实岗位链条分工，且贡献可追溯。",
+      "claimTypes": [
+        "分工明确",
+        "团队协同",
+        "人人有贡献"
+      ],
+      "requiredInfo": [
+        "说明成员角色和任务",
+        "展示成员成果对应关系",
+        "证明关键工作由团队完成"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "成员陈述、材料记录、成果模块是否一致",
+        "是否只有姓名分工",
+        "是否存在外部人员替代完成"
+      ],
+      "zeroScoreTriggers": [
+        "无法识别团队分工和成员贡献",
+        "关键工作明显由外部人员完成且未说明",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 1.0,
+        "E1": 1.5,
+        "E2": 2.5,
+        "E3": 3.5,
+        "E4": 4.25,
+        "E5": 5.0
+      },
+      "scoreCapRules": [
+        "只有姓名分工：最高 2.5 分",
+        "有贡献记录：最高 4.0 分",
+        "成员均能对应成果：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O12-D01",
+          "deductionType": "missing_evidence",
+          "reason": "团队精神缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.8,
+          "maxRecoverablePoints": 0.8,
+          "requiredFix": "补充团队精神对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O12-D02",
+          "deductionType": "weak_evidence",
+          "reason": "团队精神只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.5,
+          "maxRecoverablePoints": 0.5,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O12-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "团队精神存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.7,
+          "maxRecoverablePoints": 0.7,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O12-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.8,
+          "requiredFix": "补齐团队精神的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O12-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.5,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐团队精神证据链",
+        "action": "补充成员贡献表、任务记录、成果对应关系。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O13",
+      "observationName": "沟通协作",
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 5.0,
+      "trackDefinition": "团队是否有交接、联调、服务协作、问题处理和复盘闭环。",
+      "claimTypes": [
+        "协作顺畅",
+        "共同解决问题"
+      ],
+      "requiredInfo": [
+        "展示协作流程或交接机制",
+        "展示问题处理过程",
+        "展示复盘或闭环结果"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "问题是否有负责人、过程和结果",
+        "协作是否有记录而非口头分工",
+        "成员口径是否一致"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何协作、交接、联调、服务配合或复盘证据",
+        "成员说法互相矛盾且影响任务真实性",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 1.0,
+        "E1": 1.5,
+        "E2": 2.5,
+        "E3": 3.5,
+        "E4": 4.25,
+        "E5": 5.0
+      },
+      "scoreCapRules": [
+        "无协作证据：最高 2.5 分",
+        "有流程无闭环：最高 3.8 分",
+        "闭环完整：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O13-D01",
+          "deductionType": "missing_evidence",
+          "reason": "沟通协作缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.8,
+          "maxRecoverablePoints": 0.8,
+          "requiredFix": "补充沟通协作对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O13-D02",
+          "deductionType": "weak_evidence",
+          "reason": "沟通协作只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.5,
+          "maxRecoverablePoints": 0.5,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O13-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "沟通协作存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.7,
+          "maxRecoverablePoints": 0.7,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O13-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.8,
+          "requiredFix": "补齐沟通协作的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O13-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.5,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐沟通协作证据链",
+        "action": "补充交接记录、联调/服务记录、问题复盘。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O14",
+      "observationName": "创新意识",
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 4.0,
+      "trackDefinition": "是否围绕AI模型开发、数据处理、算法应用、智能系统集成、模型评估与治理的真实痛点提出差异化改进，而非换名、包装或堆概念。",
+      "claimTypes": [
+        "原创",
+        "首创",
+        "创新性强"
+      ],
+      "requiredInfo": [
+        "说明原痛点或原流程",
+        "说明新方案差异点",
+        "说明风险边界和执行方式"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "是否只是换名、换包装或堆热点",
+        "是否有传统方案对比",
+        "是否与岗位能力相关"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何差异化想法或改进点",
+        "所谓创新与本赛道任务无关",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.8,
+        "E1": 1.2,
+        "E2": 2.0,
+        "E3": 2.8,
+        "E4": 3.4,
+        "E5": 4.0
+      },
+      "scoreCapRules": [
+        "只有创意口号：最高 1.6 分",
+        "有想法无验证：最高 2.6 分",
+        "有对比和验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O14-D01",
+          "deductionType": "missing_evidence",
+          "reason": "创新意识缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.64,
+          "maxRecoverablePoints": 0.64,
+          "requiredFix": "补充创新意识对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O14-D02",
+          "deductionType": "weak_evidence",
+          "reason": "创新意识只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.4,
+          "maxRecoverablePoints": 0.4,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O14-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "创新意识存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.56,
+          "maxRecoverablePoints": 0.56,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O14-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.64,
+          "requiredFix": "补齐创新意识的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O14-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.4,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐创新意识证据链",
+        "action": "补充传统方案对比、创新边界、试验或用户反馈。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O15",
+      "observationName": "创新成效",
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 6.0,
+      "trackDefinition": "创新是否产生可验证的质量、效率、安全、成本、体验、传播或可持续提升。",
+      "claimTypes": [
+        "效果显著",
+        "提升明显",
+        "更好更快更省"
+      ],
+      "requiredInfo": [
+        "说明指标和对比对象",
+        "说明样本/周期和评价方法",
+        "展示结果、限制和失败样本"
+      ],
+      "acceptableEvidence": [
+        "数据集说明",
+        "模型指标",
+        "误差分析",
+        "部署日志",
+        "系统演示",
+        "安全与伦理说明"
+      ],
+      "evidenceVerificationMethods": [
+        "指标是否有口径、样本和基线",
+        "是否只展示最优结果",
+        "是否能被材料或场景复核"
+      ],
+      "zeroScoreTriggers": [
+        "没有任何效果、反馈、对比或结果证据",
+        "效果数据明显伪造或与材料矛盾",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 1.2,
+        "E1": 1.8,
+        "E2": 3.0,
+        "E3": 4.2,
+        "E4": 5.1,
+        "E5": 6.0
+      },
+      "scoreCapRules": [
+        "无量化结果：最高 2.1 分",
+        "有数据无口径：最高 3.6 分",
+        "有基线和验证：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "42-O15-D01",
+          "deductionType": "missing_evidence",
+          "reason": "创新成效缺少可定位证据，无法支撑高分主张",
+          "deductedPoints": 0.96,
+          "maxRecoverablePoints": 0.96,
+          "requiredFix": "补充创新成效对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+          "acceptanceCriteria": [
+            "证据可定位到时间戳、页码、文件hash或关键帧",
+            "路演中主动解释该证据如何支撑观测点",
+            "证据内容与项目实际演示一致"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "deductionId": "42-O15-D02",
+          "deductionType": "weak_evidence",
+          "reason": "创新成效只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+          "deductedPoints": 0.6,
+          "maxRecoverablePoints": 0.6,
+          "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+          "acceptanceCriteria": [
+            "补证材料包含对象、方法、结果和责任人",
+            "至少一个证据来自现场演示或上传材料",
+            "证据等级可从E1/E2提升到E3或以上"
+          ],
+          "sourceType": "track_inference"
+        },
+        {
+          "deductionId": "42-O15-D03",
+          "deductionType": "risk_or_contradiction",
+          "reason": "创新成效存在证据矛盾或风险信号：只调用API包装",
+          "deductedPoints": 0.84,
+          "maxRecoverablePoints": 0.84,
+          "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+          "acceptanceCriteria": [
+            "风险项有明确解释或更正",
+            "材料、转写和画面口径一致",
+            "必要时触发人工复核并保留复核结论"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "42-O15-R01",
+          "sourceDeductionType": "missing_evidence",
+          "recoverableRatio": 1.0,
+          "maxRecoverablePoints": 0.96,
+          "requiredFix": "补齐创新成效的可定位证据链",
+          "acceptanceCriteria": [
+            "证据锚点可定位",
+            "证据能直接支撑该观测点",
+            "不得突破当前证据等级上限"
+          ],
+          "sourceType": "orep_training"
+        },
+        {
+          "recoveryId": "42-O15-R02",
+          "sourceDeductionType": "weak_evidence",
+          "recoverableRatio": 0.7,
+          "maxRecoverablePoints": 0.6,
+          "requiredFix": "补充量化、过程或场景验证材料",
+          "acceptanceCriteria": [
+            "补证后证据等级至少达到E3",
+            "补证材料与本轮路演内容一致"
+          ],
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "只调用API包装",
+        "数据和指标缺失",
+        "模型幻觉/偏见不处理",
+        "学生贡献不清",
+        "材料与演示不一致",
+        "只展示结果不展示过程"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "E4/E5证据锚点不足",
+        "疑似包装或来源不清",
+        "若证据矛盾、关键材料缺失、红线风险或疑似包装，应在报告页标记复核建议，并生成后台复核/训练补证任务。"
+      ],
+      "trainingTaskTemplate": {
+        "title": "补齐创新成效证据链",
+        "action": "补充指标口径、对比基线、样本/周期、反馈或第三方验证。",
+        "acceptanceCriteria": [
+          "形成主张-证据-时间戳/页码对应表",
+          "下一轮路演主动说明补证内容",
+          "验收后才允许追回对应扣分"
+        ],
+        "sourceType": "orep_training"
+      },
+      "sourceType": "track_inference"
+    }
+  ],
+  "deductionRules": [
+    {
+      "deductionId": "42-O01-D01",
+      "deductionType": "missing_evidence",
+      "reason": "操作规范性缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 1.6,
+      "maxRecoverablePoints": 1.6,
+      "requiredFix": "补充操作规范性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O01-D02",
+      "deductionType": "weak_evidence",
+      "reason": "操作规范性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 1.0,
+      "maxRecoverablePoints": 1.0,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O01-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "操作规范性存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 1.4,
+      "maxRecoverablePoints": 1.4,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O02-D01",
+      "deductionType": "missing_evidence",
+      "reason": "技能熟练度缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 2.4,
+      "maxRecoverablePoints": 2.4,
+      "requiredFix": "补充技能熟练度对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O02-D02",
+      "deductionType": "weak_evidence",
+      "reason": "技能熟练度只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 1.5,
+      "maxRecoverablePoints": 1.5,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O02-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "技能熟练度存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 2.1,
+      "maxRecoverablePoints": 2.1,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O03-D01",
+      "deductionType": "missing_evidence",
+      "reason": "任务难易度缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 2.4,
+      "maxRecoverablePoints": 2.4,
+      "requiredFix": "补充任务难易度对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O03-D02",
+      "deductionType": "weak_evidence",
+      "reason": "任务难易度只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 1.5,
+      "maxRecoverablePoints": 1.5,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O03-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "任务难易度存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 2.1,
+      "maxRecoverablePoints": 2.1,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O04-D01",
+      "deductionType": "missing_evidence",
+      "reason": "技术先进性缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 2.4,
+      "maxRecoverablePoints": 2.4,
+      "requiredFix": "补充技术先进性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O04-D02",
+      "deductionType": "weak_evidence",
+      "reason": "技术先进性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 1.5,
+      "maxRecoverablePoints": 1.5,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O04-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "技术先进性存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 2.1,
+      "maxRecoverablePoints": 2.1,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O05-D01",
+      "deductionType": "missing_evidence",
+      "reason": "现场讲解效果缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.8,
+      "maxRecoverablePoints": 0.8,
+      "requiredFix": "补充现场讲解效果对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O05-D02",
+      "deductionType": "weak_evidence",
+      "reason": "现场讲解效果只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.5,
+      "maxRecoverablePoints": 0.5,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O05-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "现场讲解效果存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.7,
+      "maxRecoverablePoints": 0.7,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O06-D01",
+      "deductionType": "missing_evidence",
+      "reason": "职业道德与行为规范缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.64,
+      "maxRecoverablePoints": 0.64,
+      "requiredFix": "补充职业道德与行为规范对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O06-D02",
+      "deductionType": "weak_evidence",
+      "reason": "职业道德与行为规范只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.4,
+      "maxRecoverablePoints": 0.4,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O06-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "职业道德与行为规范存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.56,
+      "maxRecoverablePoints": 0.56,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O07-D01",
+      "deductionType": "missing_evidence",
+      "reason": "工匠精神缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.48,
+      "maxRecoverablePoints": 0.48,
+      "requiredFix": "补充工匠精神对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O07-D02",
+      "deductionType": "weak_evidence",
+      "reason": "工匠精神只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.3,
+      "maxRecoverablePoints": 0.3,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O07-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "工匠精神存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.42,
+      "maxRecoverablePoints": 0.42,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O08-D01",
+      "deductionType": "missing_evidence",
+      "reason": "安全意识缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.48,
+      "maxRecoverablePoints": 0.48,
+      "requiredFix": "补充安全意识对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O08-D02",
+      "deductionType": "weak_evidence",
+      "reason": "安全意识只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.3,
+      "maxRecoverablePoints": 0.3,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O08-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "安全意识存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.42,
+      "maxRecoverablePoints": 0.42,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O09-D01",
+      "deductionType": "missing_evidence",
+      "reason": "实用性缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.64,
+      "maxRecoverablePoints": 0.64,
+      "requiredFix": "补充实用性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O09-D02",
+      "deductionType": "weak_evidence",
+      "reason": "实用性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.4,
+      "maxRecoverablePoints": 0.4,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O09-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "实用性存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.56,
+      "maxRecoverablePoints": 0.56,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O10-D01",
+      "deductionType": "missing_evidence",
+      "reason": "经济性缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.48,
+      "maxRecoverablePoints": 0.48,
+      "requiredFix": "补充经济性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O10-D02",
+      "deductionType": "weak_evidence",
+      "reason": "经济性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.3,
+      "maxRecoverablePoints": 0.3,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O10-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "经济性存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.42,
+      "maxRecoverablePoints": 0.42,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O11-D01",
+      "deductionType": "missing_evidence",
+      "reason": "可持续性缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.48,
+      "maxRecoverablePoints": 0.48,
+      "requiredFix": "补充可持续性对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O11-D02",
+      "deductionType": "weak_evidence",
+      "reason": "可持续性只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.3,
+      "maxRecoverablePoints": 0.3,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O11-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "可持续性存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.42,
+      "maxRecoverablePoints": 0.42,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O12-D01",
+      "deductionType": "missing_evidence",
+      "reason": "团队精神缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.8,
+      "maxRecoverablePoints": 0.8,
+      "requiredFix": "补充团队精神对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O12-D02",
+      "deductionType": "weak_evidence",
+      "reason": "团队精神只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.5,
+      "maxRecoverablePoints": 0.5,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O12-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "团队精神存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.7,
+      "maxRecoverablePoints": 0.7,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O13-D01",
+      "deductionType": "missing_evidence",
+      "reason": "沟通协作缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.8,
+      "maxRecoverablePoints": 0.8,
+      "requiredFix": "补充沟通协作对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O13-D02",
+      "deductionType": "weak_evidence",
+      "reason": "沟通协作只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.5,
+      "maxRecoverablePoints": 0.5,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O13-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "沟通协作存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.7,
+      "maxRecoverablePoints": 0.7,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O14-D01",
+      "deductionType": "missing_evidence",
+      "reason": "创新意识缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.64,
+      "maxRecoverablePoints": 0.64,
+      "requiredFix": "补充创新意识对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O14-D02",
+      "deductionType": "weak_evidence",
+      "reason": "创新意识只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.4,
+      "maxRecoverablePoints": 0.4,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O14-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "创新意识存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.56,
+      "maxRecoverablePoints": 0.56,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O15-D01",
+      "deductionType": "missing_evidence",
+      "reason": "创新成效缺少可定位证据，无法支撑高分主张",
+      "deductedPoints": 0.96,
+      "maxRecoverablePoints": 0.96,
+      "requiredFix": "补充创新成效对应的转写、关键帧或材料证据，并说明主张与证据的对应关系",
+      "acceptanceCriteria": [
+        "证据可定位到时间戳、页码、文件hash或关键帧",
+        "路演中主动解释该证据如何支撑观测点",
+        "证据内容与项目实际演示一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "deductionId": "42-O15-D02",
+      "deductionType": "weak_evidence",
+      "reason": "创新成效只有口头说明或PPT静态描述，缺少过程、数据或结果验证",
+      "deductedPoints": 0.6,
+      "maxRecoverablePoints": 0.6,
+      "requiredFix": "补充过程记录、测试结果、运行截图、对比数据或场景反馈",
+      "acceptanceCriteria": [
+        "补证材料包含对象、方法、结果和责任人",
+        "至少一个证据来自现场演示或上传材料",
+        "证据等级可从E1/E2提升到E3或以上"
+      ],
+      "sourceType": "track_inference"
+    },
+    {
+      "deductionId": "42-O15-D03",
+      "deductionType": "risk_or_contradiction",
+      "reason": "创新成效存在证据矛盾或风险信号：只调用API包装",
+      "deductedPoints": 0.84,
+      "maxRecoverablePoints": 0.84,
+      "requiredFix": "补充澄清材料，说明来源边界、团队贡献、测试口径或风险处置方式",
+      "acceptanceCriteria": [
+        "风险项有明确解释或更正",
+        "材料、转写和画面口径一致",
+        "必要时触发人工复核并保留复核结论"
+      ],
+      "sourceType": "orep_training"
+    }
+  ],
+  "recoveryRules": [
+    {
+      "recoveryId": "42-O01-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 1.6,
+      "requiredFix": "补齐操作规范性的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O01-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 1.0,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O02-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 2.4,
+      "requiredFix": "补齐技能熟练度的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O02-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 1.5,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O03-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 2.4,
+      "requiredFix": "补齐任务难易度的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O03-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 1.5,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O04-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 2.4,
+      "requiredFix": "补齐技术先进性的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O04-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 1.5,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O05-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.8,
+      "requiredFix": "补齐现场讲解效果的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O05-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.5,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O06-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.64,
+      "requiredFix": "补齐职业道德与行为规范的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O06-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.4,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O07-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.48,
+      "requiredFix": "补齐工匠精神的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O07-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.3,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O08-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.48,
+      "requiredFix": "补齐安全意识的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O08-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.3,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O09-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.64,
+      "requiredFix": "补齐实用性的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O09-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.4,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O10-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.48,
+      "requiredFix": "补齐经济性的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O10-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.3,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O11-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.48,
+      "requiredFix": "补齐可持续性的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O11-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.3,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O12-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.8,
+      "requiredFix": "补齐团队精神的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O12-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.5,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O13-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.8,
+      "requiredFix": "补齐沟通协作的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O13-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.5,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O14-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.64,
+      "requiredFix": "补齐创新意识的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O14-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.4,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O15-R01",
+      "sourceDeductionType": "missing_evidence",
+      "recoverableRatio": 1.0,
+      "maxRecoverablePoints": 0.96,
+      "requiredFix": "补齐创新成效的可定位证据链",
+      "acceptanceCriteria": [
+        "证据锚点可定位",
+        "证据能直接支撑该观测点",
+        "不得突破当前证据等级上限"
+      ],
+      "sourceType": "orep_training"
+    },
+    {
+      "recoveryId": "42-O15-R02",
+      "sourceDeductionType": "weak_evidence",
+      "recoverableRatio": 0.7,
+      "maxRecoverablePoints": 0.6,
+      "requiredFix": "补充量化、过程或场景验证材料",
+      "acceptanceCriteria": [
+        "补证后证据等级至少达到E3",
+        "补证材料与本轮路演内容一致"
+      ],
+      "sourceType": "orep_training"
+    }
+  ],
+  "riskPatterns": [
+    {
+      "pattern": "只调用API包装",
+      "sourceType": "track_inference"
+    },
+    {
+      "pattern": "数据和指标缺失",
+      "sourceType": "track_inference"
+    },
+    {
+      "pattern": "模型幻觉/偏见不处理",
+      "sourceType": "track_inference"
+    },
+    {
+      "pattern": "学生贡献不清",
+      "sourceType": "track_inference"
+    },
+    {
+      "pattern": "材料与演示不一致",
+      "sourceType": "track_inference"
+    },
+    {
+      "pattern": "只展示结果不展示过程",
+      "sourceType": "track_inference"
+    }
+  ],
+  "qualityGates": {
+    "observationCount": 15,
+    "requiresEvidenceLevelForEveryObservation": true,
+    "requiresAnchorForNonE0": true,
+    "e4e5RequiresHardCondition": true,
+    "activeReadiness": "pilot_only_until_sample_audit_passed",
+    "sourceType": "official"
+  }
+}

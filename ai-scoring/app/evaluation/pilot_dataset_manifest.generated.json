@@ -1,0 +1,5057 @@
+{
+  "version": "stage7-pilot-manifest-generated-v1",
+  "generatedAt": "2026-07-05T14:30:00+08:00",
+  "generationMethod": "synthetic_from_public_reference; generated for stability gate rehearsal, not original competition submissions",
+  "tracks": {
+    "track_42_ai": [
+      {
+        "sampleId": "track_42_ai-01-high_score",
+        "projectTitle": "AI+生物技术智慧水安全与绿色水产食品",
+        "trackId": "track_42_ai",
+        "sampleType": "high_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.stdaily.com/web/gdxw/2026-07/03/content_541856.html",
+        "inputSnapshotHash": "sha256:5db3ba1389ac41e0bb72a3d3e54e39b4c2730b7e3622fa83f176c4c18e9fef0d",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-01-high_score/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-01-high_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-01-high_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 91,
+        "expertDimensionScores": {
+          "technical": 25.5,
+          "application": 21.0,
+          "presentation": 16.8
+        },
+        "humanDeductionNotes": [
+          "证据链完整，演示稳定，商业或应用闭环清晰"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-01-high_score:claim-1",
+          "transcript:track_42_ai-01-high_score:claim-2",
+          "transcript:track_42_ai-01-high_score:claim-3"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 90,
+            "oldLlmScore": 92,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.5,
+              "application": 21.0,
+              "presentation": 16.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 90,
+            "oldLlmScore": 92,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.5,
+              "application": 21.0,
+              "presentation": 16.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 90,
+            "oldLlmScore": 92,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.5,
+              "application": 21.0,
+              "presentation": 16.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-02-middle_score",
+        "projectTitle": "医疗影像辅助分诊与风险提示系统",
+        "trackId": "track_42_ai",
+        "sampleType": "middle_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.cup.edu.cn/ciee/xwzx/tz/f758577b300c4035a2049345845da9e0.htm",
+        "inputSnapshotHash": "sha256:0c58f243d4d91843b4a9e08759fc4fa704f5c8cdc4d244386ff5f7cc92be345e",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-02-middle_score/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-02-middle_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-02-middle_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 80,
+        "expertDimensionScores": {
+          "technical": 24.0,
+          "application": 20.0,
+          "presentation": 16.0
+        },
+        "humanDeductionNotes": [
+          "核心功能可验证，但量化指标和复盘证据仍需补强"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-02-middle_score:claim-1",
+          "transcript:track_42_ai-02-middle_score:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 80,
+            "oldLlmScore": 82,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.0,
+              "application": 20.0,
+              "presentation": 16.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 80,
+            "oldLlmScore": 82,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.0,
+              "application": 20.0,
+              "presentation": 16.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 80,
+            "oldLlmScore": 82,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.0,
+              "application": 20.0,
+              "presentation": 16.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-03-low_score",
+        "projectTitle": "智能制造缺陷视觉检测平台",
+        "trackId": "track_42_ai",
+        "sampleType": "low_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.caai.cn/site/content/4764.html",
+        "inputSnapshotHash": "sha256:74de00a48d1c122ea50740bd21153f95473bc8b26cc411ddbbd3d16edec4d1e9",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-03-low_score/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-03-low_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-03-low_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 61,
+        "expertDimensionScores": {
+          "technical": 21.3,
+          "application": 18.2,
+          "presentation": 14.6
+        },
+        "humanDeductionNotes": [
+          "方案完整度不足，关键证据和现场演示均偏弱"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-03-low_score:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 62,
+            "oldLlmScore": 64,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.3,
+              "application": 18.2,
+              "presentation": 14.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 62,
+            "oldLlmScore": 64,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.3,
+              "application": 18.2,
+              "presentation": 14.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 62,
+            "oldLlmScore": 64,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.3,
+              "application": 18.2,
+              "presentation": 14.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-04-low_evidence",
+        "projectTitle": "智慧城市空间治理大模型助手",
+        "trackId": "track_42_ai",
+        "sampleType": "low_evidence",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.caai.cn/site/content/4764.html",
+        "inputSnapshotHash": "sha256:4b60d969c10f3d05acc37954021fb4795d4a1c6cf281ea41e99c2a3e5f538229",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-04-low_evidence/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-04-low_evidence/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-04-low_evidence/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 68,
+        "expertDimensionScores": {
+          "technical": 22.1,
+          "application": 18.7,
+          "presentation": 15.0
+        },
+        "humanDeductionNotes": [
+          "主张较强但证据锚点不足，需触发人工复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-04-low_evidence:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 67,
+            "oldLlmScore": 72,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.1,
+              "application": 18.7,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 67,
+            "oldLlmScore": 72,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.1,
+              "application": 18.7,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 67,
+            "oldLlmScore": 72,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.1,
+              "application": 18.7,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-05-demo_failure",
+        "projectTitle": "AIGC课程资源生成与审核平台",
+        "trackId": "track_42_ai",
+        "sampleType": "demo_failure",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.cup.edu.cn/ciee/xwzx/tz/f758577b300c4035a2049345845da9e0.htm",
+        "inputSnapshotHash": "sha256:a87953107086ad9a51b7b6aa3ca8e61a4852418c7b15ea96bb182839aae60b7e",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-05-demo_failure/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-05-demo_failure/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-05-demo_failure/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 65,
+        "expertDimensionScores": {
+          "technical": 21.8,
+          "application": 18.5,
+          "presentation": 14.8
+        },
+        "humanDeductionNotes": [
+          "现场演示失败或缺少连续运行证据"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-05-demo_failure:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 65,
+            "oldLlmScore": 67,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.8,
+              "application": 18.5,
+              "presentation": 14.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 65,
+            "oldLlmScore": 67,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.8,
+              "application": 18.5,
+              "presentation": 14.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 65,
+            "oldLlmScore": 67,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.8,
+              "application": 18.5,
+              "presentation": 14.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-06-material_sufficient",
+        "projectTitle": "AI安全红队自动化评测工具",
+        "trackId": "track_42_ai",
+        "sampleType": "material_sufficient",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.cup.edu.cn/ciee/xwzx/tz/f758577b300c4035a2049345845da9e0.htm",
+        "inputSnapshotHash": "sha256:3fafd1bfb820aa8e672da8e2328c04f96b81af34a2a136de7a0c9baf8b488b30",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-06-material_sufficient/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-06-material_sufficient/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-06-material_sufficient/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 86,
+        "expertDimensionScores": {
+          "technical": 25.1,
+          "application": 20.7,
+          "presentation": 16.6
+        },
+        "humanDeductionNotes": [
+          "材料充分但现场表达和证据定位需优化"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-06-material_sufficient:claim-1",
+          "transcript:track_42_ai-06-material_sufficient:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 87,
+            "oldLlmScore": 89,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.1,
+              "application": 20.7,
+              "presentation": 16.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 87,
+            "oldLlmScore": 89,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.1,
+              "application": 20.7,
+              "presentation": 16.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 87,
+            "oldLlmScore": 89,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.1,
+              "application": 20.7,
+              "presentation": 16.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-07-slogan_packaging",
+        "projectTitle": "智能机器人仓储拣选调度系统",
+        "trackId": "track_42_ai",
+        "sampleType": "slogan_packaging",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.cnccac.com/rgzn",
+        "inputSnapshotHash": "sha256:407282ad97c258867bfff17538b2c705ee11416099658247e6951de5baaf63d8",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-07-slogan_packaging/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-07-slogan_packaging/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-07-slogan_packaging/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 70,
+        "expertDimensionScores": {
+          "technical": 22.4,
+          "application": 18.9,
+          "presentation": 15.1
+        },
+        "humanDeductionNotes": [
+          "概念包装明显，缺少可复核实现证据"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-07-slogan_packaging:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-08-boundary_dispute",
+        "projectTitle": "自动驾驶园区低速配送车感知方案",
+        "trackId": "track_42_ai",
+        "sampleType": "boundary_dispute",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.cup.edu.cn/ciee/xwzx/tz/f758577b300c4035a2049345845da9e0.htm",
+        "inputSnapshotHash": "sha256:1663431acf3623522a19cdb77378b40a2746594dc4231d80022455edfdbed673",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-08-boundary_dispute/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-08-boundary_dispute/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-08-boundary_dispute/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 78,
+        "expertDimensionScores": {
+          "technical": 23.7,
+          "application": 19.8,
+          "presentation": 15.8
+        },
+        "humanDeductionNotes": [
+          "总分接近晋级边界，需专家校准复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-08-boundary_dispute:claim-1",
+          "transcript:track_42_ai-08-boundary_dispute:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 78,
+            "oldLlmScore": 80,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.7,
+              "application": 19.8,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 78,
+            "oldLlmScore": 80,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.7,
+              "application": 19.8,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 78,
+            "oldLlmScore": 80,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.7,
+              "application": 19.8,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-09-high_score",
+        "projectTitle": "金融科技反欺诈图谱模型",
+        "trackId": "track_42_ai",
+        "sampleType": "high_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.cup.edu.cn/ciee/xwzx/tz/f758577b300c4035a2049345845da9e0.htm",
+        "inputSnapshotHash": "sha256:7660640e579cefa169874bc3b01b4d5b3e17646b3ce56291e2da59a5f1bc3d28",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-09-high_score/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-09-high_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-09-high_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 91,
+        "expertDimensionScores": {
+          "technical": 25.8,
+          "application": 21.2,
+          "presentation": 17.0
+        },
+        "humanDeductionNotes": [
+          "证据链完整，演示稳定，商业或应用闭环清晰"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-09-high_score:claim-1",
+          "transcript:track_42_ai-09-high_score:claim-2",
+          "transcript:track_42_ai-09-high_score:claim-3"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 92,
+            "oldLlmScore": 94,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.8,
+              "application": 21.2,
+              "presentation": 17.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 92,
+            "oldLlmScore": 94,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.8,
+              "application": 21.2,
+              "presentation": 17.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 92,
+            "oldLlmScore": 94,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.8,
+              "application": 21.2,
+              "presentation": 17.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-10-middle_score",
+        "projectTitle": "AI芯片边缘推理能耗优化方案",
+        "trackId": "track_42_ai",
+        "sampleType": "middle_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.cup.edu.cn/ciee/xwzx/tz/f758577b300c4035a2049345845da9e0.htm",
+        "inputSnapshotHash": "sha256:81c78d8b4b3a8786041808971b4c45ad229c6830e8d9377da9a84635d9c6eef2",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-10-middle_score/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-10-middle_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-10-middle_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 80,
+        "expertDimensionScores": {
+          "technical": 23.9,
+          "application": 19.9,
+          "presentation": 15.9
+        },
+        "humanDeductionNotes": [
+          "核心功能可验证，但量化指标和复盘证据仍需补强"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-10-middle_score:claim-1",
+          "transcript:track_42_ai-10-middle_score:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 79,
+            "oldLlmScore": 81,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 23.9,
+              "application": 19.9,
+              "presentation": 15.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 79,
+            "oldLlmScore": 81,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 23.9,
+              "application": 19.9,
+              "presentation": 15.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 79,
+            "oldLlmScore": 81,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 23.9,
+              "application": 19.9,
+              "presentation": 15.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-11-low_score",
+        "projectTitle": "智慧蜂工业级无人机巡检系统",
+        "trackId": "track_42_ai",
+        "sampleType": "low_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://cy.ncss.cn/",
+        "inputSnapshotHash": "sha256:c98ee2d820e5abb08c8ba61d97401f5ad6f3f96e50da0ab511abd96820754d61",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-11-low_score/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-11-low_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-11-low_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 61,
+        "expertDimensionScores": {
+          "technical": 21.1,
+          "application": 18.1,
+          "presentation": 14.5
+        },
+        "humanDeductionNotes": [
+          "方案完整度不足，关键证据和现场演示均偏弱"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-11-low_score:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 61,
+            "oldLlmScore": 63,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.1,
+              "application": 18.1,
+              "presentation": 14.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 61,
+            "oldLlmScore": 63,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.1,
+              "application": 18.1,
+              "presentation": 14.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 61,
+            "oldLlmScore": 63,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.1,
+              "application": 18.1,
+              "presentation": 14.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-12-low_evidence",
+        "projectTitle": "AR骑行抬头显示安全辅助系统",
+        "trackId": "track_42_ai",
+        "sampleType": "low_evidence",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://cy.ncss.cn/",
+        "inputSnapshotHash": "sha256:599f7dd45d6d4f8a37eb0dcc9a2b7c653b26983c51bf23ec9f52b03649944bbf",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-12-low_evidence/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-12-low_evidence/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-12-low_evidence/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 68,
+        "expertDimensionScores": {
+          "technical": 22.4,
+          "application": 18.9,
+          "presentation": 15.1
+        },
+        "humanDeductionNotes": [
+          "主张较强但证据锚点不足，需触发人工复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-12-low_evidence:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-13-demo_failure",
+        "projectTitle": "质谱多系代谢病快速检测试剂盒智能分析",
+        "trackId": "track_42_ai",
+        "sampleType": "demo_failure",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://cy.ncss.cn/",
+        "inputSnapshotHash": "sha256:6a10c73932979d3825cb26c1bd4e0d788ae5a1c02b8e1a62fae1e72537ce0693",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-13-demo_failure/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-13-demo_failure/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-13-demo_failure/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 65,
+        "expertDimensionScores": {
+          "technical": 21.6,
+          "application": 18.4,
+          "presentation": 14.7
+        },
+        "humanDeductionNotes": [
+          "现场演示失败或缺少连续运行证据"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-13-demo_failure:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 64,
+            "oldLlmScore": 66,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.6,
+              "application": 18.4,
+              "presentation": 14.7
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 64,
+            "oldLlmScore": 66,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.6,
+              "application": 18.4,
+              "presentation": 14.7
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 64,
+            "oldLlmScore": 66,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.6,
+              "application": 18.4,
+              "presentation": 14.7
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-14-material_sufficient",
+        "projectTitle": "轻质材料AI设计与工业应用平台",
+        "trackId": "track_42_ai",
+        "sampleType": "material_sufficient",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://cy.ncss.cn/",
+        "inputSnapshotHash": "sha256:e0d7830446e8758b4183b30c6f39467dc93e01862e5679a67445a96e4f1d53a1",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-14-material_sufficient/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-14-material_sufficient/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-14-material_sufficient/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 86,
+        "expertDimensionScores": {
+          "technical": 24.9,
+          "application": 20.6,
+          "presentation": 16.5
+        },
+        "humanDeductionNotes": [
+          "材料充分但现场表达和证据定位需优化"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-14-material_sufficient:claim-1",
+          "transcript:track_42_ai-14-material_sufficient:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 86,
+            "oldLlmScore": 88,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.9,
+              "application": 20.6,
+              "presentation": 16.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 86,
+            "oldLlmScore": 88,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.9,
+              "application": 20.6,
+              "presentation": 16.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 86,
+            "oldLlmScore": 88,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.9,
+              "application": 20.6,
+              "presentation": 16.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-15-slogan_packaging",
+        "projectTitle": "创新结构优化设计软件智能求解平台",
+        "trackId": "track_42_ai",
+        "sampleType": "slogan_packaging",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://cy.ncss.cn/",
+        "inputSnapshotHash": "sha256:5306d94aa8c2af18241b48d1ae3fc0f12cff90519b965b78b3424507da823602",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-15-slogan_packaging/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-15-slogan_packaging/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-15-slogan_packaging/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 70,
+        "expertDimensionScores": {
+          "technical": 22.6,
+          "application": 19.1,
+          "presentation": 15.3
+        },
+        "humanDeductionNotes": [
+          "概念包装明显，缺少可复核实现证据"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-15-slogan_packaging:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 71,
+            "oldLlmScore": 76,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.6,
+              "application": 19.1,
+              "presentation": 15.3
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 71,
+            "oldLlmScore": 76,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.6,
+              "application": 19.1,
+              "presentation": 15.3
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 71,
+            "oldLlmScore": 76,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.6,
+              "application": 19.1,
+              "presentation": 15.3
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-16-boundary_dispute",
+        "projectTitle": "城市基础设施数字化巡检助手",
+        "trackId": "track_42_ai",
+        "sampleType": "boundary_dispute",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.caai.cn/site/content/4764.html",
+        "inputSnapshotHash": "sha256:37247137c71a9ed40f8f53d2a4c18f59e1407a0f8046bce229af26cce1441592",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-16-boundary_dispute/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-16-boundary_dispute/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-16-boundary_dispute/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 78,
+        "expertDimensionScores": {
+          "technical": 23.6,
+          "application": 19.7,
+          "presentation": 15.8
+        },
+        "humanDeductionNotes": [
+          "总分接近晋级边界，需专家校准复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-16-boundary_dispute:claim-1",
+          "transcript:track_42_ai-16-boundary_dispute:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 77,
+            "oldLlmScore": 79,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.6,
+              "application": 19.7,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 77,
+            "oldLlmScore": 79,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.6,
+              "application": 19.7,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 77,
+            "oldLlmScore": 79,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.6,
+              "application": 19.7,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-17-high_score",
+        "projectTitle": "教育治理场景交互体验AI助手",
+        "trackId": "track_42_ai",
+        "sampleType": "high_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.caai.cn/site/content/4764.html",
+        "inputSnapshotHash": "sha256:b33de85050bfe3fdceae2dfc818af3f86f124eb94c542ee7f69f811e9a8ac190",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-17-high_score/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-17-high_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-17-high_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 91,
+        "expertDimensionScores": {
+          "technical": 25.6,
+          "application": 21.1,
+          "presentation": 16.9
+        },
+        "humanDeductionNotes": [
+          "证据链完整，演示稳定，商业或应用闭环清晰"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-17-high_score:claim-1",
+          "transcript:track_42_ai-17-high_score:claim-2",
+          "transcript:track_42_ai-17-high_score:claim-3"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 91,
+            "oldLlmScore": 93,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.6,
+              "application": 21.1,
+              "presentation": 16.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 91,
+            "oldLlmScore": 93,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.6,
+              "application": 21.1,
+              "presentation": 16.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 91,
+            "oldLlmScore": 93,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.6,
+              "application": 21.1,
+              "presentation": 16.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-18-middle_score",
+        "projectTitle": "水产养殖病害预警多模态模型",
+        "trackId": "track_42_ai",
+        "sampleType": "middle_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.stdaily.com/web/gdxw/2026-07/03/content_541856.html",
+        "inputSnapshotHash": "sha256:faf8e58af91597dac6e3b24cca23f16b92b0243015aba390d44181960c4059b6",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-18-middle_score/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-18-middle_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-18-middle_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 80,
+        "expertDimensionScores": {
+          "technical": 24.1,
+          "application": 20.1,
+          "presentation": 16.1
+        },
+        "humanDeductionNotes": [
+          "核心功能可验证，但量化指标和复盘证据仍需补强"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-18-middle_score:claim-1",
+          "transcript:track_42_ai-18-middle_score:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 81,
+            "oldLlmScore": 83,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.1,
+              "application": 20.1,
+              "presentation": 16.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 81,
+            "oldLlmScore": 83,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.1,
+              "application": 20.1,
+              "presentation": 16.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 81,
+            "oldLlmScore": 83,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.1,
+              "application": 20.1,
+              "presentation": 16.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-19-low_score",
+        "projectTitle": "校园AI算法能力训练与评测平台",
+        "trackId": "track_42_ai",
+        "sampleType": "low_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.cnccac.com/rgzn",
+        "inputSnapshotHash": "sha256:2f0cc51d1e104feeef73f75df8603410b40d6550c908d05f095bf731aa30f89b",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-19-low_score/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-19-low_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-19-low_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 61,
+        "expertDimensionScores": {
+          "technical": 21.0,
+          "application": 18.0,
+          "presentation": 14.4
+        },
+        "humanDeductionNotes": [
+          "方案完整度不足，关键证据和现场演示均偏弱"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-19-low_score:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 60,
+            "oldLlmScore": 62,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.0,
+              "application": 18.0,
+              "presentation": 14.4
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 60,
+            "oldLlmScore": 62,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.0,
+              "application": 18.0,
+              "presentation": 14.4
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 60,
+            "oldLlmScore": 62,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.0,
+              "application": 18.0,
+              "presentation": 14.4
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_42_ai-20-low_evidence",
+        "projectTitle": "医疗AI随访与康复风险识别系统",
+        "trackId": "track_42_ai",
+        "sampleType": "low_evidence",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.cup.edu.cn/ciee/xwzx/tz/f758577b300c4035a2049345845da9e0.htm",
+        "inputSnapshotHash": "sha256:086dcb942f157170d51a9316c29d12593d4b59b2c85cddc4d64cd68f185256a9",
+        "frozenInputFiles": {
+          "video": "frozen://track_42_ai-20-low_evidence/roadshow_video.mp4",
+          "transcript": "frozen://track_42_ai-20-low_evidence/transcript.jsonl",
+          "materials": [
+            "frozen://track_42_ai-20-low_evidence/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 68,
+        "expertDimensionScores": {
+          "technical": 22.2,
+          "application": 18.8,
+          "presentation": 15.0
+        },
+        "humanDeductionNotes": [
+          "主张较强但证据锚点不足，需触发人工复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_42_ai-20-low_evidence:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 68,
+            "oldLlmScore": 73,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.2,
+              "application": 18.8,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 68,
+            "oldLlmScore": 73,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.2,
+              "application": 18.8,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 68,
+            "oldLlmScore": 73,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.2,
+              "application": 18.8,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          }
+        ]
+      }
+    ],
+    "track_27_it": [
+      {
+        "sampleId": "track_27_it-01-high_score",
+        "projectTitle": "车规级高速高精度磁角度传感芯片",
+        "trackId": "track_27_it",
+        "sampleType": "high_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://stic.sz.gov.cn/attachment/1/1620/1620787/12353502.pdf",
+        "inputSnapshotHash": "sha256:b28f06323941e60a4cac46879976c2c870e14c5c720a1faa9f404b37db9807b7",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-01-high_score/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-01-high_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-01-high_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 91,
+        "expertDimensionScores": {
+          "technical": 25.5,
+          "application": 21.0,
+          "presentation": 16.8
+        },
+        "humanDeductionNotes": [
+          "证据链完整，演示稳定，商业或应用闭环清晰"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-01-high_score:claim-1",
+          "transcript:track_27_it-01-high_score:claim-2",
+          "transcript:track_27_it-01-high_score:claim-3"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 90,
+            "oldLlmScore": 92,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.5,
+              "application": 21.0,
+              "presentation": 16.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 90,
+            "oldLlmScore": 92,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.5,
+              "application": 21.0,
+              "presentation": 16.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 90,
+            "oldLlmScore": 92,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.5,
+              "application": 21.0,
+              "presentation": 16.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-02-middle_score",
+        "projectTitle": "颜葆大模型行业应用平台",
+        "trackId": "track_27_it",
+        "sampleType": "middle_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://stic.sz.gov.cn/attachment/1/1620/1620787/12353502.pdf",
+        "inputSnapshotHash": "sha256:170fd87941f7f452b6d424e73ca0fd7885c48937e2d4410380d73a72d347a7ff",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-02-middle_score/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-02-middle_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-02-middle_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 80,
+        "expertDimensionScores": {
+          "technical": 24.0,
+          "application": 20.0,
+          "presentation": 16.0
+        },
+        "humanDeductionNotes": [
+          "核心功能可验证，但量化指标和复盘证据仍需补强"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-02-middle_score:claim-1",
+          "transcript:track_27_it-02-middle_score:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 80,
+            "oldLlmScore": 82,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.0,
+              "application": 20.0,
+              "presentation": 16.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 80,
+            "oldLlmScore": 82,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.0,
+              "application": 20.0,
+              "presentation": 16.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 80,
+            "oldLlmScore": 82,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.0,
+              "application": 20.0,
+              "presentation": 16.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-03-low_score",
+        "projectTitle": "虚拟机房电网式算力调度网络",
+        "trackId": "track_27_it",
+        "sampleType": "low_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://cy.ncss.cn/",
+        "inputSnapshotHash": "sha256:fd2f515ab943067730f66598e7802c6c3a2a7e8253b3ef1bb3434e730ae421e2",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-03-low_score/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-03-low_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-03-low_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 61,
+        "expertDimensionScores": {
+          "technical": 21.3,
+          "application": 18.2,
+          "presentation": 14.6
+        },
+        "humanDeductionNotes": [
+          "方案完整度不足，关键证据和现场演示均偏弱"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-03-low_score:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 62,
+            "oldLlmScore": 64,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.3,
+              "application": 18.2,
+              "presentation": 14.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 62,
+            "oldLlmScore": 64,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.3,
+              "application": 18.2,
+              "presentation": 14.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 62,
+            "oldLlmScore": 64,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.3,
+              "application": 18.2,
+              "presentation": 14.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-04-low_evidence",
+        "projectTitle": "超导量子计算实训与云接入平台",
+        "trackId": "track_27_it",
+        "sampleType": "low_evidence",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://cy.ncss.cn/",
+        "inputSnapshotHash": "sha256:3fa5f24d6c2ea8f5dd95376bfb595d6640061e2bb2261c6d1d2b4f24cf9251a5",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-04-low_evidence/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-04-low_evidence/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-04-low_evidence/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 68,
+        "expertDimensionScores": {
+          "technical": 22.1,
+          "application": 18.7,
+          "presentation": 15.0
+        },
+        "humanDeductionNotes": [
+          "主张较强但证据锚点不足，需触发人工复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-04-low_evidence:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 67,
+            "oldLlmScore": 72,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.1,
+              "application": 18.7,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 67,
+            "oldLlmScore": 72,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.1,
+              "application": 18.7,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 67,
+            "oldLlmScore": 72,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.1,
+              "application": 18.7,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-05-demo_failure",
+        "projectTitle": "校园物联网楼宇能耗统一视图平台",
+        "trackId": "track_27_it",
+        "sampleType": "demo_failure",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.fdsm.fudan.edu.cn/aboutus/fdsm1556950472121.m?lookuphost=http%253A%252F%252Fwww.fdsm.fudan.edu.cn&lookuppage=%252Fcs%252FAboutUs%252Ffdsm1556950472121",
+        "inputSnapshotHash": "sha256:cbb89d2cec16189dc4d2a443a9189c76fd9c2ef55155456807c8f9ee722eecb2",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-05-demo_failure/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-05-demo_failure/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-05-demo_failure/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 65,
+        "expertDimensionScores": {
+          "technical": 21.8,
+          "application": 18.5,
+          "presentation": 14.8
+        },
+        "humanDeductionNotes": [
+          "现场演示失败或缺少连续运行证据"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-05-demo_failure:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 65,
+            "oldLlmScore": 67,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.8,
+              "application": 18.5,
+              "presentation": 14.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 65,
+            "oldLlmScore": 67,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.8,
+              "application": 18.5,
+              "presentation": 14.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 65,
+            "oldLlmScore": 67,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.8,
+              "application": 18.5,
+              "presentation": 14.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-06-material_sufficient",
+        "projectTitle": "云计算资源弹性编排教学实验平台",
+        "trackId": "track_27_it",
+        "sampleType": "material_sufficient",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.fdsm.fudan.edu.cn/aboutus/fdsm1556950472121.m?lookuphost=http%253A%252F%252Fwww.fdsm.fudan.edu.cn&lookuppage=%252Fcs%252FAboutUs%252Ffdsm1556950472121",
+        "inputSnapshotHash": "sha256:134e092baff5c1ab6758f871f25a51b56cccc058a552c596834f85737a81dd77",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-06-material_sufficient/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-06-material_sufficient/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-06-material_sufficient/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 86,
+        "expertDimensionScores": {
+          "technical": 25.1,
+          "application": 20.7,
+          "presentation": 16.6
+        },
+        "humanDeductionNotes": [
+          "材料充分但现场表达和证据定位需优化"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-06-material_sufficient:claim-1",
+          "transcript:track_27_it-06-material_sufficient:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 87,
+            "oldLlmScore": 89,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.1,
+              "application": 20.7,
+              "presentation": 16.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 87,
+            "oldLlmScore": 89,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.1,
+              "application": 20.7,
+              "presentation": 16.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 87,
+            "oldLlmScore": 89,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.1,
+              "application": 20.7,
+              "presentation": 16.6
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-07-slogan_packaging",
+        "projectTitle": "区块链供应链溯源轻节点网关",
+        "trackId": "track_27_it",
+        "sampleType": "slogan_packaging",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.fdsm.fudan.edu.cn/aboutus/fdsm1556950472121.m?lookuphost=http%253A%252F%252Fwww.fdsm.fudan.edu.cn&lookuppage=%252Fcs%252FAboutUs%252Ffdsm1556950472121",
+        "inputSnapshotHash": "sha256:03bb6a98e62f0403ae9be2036fba97e86d0d0f76d80df4716fcf2c6603d130bd",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-07-slogan_packaging/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-07-slogan_packaging/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-07-slogan_packaging/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 70,
+        "expertDimensionScores": {
+          "technical": 22.4,
+          "application": 18.9,
+          "presentation": 15.1
+        },
+        "humanDeductionNotes": [
+          "概念包装明显，缺少可复核实现证据"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-07-slogan_packaging:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-08-boundary_dispute",
+        "projectTitle": "金融科技风控实时特征平台",
+        "trackId": "track_27_it",
+        "sampleType": "boundary_dispute",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.fdsm.fudan.edu.cn/aboutus/fdsm1556950472121.m?lookuphost=http%253A%252F%252Fwww.fdsm.fudan.edu.cn&lookuppage=%252Fcs%252FAboutUs%252Ffdsm1556950472121",
+        "inputSnapshotHash": "sha256:bfc4fed178cd8566a5d98f6e336b44b38de138433501c49fb6a14d756f33de0b",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-08-boundary_dispute/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-08-boundary_dispute/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-08-boundary_dispute/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 78,
+        "expertDimensionScores": {
+          "technical": 23.7,
+          "application": 19.8,
+          "presentation": 15.8
+        },
+        "humanDeductionNotes": [
+          "总分接近晋级边界，需专家校准复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-08-boundary_dispute:claim-1",
+          "transcript:track_27_it-08-boundary_dispute:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 78,
+            "oldLlmScore": 80,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.7,
+              "application": 19.8,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 78,
+            "oldLlmScore": 80,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.7,
+              "application": 19.8,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 78,
+            "oldLlmScore": 80,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.7,
+              "application": 19.8,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-09-high_score",
+        "projectTitle": "软件定义网络安全隔离实验平台",
+        "trackId": "track_27_it",
+        "sampleType": "high_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.fdsm.fudan.edu.cn/aboutus/fdsm1556950472121.m?lookuphost=http%253A%252F%252Fwww.fdsm.fudan.edu.cn&lookuppage=%252Fcs%252FAboutUs%252Ffdsm1556950472121",
+        "inputSnapshotHash": "sha256:33b49d3d2d8614e61e3c6f1974194fb3fd54f74119803abc6853e98940dfa541",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-09-high_score/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-09-high_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-09-high_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 91,
+        "expertDimensionScores": {
+          "technical": 25.8,
+          "application": 21.2,
+          "presentation": 17.0
+        },
+        "humanDeductionNotes": [
+          "证据链完整，演示稳定，商业或应用闭环清晰"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-09-high_score:claim-1",
+          "transcript:track_27_it-09-high_score:claim-2",
+          "transcript:track_27_it-09-high_score:claim-3"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 92,
+            "oldLlmScore": 94,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.8,
+              "application": 21.2,
+              "presentation": 17.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 92,
+            "oldLlmScore": 94,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.8,
+              "application": 21.2,
+              "presentation": 17.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 92,
+            "oldLlmScore": 94,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.8,
+              "application": 21.2,
+              "presentation": 17.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-10-middle_score",
+        "projectTitle": "下一代互联网IPv6应用监测系统",
+        "trackId": "track_27_it",
+        "sampleType": "middle_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.fdsm.fudan.edu.cn/aboutus/fdsm1556950472121.m?lookuphost=http%253A%252F%252Fwww.fdsm.fudan.edu.cn&lookuppage=%252Fcs%252FAboutUs%252Ffdsm1556950472121",
+        "inputSnapshotHash": "sha256:fdcde890acc116278dadc168f490540f9b0e19391d76738f0f4f98f75541f9fd",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-10-middle_score/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-10-middle_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-10-middle_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 80,
+        "expertDimensionScores": {
+          "technical": 23.9,
+          "application": 19.9,
+          "presentation": 15.9
+        },
+        "humanDeductionNotes": [
+          "核心功能可验证，但量化指标和复盘证据仍需补强"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-10-middle_score:claim-1",
+          "transcript:track_27_it-10-middle_score:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 79,
+            "oldLlmScore": 81,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 23.9,
+              "application": 19.9,
+              "presentation": 15.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 79,
+            "oldLlmScore": 81,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 23.9,
+              "application": 19.9,
+              "presentation": 15.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 79,
+            "oldLlmScore": 81,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 23.9,
+              "application": 19.9,
+              "presentation": 15.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-11-low_score",
+        "projectTitle": "智慧社区移动互联网服务平台",
+        "trackId": "track_27_it",
+        "sampleType": "low_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://au.cug.edu.cn/info/1096/5856.htm",
+        "inputSnapshotHash": "sha256:98b69d032dc901f4fa61541c3322e3d08a40a2215711a54358dbd0460b3bc9db",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-11-low_score/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-11-low_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-11-low_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 61,
+        "expertDimensionScores": {
+          "technical": 21.1,
+          "application": 18.1,
+          "presentation": 14.5
+        },
+        "humanDeductionNotes": [
+          "方案完整度不足，关键证据和现场演示均偏弱"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-11-low_score:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 61,
+            "oldLlmScore": 63,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.1,
+              "application": 18.1,
+              "presentation": 14.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 61,
+            "oldLlmScore": 63,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.1,
+              "application": 18.1,
+              "presentation": 14.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 61,
+            "oldLlmScore": 63,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.1,
+              "application": 18.1,
+              "presentation": 14.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-12-low_evidence",
+        "projectTitle": "智能家居多协议网关与运维平台",
+        "trackId": "track_27_it",
+        "sampleType": "low_evidence",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://au.cug.edu.cn/info/1096/5856.htm",
+        "inputSnapshotHash": "sha256:3aef8f86428396518471f86cb8aebc3100a16901284b3a92c74fc40f8f24904e",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-12-low_evidence/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-12-low_evidence/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-12-low_evidence/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 68,
+        "expertDimensionScores": {
+          "technical": 22.4,
+          "application": 18.9,
+          "presentation": 15.1
+        },
+        "humanDeductionNotes": [
+          "主张较强但证据锚点不足，需触发人工复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-12-low_evidence:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 69,
+            "oldLlmScore": 74,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.4,
+              "application": 18.9,
+              "presentation": 15.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-13-demo_failure",
+        "projectTitle": "可穿戴设备健康数据边缘分析平台",
+        "trackId": "track_27_it",
+        "sampleType": "demo_failure",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://au.cug.edu.cn/info/1096/5856.htm",
+        "inputSnapshotHash": "sha256:1ca5de51c36593d908aab313a135532ed2f246f94323ac898a300ef7ae7cca9b",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-13-demo_failure/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-13-demo_failure/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-13-demo_failure/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 65,
+        "expertDimensionScores": {
+          "technical": 21.6,
+          "application": 18.4,
+          "presentation": 14.7
+        },
+        "humanDeductionNotes": [
+          "现场演示失败或缺少连续运行证据"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-13-demo_failure:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 64,
+            "oldLlmScore": 66,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.6,
+              "application": 18.4,
+              "presentation": 14.7
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 64,
+            "oldLlmScore": 66,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.6,
+              "application": 18.4,
+              "presentation": 14.7
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 64,
+            "oldLlmScore": 66,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.6,
+              "application": 18.4,
+              "presentation": 14.7
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-demo_failure-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-14-material_sufficient",
+        "projectTitle": "线上线下互动新消费数据中台",
+        "trackId": "track_27_it",
+        "sampleType": "material_sufficient",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://au.cug.edu.cn/info/1096/5856.htm",
+        "inputSnapshotHash": "sha256:8b9a31f7d32bac3af48ad79b9406a0469c675694e1e087c2fa34f3f67478b856",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-14-material_sufficient/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-14-material_sufficient/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-14-material_sufficient/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 86,
+        "expertDimensionScores": {
+          "technical": 24.9,
+          "application": 20.6,
+          "presentation": 16.5
+        },
+        "humanDeductionNotes": [
+          "材料充分但现场表达和证据定位需优化"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-14-material_sufficient:claim-1",
+          "transcript:track_27_it-14-material_sufficient:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 86,
+            "oldLlmScore": 88,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.9,
+              "application": 20.6,
+              "presentation": 16.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 86,
+            "oldLlmScore": 88,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.9,
+              "application": 20.6,
+              "presentation": 16.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 86,
+            "oldLlmScore": 88,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.9,
+              "application": 20.6,
+              "presentation": 16.5
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-15-slogan_packaging",
+        "projectTitle": "大规模个性定制订单协同系统",
+        "trackId": "track_27_it",
+        "sampleType": "slogan_packaging",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://au.cug.edu.cn/info/1096/5856.htm",
+        "inputSnapshotHash": "sha256:4092f1e02bfd19bb4d5eb5fd1f6b5b8aab1b896b01c0162fa4e938827f2cb3f2",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-15-slogan_packaging/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-15-slogan_packaging/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-15-slogan_packaging/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 70,
+        "expertDimensionScores": {
+          "technical": 22.6,
+          "application": 19.1,
+          "presentation": 15.3
+        },
+        "humanDeductionNotes": [
+          "概念包装明显，缺少可复核实现证据"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-15-slogan_packaging:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 71,
+            "oldLlmScore": 76,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.6,
+              "application": 19.1,
+              "presentation": 15.3
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 71,
+            "oldLlmScore": 76,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.6,
+              "application": 19.1,
+              "presentation": 15.3
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 71,
+            "oldLlmScore": 76,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 22.6,
+              "application": 19.1,
+              "presentation": 15.3
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E1",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-slogan_packaging-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-16-boundary_dispute",
+        "projectTitle": "社区公共服务云原生办事平台",
+        "trackId": "track_27_it",
+        "sampleType": "boundary_dispute",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://au.cug.edu.cn/info/1096/5856.htm",
+        "inputSnapshotHash": "sha256:626d337c8b5ca8de529fd3e6e70c6e9778565008277ef3fe77f2888b17444b8f",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-16-boundary_dispute/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-16-boundary_dispute/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-16-boundary_dispute/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 78,
+        "expertDimensionScores": {
+          "technical": 23.6,
+          "application": 19.7,
+          "presentation": 15.8
+        },
+        "humanDeductionNotes": [
+          "总分接近晋级边界，需专家校准复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-16-boundary_dispute:claim-1",
+          "transcript:track_27_it-16-boundary_dispute:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 77,
+            "oldLlmScore": 79,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.6,
+              "application": 19.7,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 77,
+            "oldLlmScore": 79,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.6,
+              "application": 19.7,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 77,
+            "oldLlmScore": 79,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 23.6,
+              "application": 19.7,
+              "presentation": 15.8
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-boundary_dispute-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-17-high_score",
+        "projectTitle": "物联网设备安全态势感知平台",
+        "trackId": "track_27_it",
+        "sampleType": "high_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://www.fdsm.fudan.edu.cn/aboutus/fdsm1556950472121.m?lookuphost=http%253A%252F%252Fwww.fdsm.fudan.edu.cn&lookuppage=%252Fcs%252FAboutUs%252Ffdsm1556950472121",
+        "inputSnapshotHash": "sha256:ad6ad2a29ef801daf491c0e7b915ad7df42655b2a196b74fcc66dad6f5d0be7e",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-17-high_score/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-17-high_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-17-high_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 91,
+        "expertDimensionScores": {
+          "technical": 25.6,
+          "application": 21.1,
+          "presentation": 16.9
+        },
+        "humanDeductionNotes": [
+          "证据链完整，演示稳定，商业或应用闭环清晰"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-17-high_score:claim-1",
+          "transcript:track_27_it-17-high_score:claim-2",
+          "transcript:track_27_it-17-high_score:claim-3"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 91,
+            "oldLlmScore": 93,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.6,
+              "application": 21.1,
+              "presentation": 16.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 91,
+            "oldLlmScore": 93,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.6,
+              "application": 21.1,
+              "presentation": 16.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 91,
+            "oldLlmScore": 93,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 25.6,
+              "application": 21.1,
+              "presentation": 16.9
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E5",
+                "anchorCount": 3,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": []
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-18-middle_score",
+        "projectTitle": "高性能集成电路测试数据管理平台",
+        "trackId": "track_27_it",
+        "sampleType": "middle_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://stic.sz.gov.cn/attachment/1/1620/1620787/12353502.pdf",
+        "inputSnapshotHash": "sha256:609a09a0b5f16f9c169b977e40c32a3cc8086a2ac07472574f5c71ef397240d9",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-18-middle_score/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-18-middle_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-18-middle_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 80,
+        "expertDimensionScores": {
+          "technical": 24.1,
+          "application": 20.1,
+          "presentation": 16.1
+        },
+        "humanDeductionNotes": [
+          "核心功能可验证，但量化指标和复盘证据仍需补强"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-18-middle_score:claim-1",
+          "transcript:track_27_it-18-middle_score:claim-2"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 81,
+            "oldLlmScore": 83,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.1,
+              "application": 20.1,
+              "presentation": 16.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 81,
+            "oldLlmScore": 83,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.1,
+              "application": 20.1,
+              "presentation": 16.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 81,
+            "oldLlmScore": 83,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 24.1,
+              "application": 20.1,
+              "presentation": 16.1
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E4",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-middle_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-19-low_score",
+        "projectTitle": "新型显示产线良率数据分析系统",
+        "trackId": "track_27_it",
+        "sampleType": "low_score",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://stic.sz.gov.cn/attachment/1/1620/1620787/12353502.pdf",
+        "inputSnapshotHash": "sha256:da61194ba39662a00f22a42cd502d8529e5d863fc3286151f380cf2791a5ac57",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-19-low_score/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-19-low_score/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-19-low_score/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 61,
+        "expertDimensionScores": {
+          "technical": 21.0,
+          "application": 18.0,
+          "presentation": 14.4
+        },
+        "humanDeductionNotes": [
+          "方案完整度不足，关键证据和现场演示均偏弱"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-19-low_score:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 60,
+            "oldLlmScore": 62,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.0,
+              "application": 18.0,
+              "presentation": 14.4
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 60,
+            "oldLlmScore": 62,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.0,
+              "application": 18.0,
+              "presentation": 14.4
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 60,
+            "oldLlmScore": 62,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": false,
+            "dimensionScores": {
+              "technical": 21.0,
+              "application": 18.0,
+              "presentation": 14.4
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_score-primary"
+            ]
+          }
+        ]
+      },
+      {
+        "sampleId": "track_27_it-20-low_evidence",
+        "projectTitle": "5G边缘计算视频质检平台",
+        "trackId": "track_27_it",
+        "sampleType": "low_evidence",
+        "sourceMode": "synthetic_from_public_reference",
+        "publicReference": "https://stic.sz.gov.cn/attachment/1/1620/1620787/12353502.pdf",
+        "inputSnapshotHash": "sha256:f6d65a78cfc51a99fa629afe7e712d0078185504a1a9d57e5734f457c3068fe7",
+        "frozenInputFiles": {
+          "video": "frozen://track_27_it-20-low_evidence/roadshow_video.mp4",
+          "transcript": "frozen://track_27_it-20-low_evidence/transcript.jsonl",
+          "materials": [
+            "frozen://track_27_it-20-low_evidence/project_material.md"
+          ]
+        },
+        "ruleVersion": "v1.2-engine-pilot",
+        "humanReferenceScore": 68,
+        "expertDimensionScores": {
+          "technical": 22.2,
+          "application": 18.8,
+          "presentation": 15.0
+        },
+        "humanDeductionNotes": [
+          "主张较强但证据锚点不足，需触发人工复核"
+        ],
+        "verifiableEvidencePoints": [
+          "transcript:track_27_it-20-low_evidence:claim-1"
+        ],
+        "runs": [
+          {
+            "runNo": 1,
+            "ruleEngineScore": 68,
+            "oldLlmScore": 73,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.2,
+              "application": 18.8,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 2,
+            "ruleEngineScore": 68,
+            "oldLlmScore": 73,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.2,
+              "application": 18.8,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          },
+          {
+            "runNo": 3,
+            "ruleEngineScore": 68,
+            "oldLlmScore": 73,
+            "jsonParsed": true,
+            "unsupportedClaims": 0,
+            "needsHumanReview": true,
+            "dimensionScores": {
+              "technical": 22.2,
+              "application": 18.8,
+              "presentation": 15.0
+            },
+            "observationEvidence": [
+              {
+                "observationCode": "O01",
+                "evidenceLevel": "E2",
+                "anchorCount": 1,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              },
+              {
+                "observationCode": "O02",
+                "evidenceLevel": "E3",
+                "anchorCount": 2,
+                "anchorAccurate": true,
+                "lowConfidence": false
+              }
+            ],
+            "deductions": [
+              "D-low_evidence-primary"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

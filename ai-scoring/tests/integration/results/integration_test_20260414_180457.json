@@ -1,0 +1,68 @@
+[
+  {
+    "case_id": "P0-001",
+    "task_id": 57,
+    "status": "completed",
+    "elapsed_seconds": 225.61470007896423,
+    "metrics": {
+      "total_pages": 49,
+      "effective_pages": 0,
+      "empty_pages": 49,
+      "svg_charts": 0,
+      "skill_pages": 0,
+      "garbled_chars": 0,
+      "kpi_pages": 0,
+      "timeline_pages": 0,
+      "content_pages": 0,
+      "team_pages": 0,
+      "cover_pages": 0,
+      "toc_pages": 0,
+      "ending_pages": 0
+    },
+    "pptx_path": "/Users/liuyixing/项目/OREP/ai-scoring/uploads/ppt/ppt_57.pptx"
+  },
+  {
+    "case_id": "P0-002",
+    "task_id": 58,
+    "status": "completed",
+    "elapsed_seconds": 270.69099020957947,
+    "metrics": {
+      "total_pages": 51,
+      "effective_pages": 0,
+      "empty_pages": 51,
+      "svg_charts": 0,
+      "skill_pages": 0,
+      "garbled_chars": 0,
+      "kpi_pages": 0,
+      "timeline_pages": 0,
+      "content_pages": 0,
+      "team_pages": 0,
+      "cover_pages": 0,
+      "toc_pages": 0,
+      "ending_pages": 0
+    },
+    "pptx_path": "/Users/liuyixing/项目/OREP/ai-scoring/uploads/ppt/ppt_58.pptx"
+  },
+  {
+    "case_id": "P2-001",
+    "task_id": 59,
+    "status": "completed",
+    "elapsed_seconds": 265.6594159603119,
+    "metrics": {
+      "total_pages": 48,
+      "effective_pages": 0,
+      "empty_pages": 48,
+      "svg_charts": 0,
+      "skill_pages": 0,
+      "garbled_chars": 0,
+      "kpi_pages": 0,
+      "timeline_pages": 0,
+      "content_pages": 0,
+      "team_pages": 0,
+      "cover_pages": 0,
+      "toc_pages": 0,
+      "ending_pages": 0
+    },
+    "pptx_path": "/Users/liuyixing/项目/OREP/ai-scoring/uploads/ppt/ppt_59.pptx"
+  }
+]

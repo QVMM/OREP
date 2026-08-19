@@ -1,0 +1,368 @@
+/* Clean layout fixes for landing + product preview isolation */
+
+.landing-page {
+  --landing-header-h: 72px;
+  height: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: none;
+  background: #ffffff;
+  color: #101114;
+  font-family: "PingFang SC", "Avenir Next", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header: sticky inside the landing scroll container (not window-fixed) */
+.landing-page .site-header {
+  position: sticky !important;
+  top: 0;
+  z-index: 80;
+  height: var(--landing-header-h) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-bottom: 1px solid rgba(16, 17, 20, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: none !important;
+}
+
+.landing-page .site-header.is-scrolled {
+  position: sticky !important;
+  height: var(--landing-header-h) !important;
+  box-shadow: 0 8px 24px rgba(18, 20, 26, 0.06);
+}
+
+.landing-page .nav-shell {
+  width: min(1180px, calc(100% - 40px));
+}
+
+/* Hero: clean stack, no clipping preview */
+.landing-page .hero {
+  position: relative;
+  min-height: 0 !important;
+  height: auto !important;
+  /* Extra top space so title doesn't sit too close to sticky header */
+  padding: 48px 0 8px !important;
+  overflow: visible !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+.landing-page .hero::after,
+.landing-page .hero-glow {
+  display: none !important;
+}
+
+.landing-page .hero-copy {
+  position: relative;
+  z-index: 2;
+  width: min(720px, calc(100% - 40px)) !important;
+  margin: 0 auto 8px !important;
+  text-align: center;
+}
+
+.landing-page .hero-logo {
+  display: none !important;
+}
+
+.landing-page .hero-copy .eyebrow {
+  margin: 0;
+  color: #e84a1c;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* Only marketing headline — never product mock titles inside .hero-preview */
+.landing-page .hero-copy h1 {
+  margin: 0 !important;
+  font-size: clamp(34px, 4.6vw, 54px) !important;
+  font-weight: 780;
+  letter-spacing: -0.04em !important;
+  line-height: 1.18 !important;
+  color: #101114;
+}
+
+.landing-page .hero-copy h1 .hero-accent {
+  color: #e84a1c;
+}
+
+.landing-page .hero-description {
+  width: min(620px, 100%) !important;
+  margin: 20px auto 0 !important;
+  color: #5f6670 !important;
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+}
+
+.landing-page .hero-pill {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 4px 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: #c2410c;
+  background: #fff1eb;
+  border: 1px solid rgba(232, 74, 28, 0.12);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.4;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.landing-page .hero-lead {
+  width: min(560px, 100%);
+  margin: 16px auto 0;
+  padding-left: 14px;
+  border-left: 3px solid rgba(232, 74, 28, 0.35);
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.75;
+  text-align: left;
+}
+
+.landing-page .hero-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.landing-page .primary-cta,
+.landing-page button.primary-cta {
+  margin-top: 0 !important;
+}
+
+.landing-page .hero-note {
+  margin-top: 12px !important;
+  color: #9aa0a9;
+  font-size: 12px;
+}
+
+.landing-page .hero-preview {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 8px 0 36px;
+  overflow: visible;
+}
+
+/* Isolate product preview from marketing CSS (component owns visual design) */
+.landing-page .hero-preview .ipp,
+.landing-page .hero-preview .ipp * {
+  box-sizing: border-box;
+}
+
+.landing-page .hero-preview .ipp button,
+.landing-page .hero-preview .ipp a,
+.landing-page .hero-preview .ipp input {
+  font-family: inherit;
+}
+
+/* Secondary CTA */
+.landing-page .secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: #4b5565;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(33, 37, 44, 0.08);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.landing-page .secondary-cta:hover {
+  color: #e84a1c;
+  border-color: rgba(232, 74, 28, 0.22);
+}
+
+/* Lower sections spacing */
+.landing-page .closer,
+.landing-page .feedback-section,
+.landing-page .cycle-section,
+.landing-page .creation-section {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-page .module-strip {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.landing-page .module-strip article {
+  min-height: 110px;
+  padding: 16px;
+  border: 1px solid rgba(33, 37, 44, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.landing-page .module-strip article:hover {
+  transform: translateY(-2px);
+  border-color: rgba(232, 74, 28, 0.16);
+  box-shadow: 0 14px 28px rgba(116, 71, 39, 0.08);
+}
+
+.landing-page .module-strip strong {
+  display: block;
+  color: #1f2430;
+  font-size: 14px;
+}
+
+.landing-page .module-strip p {
+  margin: 8px 0 0;
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.landing-page .mobile-login,
+.landing-page .final-login,
+.landing-page .footer-links button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.landing-page .mobile-login {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  border-radius: 12px;
+  color: #fff;
+  background: #e84a1c;
+  font-weight: 700;
+}
+
+.landing-page .final-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 52px;
+  margin-top: 22px;
+  padding: 0 24px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #e84a1c, #f0733d);
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 14px 30px rgba(232, 74, 28, 0.28);
+}
+
+.landing-page .footer-links button {
+  color: inherit;
+  background: transparent;
+  font-weight: 700;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  .landing-page .module-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-page {
+    --landing-header-h: 60px;
+  }
+
+  .landing-page .module-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-page .hero-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .landing-page .secondary-cta,
+  .landing-page .primary-cta {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .landing-page .hero {
+    padding-top: 20px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .landing-page .hero-copy {
+    width: min(100% - 28px, 720px) !important;
+  }
+
+  .landing-page .hero-copy h1 {
+    font-size: clamp(26px, 7.2vw, 34px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .landing-page .hero-description {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  .landing-page .hero-pill {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  /* 产品预览在手机上易过宽溢出：限制高度并允许横向轻量滚动 */
+  .landing-page .hero-preview {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+
+  .landing-page .menu-toggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .landing-page .mobile-menu {
+    padding: 12px 16px 20px;
+  }
+
+  .landing-page .mobile-menu a,
+  .landing-page .mobile-login {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .landing-page .mobile-login {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+    border-radius: 12px;
+    border: 0;
+    background: #e84a1c;
+    color: #fff;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 420px) {
+  .landing-page .hero-copy h1 {
+    font-size: 24px !important;
+  }
+
+  .landing-page .section-intro h2,
+  .landing-page .creation-heading h2,
+  .landing-page .final-content h2 {
+    font-size: clamp(26px, 8vw, 32px) !important;
+  }
+}

@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-third-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T18:00:00+08:00",
+  "trackId": "01",
+  "trackName": "现代农业赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_01_modern_agriculture_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_01-01-high_score",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:2ab0e482ad053fe2bb37cb4b839bd4a74af5cba8b063c7369d4daf6bb8ffdc6d",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_01-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 91,
+      "humanDeductionNotes": [
+        "证据链完整，关键现场、数据和结果闭环充分"
+      ],
+      "scenarioEvidenceSummary": "展示生产场景、农机/设施运行、产量质检和可持续措施闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-01-high_score:claim-1",
+        "transcript:track_01-01-high_score:claim-2",
+        "material:track_01-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 91,
+          "oldLlmScore": 93,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 91,
+          "oldLlmScore": 93,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 91,
+          "oldLlmScore": 93,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_01-02-high_score",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:cc57726c88635d040a1df3af87bf2d4f2aae41d2fd94c950fe80ec2d7b03506e",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_01-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 88,
+      "humanDeductionNotes": [
+        "现场演示和业务数据一致，可复核材料充分"
+      ],
+      "scenarioEvidenceSummary": "展示生产场景、农机/设施运行、产量质检和可持续措施闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-02-high_score:claim-1",
+        "transcript:track_01-02-high_score:claim-2",
+        "material:track_01-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 88,
+          "oldLlmScore": 90,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 88,
+          "oldLlmScore": 90,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 88,
+          "oldLlmScore": 90,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_01-03-middle_score",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:d2fb03cf5be31f17b14f9108c79dc5a913e53162c1733edce87599a129619214",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_01-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 67,
+      "humanDeductionNotes": [
+        "有核心场景和部分数据，但缺少长期追踪或第三方验证"
+      ],
+      "scenarioEvidenceSummary": "提供试验田记录和部分设施演示，但产量质量追踪不连续",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-03-middle_score:claim-1",
+        "transcript:track_01-03-middle_score:claim-2",
+        "material:track_01-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 67,
+          "oldLlmScore": 76,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 67,
+          "oldLlmScore": 76,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 67,
+          "oldLlmScore": 76,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_01-04-middle_score",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:ef058aa8e6efc55a96a52cff829dbf281e0762dd3aa05e0713133f6a311071e4",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_01-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 62,
+      "humanDeductionNotes": [
+        "能证明基本能力，关键质量指标和风险控制仍不完整"
+      ],
+      "scenarioEvidenceSummary": "提供试验田记录和部分设施演示，但产量质量追踪不连续",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-04-middle_score:claim-1",
+        "transcript:track_01-04-middle_score:claim-2",
+        "material:track_01-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 73,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 73,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 73,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_01-05-low_evidence",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:e1afb0e777a9bba2d06e96014f7bf799a9578e15cde4acf9ec0c694c54346475",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_01-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 38,
+      "humanDeductionNotes": [
+        "材料停留在叙述层，缺少可定位、可复核的原始证据"
+      ],
+      "scenarioEvidenceSummary": "缺少连续生产数据，仅展示概念图和作物照片",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-05-low_evidence:claim-1",
+        "transcript:track_01-05-low_evidence:claim-2",
+        "material:track_01-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 38,
+          "oldLlmScore": 70,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 38,
+          "oldLlmScore": 70,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 38,
+          "oldLlmScore": 70,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_01-06-low_evidence",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:252b4996e2597dcd1140904ab8acce2de06417fcfcb43d2c281a346aa2681c4d",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_01-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 34,
+      "humanDeductionNotes": [
+        "展示内容与赛道关键任务弱相关，证据锚点不足"
+      ],
+      "scenarioEvidenceSummary": "缺少连续生产数据，仅展示概念图和作物照片",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-06-low_evidence:claim-1",
+        "transcript:track_01-06-low_evidence:claim-2",
+        "material:track_01-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 34,
+          "oldLlmScore": 68,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 34,
+          "oldLlmScore": 68,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 34,
+          "oldLlmScore": 68,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_01-07-demo_failure",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:d692fce30325a762289541001308082973e37faee35369bc8eb20f47868fdc4d",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_01-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 28,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "缺少连续生产数据，仅展示概念图和作物照片",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-07-demo_failure:claim-1",
+        "transcript:track_01-07-demo_failure:claim-2",
+        "material:track_01-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 28,
+          "oldLlmScore": 66,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 28,
+          "oldLlmScore": 66,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 28,
+          "oldLlmScore": 66,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_01-08-low_score",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:9ac057b1c6d8e2a7341e354a30124e59911dd68cfdbf12fb9ccaf9adaee79194",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_01-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 45,
+      "humanDeductionNotes": [
+        "有少量材料，但与核心成效之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量材料，但与核心成效之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-08-low_score:claim-1",
+        "transcript:track_01-08-low_score:claim-2",
+        "material:track_01-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 45,
+          "oldLlmScore": 63,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 45,
+          "oldLlmScore": 63,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 45,
+          "oldLlmScore": 63,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_01-09-material_sufficient",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:83b2399d9cd29d0d54020bd509e43080cbda6fa8a1082e8825116fa447224ae4",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_01-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 79,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分指标仍需要现场复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分指标仍需要现场复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-09-material_sufficient:claim-1",
+        "transcript:track_01-09-material_sufficient:claim-2",
+        "material:track_01-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 79,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 79,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 79,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_01-10-boundary_dispute",
+      "trackId": "01",
+      "trackName": "现代农业赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/现代农业赛道.md",
+      "inputSnapshotHash": "sha256:e9c0cf4c7735600289537f8caab906819116e1893a70872cdf6b1450c20789a0",
+      "frozenInputFiles": {
+        "video": "frozen://track_01-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_01-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_01-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 56,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义存在争议，需要人工复核归属"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义存在争议，需要人工复核归属",
+      "verifiableEvidencePoints": [
+        "transcript:track_01-10-boundary_dispute:claim-1",
+        "transcript:track_01-10-boundary_dispute:claim-2",
+        "material:track_01-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 56,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 56,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 56,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "种植基地影像",
+                "农机作业记录",
+                "产量质检单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

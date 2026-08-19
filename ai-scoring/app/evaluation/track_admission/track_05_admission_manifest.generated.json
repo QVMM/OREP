@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-third-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T18:00:00+08:00",
+  "trackId": "05",
+  "trackName": "资源开采赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_05_resource_mining_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_05-01-high_score",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:4c7e209b4cff83a41b68144fc9763d2df0c079c596a4728c883cc38a95ebda1c",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_05-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 91,
+      "humanDeductionNotes": [
+        "证据链完整，关键现场、数据和结果闭环充分"
+      ],
+      "scenarioEvidenceSummary": "展示开采方案、安全监测、设备运行、资源利用率和环保处置记录",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-01-high_score:claim-1",
+        "transcript:track_05-01-high_score:claim-2",
+        "material:track_05-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 91,
+          "oldLlmScore": 93,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 91,
+          "oldLlmScore": 93,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 91,
+          "oldLlmScore": 93,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_05-02-high_score",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:d70ab103349bebbea0d995f6a4e40fa857d4794524026ea6cba94ea1aa3b29d2",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_05-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 88,
+      "humanDeductionNotes": [
+        "现场演示和业务数据一致，可复核材料充分"
+      ],
+      "scenarioEvidenceSummary": "展示开采方案、安全监测、设备运行、资源利用率和环保处置记录",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-02-high_score:claim-1",
+        "transcript:track_05-02-high_score:claim-2",
+        "material:track_05-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 88,
+          "oldLlmScore": 90,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 88,
+          "oldLlmScore": 90,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 88,
+          "oldLlmScore": 90,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_05-03-middle_score",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:b171bf3b96e06a17ba6ee26fd409f876457b49b52fe315ae331e63a84d8c31c4",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_05-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 67,
+      "humanDeductionNotes": [
+        "有核心场景和部分数据，但缺少长期追踪或第三方验证"
+      ],
+      "scenarioEvidenceSummary": "有开采方案和设备记录，但资源利用率和环保处置闭环不足",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-03-middle_score:claim-1",
+        "transcript:track_05-03-middle_score:claim-2",
+        "material:track_05-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 67,
+          "oldLlmScore": 76,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 67,
+          "oldLlmScore": 76,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 67,
+          "oldLlmScore": 76,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_05-04-middle_score",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:63002666d571ea073e227b4c6d82244e7b22daacdca4400139cab4b2f20c21c7",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_05-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 62,
+      "humanDeductionNotes": [
+        "能证明基本能力，关键质量指标和风险控制仍不完整"
+      ],
+      "scenarioEvidenceSummary": "有开采方案和设备记录，但资源利用率和环保处置闭环不足",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-04-middle_score:claim-1",
+        "transcript:track_05-04-middle_score:claim-2",
+        "material:track_05-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 73,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 73,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 73,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_05-05-low_evidence",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:87f939a8992ffcc09b91e0acbf7c6974d09b9570591773262e8b3ea1ca7552b7",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_05-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 38,
+      "humanDeductionNotes": [
+        "材料停留在叙述层，缺少可定位、可复核的原始证据"
+      ],
+      "scenarioEvidenceSummary": "只有资源储量和商业计划表述，缺少安全监测和环保处置证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-05-low_evidence:claim-1",
+        "transcript:track_05-05-low_evidence:claim-2",
+        "material:track_05-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 38,
+          "oldLlmScore": 70,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 38,
+          "oldLlmScore": 70,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 38,
+          "oldLlmScore": 70,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_05-06-low_evidence",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:5115c81a370e50a68ad1126e518c1c67731f2f0233eb6bd4d209c0399da7cfd8",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_05-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 34,
+      "humanDeductionNotes": [
+        "展示内容与赛道关键任务弱相关，证据锚点不足"
+      ],
+      "scenarioEvidenceSummary": "只有资源储量和商业计划表述，缺少安全监测和环保处置证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-06-low_evidence:claim-1",
+        "transcript:track_05-06-low_evidence:claim-2",
+        "material:track_05-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 34,
+          "oldLlmScore": 68,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 34,
+          "oldLlmScore": 68,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 34,
+          "oldLlmScore": 68,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_05-07-demo_failure",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:a6c5b6cb6c28515447f618e6bb110a2bcb36735c8162363ff233eea3dfe654b6",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_05-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 28,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "只有资源储量和商业计划表述，缺少安全监测和环保处置证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-07-demo_failure:claim-1",
+        "transcript:track_05-07-demo_failure:claim-2",
+        "material:track_05-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 28,
+          "oldLlmScore": 66,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 28,
+          "oldLlmScore": 66,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 28,
+          "oldLlmScore": 66,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_05-08-low_score",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:d7b3bfe75e2f50e569bda2b27a79757ad99328762fa0ec0b6169ca71a55653ef",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_05-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 45,
+      "humanDeductionNotes": [
+        "有少量材料，但与核心成效之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量材料，但与核心成效之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-08-low_score:claim-1",
+        "transcript:track_05-08-low_score:claim-2",
+        "material:track_05-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 45,
+          "oldLlmScore": 63,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 45,
+          "oldLlmScore": 63,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 45,
+          "oldLlmScore": 63,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_05-09-material_sufficient",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:86263b84ff079f389dfe70ff0a82835de7131988fa8b33696f67b883f10765fd",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_05-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 79,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分指标仍需要现场复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分指标仍需要现场复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-09-material_sufficient:claim-1",
+        "transcript:track_05-09-material_sufficient:claim-2",
+        "material:track_05-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 79,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 79,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 79,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_05-10-boundary_dispute",
+      "trackId": "05",
+      "trackName": "资源开采赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/资源开采赛道.md",
+      "inputSnapshotHash": "sha256:bded4718ae43ca3d353988420d72e0f4b7db7e2027839a8bdf2bd2daa9498e52",
+      "frozenInputFiles": {
+        "video": "frozen://track_05-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_05-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_05-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 56,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义存在争议，需要人工复核归属"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义存在争议，需要人工复核归属",
+      "verifiableEvidencePoints": [
+        "transcript:track_05-10-boundary_dispute:claim-1",
+        "transcript:track_05-10-boundary_dispute:claim-2",
+        "material:track_05-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 56,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 56,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 56,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "开采方案",
+                "安全监测台账",
+                "环保处置记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

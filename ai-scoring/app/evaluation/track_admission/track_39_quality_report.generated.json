@@ -1,0 +1,24 @@
+{
+  "version": "stage8-fifth-batch-quality-report-v1",
+  "trackId": "39",
+  "trackName": "新闻传播赛道",
+  "status": "ready",
+  "sampleCount": 10,
+  "sourceMode": "synthetic_from_local_markdown",
+  "sampleTypeCounts": {
+    "boundary_dispute": 1,
+    "demo_failure": 1,
+    "high_score": 2,
+    "low_evidence": 2,
+    "low_score": 1,
+    "material_sufficient": 1,
+    "middle_score": 2
+  },
+  "jsonParsePassRate": 1.0,
+  "ruleEngineRunCount": 30,
+  "candidateGate": "ready",
+  "knownLimitations": [
+    "样本为基于本地Markdown规则生成的准入样本，不等同真实原始视频样本",
+    "进入pilot或active前仍需真实样本库复验和人工抽检"
+  ]
+}

@@ -1,0 +1,1010 @@
+{
+  "version": "stage8-second-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T17:00:00+08:00",
+  "trackId": "16",
+  "trackName": "航空交通运输赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_16_air_transport_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_16-01-high_score",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:a9b15f5c78b8cc784978861ddacf4b4add666e1421b5df5cfea96ee5970c543f",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_16-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键任务、结果和边界说明充分"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-01-high_score:claim-1",
+        "transcript:track_16-01-high_score:claim-2",
+        "transcript:track_16-01-high_score:claim-3"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_16-02-high_score",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:c6a6c4a23bf1db446d7a9315313523c6092f727cf48e3bb018c51b41eb11e29b",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_16-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键任务、结果和边界说明充分"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-02-high_score:claim-1",
+        "transcript:track_16-02-high_score:claim-2",
+        "transcript:track_16-02-high_score:claim-3"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_16-03-middle_score",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:e3c364c33fab2ed73005eac97334acb46e2867c0a012766899a188ff875de483",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_16-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "核心流程可验证，但对比指标和复盘证据仍需补强"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-03-middle_score:claim-1",
+        "transcript:track_16-03-middle_score:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-middle_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-middle_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-middle_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_16-04-middle_score",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:1491d89a0811026f4a85b135ebdbaa987829eb6b1a2593611a21a9daadc6bf5e",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_16-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "核心流程可验证，但对比指标和复盘证据仍需补强"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-04-middle_score:claim-1",
+        "transcript:track_16-04-middle_score:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-middle_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-middle_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-middle_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_16-05-low_evidence",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:de61c92b32a1089e323e60ada64d173c604619d358f351c9e852514075281cb8",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_16-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "主张较强但证据锚点不足，需要人工复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-05-low_evidence:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-low_evidence"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-low_evidence"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-low_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_16-06-low_evidence",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:8b7f7875d9b4ed28c7c9d83944e704b346275d11376962edf2cd9cf45d90842c",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_16-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "主张较强但证据锚点不足，需要人工复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-06-low_evidence:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-low_evidence"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-low_evidence"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-low_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_16-07-demo_failure",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:4f24bb18d1255234f44abd016bc2533ef31adc9299ee182aa05b282d921dad37",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_16-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 62,
+      "humanDeductionNotes": [
+        "现场演示失败或缺少连续运行证据"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-07-demo_failure:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-demo_failure"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-demo_failure"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-demo_failure"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_16-08-low_score",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:91c365b3f10b341edbb663d71ed7c0f4f93390e730759de56c387e132254124a",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_16-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 58,
+      "humanDeductionNotes": [
+        "任务链条和核心证据均不足"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-08-low_score:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-low_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-low_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-low_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_16-09-material_sufficient",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:6c2d31016a964c31d3c7263c1d0c8ae257b2a7867cbdcd961eb279fc6b784b4d",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_16-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 84,
+      "humanDeductionNotes": [
+        "材料较充分，但现场表达和证据定位仍可优化"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-09-material_sufficient:claim-1",
+        "transcript:track_16-09-material_sufficient:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_16-10-boundary_dispute",
+      "trackId": "16",
+      "trackName": "航空交通运输赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/航空交通运输赛道.md",
+      "inputSnapshotHash": "sha256:5d93116227d625c8dc4ebfebf0a930543311b6273b2795cccb2c9e5844d67bc2",
+      "frozenInputFiles": {
+        "video": "frozen://track_16-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_16-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_16-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 76,
+      "humanDeductionNotes": [
+        "分数接近边界，需专家校准复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_16-10-boundary_dispute:claim-1",
+        "transcript:track_16-10-boundary_dispute:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-boundary_dispute"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-boundary_dispute"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "检查单",
+                "服务流程",
+                "应急演练"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-16-boundary_dispute"
+          ]
+        }
+      ]
+    }
+  ]
+}

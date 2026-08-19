@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "award_list_moe",
+      "query": "搜索2025年职业院校技能大赛国赛的获奖名单",
+      "mock_search_rounds": [
+        [
+          {
+            "title": "教育部关于公布2025年世界职业院校技能大赛获奖名单的通知",
+            "url": "https://www.moe.gov.cn/srcsite/A07/notice.html",
+            "snippet": "见附件1—7",
+            "sourceType": "web"
+          }
+        ]
+      ],
+      "mock_pages": {
+        "https://www.moe.gov.cn/srcsite/A07/notice.html": {
+          "ok": true,
+          "url": "https://www.moe.gov.cn/srcsite/A07/notice.html",
+          "title": "教育部通知",
+          "text": "现将2025年世界职业院校技能大赛获奖名单予以公布",
+          "attachments": [
+            {
+              "title": "冠军总决赛获奖名单",
+              "url": "https://www.moe.gov.cn/srcsite/A07/champ.pdf"
+            },
+            {
+              "title": "高职组获奖名单",
+              "url": "https://www.moe.gov.cn/srcsite/A07/gaozhi.pdf"
+            }
+          ]
+        }
+      },
+      "expect": {
+        "min_evidence": 1,
+        "research_block_contains": [
+          "moe.gov.cn",
+          "champ.pdf"
+        ],
+        "research_block_forbids": [
+          "无法实时网络搜索",
+          "无法进行实时网络搜索",
+          "没有联网搜索工具"
+        ],
+        "finish_reason_in": [
+          "enough",
+          "done"
+        ]
+      }
+    },
+    {
+      "id": "year_noise_then_refine",
+      "query": "2025年职业院校技能大赛获奖名单",
+      "mock_search_rounds": [
+        [
+          {
+            "title": "中华人民共和国2025年国民经济和社会发展统计公报",
+            "url": "https://www.stats.gov.cn/a.html",
+            "snippet": "2025年",
+            "sourceType": "web"
+          }
+        ],
+        [
+          {
+            "title": "教育部关于公布2025年世界职业院校技能大赛获奖名单的通知",
+            "url": "https://www.moe.gov.cn/b.html",
+            "snippet": "获奖名单",
+            "sourceType": "web"
+          }
+        ]
+      ],
+      "mock_pages": {
+        "https://www.moe.gov.cn/b.html": {
+          "ok": true,
+          "url": "https://www.moe.gov.cn/b.html",
+          "title": "教育部名单通知",
+          "text": "公布获奖名单",
+          "attachments": [
+            {
+              "title": "名单PDF",
+              "url": "https://www.moe.gov.cn/list.pdf"
+            }
+          ]
+        }
+      },
+      "expect": {
+        "min_evidence": 1,
+        "research_block_contains": [
+          "moe.gov.cn",
+          "list.pdf"
+        ],
+        "research_block_forbids": [
+          "无法进行实时网络搜索"
+        ],
+        "min_search_steps": 2
+      }
+    },
+    {
+      "id": "empty_honest",
+      "query": "完全不存在的 xyzzy-no-hit-2025 名单",
+      "mock_search_rounds": [
+        []
+      ],
+      "mock_pages": {},
+      "expect": {
+        "min_evidence": 0,
+        "research_block_contains": [
+          "本轮",
+          "未"
+        ],
+        "research_block_forbids": [
+          "无法实时网络搜索",
+          "无法进行实时网络搜索",
+          "没有联网搜索工具"
+        ],
+        "finish_reason_in": [
+          "empty",
+          "max_steps",
+          "done"
+        ]
+      }
+    },
+    {
+      "id": "province_mismatch_empty",
+      "query": "河南省职业院校技能大赛获奖名单",
+      "mock_search_rounds": [
+        [
+          {
+            "title": "山东省职业院校技能大赛获奖名单",
+            "url": "https://example.com/sd",
+            "snippet": "山东省",
+            "sourceType": "web"
+          },
+          {
+            "title": "全国职业院校技能大赛官网",
+            "url": "http://www.nvsc.com.cn/",
+            "snippet": "全国",
+            "sourceType": "web"
+          }
+        ]
+      ],
+      "mock_pages": {},
+      "expect": {
+        "min_evidence": 0,
+        "research_block_contains": [
+          "本轮",
+          "未"
+        ],
+        "research_block_forbids": [
+          "山东省",
+          "nvsc.com.cn",
+          "无法进行实时网络搜索"
+        ]
+      }
+    },
+    {
+      "id": "province_hit_kept",
+      "query": "河南省2025职业院校技能大赛",
+      "mock_search_rounds": [
+        [
+          {
+            "title": "河南省教育厅关于职业院校技能大赛的通知",
+            "url": "https://jyt.example.gov.cn/hn.html",
+            "snippet": "河南省职业院校技能大赛",
+            "sourceType": "web"
+          }
+        ]
+      ],
+      "mock_pages": {
+        "https://jyt.example.gov.cn/hn.html": {
+          "ok": true,
+          "url": "https://jyt.example.gov.cn/hn.html",
+          "title": "河南省教育厅通知",
+          "text": "河南省2025年职业院校技能大赛有关事项",
+          "attachments": [],
+          "docNo": "豫教〔2025〕1号",
+          "date": "2025年6月1日"
+        }
+      },
+      "expect": {
+        "min_evidence": 1,
+        "research_block_contains": [
+          "河南"
+        ],
+        "research_block_forbids": [
+          "山东省",
+          "无法进行实时网络搜索"
+        ],
+        "finish_reason_in": [
+          "enough",
+          "done"
+        ]
+      }
+    },
+    {
+      "id": "empty_honest_v2",
+      "query": "完全虚构赛项 xyzzy-2025-award",
+      "mock_search_rounds": [
+        []
+      ],
+      "mock_pages": {},
+      "expect": {
+        "min_evidence": 0,
+        "research_block_contains": [
+          "未"
+        ],
+        "research_block_forbids": [
+          "无法进行实时网络搜索",
+          "没有联网搜索工具"
+        ]
+      }
+    },
+    {
+      "id": "multi_domain_ok",
+      "query": "2025职业院校技能大赛获奖名单",
+      "mock_search_rounds": [
+        [
+          {
+            "title": "教育部2025职业院校技能大赛名单通知",
+            "url": "https://www.moe.gov.cn/m.html",
+            "snippet": "获奖名单",
+            "sourceType": "web"
+          },
+          {
+            "title": "教育在线：职业院校技能大赛名单",
+            "url": "https://www.eol.cn/e.html",
+            "snippet": "名单转载",
+            "sourceType": "web"
+          }
+        ]
+      ],
+      "mock_pages": {
+        "https://www.moe.gov.cn/m.html": {
+          "ok": true,
+          "url": "https://www.moe.gov.cn/m.html",
+          "title": "教育部通知",
+          "text": "职业院校技能大赛获奖名单",
+          "attachments": [
+            {
+              "title": "名单",
+              "url": "https://www.moe.gov.cn/m.pdf"
+            }
+          ]
+        }
+      },
+      "expect": {
+        "min_evidence": 1,
+        "research_block_contains": [
+          "moe.gov.cn"
+        ],
+        "research_block_forbids": [
+          "无法进行实时网络搜索"
+        ]
+      }
+    }
+  ]
+}

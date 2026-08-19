@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0a0a1a 0%, #0d1f3c 50%, #0a1628 100%);
+    position: relative;
+}
+
+/* === 背景装饰层 === */
+.bg-glow {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,86,211,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+}
+.bg-glow.top-right { top: -100px; right: -100px; }
+.bg-glow.bottom-left { bottom: -150px; left: -100px; opacity: 0.5; }
+
+.bg-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    z-index: 0;
+}
+
+/* === 标题区 === */
+.page-header {
+    position: absolute;
+    left: 80px; top: 40px;
+    z-index: 10;
+}
+.page-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.02em;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+.page-header .accent-bar {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, #0056d3, #00E5FF);
+    margin-top: 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(0,86,211,0.5);
+}
+.page-header .step-label {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 12px;
+    background: rgba(0,86,211,0.15);
+    border: 1px solid rgba(0,86,211,0.3);
+    border-radius: 4px;
+    font-size: 12px;
+    color: #00E5FF;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+/* === 时间轴容器 === */
+.timeline-container {
+    position: absolute;
+    left: 80px; top: 120px;
+    right: 80px; bottom: 60px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* === 单个步骤 === */
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    flex: 1;
+    min-height: 0;
+}
+
+/* 步骤编号 */
+.step-number {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, #0056d3, #0070E0);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+    box-shadow:
+        0 4px 12px rgba(0,86,211,0.4),
+        0 0 20px rgba(0,86,211,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+    position: relative;
+    margin-top: 4px;
+}
+
+/* 编号之间的连接线 */
+.step:not(:last-child) .step-number::after {
+    content: '';
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(100% + 12px);
+    background: linear-gradient(180deg, #0056d3 0%, rgba(0,86,211,0.1) 100%);
+}
+
+/* 步骤内容卡片 */
+.step-card {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 16px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+/* 卡片顶部高亮线 */
+.step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0056d3, transparent);
+    border-radius: 12px 12px 0 0;
+}
+
+/* 步骤名称 */
+.step-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+}
+
+/* 三行信息 */
+.step-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.step-detail .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.step-detail .row .icon {
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 1px;
+}
+.step-detail .row .label {
+    flex-shrink: 0;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-top: 1px;
+}
+.step-detail .row .value {
+    color: rgba(255,255,255,0.85);
+    flex: 1;
+}
+
+/* 各行配色 */
+.row-keypoint .label {
+    background: rgba(255,165,0,0.15);
+    color: #FFA500;
+    border: 1px solid rgba(255,165,0,0.2);
+}
+.row-keypoint .icon { color: #FFA500; }
+
+.row-result .label {
+    background: rgba(0,210,160,0.12);
+    color: #00D2A0;
+    border: 1px solid rgba(0,210,160,0.2);
+}
+.row-result .icon { color: #00D2A0; }
+
+.row-tool .label {
+    background: rgba(120,144,180,0.12);
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(120,144,180,0.15);
+}
+.row-tool .icon { color: rgba(255,255,255,0.4); }
+
+/* 页码 */
+.page-footer {
+    position: absolute;
+    right: 80px; bottom: 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    z-index: 20;
+    letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+
+<!-- 背景装饰 -->
+<div class="bg-glow top-right"></div>
+<div class="bg-glow bottom-left"></div>
+<div class="bg-grid"></div>
+
+<!-- 标题区 -->
+<div class="page-header">
+    <h2>核心技能操作：AI辅助诊断流程</h2>
+    <div class="accent-bar"></div>
+    <span class="step-label">SKILL OPERATION · 4 STEPS</span>
+</div>
+
+<!-- 时间轴 -->
+<div class="timeline-container">
+
+    <!-- 步骤 1 -->
+    <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-card">
+            <div class="step-name">患者数据采集与预处理</div>
+            <div class="step-detail">
+                <div class="row row-keypoint">
+                    <span class="icon">⚡</span>
+                    <span class="label">关键点</span>
+                    <span class="value">DICOM标准格式，数据完整率≥99.5%</span>
+                </div>
+                <div class="row row-result">
+                    <span class="icon">✓</span>
+                    <span class="label">结果</span>
+                    <span class="value">结构化数据入库，可供AI模型调用</span>
+                </div>
+                <div class="row row-tool">
+                    <span class="icon">🔧</span>
+                    <span class="label">工具</span>
+                    <span class="value">PACS系统 · 数据清洗脚本 · PostgreSQL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 步骤 2 -->
+    <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-card">
+            <div class="step-name">AI模型推理与诊断</div>
+            <div class="step-detail">
+                <div class="row row-keypoint">
+                    <span class="icon">⚡</span>
+                    <span class="label">关键点</span>
+                    <span class="value">ResNet-50 + 注意力机制，推理延迟＜3秒</span>
+                </div>
+                <div class="row row-result">
+                    <span class="icon">✓</span>
+                    <span class="label">结果</span>
+                    <span class="value">输出诊断报告 + 置信度评分 + 病灶区域标注</span>
+                </div>
+                <div class="row row-tool">
+                    <span class="icon">🔧</span>
+                    <span class="label">工具</span>
+                    <span class="value">TensorFlow Serving · GPU推理集群 · FastAPI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 步骤 3 -->
+    <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-card">
+            <div class="step-name">医生复核与结果确认</div>
+            <div class="step-detail">
+                <div class="row row-keypoint">
+                    <span class="icon">⚡</span>
+                    <span class="label">关键点</span>
+                    <span class="value">AI建议 + 医生双签制度，安全性双重保障</span>
+                </div>
+                <div class="row row-result">
+                    <span class="icon">✓</span>
+                    <span class="label">结果</span>
+                    <span class="value">最终诊断报告生成，误差率＜0.5%</span>
+                </div>
+                <div class="row row-tool">
+                    <span class="icon">🔧</span>
+                    <span class="label">工具</span>
+                    <span class="value">Web诊断工作台 · 电子签名系统 · HIS对接</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 步骤 4 -->
+    <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-card">
+            <div class="step-name">数据回流与模型迭代</div>
+            <div class="step-detail">
+                <div class="row row-keypoint">
+                    <span class="icon">⚡</span>
+                    <span class="label">关键点</span>
+                    <span class="value">医生反馈自动标注，每周增量训练</span>
+                </div>
+                <div class="row row-result">
+                    <span class="icon">✓</span>
+                    <span class="label">结果</span>
+                    <span class="value">模型准确率月均提升0.3%，持续优化</span>
+                </div>
+                <div class="row row-tool">
+                    <span class="icon">🔧</span>
+                    <span class="label">工具</span>
+                    <span class="value">MLflow · 自动化训练流水线 · A/B测试平台</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="page-footer">14 / 33</div>
+
+</body>
+</html>

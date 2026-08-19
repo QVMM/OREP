@@ -1,0 +1,1010 @@
+{
+  "version": "stage8-second-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T17:00:00+08:00",
+  "trackId": "09",
+  "trackName": "土木建筑设计与管理赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_09_civil_design_management_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_09-01-high_score",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:857c34ef296f435f5a9b8ece0cf836efeb83a9270795324f999c949fdcecd57a",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_09-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键任务、结果和边界说明充分"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-01-high_score:claim-1",
+        "transcript:track_09-01-high_score:claim-2",
+        "transcript:track_09-01-high_score:claim-3"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_09-02-high_score",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:11e791067f654be24e2db9ff20a5f2c5668381b32b7220a5aabd50e25fd55908",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_09-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键任务、结果和边界说明充分"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-02-high_score:claim-1",
+        "transcript:track_09-02-high_score:claim-2",
+        "transcript:track_09-02-high_score:claim-3"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_09-03-middle_score",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:5bd61e8509dce2580b7189c9dfc9d4726406607062248ae82aef847252aa0ea4",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_09-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "核心流程可验证，但对比指标和复盘证据仍需补强"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-03-middle_score:claim-1",
+        "transcript:track_09-03-middle_score:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-middle_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-middle_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-middle_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_09-04-middle_score",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:8babbaa84ce27e727316a341f3dfc8c9644e25f1b48593cbd70dadecf022081a",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_09-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "核心流程可验证，但对比指标和复盘证据仍需补强"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-04-middle_score:claim-1",
+        "transcript:track_09-04-middle_score:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-middle_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-middle_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-middle_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_09-05-low_evidence",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:55932569c8f060d539c713373cde526101aebfd990d3564bc2aea34bcd721c03",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_09-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "主张较强但证据锚点不足，需要人工复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-05-low_evidence:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-low_evidence"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-low_evidence"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-low_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_09-06-low_evidence",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:2e37eee90f2a35aa4b36ced80a4a1ddcb5e4d00673fa04ba4f920f3ea3f95a67",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_09-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "主张较强但证据锚点不足，需要人工复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-06-low_evidence:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-low_evidence"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-low_evidence"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-low_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_09-07-demo_failure",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:fcf199d9f4a30c93b8f3516985682eb0c162b1d74c1ca84735c6d4e0a103e87d",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_09-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 62,
+      "humanDeductionNotes": [
+        "现场演示失败或缺少连续运行证据"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-07-demo_failure:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-demo_failure"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-demo_failure"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-demo_failure"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_09-08-low_score",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:654bacc6e3d3279c4be7e861297e654126e2a6bbd455151496a1aa03c3d40bbf",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_09-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 58,
+      "humanDeductionNotes": [
+        "任务链条和核心证据均不足"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-08-low_score:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-low_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-low_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-low_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_09-09-material_sufficient",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:b8ba65e37d01a00f1a3d17cce6342d3bee5117303d63cbe9b2de714c3eeb18f6",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_09-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 84,
+      "humanDeductionNotes": [
+        "材料较充分，但现场表达和证据定位仍可优化"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-09-material_sufficient:claim-1",
+        "transcript:track_09-09-material_sufficient:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_09-10-boundary_dispute",
+      "trackId": "09",
+      "trackName": "土木建筑设计与管理赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/土木建筑设计与管理赛道.md",
+      "inputSnapshotHash": "sha256:464b9aa411bc38c57378b065271e8c3b35d87386672a1dfebc71ae70a688b359",
+      "frozenInputFiles": {
+        "video": "frozen://track_09-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_09-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_09-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 76,
+      "humanDeductionNotes": [
+        "分数接近边界，需专家校准复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_09-10-boundary_dispute:claim-1",
+        "transcript:track_09-10-boundary_dispute:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-boundary_dispute"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-boundary_dispute"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "图纸",
+                "BIM模型",
+                "规范对照"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-09-boundary_dispute"
+          ]
+        }
+      ]
+    }
+  ]
+}

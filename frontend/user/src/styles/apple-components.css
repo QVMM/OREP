@@ -1,0 +1,51 @@
+.orep-page {
+  min-height: calc(100vh - var(--header-height, 64px));
+  padding: 32px;
+  background: #ffffff;
+}
+
+.orep-shell-width {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+}
+
+.orep-stage {
+  border: 1px solid var(--orep-border-soft);
+  border-radius: var(--orep-radius-stage);
+  background: #ffffff;
+  box-shadow: var(--orep-shadow-stage);
+}
+
+.orep-primary-action {
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 0 22px;
+  border: 1px solid var(--orep-blue);
+  background: var(--orep-blue);
+  color: oklch(0.99 0.004 255);
+  font-weight: 700;
+}
+
+.orep-secondary-action {
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 0 22px;
+  border: 1px solid var(--orep-border);
+  background: oklch(1 0.003 255 / 0.82);
+  color: var(--orep-text-strong);
+  font-weight: 700;
+}
+
+.orep-quiet-label {
+  color: var(--orep-muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+@media (max-width: 767px) {
+  .orep-page {
+    padding: 18px;
+    padding-bottom: 96px;
+  }
+}

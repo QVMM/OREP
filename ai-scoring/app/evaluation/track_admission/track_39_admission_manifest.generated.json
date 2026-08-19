@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-fifth-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T22:00:00+08:00",
+  "trackId": "39",
+  "trackName": "新闻传播赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_39_journalism_communication_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_39-01-high_score",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:9aa1f1e9444ad6e20fb7001e6868b7667544c80d67bec9047e8e55887b500bc3",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_39-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，用户/成果证明、过程记录和价值验证充分"
+      ],
+      "scenarioEvidenceSummary": "展示选题策划、采访采编、作品成果、传播数据和内容合规记录",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-01-high_score:claim-1",
+        "transcript:track_39-01-high_score:claim-2",
+        "material:track_39-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_39-02-high_score",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:57f266983c7202713e9f8c65939d84964868c66844e3fa6136f7bcef30bb1025",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_39-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 87,
+      "humanDeductionNotes": [
+        "现场、数据和材料一致，成本效益或成果边界清楚"
+      ],
+      "scenarioEvidenceSummary": "展示选题策划、采访采编、作品成果、传播数据和内容合规记录",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-02-high_score:claim-1",
+        "transcript:track_39-02-high_score:claim-2",
+        "material:track_39-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_39-03-middle_score",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:96e995f20df6d68c7e125f9858bb2c50e16a5390b93b048d7eca391f090aa3f9",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_39-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "有核心流程和部分数据，但缺少长期运营或第三方复核"
+      ],
+      "scenarioEvidenceSummary": "有选题和作品，但采访记录、传播数据或合规审校不足",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-03-middle_score:claim-1",
+        "transcript:track_39-03-middle_score:claim-2",
+        "material:track_39-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_39-04-middle_score",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:947c4f3803d0b7226a23c1b81c08ea56bebaa82be82babe9d2c53b7a155839fc",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_39-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 61,
+      "humanDeductionNotes": [
+        "能证明基本能力，用户反馈、质量控制或版权边界仍不完整"
+      ],
+      "scenarioEvidenceSummary": "有选题和作品，但采访记录、传播数据或合规审校不足",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-04-middle_score:claim-1",
+        "transcript:track_39-04-middle_score:claim-2",
+        "material:track_39-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_39-05-low_evidence",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:7e7a4255bce8493412f09decc246c73a070ce685b27f31180e3ef2389da2a905",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_39-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 36,
+      "humanDeductionNotes": [
+        "材料停留在模式描述或成果展示层，缺少可定位原始证据"
+      ],
+      "scenarioEvidenceSummary": "只有传播效果口号，缺少选题策划、采编流程和作品成果",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-05-low_evidence:claim-1",
+        "transcript:track_39-05-low_evidence:claim-2",
+        "material:track_39-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_39-06-low_evidence",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:33377370a867d6d12459639c0f1a5e889e721d30ffba6c34a55b6a3c841f0ebd",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_39-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 33,
+      "humanDeductionNotes": [
+        "展示内容与服务/财经/文体关键任务弱相关，用户或成果证据不足"
+      ],
+      "scenarioEvidenceSummary": "只有传播效果口号，缺少选题策划、采编流程和作品成果",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-06-low_evidence:claim-1",
+        "transcript:track_39-06-low_evidence:claim-2",
+        "material:track_39-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_39-07-demo_failure",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:b2a306fdaf16a3550d9863a079001610398a372152b54e224a954ce8f18ecbb2",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_39-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 27,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "只有传播效果口号，缺少选题策划、采编流程和作品成果",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-07-demo_failure:claim-1",
+        "transcript:track_39-07-demo_failure:claim-2",
+        "material:track_39-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_39-08-low_score",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:ec8dd7d03f5d94e5b64066478cbf697b00f9a23b55529a4c0fb187aed261b673",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_39-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 44,
+      "humanDeductionNotes": [
+        "有少量过程材料，但与最终价值或成果之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量过程材料，但与最终价值或成果之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-08-low_score:claim-1",
+        "transcript:track_39-08-low_score:claim-2",
+        "material:track_39-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_39-09-material_sufficient",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:2d7c5d7d996095e5faacd62ae8098d5f62528eda85721619267cad4ac8e4a775",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_39-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分版权、合规或经营边界仍需人工复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分版权、合规或经营边界仍需人工复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-09-material_sufficient:claim-1",
+        "transcript:track_39-09-material_sufficient:claim-2",
+        "material:track_39-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_39-10-boundary_dispute",
+      "trackId": "39",
+      "trackName": "新闻传播赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/新闻传播赛道.md",
+      "inputSnapshotHash": "sha256:0c95993cb72432af203c2c7438fbf68a23eb80af795adce4c243f13cda839d30",
+      "frozenInputFiles": {
+        "video": "frozen://track_39-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_39-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_39-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 55,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义、服务对象或成果归属存在争议"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义、服务对象或成果归属存在争议",
+      "verifiableEvidencePoints": [
+        "transcript:track_39-10-boundary_dispute:claim-1",
+        "transcript:track_39-10-boundary_dispute:claim-2",
+        "material:track_39-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "选题策划案",
+                "采访记录",
+                "成稿或作品链接"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

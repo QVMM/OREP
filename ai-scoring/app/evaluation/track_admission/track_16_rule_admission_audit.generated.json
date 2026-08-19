@@ -1,0 +1,21 @@
+{
+  "auditId": "audit-track-16-generated-v1",
+  "trackId": "16",
+  "trackName": "航空交通运输赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_16_air_transport_v1_2_engine_draft.json",
+  "ruleHash": "sha256:3d57819559abad3874d3ea84f4f58d3b992bfbaa69b1209e51d399a9a798bd1f",
+  "status": "approved",
+  "reviewer": "stage8-generated-admission-auditor",
+  "reviewedAt": "2026-07-05T17:00:00+08:00",
+  "scope": "draft rule structure and generated admission assets",
+  "conclusion": "可进入pilot演练；不得直接active，需真实样本复验后再上线准入。",
+  "checks": [
+    "15 observations present",
+    "E0-E5 evidence caps present",
+    "track-specific evidence present",
+    "deduction and recovery rules present",
+    "10 generated admission samples present"
+  ],
+  "sourceMode": "synthetic_from_local_markdown",
+  "pilotPromotionStatus": "pilot_generated"
+}

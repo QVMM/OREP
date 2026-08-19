@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant User as 教师/专家/学生
+  participant FE as 用户端报告页
+  participant BE as Spring Boot后端
+  participant AI as AI Jury服务
+  participant DB as MySQL
+
+  User->>FE: 点击发起评审团复核
+  FE->>BE: POST /api/ai-score/sessions/{sessionId}/jury/start
+  BE->>DB: 创建 ai_jury_session
+  BE->>AI: 发送基础报告和证据快照
+  AI->>AI: 按 persona 生成多份评审报告
+  AI->>AI: 聚合分数、分歧、共识和建议
+  AI->>BE: 回写成员报告和聚合报告
+  BE->>DB: 写入 ai_jury_member/ai_judge_report/ai_jury_aggregate
+  FE->>BE: GET /api/ai-score/sessions/{sessionId}/jury/result
+  BE-->>FE: 返回复核结果

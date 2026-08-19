@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-fifth-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T22:00:00+08:00",
+  "trackId": "35",
+  "trackName": "旅游赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_35_tourism_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_35-01-high_score",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:e9bcf25d21ec6f0ba00b5b08d00fead435463ffdab0a3b21b9bc4c450bda19ed",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_35-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，用户/成果证明、过程记录和价值验证充分"
+      ],
+      "scenarioEvidenceSummary": "展示服务线路、用户体验、安全保障、运营数据和文化资源证明",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-01-high_score:claim-1",
+        "transcript:track_35-01-high_score:claim-2",
+        "material:track_35-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_35-02-high_score",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:d55aa2aca7b1db4b8fdcd7db097a0b9e55c87b2f2d0d9bd3f79e134cec35ff15",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_35-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 87,
+      "humanDeductionNotes": [
+        "现场、数据和材料一致，成本效益或成果边界清楚"
+      ],
+      "scenarioEvidenceSummary": "展示服务线路、用户体验、安全保障、运营数据和文化资源证明",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-02-high_score:claim-1",
+        "transcript:track_35-02-high_score:claim-2",
+        "material:track_35-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_35-03-middle_score",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:f4ed85b95297699a4c1238e7ff87e85b75b774c3aa4236c6fefec88000869c79",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_35-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "有核心流程和部分数据，但缺少长期运营或第三方复核"
+      ],
+      "scenarioEvidenceSummary": "有线路方案和部分反馈，但运营数据、安全预案不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-03-middle_score:claim-1",
+        "transcript:track_35-03-middle_score:claim-2",
+        "material:track_35-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_35-04-middle_score",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:b49e6f9dea667aa7bfd30e2672924d38fe3dff1485a1ddf8e1a06d5fc22d0623",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_35-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 61,
+      "humanDeductionNotes": [
+        "能证明基本能力，用户反馈、质量控制或版权边界仍不完整"
+      ],
+      "scenarioEvidenceSummary": "有线路方案和部分反馈，但运营数据、安全预案不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-04-middle_score:claim-1",
+        "transcript:track_35-04-middle_score:claim-2",
+        "material:track_35-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_35-05-low_evidence",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:11844770adfd9aa98246dd2293a2023efea126d6d3c43484fe92669ac58d18bd",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_35-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 36,
+      "humanDeductionNotes": [
+        "材料停留在模式描述或成果展示层，缺少可定位原始证据"
+      ],
+      "scenarioEvidenceSummary": "只有旅游线路概念，缺少用户体验、安全保障和文化资源证明",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-05-low_evidence:claim-1",
+        "transcript:track_35-05-low_evidence:claim-2",
+        "material:track_35-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_35-06-low_evidence",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:09896048f8dc6b305d97ddb9db7ab7aaf91eaf71fc2e29a3481b808c32926983",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_35-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 33,
+      "humanDeductionNotes": [
+        "展示内容与服务/财经/文体关键任务弱相关，用户或成果证据不足"
+      ],
+      "scenarioEvidenceSummary": "只有旅游线路概念，缺少用户体验、安全保障和文化资源证明",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-06-low_evidence:claim-1",
+        "transcript:track_35-06-low_evidence:claim-2",
+        "material:track_35-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_35-07-demo_failure",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:22d24292924320663a8741bfbf1b13e9617b61716cc8ca37d990ddf10d056f3d",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_35-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 27,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "只有旅游线路概念，缺少用户体验、安全保障和文化资源证明",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-07-demo_failure:claim-1",
+        "transcript:track_35-07-demo_failure:claim-2",
+        "material:track_35-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_35-08-low_score",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:47b0e235e14fa140075a3f22ebe53eb707b33a3875c5ad3b57972428c8eec441",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_35-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 44,
+      "humanDeductionNotes": [
+        "有少量过程材料，但与最终价值或成果之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量过程材料，但与最终价值或成果之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-08-low_score:claim-1",
+        "transcript:track_35-08-low_score:claim-2",
+        "material:track_35-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_35-09-material_sufficient",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:90da3a1f2d850896a03ed3db63946088276d01dba28f044e2b6112196ee6b034",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_35-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分版权、合规或经营边界仍需人工复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分版权、合规或经营边界仍需人工复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-09-material_sufficient:claim-1",
+        "transcript:track_35-09-material_sufficient:claim-2",
+        "material:track_35-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_35-10-boundary_dispute",
+      "trackId": "35",
+      "trackName": "旅游赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/旅游赛道.md",
+      "inputSnapshotHash": "sha256:35f819beae17fe8fcbc7515d0ce444c49fa1e837792ff1e05ac9dc1212ca6ea5",
+      "frozenInputFiles": {
+        "video": "frozen://track_35-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_35-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_35-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 55,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义、服务对象或成果归属存在争议"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义、服务对象或成果归属存在争议",
+      "verifiableEvidencePoints": [
+        "transcript:track_35-10-boundary_dispute:claim-1",
+        "transcript:track_35-10-boundary_dispute:claim-2",
+        "material:track_35-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务线路方案",
+                "游客反馈记录",
+                "安全保障清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

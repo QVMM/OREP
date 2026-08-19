@@ -1,0 +1,53 @@
+flowchart TB
+  subgraph Client[前端]
+    UserFE[用户端 Vue]
+    AdminFE[管理端 Vue]
+  end
+
+  subgraph Gateway[Nginx/静态资源/反向代理]
+    Nginx[Nginx]
+  end
+
+  subgraph Backend[Spring Boot 后端]
+    Auth[认证与权限]
+    Biz[业务 Controller/Service]
+    PDF[PDF/文件/上传]
+    Callback[AI与录制回调]
+  end
+
+  subgraph AI[AI 服务]
+    Scoring[AI Scoring Pipeline]
+    Jury[AI Jury]
+    Chat[AI 复盘问答]
+    PPTAgent[PPT Agent/Generator]
+    Prep[项目准备分析]
+  end
+
+  subgraph Realtime[实时会议与录制]
+    LiveKit[LiveKit]
+    Signaling[Socket.IO 信令]
+    Bot[Recording Bot]
+  end
+
+  subgraph Storage[数据与存储]
+    MySQL[(MySQL)]
+    Redis[(Redis)]
+    MinIO[(MinIO/本地文件)]
+  end
+
+  UserFE --> Nginx
+  AdminFE --> Nginx
+  Nginx --> Backend
+  Nginx --> AI
+  Nginx --> LiveKit
+  Backend --> MySQL
+  Backend --> Redis
+  Backend --> MinIO
+  Backend --> LiveKit
+  Backend --> Bot
+  Backend --> AI
+  AI --> MySQL
+  AI --> MinIO
+  Bot --> LiveKit
+  Bot --> Backend
+  Bot --> MinIO

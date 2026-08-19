@@ -1,0 +1,12 @@
+{
+  "track_id": "人工智能",
+  "rubric_internal_version": "v1.2",
+  "rubrics_in_scope": ["实用性"],
+  "profile": "contest_1h_slice_news",
+  "config_version": "mvp-0",
+  "aggregate": "max",
+  "relation_types": ["supports", "contradicts", "bridges_to"],
+  "news_fresh_days": 180,
+  "intents": ["intent_urgency", "intent_bridge"],
+  "note": "bridges_to 只证明结构化任务完成，不证明 AI 理解叙事"
+}

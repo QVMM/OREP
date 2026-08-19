@@ -1,0 +1,662 @@
+/**
+ * AI 应用壳层与共享规范
+ * - flushMain 页面由本壳层自管边距：上/左/右 40px
+ * - 标题 24px + 说明 13px
+ * - 卡片用 student-card 同级表面（发丝线 + 无投影）
+ * - 主按钮用 student-primary-btn 体系
+ * 小启 AI 独立，不强制套此壳层
+ */
+
+.ai-app-shell {
+  --ai-app-page-margin-x: 40px;
+  --ai-app-page-margin-y: 40px;
+  --ai-app-workspace-inset: 40px;
+  --ai-app-header-height: auto;
+  --ai-app-workspace-header-height: 56px;
+}
+
+.ai-app-shell,
+.ai-app-content,
+.ai-app-header,
+.ai-app-section,
+.ai-app-page {
+  box-sizing: border-box;
+}
+
+/*
+ * Landing / task：
+ * - flushMain 时 workspace-main overflow:hidden，必须由本壳层承担纵向滚动
+ * - 上/左/右 40px 边距
+ */
+.ai-app-shell {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  padding: var(--ai-app-page-margin-y) var(--ai-app-page-margin-x) var(--ds-space-6);
+  color: var(--ds-ink);
+  font-family: var(--ds-font-sans);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+.ai-app-content {
+  --ai-app-width-wide: 100%;
+  --ai-app-width-standard: 100%;
+  --ai-app-width-reading: 880px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: min-content;
+}
+
+.ai-app-content.is-wide { max-width: none; }
+.ai-app-content.is-standard { max-width: none; }
+.ai-app-content.is-reading { max-width: var(--ai-app-width-reading); }
+.ai-app-content.is-fluid { max-width: none; }
+
+.ai-app-shell__body {
+  min-width: 0;
+  margin-top: var(--ds-space-5);
+  /* 内容自然撑开，由 .ai-app-shell 滚动，不在此裁切 */
+  overflow: visible;
+}
+
+/* —— 页头：对齐 student-page__head / 路演 page-head —— */
+.ai-app-page-head {
+  margin: 0 0 var(--ds-space-5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ds-space-5);
+}
+
+.ai-app-page-head h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--ds-ink);
+}
+
+.ai-app-page-head p {
+  margin: 6px 0 0;
+  color: var(--ds-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+/* —— 指标条：对齐训练营 command metrics —— */
+.ai-app-metric-strip {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0 0 var(--ds-space-5);
+  border: 1px solid var(--ds-card-border, #e2e4ea);
+  border-radius: var(--ds-card-radius, 14px);
+  background: var(--ds-card-bg, #fff);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.ai-app-metric {
+  flex: 1 1 0;
+  min-width: 88px;
+  padding: 14px 16px;
+  text-align: left;
+  border-left: 1px solid var(--ds-line);
+}
+
+.ai-app-metric:first-child {
+  border-left: 0;
+}
+
+.ai-app-metric strong {
+  display: block;
+  color: var(--ds-ink);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ai-app-metric span {
+  display: block;
+  margin-top: 4px;
+  color: var(--ds-muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* —— 面板：对齐 student-card —— */
+.ai-app-panel {
+  border: 1px solid var(--ds-card-border, #e2e4ea);
+  border-radius: var(--ds-card-radius, 14px);
+  background: var(--ds-card-bg, #fff);
+  box-shadow: none;
+}
+
+.ai-app-panel + .ai-app-panel {
+  margin-top: var(--ds-space-4);
+}
+
+.ai-app-panel__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ds-space-4);
+  padding: 16px 18px 0;
+}
+
+.ai-app-panel__head h2,
+.ai-app-panel__head h3 {
+  margin: 0;
+  color: var(--ds-ink);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.ai-app-panel__head p {
+  margin: 4px 0 0;
+  color: var(--ds-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.ai-app-panel__body {
+  padding: 14px 18px 18px;
+}
+
+/* —— 筛选 chip：对齐训练营 filter —— */
+.ai-app-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 var(--ds-space-4);
+}
+
+.ai-app-filter button {
+  appearance: none;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--ds-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ds-muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color var(--ds-control-transition),
+    border-color var(--ds-control-transition),
+    background-color var(--ds-control-transition);
+}
+
+.ai-app-filter button:hover {
+  color: var(--ds-ink-2);
+  border-color: var(--ds-line-strong, var(--ds-line));
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.ai-app-filter button.is-active {
+  color: var(--ds-orange-700, #c2410c);
+  border-color: color-mix(in srgb, var(--ds-orange-500, #f97316) 35%, var(--ds-line));
+  background: color-mix(in srgb, var(--ds-orange-50, #fff7ed) 88%, white);
+}
+
+.ai-app-filter button:focus-visible {
+  outline: var(--ds-focus-outline);
+  outline-offset: 2px;
+}
+
+/* —— 表单控件 —— */
+.ai-app-fields {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ai-app-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ai-app-field > span {
+  color: var(--ds-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ai-app-field select,
+.ai-app-field input,
+.ai-app-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 40px;
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius-md);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ds-ink);
+  font: inherit;
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+.ai-app-field textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.ai-app-field select:focus-visible,
+.ai-app-field input:focus-visible,
+.ai-app-field textarea:focus-visible {
+  outline: var(--ds-focus-outline);
+  outline-offset: 1px;
+}
+
+.ai-app-field--block {
+  grid-column: 1 / -1;
+}
+
+/* —— 列表行 —— */
+.ai-app-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+}
+
+.ai-app-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--ds-line);
+}
+
+.ai-app-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.ai-app-list li:first-child {
+  padding-top: 0;
+}
+
+.ai-app-list strong {
+  display: block;
+  color: var(--ds-ink);
+  font-size: 14px;
+}
+
+.ai-app-list span,
+.ai-app-list time {
+  color: var(--ds-muted);
+  font-size: 12px;
+}
+
+/* —— Workspace 沉浸模式：左右 40px；主体区可滚 —— */
+.ai-app-shell.is-workspace {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  padding: 0 var(--ai-app-page-margin-x);
+  /* 外层不滚，避免双滚动条；内容在 body 滚 */
+  overflow: hidden;
+}
+
+.ai-app-shell.is-workspace .ai-app-content {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: var(--ai-app-workspace-header-height) minmax(0, 1fr);
+}
+
+.ai-app-shell.is-workspace .ai-app-shell__body {
+  min-height: 0;
+  margin-top: 0;
+  padding: var(--ds-space-5) 0 var(--ds-space-6);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* —— Header —— */
+.ai-app-header {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ds-space-4);
+  color: var(--ds-ink);
+  padding-bottom: 2px;
+}
+
+.ai-app-header.is-landing,
+.ai-app-header.is-task {
+  display: block;
+  margin: 0;
+}
+
+.ai-app-header__stack {
+  display: grid;
+  gap: 8px;
+}
+
+.ai-app-header__title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ds-space-4);
+}
+
+.ai-app-header.is-workspace {
+  min-height: var(--ai-app-workspace-header-height);
+  align-items: center;
+  padding: 0;
+  border-bottom: 1px solid var(--ds-line);
+  background: transparent;
+}
+
+.ai-app-header__main,
+.ai-app-header__identity,
+.ai-app-header__right,
+.ai-app-header__actions,
+.ai-app-header__local-navigation {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.ai-app-header__main {
+  flex: 1;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ai-app-header__back {
+  min-height: 32px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px 0 2px;
+  border-radius: var(--ds-radius-sm);
+  color: var(--ds-muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--ds-control-transition), background-color var(--ds-control-transition);
+}
+
+.ai-app-header__back:hover {
+  color: var(--ds-ink);
+  background: transparent;
+}
+
+.ai-app-header__back:focus-visible {
+  outline: var(--ds-focus-outline);
+  outline-offset: 2px;
+}
+
+.ai-app-header__back svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ai-app-header__divider {
+  width: 1px;
+  height: 16px;
+  flex: 0 0 auto;
+  background: var(--ds-line);
+  align-self: center;
+}
+
+.ai-app-header__context {
+  flex: 0 1 auto;
+  overflow: hidden;
+  color: var(--ds-muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ai-app-header__identity {
+  gap: 12px;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ai-app-header__icon {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius-md);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--ds-ink-2);
+}
+
+.ai-app-header.is-workspace .ai-app-header__icon {
+  width: 32px;
+  height: 32px;
+  flex-basis: 32px;
+}
+
+.ai-app-header__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ai-app-header__copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.ai-app-header__copy h1,
+.ai-app-header__copy p,
+.ai-app-header__status {
+  margin: 0;
+}
+
+.ai-app-header__copy h1 {
+  overflow: hidden;
+  color: var(--ds-ink);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ai-app-header.is-workspace .ai-app-header__copy h1 {
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.ai-app-header.is-workspace .ai-app-header__identity {
+  align-items: center;
+}
+
+.ai-app-header__title-input {
+  width: min(100%, 28rem);
+  min-width: 0;
+  border: 1px solid var(--ds-line-strong);
+  border-radius: var(--ds-radius-sm);
+  padding: 2px var(--ds-space-2);
+  background: var(--ds-surface-solid);
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.ai-app-header__title-input:focus-visible {
+  outline: var(--ds-focus-outline);
+  outline-offset: var(--ds-focus-offset);
+  box-shadow: var(--ds-btn-focus-ring);
+}
+
+.ai-app-header__copy p,
+.ai-app-header__status {
+  color: var(--ds-muted);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.ai-app-header.is-workspace .ai-app-header__copy p,
+.ai-app-header.is-workspace .ai-app-header__status {
+  font-size: 12px;
+}
+
+.ai-app-header__copy p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ai-app-header__local-navigation { flex: 0 0 auto; }
+.ai-app-header__right {
+  flex: 0 0 auto;
+  justify-content: flex-end;
+  gap: var(--ds-space-3);
+  align-self: center;
+}
+.ai-app-header__actions { gap: 8px; }
+
+/* —— Section（任务流内部块）—— */
+.ai-app-section {
+  overflow: hidden;
+  border: 1px solid var(--ds-card-border, #e2e4ea);
+  border-radius: var(--ds-card-radius, 14px);
+  background: var(--ds-card-bg, #fff);
+  box-shadow: none;
+}
+
+.ai-app-section__header {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-4);
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--ds-line);
+}
+
+.ai-app-section__heading { min-width: 0; }
+.ai-app-section__heading h2,
+.ai-app-section__heading p { margin: 0; }
+.ai-app-section__heading h2 {
+  color: var(--ds-ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.ai-app-section__heading p {
+  margin-top: 4px;
+  color: var(--ds-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.ai-app-section__actions { flex: 0 0 auto; }
+.ai-app-section__body { padding: 16px 18px 18px; }
+.ai-app-section.is-compact .ai-app-section__header,
+.ai-app-section.is-compact .ai-app-section__body { padding: 12px 14px; }
+
+/* 透明底：与工作台画布一致 */
+.workspace-main > :where(.ai-app-shell, .ai-app-center, .typing-home-page) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+@media (max-width: 1023px) {
+  .ai-app-shell:not(.is-workspace) {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  }
+
+  .ai-app-shell.is-workspace .ai-app-shell__body {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  }
+
+  .ai-app-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ai-app-metric {
+    min-width: 46%;
+    border-left: 0;
+    border-top: 1px solid var(--ds-line);
+  }
+
+  .ai-app-metric:nth-child(-n + 2) {
+    border-top: 0;
+  }
+
+  .ai-app-metric:nth-child(odd) {
+    border-right: 1px solid var(--ds-line);
+  }
+}
+
+@media (max-width: 767px) {
+  .ai-app-shell {
+    --ai-app-page-margin-x: 16px;
+    --ai-app-page-margin-y: 18px;
+    --ai-app-workspace-inset: 16px;
+  }
+
+  .ai-app-header.is-workspace {
+    min-height: 52px;
+  }
+
+  .ai-app-header__main {
+    gap: 8px;
+  }
+
+  .ai-app-header__back {
+    width: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .ai-app-header__back span,
+  .ai-app-header__divider,
+  .ai-app-header__context {
+    display: none;
+  }
+
+  .ai-app-header__copy h1 {
+    font-size: 20px;
+  }
+
+  .ai-app-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-app-page-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

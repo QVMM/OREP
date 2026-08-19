@@ -1,0 +1,85 @@
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --orep-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+  --orep-bg: #ffffff;
+  --orep-bg-soft: #ffffff;
+  --orep-surface: #ffffff;
+  --orep-surface-raised: #ffffff;
+  --orep-text: oklch(0.24 0.018 50);
+  --orep-text-strong: oklch(0.17 0.012 45);
+  --orep-muted: oklch(0.5 0.018 55);
+  --orep-faint: oklch(0.68 0.015 55);
+  --orep-border: oklch(0.865 0.016 55);
+  --orep-border-soft: oklch(0.915 0.01 55);
+  --orep-blue: oklch(0.66 0.19 43);
+  --orep-blue-hover: oklch(0.6 0.2 43);
+  --orep-blue-soft: oklch(0.96 0.04 55);
+  --orep-green: oklch(0.62 0.16 150);
+  --orep-green-soft: oklch(0.94 0.04 150);
+  --orep-orange: oklch(0.66 0.19 43);
+  --orep-orange-soft: oklch(0.96 0.04 55);
+  --orep-orange-wash: oklch(0.984 0.025 55);
+  --orep-red: oklch(0.62 0.19 28);
+  --orep-red-soft: oklch(0.94 0.04 28);
+  --orep-radius-sm: 8px;
+  --orep-radius-md: 14px;
+  --orep-radius-lg: 22px;
+  --orep-radius-stage: 32px;
+  --orep-shadow-soft: 0 20px 58px oklch(0.2 0.015 45 / 0.06);
+  --orep-shadow-stage: 0 26px 74px oklch(0.2 0.015 45 / 0.08);
+  --orep-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --color-primary: var(--orep-blue);
+  --color-primary-hover: var(--orep-blue-hover);
+  --color-primary-active: oklch(0.45 0.22 255);
+  --color-secondary: oklch(0.55 0.16 285);
+  --color-secondary-hover: oklch(0.48 0.16 285);
+  --color-secondary-active: oklch(0.4 0.15 285);
+  --color-success: var(--orep-green);
+  --color-warning: var(--orep-orange);
+  --color-error: var(--orep-red);
+  --color-info: var(--orep-blue);
+
+  --bg-primary: var(--orep-surface);
+  --bg-secondary: var(--orep-bg);
+  --bg-tertiary: var(--orep-bg-soft);
+  --bg-elevated: var(--orep-surface-raised);
+  --text-primary: var(--orep-text-strong);
+  --text-secondary: var(--orep-muted);
+  --text-tertiary: var(--orep-faint);
+  --text-inverse: oklch(0.99 0.004 255);
+  --text-link: var(--orep-blue);
+  --border-default: var(--orep-border);
+  --border-light: var(--orep-border-soft);
+  --border-focus: var(--orep-blue);
+  --border-error: var(--orep-red);
+  --font-sans: var(--orep-font-sans);
+  --shadow-sm: 0 4px 14px oklch(0.42 0.05 255 / 0.08);
+  --shadow-md: var(--orep-shadow-soft);
+  --shadow-lg: var(--orep-shadow-stage);
+  --transition-fast: 140ms var(--orep-ease-out);
+  --transition-normal: 220ms var(--orep-ease-out);
+  --transition-slow: 360ms var(--orep-ease-out);
+
+  --el-color-primary: var(--orep-blue);
+  --el-bg-color: var(--orep-surface);
+  --el-bg-color-overlay: var(--orep-surface-raised);
+  --el-border-color: var(--orep-border);
+  --el-border-color-light: var(--orep-border-soft);
+  --el-text-color-primary: var(--orep-text);
+  --el-text-color-regular: var(--orep-muted);
+  --el-text-color-secondary: var(--orep-faint);
+  --el-fill-color-light: var(--orep-bg-soft);
+}
+
+html,
+body {
+  background: var(--orep-bg);
+  color: var(--orep-text);
+}
+
+::selection {
+  background: var(--orep-blue-soft);
+  color: var(--orep-text-strong);
+}

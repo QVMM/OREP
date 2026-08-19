@@ -1,0 +1,21 @@
+{
+  "auditId": "audit-track-12-generated-v1",
+  "trackId": "12",
+  "trackName": "机械设计与制造赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_12_mechanical_design_manufacturing_v1_2_engine_draft.json",
+  "ruleHash": "sha256:73274b162251aa8404f8ca70a6fbbc7b30c1e1f6653d35bc5741d61d129a66ae",
+  "status": "approved",
+  "reviewer": "stage8-generated-admission-auditor",
+  "reviewedAt": "2026-07-05T16:00:00+08:00",
+  "scope": "draft rule structure and generated admission assets",
+  "conclusion": "可进入pilot演练；不得直接active，需真实样本复验后再上线准入。",
+  "checks": [
+    "15 observations present",
+    "E0-E5 evidence caps present",
+    "track-specific evidence present",
+    "deduction and recovery rules present",
+    "10 generated admission samples present"
+  ],
+  "sourceMode": "synthetic_from_local_markdown",
+  "pilotPromotionStatus": "pilot_generated"
+}

@@ -1,0 +1,22 @@
+sequenceDiagram
+  participant User as 用户
+  participant FE as 用户端
+  participant BE as Spring Boot后端
+  participant AI as AI Scoring服务
+  participant DB as MySQL
+  participant FS as 文件/MinIO
+
+  User->>FE: 上传视频或选择会议录制
+  FE->>BE: POST /api/ai-score/upload-session 或 /sessions
+  BE->>DB: 创建 ai_scoring_session
+  BE->>FS: 保存媒体文件或记录录制引用
+  FE->>BE: POST /api/ai-score/sessions/{id}/start
+  BE->>AI: POST /api/ai/score-session
+  AI->>FS: 读取视频/材料
+  AI->>AI: 音频提取/ASR/视觉帧/证据抽取
+  AI->>AI: 规则评分/LLM分析/报告生成
+  AI->>BE: POST /api/ai-score/sessions/{id}/pipeline-callback
+  BE->>DB: 写入 report/observations/deductions/anchors
+  FE->>BE: GET /api/ai-score/sessions/{id}/status
+  FE->>BE: GET /api/ai-score/reports/by-session/{id}
+  BE-->>FE: 返回报告与证据链

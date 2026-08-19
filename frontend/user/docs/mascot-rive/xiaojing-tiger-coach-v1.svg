@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">小竞卡通老虎教练造型与表情板 v1</title>
+  <desc id="desc">竞赛大脑 Rive 吉祥物，小虎教练方向，含主造型与 idle、关注、提醒、高兴、待命五个表情状态。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f6f2ec; }
+      .panel { fill: #fffaf4; stroke: rgba(18,20,26,.12); stroke-width: 1.5; }
+      .ink { fill: #12141a; }
+      .ink-line { stroke: #12141a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+      .line { stroke: rgba(18,20,26,.22); stroke-width: 4; stroke-linecap: round; fill: none; }
+      .tiger { fill: #e84a1c; }
+      .tiger-dark { fill: #c43a12; }
+      .cream { fill: #fff7ee; }
+      .muzzle { fill: #ffffff; }
+      .vest { fill: #12141a; }
+      .vest-soft { fill: #2c3038; }
+      .whistle { fill: #f6f2ec; stroke: #12141a; stroke-width: 4; }
+      .green { fill: #0f9f6e; }
+      .amber { fill: #d98200; }
+      .soft-orange { fill: #fde8de; }
+      .shadow { fill: rgba(18,20,26,.08); }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #12141a; font-size: 24px; font-weight: 750; }
+      .note { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7280; font-size: 15px; font-weight: 500; }
+      .micro { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #6b7280; font-size: 13px; font-weight: 600; }
+    </style>
+
+    <g id="tiger-head">
+      <ellipse class="tiger" cx="0" cy="0" rx="92" ry="82"/>
+      <circle class="tiger" cx="-62" cy="-62" r="30"/>
+      <circle class="tiger" cx="62" cy="-62" r="30"/>
+      <circle class="cream" cx="-62" cy="-62" r="16"/>
+      <circle class="cream" cx="62" cy="-62" r="16"/>
+      <path class="cream" d="M-58 13c0-31 25-56 58-56s58 25 58 56c0 36-25 58-58 58s-58-22-58-58z"/>
+      <path class="tiger-dark" d="M-12-83h24L0-55z"/>
+      <path class="tiger-dark" d="M-48-61c14 5 25 12 34 24-15-4-26-10-36-19z"/>
+      <path class="tiger-dark" d="M48-61c-14 5-25 12-34 24 15-4 26-10 36-19z"/>
+      <path class="tiger-dark" d="M-83-15c16 1 29 5 40 14-17 1-31-2-43-8z"/>
+      <path class="tiger-dark" d="M83-15c-16 1-29 5-40 14 17 1 31-2 43-8z"/>
+      <ellipse class="muzzle" cx="-22" cy="33" rx="28" ry="21"/>
+      <ellipse class="muzzle" cx="22" cy="33" rx="28" ry="21"/>
+      <path class="ink" d="M-8 19h16l-8 9z"/>
+    </g>
+
+    <g id="coach-body">
+      <path class="tiger" d="M-55 70c0-33 24-58 55-58s55 25 55 58v23c0 24-20 44-44 44h-22c-24 0-44-20-44-44z"/>
+      <path class="vest" d="M-44 54c7-24 24-38 44-38s37 14 44 38v54c-9 14-24 22-44 22s-35-8-44-22z"/>
+      <path class="vest-soft" d="M-16 19h32l-16 46z"/>
+      <circle class="cream" cx="-25" cy="86" r="9"/>
+      <circle class="cream" cx="25" cy="86" r="9"/>
+      <path class="line" d="M-52 75c-25 7-36 23-39 44"/>
+      <path class="line" d="M52 75c25 7 36 23 39 44"/>
+      <path class="whistle" d="M32 28h27c9 0 16 7 16 16s-7 16-16 16H32z"/>
+      <circle class="ink" cx="58" cy="44" r="5"/>
+      <path class="ink-line" d="M23 25c12 3 20 4 31 3" opacity=".5"/>
+    </g>
+
+    <g id="eyes-idle">
+      <ellipse class="muzzle" cx="-30" cy="-5" rx="20" ry="17"/>
+      <ellipse class="muzzle" cx="30" cy="-5" rx="20" ry="17"/>
+      <circle class="ink" cx="-25" cy="-4" r="7"/>
+      <circle class="ink" cx="35" cy="-4" r="7"/>
+    </g>
+    <g id="eyes-focus">
+      <ellipse class="muzzle" cx="-30" cy="-7" rx="21" ry="18"/>
+      <ellipse class="muzzle" cx="30" cy="-7" rx="21" ry="18"/>
+      <circle class="ink" cx="-20" cy="-8" r="7"/>
+      <circle class="ink" cx="40" cy="-8" r="7"/>
+    </g>
+    <g id="eyes-nudge">
+      <ellipse class="muzzle" cx="-30" cy="-5" rx="20" ry="17"/>
+      <ellipse class="muzzle" cx="30" cy="-5" rx="20" ry="17"/>
+      <circle class="ink" cx="-36" cy="-5" r="7"/>
+      <circle class="ink" cx="24" cy="-5" r="7"/>
+    </g>
+    <g id="eyes-happy">
+      <path class="ink-line" d="M-48-5c8-9 25-9 34 0"/>
+      <path class="ink-line" d="M14-5c8-9 25-9 34 0"/>
+    </g>
+    <g id="eyes-standby">
+      <path class="ink-line" d="M-49-3c11 5 24 5 36 0" opacity=".8"/>
+      <path class="ink-line" d="M13-3c11 5 24 5 36 0" opacity=".8"/>
+    </g>
+  </defs>
+
+  <rect class="bg" width="1280" height="760"/>
+  <text x="56" y="58" class="label">小竞 · 卡通老虎竞赛教练 v1</text>
+  <text x="56" y="88" class="note">关键词：冷静教练、轻微俏皮、可状态驱动；橙色来自品牌，不做赛博/卖萌/表情包。</text>
+
+  <g transform="translate(56 120)">
+    <rect class="panel" width="430" height="560" rx="18"/>
+    <text x="28" y="44" class="label">主造型</text>
+    <text x="28" y="73" class="note">穿深色小背心，哨子是“教练感”识别点；动作保持陪衬。</text>
+    <g transform="translate(215 278)">
+      <ellipse class="shadow" cx="0" cy="194" rx="96" ry="16"/>
+      <use href="#coach-body"/>
+      <use href="#tiger-head"/>
+      <use href="#eyes-idle"/>
+      <path class="ink-line" d="M-16 49c10 7 24 7 34 0" opacity=".58"/>
+      <circle class="green" cx="72" cy="-27" r="7"/>
+    </g>
+    <text x="28" y="504" class="micro">建议 Artboard：220x220 或 240x240；主体占画板约 72%，安全边距充足。</text>
+    <text x="28" y="530" class="micro">可动层：头、耳、瞳孔、爪子、哨子、身体呼吸、尾/状态点。</text>
+  </g>
+
+  <g transform="translate(526 120)">
+    <rect class="panel" width="698" height="560" rx="18"/>
+    <text x="28" y="44" class="label">表情板 / mood 映射</text>
+    <text x="28" y="73" class="note">五态都只改变眼睛、眉线、状态点和小动作，避免大幅表演抢主分数。</text>
+
+    <g transform="translate(92 193) scale(.62)">
+      <ellipse class="shadow" cx="0" cy="194" rx="96" ry="16"/>
+      <use href="#coach-body"/>
+      <use href="#tiger-head"/>
+      <use href="#eyes-idle"/>
+      <path class="ink-line" d="M-16 49c10 7 24 7 34 0" opacity=".58"/>
+      <circle class="green" cx="72" cy="-27" r="7"/>
+    </g>
+    <text x="51" y="361" class="micro">idle / 在线</text>
+    <text x="44" y="384" class="micro">清醒、正视</text>
+
+    <g transform="translate(225 193) scale(.62)">
+      <ellipse class="shadow" cx="0" cy="194" rx="96" ry="16"/>
+      <use href="#coach-body"/>
+      <use href="#tiger-head"/>
+      <use href="#eyes-focus"/>
+      <path class="ink-line" d="M-14 49c10 6 22 6 32 0" opacity=".58"/>
+      <circle class="green" cx="72" cy="-27" r="7"/>
+    </g>
+    <text x="183" y="361" class="micro">关注 / hover</text>
+    <text x="177" y="384" class="micro">眼睛跟指针</text>
+
+    <g transform="translate(358 193) scale(.62)">
+      <ellipse class="shadow" cx="0" cy="194" rx="96" ry="16"/>
+      <use href="#coach-body"/>
+      <use href="#tiger-head"/>
+      <use href="#eyes-nudge"/>
+      <path class="ink-line" d="M-16 50c10 5 24 5 34 0" opacity=".58"/>
+      <circle class="amber" cx="72" cy="-27" r="8"/>
+      <path class="ink-line" d="M-90 119c-15 0-25 8-31 20" opacity=".45"/>
+    </g>
+    <text x="318" y="361" class="micro">提醒 / nudge</text>
+    <text x="312" y="384" class="micro">看向下一刀</text>
+
+    <g transform="translate(491 193) scale(.62)">
+      <ellipse class="shadow" cx="0" cy="194" rx="96" ry="16"/>
+      <use href="#coach-body"/>
+      <use href="#tiger-head"/>
+      <use href="#eyes-happy"/>
+      <path class="ink-line" d="M-22 43c12 13 32 13 44 0" opacity=".72"/>
+      <circle class="green" cx="72" cy="-27" r="8"/>
+      <path class="tiger-dark" d="M79-95c10-6 22-2 27 8-10 0-19 3-27 8z"/>
+    </g>
+    <text x="454" y="361" class="micro">高兴 / celebrate</text>
+    <text x="453" y="384" class="micro">短点头回落</text>
+
+    <g transform="translate(624 193) scale(.62)">
+      <ellipse class="shadow" cx="0" cy="194" rx="96" ry="16"/>
+      <use href="#coach-body"/>
+      <use href="#tiger-head"/>
+      <use href="#eyes-standby"/>
+      <path class="ink-line" d="M-14 50c9 4 22 4 31 0" opacity=".34"/>
+      <circle fill="#c5c9d1" cx="72" cy="-27" r="7"/>
+    </g>
+    <text x="591" y="361" class="micro">待命 / standby</text>
+    <text x="588" y="384" class="micro">轻闭眼呼吸</text>
+
+    <g transform="translate(36 434)">
+      <rect x="0" y="0" width="626" height="74" rx="14" fill="#fef6f2" stroke="rgba(232,74,28,.18)"/>
+      <text x="18" y="29" class="micro">Rive 输入建议：lookX/lookY 控制瞳孔与头部 8° 内轻转；mood=0/1/2/3 对应待命/在线/提醒/庆祝。</text>
+      <text x="18" y="54" class="micro">tap：0.6-0.8s 点头或小爪一挥；celebrate：1.2s 内，自动回到 online/nudge。</text>
+    </g>
+  </g>
+</svg>

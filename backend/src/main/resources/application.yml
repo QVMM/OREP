@@ -1,0 +1,135 @@
+server:
+  port: ${SERVER_PORT:8080}
+  tomcat:
+    connection-timeout: ${SERVER_TOMCAT_CONNECTION_TIMEOUT:600000}
+    max-http-form-post-size: ${SERVER_TOMCAT_MAX_HTTP_FORM_POST_SIZE:7GB}
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: ${SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE:5GB}
+      max-request-size: ${SPRING_SERVLET_MULTIPART_MAX_REQUEST_SIZE:7GB}
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/orep?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:12345678}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 100
+    locations: classpath:db/migration
+    validate-on-migrate: true
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:127.0.0.1}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+      password: ${SPRING_DATA_REDIS_PASSWORD:}
+  mail:
+    host: ${SPRING_MAIL_HOST:smtp.qq.com}
+    port: ${SPRING_MAIL_PORT:587}
+    username: ${SPRING_MAIL_USERNAME:}
+    password: ${SPRING_MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: ${SPRING_MAIL_SMTP_AUTH:true}
+          starttls:
+            enable: ${SPRING_MAIL_SMTP_STARTTLS_ENABLE:true}
+            required: ${SPRING_MAIL_SMTP_STARTTLS_REQUIRED:false}
+          ssl:
+            enable: ${SPRING_MAIL_SMTP_SSL_ENABLE:false}
+            protocols: ${SPRING_MAIL_SMTP_SSL_PROTOCOLS:TLSv1.2}
+            trust: ${SPRING_MAIL_SMTP_SSL_TRUST:}
+            checkserveridentity: ${SPRING_MAIL_SMTP_SSL_CHECK_SERVER_IDENTITY:false}
+          socketFactory:
+            class: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_CLASS:}
+            port: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_PORT:${SPRING_MAIL_PORT:587}}
+            fallback: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_FALLBACK:false}
+          connectiontimeout: ${SPRING_MAIL_SMTP_CONNECTION_TIMEOUT:10000}
+          timeout: ${SPRING_MAIL_SMTP_TIMEOUT:10000}
+          writetimeout: ${SPRING_MAIL_SMTP_WRITE_TIMEOUT:10000}
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.orep.backend.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+orep:
+  jwt:
+    secret: ${OREP_JWT_SECRET:OREP_DEV_ONLY_CHANGE_ME_SECRET_KEY_64_CHARS_MINIMUM_2026}
+    expiration: ${OREP_JWT_EXPIRATION:86400000}
+  email:
+    code-expiration: ${OREP_EMAIL_CODE_EXPIRATION:300000}
+    from: ${OREP_EMAIL_FROM:${SPRING_MAIL_USERNAME:}}
+    python-fallback-enabled: ${OREP_EMAIL_PYTHON_FALLBACK_ENABLED:false}
+    python-bin: ${OREP_EMAIL_PYTHON_BIN:python3}
+  monitor:
+    geo:
+      enabled: ${OREP_MONITOR_GEO_ENABLED:true}
+      api-url: ${OREP_MONITOR_GEO_API_URL:http://ip-api.com/json/%s?lang=zh-CN&fields=status,country,countryCode,regionName,city,isp,query}
+  features:
+    collaboration:
+      enabled: ${OREP_COLLABORATION_ENABLED:true}
+  assistant:
+    internal-token: ${OREP_ASSISTANT_INTERNAL_TOKEN:OREP_ASSISTANT_INTERNAL_DEV_TOKEN}
+  inspire-office:
+    # 全部用环境变量覆盖；下方 : 后仅为本地开发默认值，云端切勿改代码。
+    #   OREP_INSPIRE_OFFICE_ENABLED   开关
+    #   OREP_COLLABORA_URL            后端→引擎 discovery（内网）
+    #   OREP_COLLABORA_PUBLIC_URL     浏览器 iframe 基址（公网/同源代理）
+    #   OREP_WOPI_PUBLIC_BASE_URL     引擎→后端 WOPI 回调基址
+    #   OREP_WOPI_TOKEN_TTL_MS        WOPI token 有效期
+    enabled: ${OREP_INSPIRE_OFFICE_ENABLED:true}
+    # 本地：http://127.0.0.1:9980/collabora
+    # 云端：http://collabora:9980/collabora（docker 内网服务名）
+    collabora-url: ${OREP_COLLABORA_URL:http://127.0.0.1:9980/collabora}
+    # 本地：http://127.0.0.1:5174（Vite 代理 /collabora，保留前缀）
+    # 云端：https://www.jingsaidanao.com/collabora
+    collabora-public-url: ${OREP_COLLABORA_PUBLIC_URL:http://127.0.0.1:5174}
+    # 本地：http://host.docker.internal:8080
+    # 云端：https://www.jingsaidanao.com 或内网 backend 地址
+    wopi-public-base-url: ${OREP_WOPI_PUBLIC_BASE_URL:http://host.docker.internal:8080}
+    wopi-token-ttl-ms: ${OREP_WOPI_TOKEN_TTL_MS:3600000}
+
+livekit:
+  api-key: ${LIVEKIT_API_KEY:devkey-orep-local}
+  api-secret: ${LIVEKIT_API_SECRET:OREP_DEV_ONLY_LIVEKIT_SECRET_32_CHARS}
+  ws-url: ${LIVEKIT_WS_URL:ws://127.0.0.1:7880}
+  egress:
+    api-url: ${LIVEKIT_EGRESS_API_URL:http://127.0.0.1:7880}
+    s3:
+      endpoint: ${LIVEKIT_EGRESS_S3_ENDPOINT:http://127.0.0.1:9000}
+      access-key: ${LIVEKIT_EGRESS_S3_ACCESS_KEY:minioadmin}
+      secret-key: ${LIVEKIT_EGRESS_S3_SECRET_KEY:minioadmin}
+      region: ${LIVEKIT_EGRESS_S3_REGION:us-east-1}
+      bucket: ${LIVEKIT_EGRESS_S3_BUCKET:meeting-recordings}
+
+file:
+  upload-dir: ${FILE_UPLOAD_DIR:./uploads}
+
+minio:
+  endpoint: ${MINIO_ENDPOINT:http://127.0.0.1:9000}
+  access-key: ${MINIO_ACCESS_KEY:minioadmin}
+  secret-key: ${MINIO_SECRET_KEY:minioadmin}
+  bucket: ${MINIO_BUCKET:meeting-recordings}
+
+recording:
+  mode: ${RECORDING_MODE:bot}
+  bot:
+    url: ${RECORDING_BOT_URL:http://127.0.0.1:8091}
+    secret: ${RECORDING_BOT_SECRET:OREP_DEV_RECORDING_BOT_SECRET}
+  callback:
+    base-url: ${RECORDING_CALLBACK_BASE_URL:http://127.0.0.1:8080}
+
+# Local default: host loopback. Docker/prod must override to service name.
+ai-scoring:
+  base-url: ${AI_SCORING_BASE_URL:http://127.0.0.1:8090}
+  # Absolute upload root as seen by the ai-scoring container (must match its volume mount).
+  # Empty = use file.upload-dir (only correct when both services share the same volume path).
+  file-root: ${AI_SCORING_FILE_ROOT:}
+  connect-timeout-ms: ${AI_SCORING_CONNECT_TIMEOUT_MS:10000}
+  # 15s is too short when ai-scoring is busy with a long roadshow pipeline
+  read-timeout-ms: ${AI_SCORING_READ_TIMEOUT_MS:120000}

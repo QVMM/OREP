@@ -1,0 +1,21 @@
+{
+  "auditId": "audit-track-07-generated-v1",
+  "trackId": "07",
+  "trackName": "能源动力赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_07_energy_power_v1_2_engine_draft.json",
+  "ruleHash": "sha256:1a577f3e8c86f7475a7aa3c0e8608a914255045efb22b45df8897d6bc8408261",
+  "status": "approved",
+  "reviewer": "stage8-generated-admission-auditor",
+  "reviewedAt": "2026-07-05T17:00:00+08:00",
+  "scope": "draft rule structure and generated admission assets",
+  "conclusion": "可进入pilot演练；不得直接active，需真实样本复验后再上线准入。",
+  "checks": [
+    "15 observations present",
+    "E0-E5 evidence caps present",
+    "track-specific evidence present",
+    "deduction and recovery rules present",
+    "10 generated admission samples present"
+  ],
+  "sourceMode": "synthetic_from_local_markdown",
+  "pilotPromotionStatus": "pilot_generated"
+}

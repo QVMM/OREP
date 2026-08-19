@@ -1,0 +1,105 @@
+{
+  "version": "2026-05-09-deep-dynamic-study",
+  "source": {
+    "method": "30 unique RapidDesign case pages, dynamic media extracted via browser, mid/late video frames sampled with ffmpeg",
+    "contact_sheets_dir": "/Users/liuyixing/项目/OREP/ai-scoring/output/rapidesign_deep_study/20260509/contact_sheets",
+    "case_count": 30
+  },
+  "core_principle": "Generate competition-grade PPT pages by choosing a page-specific visual motif first, then arranging only the essential conclusion and evidence around it. Do not produce generic card grids, generic horizontal flowchains, or isolated chart containers.",
+  "one_three_ten_second_rule": {
+    "one_second": "The viewer can identify the single dominant visual object or spatial scene.",
+    "three_seconds": "The viewer can understand the page's main conclusion without reading body paragraphs.",
+    "ten_seconds": "The viewer can inspect 2-4 supporting evidence points and understand why the conclusion is credible."
+  },
+  "global_directives": [
+    "Each page must define visual_motif before layout: object, scene, map, path, ring, tower, dashboard, product, person, city, mountain, sea, stage, device, certificate, or evidence wall.",
+    "The motif must occupy meaningful area, usually 35-70% of the body region, unless the page is a dense evidence/dashboard page.",
+    "Use fewer but stronger elements: one main visual, one conclusion, two to four evidence points.",
+    "Move detailed explanations to speaker_notes_json. Page text should be conclusion and labels, not full narration.",
+    "Maintain deck unity through color, material, title grammar, line language, footer rhythm, and recurring motif fragments, not through repeating identical card layouts.",
+    "When using charts, integrate them into a scene: map overlay, dashboard wall, circular system, journey path, evidence strip, or stage panel."
+  ],
+  "negative_directives": [
+    "Do not use more than three same-sized white rounded cards as the primary composition.",
+    "Do not use a horizontal node-chain flow by default.",
+    "Do not wrap every diagram in a big pale empty container.",
+    "Do not use evaluation/score wording on competition project pages unless the content itself is about evaluation.",
+    "Do not write generic phrases such as 覆盖评分点, 方案完整, 效果显著 without concrete scene evidence.",
+    "Do not let the SVG/diagram be the whole design; the diagram should become part of a designed scene."
+  ],
+  "page_archetypes": {
+    "cover": {
+      "intent": "Brand-poster opening",
+      "composition": "Full-bleed scene or generated hero image, large project name, subtitle, minimal metadata.",
+      "motifs": ["city", "industry scene", "product object", "mountain/sea/road", "person silhouette", "technology field"],
+      "prompt": "Design a PPT cover like a premium keynote poster. Choose one domain-specific hero scene or object as the dominant visual. Use the project name as the main typographic event. Do not use cards or web landing-page sections."
+    },
+    "contents": {
+      "intent": "Navigation with spatial memory",
+      "composition": "Scenic strip or route/map with 4-5 section numbers; current section highlighted by size/color/position.",
+      "motifs": ["mountain panorama", "city horizon", "road map", "timeline ribbon", "chapter landscape"],
+      "prompt": "Create a directory page, not a meeting agenda. Use a landscape/path/map metaphor and 4-5 numbered chapters. Make the active chapter visually dominant."
+    },
+    "architecture": {
+      "intent": "Explain system relationships",
+      "composition": "Choose ring, tower, layered pyramid, control room, map deployment, or challenge-capability-solution stage based on content.",
+      "motifs": ["central ring", "layered tower", "3D pyramid", "control room", "map deployment", "solution stage"],
+      "prompt": "Convert the architecture into a designed spatial system. Avoid equal card rows. Show hierarchy, flow, dependencies, and output value through scale and position."
+    },
+    "process": {
+      "intent": "Show transformation over time",
+      "composition": "Road, tunnel, rail, light path, river, or slope with milestones attached to the path and a clear destination.",
+      "motifs": ["road", "light path", "time tunnel", "rail", "river", "mountain slope"],
+      "prompt": "Design the process as a journey with a visible destination. Milestones should grow along a path, not sit as isolated boxes."
+    },
+    "data": {
+      "intent": "Make one result impossible to miss",
+      "composition": "One dominant number/result plus contextual evidence, using badges, map labels, dashboard panels, or chart embedded in scene.",
+      "motifs": ["big number", "instrument panel", "map badge", "evidence strip", "comparison wall"],
+      "prompt": "Lead with one result. Use secondary data as proof around it. Avoid four equal KPI cards."
+    },
+    "evidence_chain": {
+      "intent": "Prove credibility",
+      "composition": "Claim first, then evidence from source record, process trace, result metric, or scene photo.",
+      "motifs": ["certificate wall", "timeline proof", "dashboard wall", "lab/field scene", "source-to-value path"],
+      "prompt": "Show what has been proven and why. Use three evidence anchors with concrete labels. Do not use evaluator-facing score language."
+    },
+    "value": {
+      "intent": "Memorable closing or section summary",
+      "composition": "Poster-like conclusion with symbolic visual and 2-3 outcome proofs.",
+      "motifs": ["summit", "sea horizon", "light gate", "city skyline", "central emblem", "road destination"],
+      "prompt": "Make the page feel like a summary poster. One sentence conclusion, one strong visual symbol, two or three proof points."
+    },
+    "market_or_region": {
+      "intent": "Explain location and opportunity",
+      "composition": "Layered map: macro location, target region, route/connection, opportunity badges.",
+      "motifs": ["map", "route", "city marker", "industry belt", "regional rings"],
+      "prompt": "Use map storytelling. Reveal where, why it matters, and what opportunity exists through spatial layers."
+    },
+    "product_or_scene": {
+      "intent": "Make abstract capability tangible",
+      "composition": "Product/device/field scene as hero, labels attached to physical parts or usage steps.",
+      "motifs": ["device", "screen", "machine", "medical scene", "field scene", "interface"],
+      "prompt": "Anchor the message in a real object or usage scene. Attach capability labels to the object, not to detached cards."
+    }
+  },
+  "visual_variation_directives": [
+    "If the previous page used cards, this page must use map/ring/path/tower/stage/photo-overlay instead.",
+    "If the page has 4+ items, choose a spatial metaphor rather than a grid.",
+    "If the content is abstract, force a concrete metaphor: road for process, ring for ecosystem, tower for hierarchy, map for region, dashboard for operations, certificate wall for proof.",
+    "At least one page in every 5-page span should be a scene-led page with image or generated bitmap visual.",
+    "Every diagram-heavy page must state why its diagram form fits the content."
+  ],
+  "audit_rules": {
+    "blank_or_empty": "Fail when body region has large empty area with no intentional focal object.",
+    "card_grid": "Fail when primary body contains 4+ same-size cards and no stronger focal object.",
+    "unclear_focus": "Fail when no element is visually dominant by size, color, contrast, or position.",
+    "text_heavy": "Fail when body paragraphs explain more than labels and short evidence.",
+    "diagram_container": "Fail when a diagram sits in a large generic container without scene integration.",
+    "same_as_previous": "Fail when layout differs from adjacent pages only by text replacement."
+  },
+  "speaker_notes_policy": {
+    "page": "Keep only headline, main conclusion, labels, key numbers, and short proof phrases.",
+    "json": "Put detailed explanation, transition script, data interpretation, and caveats into speaker_notes_json."
+  }
+}

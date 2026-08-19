@@ -1,0 +1,70 @@
+/* 启发 Office branding — 最小侵入 + 强制工具条可见
+ *
+ * 历史事故：过度 display:none / removeChild 导致 notebookbar 空白。
+ * 当前策略：
+ *  1) 不隐藏任何工具栏/页签容器
+ *  2) 用 !important 压过 jQuery $("#toolbar-row").css("display","none")
+ *     （UIManager 在 text.ShowToolbar=false 时会 collapseNotebookbar）
+ */
+
+/* 去 logo 背景图（资源已挂载为空 SVG），不改盒模型 */
+html .document-logo,
+html:not([data-theme='dark']) .document-logo,
+html[data-theme='dark'] .document-logo {
+  background-image: none !important;
+}
+
+/* —— 强制 notebookbar 工具行可见（修复「开始」下整块空白） —— */
+body #toolbar-row,
+.hasnotebookbar > #toolbar-row,
+#toolbar-wrapper #toolbar-row,
+nav + #toolbar-row {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: 82px !important;
+  max-height: none !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
+}
+
+/* 工具内容区：禁止被压成 0 高/透明 */
+.notebookbar-scroll-wrapper,
+.notebookbar#NotebookBar,
+.root-container.notebookbar,
+#toolbar-wrapper.hasnotebookbar {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.notebookbar-scroll-wrapper,
+.notebookbar#NotebookBar {
+  min-height: 72px !important;
+  height: 82px !important;
+}
+
+/* 工具按钮本身不可被误藏 */
+#toolbar-row .unotoolbutton,
+#toolbar-row .notebookbar,
+#toolbar-row .ui-content {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 隐藏 notebookbar「帮助」页签（Writer / Calc / Impress 通用） */
+#Help-tab-label,
+button#Help-tab-label,
+.ui-tab.notebookbar#Help-tab-label,
+.notebookbar-tabs-container #Help-tab-label,
+[id='Help-tab-label'] {
+  display: none !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

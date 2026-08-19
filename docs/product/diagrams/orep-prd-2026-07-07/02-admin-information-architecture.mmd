@@ -1,0 +1,28 @@
+flowchart TD
+  A[管理端] --> Entry[系统入口]
+  Entry --> AdminLogin[后台登录]
+  Entry --> NoAccess[无权限页]
+
+  A --> Overview[概览与监控]
+  Overview --> Dashboard[统计概览]
+  Overview --> Analytics[数据分析]
+  Overview --> Monitor[数据监控]
+
+  A --> Org[组织与账号]
+  Org --> Users[用户管理]
+  Org --> Units[组织架构]
+  Org --> Groups[用户组]
+
+  A --> Biz[业务治理]
+  Biz --> Meetings[会议管理]
+  Biz --> Scores[评分查看]
+  Biz --> Issues[问题跟踪]
+  Biz --> JuryPersonas[AI评审团画像]
+
+  A --> Content[内容运营]
+  Content --> Courses[课程管理]
+  Content --> Exams[考试管理]
+  Content --> PPT[PPT管理]
+  Content --> Resources[资源管理]
+  Content --> FileCenter[文件中心]
+  Content --> HomeBanners[首页轮播]

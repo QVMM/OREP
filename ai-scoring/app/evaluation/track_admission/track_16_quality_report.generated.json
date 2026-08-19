@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-07-05T17:00:00+08:00",
+  "trackId": "16",
+  "trackName": "航空交通运输赛道",
+  "sampleCount": 10,
+  "status": "ready",
+  "metrics": {
+    "ruleEngineScoreConsistencyRate": 1.0,
+    "jsonParseSuccessRate": 1.0,
+    "unsupportedClaimRate": 0.0,
+    "e4e5HardConditionViolationRate": 0.0,
+    "anchorAccuracyRate": 1.0,
+    "deductionConsistencyRate": 1.0,
+    "totalScoreMae": 1
+  },
+  "failingMetrics": [],
+  "failingSamples": [],
+  "sourceMode": "synthetic_from_local_markdown"
+}

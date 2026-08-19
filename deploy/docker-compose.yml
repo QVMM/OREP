@@ -1,0 +1,246 @@
+services:
+  # MySQL 数据库。本文件保留开发/试运行友好默认值；生产请使用 docker-compose.prod.yml。
+  mysql:
+    image: mysql:8.0
+    container_name: orep-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-12345678}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-orep}
+      MYSQL_CHARSET: utf8mb4
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ../sql/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+      - ../sql/ppt_tables.sql:/docker-entrypoint-initdb.d/02-ppt.sql:ro
+      - ../sql/ppt_history_tables.sql:/docker-entrypoint-initdb.d/03-ppt-history.sql:ro
+      - ../sql/meeting_recording_upgrade.sql:/docker-entrypoint-initdb.d/04-recording.sql:ro
+      - ./sql/backend-resources/create_ai_score_report_table.sql:/docker-entrypoint-initdb.d/11-ai-score-report.sql:ro
+      - ./sql/backend-resources/create_ai_scoring_session_tables.sql:/docker-entrypoint-initdb.d/17-ai-scoring-session.sql:ro
+      - ./sql/backend-resources/upgrade_ai_scoring_session_p7_schema.sql:/docker-entrypoint-initdb.d/18-ai-scoring-session-p7-upgrade.sql:ro
+      - ./sql/backend-resources/upgrade_ai_scoring_p8_rule_engine.sql:/docker-entrypoint-initdb.d/19-ai-scoring-p8-rule-engine-upgrade.sql:ro
+      - ./sql/backend-resources/migrate_ai_score_report_transparent_remediation_v3.sql:/docker-entrypoint-initdb.d/20-ai-score-transparent-remediation-v3.sql:ro
+      - ./sql/backend-resources/upgrade_ai_score_speaker_attribution_v1.sql:/docker-entrypoint-initdb.d/21-ai-score-speaker-attribution-v1.sql:ro
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-time-zone=+08:00
+    restart: unless-stopped
+
+  # Redis 缓存
+  redis:
+    image: redis:7-alpine
+    container_name: orep-redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    restart: unless-stopped
+
+  # MinIO 对象存储（会议录像、音频文件、AI 报告）
+  minio:
+    image: minio/minio:latest
+    container_name: orep-minio
+    ports:
+      - "${MINIO_API_PORT:-9000}:9000"
+      - "${MINIO_CONSOLE_PORT:-9001}:9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+
+  # LiveKit Server。生产环境请使用 deploy/livekit.prod.yaml 渲染后的配置。
+  livekit:
+    image: livekit/livekit-server:v1.9.12
+    container_name: orep-livekit
+    command: --config /etc/livekit.yaml
+    volumes:
+      - ../livekit.yaml:/etc/livekit.yaml:ro
+    ports:
+      - "${LIVEKIT_HTTP_PORT:-7880}:7880"
+      - "${LIVEKIT_TCP_PORT:-7881}:7881/tcp"
+      - "${LIVEKIT_UDP_START:-50100}-${LIVEKIT_UDP_END:-50200}:50100-50200/udp"
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  # Spring Boot 后端
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: orep-backend
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
+    environment:
+      JAVA_TOOL_OPTIONS: ${JAVA_OPTS:-}
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-orep}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME:-root}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD:-12345678}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD:-}
+      SPRING_MAIL_HOST: ${SPRING_MAIL_HOST:-smtp.qq.com}
+      SPRING_MAIL_PORT: ${SPRING_MAIL_PORT:-465}
+      SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME:-}
+      SPRING_MAIL_PASSWORD: ${SPRING_MAIL_PASSWORD:-}
+      OREP_EMAIL_PYTHON_FALLBACK_ENABLED: ${OREP_EMAIL_PYTHON_FALLBACK_ENABLED:-false}
+      OREP_EMAIL_PYTHON_BIN: ${OREP_EMAIL_PYTHON_BIN:-python3}
+      SPRING_MAIL_SMTP_AUTH: ${SPRING_MAIL_SMTP_AUTH:-true}
+      SPRING_MAIL_SMTP_STARTTLS_ENABLE: ${SPRING_MAIL_SMTP_STARTTLS_ENABLE:-false}
+      SPRING_MAIL_SMTP_STARTTLS_REQUIRED: ${SPRING_MAIL_SMTP_STARTTLS_REQUIRED:-false}
+      SPRING_MAIL_SMTP_SSL_ENABLE: ${SPRING_MAIL_SMTP_SSL_ENABLE:-true}
+      SPRING_MAIL_SMTP_SSL_PROTOCOLS: ${SPRING_MAIL_SMTP_SSL_PROTOCOLS:-TLSv1.2}
+      SPRING_MAIL_SMTP_SSL_TRUST: ${SPRING_MAIL_SMTP_SSL_TRUST:-smtp.qq.com}
+      SPRING_MAIL_SMTP_SSL_CHECK_SERVER_IDENTITY: ${SPRING_MAIL_SMTP_SSL_CHECK_SERVER_IDENTITY:-false}
+      SPRING_MAIL_SMTP_SOCKET_FACTORY_CLASS: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_CLASS:-javax.net.ssl.SSLSocketFactory}
+      SPRING_MAIL_SMTP_SOCKET_FACTORY_PORT: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_PORT:-465}
+      SPRING_MAIL_SMTP_SOCKET_FACTORY_FALLBACK: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_FALLBACK:-false}
+      SPRING_MAIL_SMTP_CONNECTION_TIMEOUT: ${SPRING_MAIL_SMTP_CONNECTION_TIMEOUT:-10000}
+      SPRING_MAIL_SMTP_TIMEOUT: ${SPRING_MAIL_SMTP_TIMEOUT:-10000}
+      SPRING_MAIL_SMTP_WRITE_TIMEOUT: ${SPRING_MAIL_SMTP_WRITE_TIMEOUT:-10000}
+      OREP_EMAIL_FROM: ${OREP_EMAIL_FROM:-}
+      OREP_JWT_SECRET: ${OREP_JWT_SECRET:-OREP_DEV_ONLY_CHANGE_ME_SECRET_KEY_64_CHARS_MINIMUM_2026}
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY:-devkey-orep-local}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET:-OREP_DEV_ONLY_LIVEKIT_SECRET_32_CHARS}
+      LIVEKIT_WS_URL: ${LIVEKIT_WS_URL:-ws://localhost:7880}
+      LIVEKIT_EGRESS_API_URL: http://livekit:7880
+      LIVEKIT_EGRESS_S3_ENDPOINT: http://minio:9000
+      LIVEKIT_EGRESS_S3_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      LIVEKIT_EGRESS_S3_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      LIVEKIT_EGRESS_S3_BUCKET: ${MINIO_BUCKET:-meeting-recordings}
+      MINIO_ENDPOINT: http://minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      MINIO_BUCKET: ${MINIO_BUCKET:-meeting-recordings}
+      RECORDING_MODE: bot
+      RECORDING_BOT_URL: http://recording-bot:8091
+      RECORDING_BOT_SECRET: ${RECORDING_BOT_SECRET:-OREP_DEV_RECORDING_BOT_SECRET}
+      RECORDING_CALLBACK_BASE_URL: http://backend:8080
+    depends_on:
+      - mysql
+      - redis
+      - minio
+      - livekit
+    restart: unless-stopped
+
+  # WebRTC 信令服务器
+  signaling:
+    build:
+      context: ../signaling
+      dockerfile: Dockerfile
+    container_name: orep-signaling
+    ports:
+      - "${SIGNALING_PORT:-3000}:3000"
+    environment:
+      PORT: 3000
+    restart: unless-stopped
+
+  # 管理后台前端
+  frontend-admin:
+    build:
+      context: ../frontend/admin
+      dockerfile: Dockerfile
+    container_name: orep-admin
+    ports:
+      - "${FRONTEND_ADMIN_PORT:-8081}:80"
+    restart: unless-stopped
+
+  # 用户端前端
+  frontend-user:
+    build:
+      context: ../frontend/user
+      dockerfile: Dockerfile
+    container_name: orep-user
+    ports:
+      - "${FRONTEND_USER_PORT:-8082}:80"
+    restart: unless-stopped
+
+  # 服务端会议录制 Bot（生成带音频的主视频并回传后端）
+  recording-bot:
+    build:
+      context: ../recording-bot
+      dockerfile: Dockerfile
+    container_name: orep-recording-bot
+    ports:
+      - "${RECORDING_BOT_PORT:-8091}:8091"
+    environment:
+      LIVEKIT_URL: ws://livekit:7880
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY:-devkey-orep-local}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET:-OREP_DEV_ONLY_LIVEKIT_SECRET_32_CHARS}
+      BOT_PORT: 8091
+      BACKEND_CALLBACK_BASE_URL: http://backend:8080
+      RECORDING_BOT_SECRET: ${RECORDING_BOT_SECRET:-OREP_DEV_RECORDING_BOT_SECRET}
+    volumes:
+      - recording_bot_data:/app/recordings
+    depends_on:
+      - livekit
+      - backend
+      - minio
+    restart: unless-stopped
+    shm_size: "1gb"
+
+  # AI 智能评分 / PPT 服务
+  ai-scoring:
+    build:
+      context: ../ai-scoring
+      dockerfile: Dockerfile
+    container_name: orep-ai-scoring
+    ports:
+      - "${AI_SCORING_PORT:-8090}:8090"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8090
+      DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:-}
+      DASHSCOPE_BASE_URL: ${DASHSCOPE_BASE_URL:-https://dashscope.aliyuncs.com/compatible-mode/v1}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      MINIMAX_API_KEY: ${MINIMAX_API_KEY:-}
+      MINIMAX_BASE_URL: ${MINIMAX_BASE_URL:-https://api.minimax.chat/v1}
+      PPT_TEXT_API_KEY: ${PPT_TEXT_API_KEY:-}
+      PPT_TEXT_BASE_URL: ${PPT_TEXT_BASE_URL:-https://dashscope.aliyuncs.com/compatible-mode/v1}
+      PPT_TEXT_MODEL: ${PPT_TEXT_MODEL:-qwen3.6-plus}
+      PPT_HTML_API_KEY: ${PPT_HTML_API_KEY:-}
+      PPT_HTML_BASE_URL: ${PPT_HTML_BASE_URL:-https://dashscope.aliyuncs.com/compatible-mode/v1}
+      PPT_HTML_MODEL: ${PPT_HTML_MODEL:-qwen3-coder-plus}
+      PPT_VISION_API_KEY: ${PPT_VISION_API_KEY:-}
+      PPT_VISION_BASE_URL: ${PPT_VISION_BASE_URL:-https://dashscope.aliyuncs.com/compatible-mode/v1}
+      PPT_VISION_MODEL: ${PPT_VISION_MODEL:-qwen3.6-plus}
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      BACKEND_CALLBACK_URL: http://backend:8080/api/ai-score/callback
+      CHAT_CALLBACK_URL: http://backend:8080/api/ai-chat/callback
+      LIVE_CAMERA_SUBSCRIBER_ENABLED: ${LIVE_CAMERA_SUBSCRIBER_ENABLED:-false}
+      LIVEKIT_INTERNAL_WS_URL: ws://livekit:7880
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY:-devkey-orep-local}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET:-OREP_DEV_ONLY_LIVEKIT_SECRET_32_CHARS}
+    volumes:
+      - ai_uploads:/app/uploads
+    depends_on:
+      - minio
+      - backend
+      - livekit
+    restart: unless-stopped
+
+  # Nginx 反向代理
+  nginx:
+    image: nginx:alpine
+    container_name: orep-nginx
+    ports:
+      - "${HTTP_PORT:-80}:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
+      - frontend-admin
+      - frontend-user
+      - signaling
+      - livekit
+      - ai-scoring
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+  redis_data:
+  minio_data:
+  recording_bot_data:
+  ai_uploads:

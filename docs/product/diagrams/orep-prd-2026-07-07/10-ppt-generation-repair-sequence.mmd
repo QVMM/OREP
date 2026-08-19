@@ -1,0 +1,22 @@
+sequenceDiagram
+  participant User as 学生/教师
+  participant FE as PPT工作台
+  participant BE as Spring Boot后端
+  participant PPT as AI PPT服务
+  participant DB as MySQL
+  participant FS as 文件存储
+
+  User->>FE: 输入项目材料/选择模板
+  FE->>PPT: POST /api/ppt-generator/generate 或 /api/ppt任务接口
+  PPT->>DB: 创建/更新 ppt_task
+  PPT->>PPT: 生成大纲、页面、图表、样式
+  PPT->>FS: 输出 PPTX/HTML/页面快照
+  PPT->>DB: 写入 ppt_html_page 和 snapshot
+  FE->>PPT: 查询任务状态和页面质量
+  PPT-->>FE: 返回页面、质检问题、下载条件
+  User->>FE: 一键修复P0问题
+  FE->>PPT: 提交页面修复请求
+  PPT->>DB: 记录修复历史和质量报告
+  User->>FE: 下载
+  FE->>PPT: 下载门禁检查
+  PPT-->>FE: 可下载或提示未满足项

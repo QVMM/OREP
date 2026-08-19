@@ -1,0 +1,21 @@
+{
+  "auditId": "audit-track-19-generated-v1",
+  "trackId": "19",
+  "trackName": "道路与管道运输赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_19_road_pipeline_transport_v1_2_engine_draft.json",
+  "ruleHash": "sha256:2269ce31df260388e6adf5bbd1dbe42459fb0476a7fe126fa32a7da0724e1d65",
+  "status": "approved",
+  "reviewer": "stage8-generated-admission-auditor",
+  "reviewedAt": "2026-07-05T17:00:00+08:00",
+  "scope": "draft rule structure and generated admission assets",
+  "conclusion": "可进入pilot演练；不得直接active，需真实样本复验后再上线准入。",
+  "checks": [
+    "15 observations present",
+    "E0-E5 evidence caps present",
+    "track-specific evidence present",
+    "deduction and recovery rules present",
+    "10 generated admission samples present"
+  ],
+  "sourceMode": "synthetic_from_local_markdown",
+  "pilotPromotionStatus": "pilot_generated"
+}

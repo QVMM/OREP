@@ -1,0 +1,1553 @@
+{
+  "trackId": "24",
+  "trackName": "食品与粮食赛道",
+  "ruleVersion": "v1.2-engine-draft",
+  "ruleHash": "sha256:91b7478b8259295eca80ea6d59f7bf9f0c0554f1109d146de009d88d0e2ff0d3",
+  "status": "pilot",
+  "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/食品与粮食赛道.md",
+  "sourceType": "track_inference",
+  "evidenceFamily": "服务财经商贸文体类",
+  "keyTasks": [
+    "加工流程",
+    "食品安全控制",
+    "检测报告管理",
+    "供应链记录",
+    "营养或品质指标",
+    "储运管理"
+  ],
+  "highValueEvidence": [
+    "加工流程记录",
+    "食品安全台账",
+    "检测报告",
+    "供应链记录",
+    "营养或品质指标",
+    "储运记录",
+    "批次追溯材料"
+  ],
+  "advancedDirections": [
+    "食品安全追溯",
+    "粮食储运数字化",
+    "营养品质提升",
+    "绿色加工",
+    "供应链协同",
+    "质量检测自动化"
+  ],
+  "dimensions": [
+    {
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 60,
+      "observationCodes": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 10,
+      "observationCodes": [
+        "O06",
+        "O07",
+        "O08"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 10,
+      "observationCodes": [
+        "O09",
+        "O10",
+        "O11"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 10,
+      "observationCodes": [
+        "O12",
+        "O13"
+      ],
+      "sourceType": "official"
+    },
+    {
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 10,
+      "observationCodes": [
+        "O14",
+        "O15"
+      ],
+      "sourceType": "official"
+    }
+  ],
+  "evidenceLevels": [
+    {
+      "level": "E0",
+      "name": "无证据",
+      "capRatio": 0.2,
+      "hardCondition": "没有转写、画面、材料或历史记录能支撑该观测点",
+      "sourceType": "official"
+    },
+    {
+      "level": "E1",
+      "name": "口号式主张",
+      "capRatio": 0.3,
+      "hardCondition": "只有结论或口号，没有方法、数据、画面或材料",
+      "sourceType": "official"
+    },
+    {
+      "level": "E2",
+      "name": "解释性证据",
+      "capRatio": 0.5,
+      "hardCondition": "有流程、架构、方法或口头解释，但缺少量化和现场验证",
+      "sourceType": "official"
+    },
+    {
+      "level": "E3",
+      "name": "内部量化证据",
+      "capRatio": 0.7,
+      "hardCondition": "有内部测试、成本测算、性能指标或样本数据，但缺少真实场景或第三方验证",
+      "sourceType": "official"
+    },
+    {
+      "level": "E4",
+      "name": "场景验证证据",
+      "capRatio": 0.85,
+      "hardCondition": "有现场演示、试点案例、用户反馈、前后对比或真实场景材料",
+      "sourceType": "official"
+    },
+    {
+      "level": "E5",
+      "name": "独立可核验证据",
+      "capRatio": 1.0,
+      "hardCondition": "有第三方报告、认证、审计、客户验收、公开 benchmark 或可复现实验",
+      "sourceType": "official"
+    }
+  ],
+  "evidenceCaps": {
+    "E0": 0.2,
+    "E1": 0.3,
+    "E2": 0.5,
+    "E3": 0.7,
+    "E4": 0.85,
+    "E5": 1.0
+  },
+  "qualityGates": {
+    "minimumTestSamplesBeforePipeline": 5,
+    "minimumAdmissionSamplesPerTrack": 10,
+    "recommendedSamplesBeforeActive": 30,
+    "minimumLowEvidenceSamples": 2,
+    "minimumMiddleSamples": 2,
+    "minimumHighEvidenceSamples": 2,
+    "minimumDemoFailureOrMissingMaterialSamples": 1,
+    "requiresEvidenceExtraction": true,
+    "requiresRuleEngineScoring": true,
+    "requiresReportGeneration": true,
+    "requiresRuleAdmissionAudit": true,
+    "requiresHumanSpotCheck": true,
+    "requiresQualityReport": true,
+    "requiresOfficialInferenceTrainingSeparation": true
+  },
+  "observations": [
+    {
+      "observationCode": "O01",
+      "observationName": "操作规范性",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 10.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成操作规范性要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "流程规范",
+        "符合标准",
+        "操作专业",
+        "已完成关键任务"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头操作规范性主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O01-evidence-gap",
+          "reason": "操作规范性缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O01-evidence-repair",
+          "condition": "补齐操作规范性的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕操作规范性补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O02",
+      "observationName": "核心技能熟练度",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 12.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成核心技能熟练度要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "技能熟练",
+        "能独立完成",
+        "达到岗位要求"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头核心技能熟练度主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O02-evidence-gap",
+          "reason": "核心技能熟练度缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O02-evidence-repair",
+          "condition": "补齐核心技能熟练度的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕核心技能熟练度补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O03",
+      "observationName": "工具平台使用",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 12.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成工具平台使用要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "工具使用",
+        "平台配置",
+        "材料处理"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头工具平台使用主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O03-evidence-gap",
+          "reason": "工具平台使用缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O03-evidence-repair",
+          "condition": "补齐工具平台使用的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕工具平台使用补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O04",
+      "observationName": "质量控制",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 13.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成质量控制要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "质量稳定",
+        "过程可控",
+        "成果可靠"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头质量控制主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O04-evidence-gap",
+          "reason": "质量控制缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O04-evidence-repair",
+          "condition": "补齐质量控制的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕质量控制补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O05",
+      "observationName": "问题诊断与处理",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 13.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成问题诊断与处理要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "能排查问题",
+        "能处理异常",
+        "有改进闭环"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头问题诊断与处理主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O05-evidence-gap",
+          "reason": "问题诊断与处理缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O05-evidence-repair",
+          "condition": "补齐问题诊断与处理的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕问题诊断与处理补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O06",
+      "observationName": "安全与合规意识",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 4.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成安全与合规意识要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "安全合规",
+        "风险可控",
+        "边界清晰"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头安全与合规意识主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O06-evidence-gap",
+          "reason": "安全与合规意识缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O06-evidence-repair",
+          "condition": "补齐安全与合规意识的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕安全与合规意识补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O07",
+      "observationName": "职业表达与记录",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 3.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成职业表达与记录要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "记录完整",
+        "表达清楚",
+        "材料规范"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头职业表达与记录主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O07-evidence-gap",
+          "reason": "职业表达与记录缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O07-evidence-repair",
+          "condition": "补齐职业表达与记录的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕职业表达与记录补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O08",
+      "observationName": "责任意识与服务意识",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 3.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成责任意识与服务意识要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "职责清晰",
+        "服务意识",
+        "风险提示充分"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头责任意识与服务意识主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O08-evidence-gap",
+          "reason": "责任意识与服务意识缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O08-evidence-repair",
+          "condition": "补齐责任意识与服务意识的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕责任意识与服务意识补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O09",
+      "observationName": "真实应用场景",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 4.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成真实应用场景要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "真实场景",
+        "有用户对象",
+        "场景落地"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头真实应用场景主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O09-evidence-gap",
+          "reason": "真实应用场景缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O09-evidence-repair",
+          "condition": "补齐真实应用场景的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕真实应用场景补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O10",
+      "observationName": "效果数据与价值证明",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 3.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成效果数据与价值证明要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "效果可量化",
+        "价值可证明",
+        "数据可追踪"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头效果数据与价值证明主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O10-evidence-gap",
+          "reason": "效果数据与价值证明缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O10-evidence-repair",
+          "condition": "补齐效果数据与价值证明的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕效果数据与价值证明补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O11",
+      "observationName": "推广与持续运营能力",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 3.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成推广与持续运营能力要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "可复制推广",
+        "可持续运营",
+        "成本收益清楚"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头推广与持续运营能力主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O11-evidence-gap",
+          "reason": "推广与持续运营能力缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O11-evidence-repair",
+          "condition": "补齐推广与持续运营能力的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕推广与持续运营能力补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O12",
+      "observationName": "分工协作",
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 5.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成分工协作要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "分工明确",
+        "协作顺畅",
+        "任务闭环"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头分工协作主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O12-evidence-gap",
+          "reason": "分工协作缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O12-evidence-repair",
+          "condition": "补齐分工协作的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕分工协作补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O13",
+      "observationName": "跨角色沟通",
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 5.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成跨角色沟通要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "沟通有效",
+        "角色协同",
+        "反馈闭环"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头跨角色沟通主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O13-evidence-gap",
+          "reason": "跨角色沟通缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O13-evidence-repair",
+          "condition": "补齐跨角色沟通的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕跨角色沟通补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O14",
+      "observationName": "技术或服务创新",
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 5.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成技术或服务创新要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "方法创新",
+        "服务创新",
+        "表达创新"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头技术或服务创新主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O14-evidence-gap",
+          "reason": "技术或服务创新缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O14-evidence-repair",
+          "condition": "补齐技术或服务创新的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕技术或服务创新补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    },
+    {
+      "observationCode": "O15",
+      "observationName": "迭代改进与边界意识",
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 5.0,
+      "trackDefinition": "是否围绕食品与粮食赛道的加工流程, 食品安全控制, 检测报告管理, 供应链记录完成迭代改进与边界意识要求，并能用真实用户、服务流程、交易/运营/作品或质量记录证明结果。",
+      "claimTypes": [
+        "持续改进",
+        "边界清晰",
+        "风险可控"
+      ],
+      "requiredInfo": [
+        "明确对象/场景、流程步骤、标准依据和控制点",
+        "展示与加工流程, 食品安全控制, 检测报告管理, 供应链记录, 营养或品质指标, 储运管理相关的过程动作或记录",
+        "说明责任人、时间、结果、异常处理、用户反馈或成果证明"
+      ],
+      "acceptableEvidence": [
+        "加工流程记录",
+        "食品安全台账",
+        "检测报告",
+        "供应链记录",
+        "营养或品质指标",
+        "储运记录",
+        "批次追溯材料"
+      ],
+      "evidenceVerificationMethods": [
+        "材料、转写、关键帧是否能互相对应",
+        "加工流程记录等证据是否有对象、时间、方法、结果",
+        "是否存在只讲模式、不展示用户、数据、作品或流程记录的情况"
+      ],
+      "zeroScoreTriggers": [
+        "完全没有展示流程、标准、记录或岗位动作",
+        "现场内容与赛道核心任务明显错配",
+        "与本观测点无关，路演和材料均未呈现有效证据"
+      ],
+      "evidenceCaps": {
+        "E0": 0.2,
+        "E1": 0.3,
+        "E2": 0.5,
+        "E3": 0.7,
+        "E4": 0.85,
+        "E5": 1.0
+      },
+      "scoreCapRules": [
+        "只有口头迭代改进与边界意识主张：最高 3.0 分",
+        "有流程但无记录：最高 5.0 分",
+        "有记录但无法验真或用户/成果边界不清：最高 7.0 分",
+        "流程、记录、结果和用户/成果证明闭环：可进入高分档"
+      ],
+      "deductionRules": [
+        {
+          "deductionId": "D-24-O15-evidence-gap",
+          "reason": "迭代改进与边界意识缺少可核验证据或存在服务财经商贸文体类高频风险",
+          "trigger": "食品安全证据缺失；检测报告不可核验；供应链记录断裂；营养品质指标空泛；批次追溯不足",
+          "deductionScore": 2.0,
+          "severity": "P1",
+          "sourceType": "track_inference"
+        }
+      ],
+      "recoveryRules": [
+        {
+          "recoveryId": "R-24-O15-evidence-repair",
+          "condition": "补齐迭代改进与边界意识的对象、过程、结果、用户/成果证明和可核验证据",
+          "acceptableMaterials": [
+            "加工流程记录",
+            "食品安全台账",
+            "检测报告",
+            "供应链记录",
+            "营养或品质指标"
+          ],
+          "recoverableScore": 1.5,
+          "sourceType": "orep_training"
+        }
+      ],
+      "riskPatterns": [
+        "食品安全证据缺失",
+        "检测报告不可核验",
+        "供应链记录断裂",
+        "营养品质指标空泛",
+        "批次追溯不足"
+      ],
+      "reviewTriggers": [
+        "证据矛盾",
+        "关键材料缺失",
+        "合规或版权风险",
+        "疑似包装",
+        "低证据高分"
+      ],
+      "trainingTaskTemplate": "围绕迭代改进与边界意识补齐食品与粮食赛道的关键证据、过程记录、用户/成果证明和结果验证材料。",
+      "sourceType": "track_inference"
+    }
+  ],
+  "pilotPromotion": {
+    "promotedAt": "2026-07-05T23:00:00+08:00",
+    "promotionType": "synthetic_admission_pilot",
+    "sourceMode": "synthetic_from_local_markdown",
+    "activeAllowed": false,
+    "activeBlockReason": "requires_real_raw_samples_before_active",
+    "admissionManifest": "ai-scoring/app/evaluation/track_admission/track_24_admission_manifest.generated.json",
+    "ruleAdmissionAudit": "ai-scoring/app/evaluation/track_admission/track_24_rule_admission_audit.generated.json",
+    "qualityReport": "ai-scoring/app/evaluation/track_admission/track_24_quality_report.generated.json"
+  }
+}

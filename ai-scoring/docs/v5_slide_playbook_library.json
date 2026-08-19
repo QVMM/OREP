@@ -1,0 +1,182 @@
+{
+  "version": "v5_slide_playbook_library_20260509_v1",
+  "purpose": "Provide page-level composition strategies before MiMo body HTML generation. The playbook decides how a slide should argue visually; diagram prompt contracts decide how a specific diagram should be drawn.",
+  "global_rules": {
+    "one_page_one_argument": "Every page needs one primary audience takeaway. Supporting elements must prove that takeaway.",
+    "slide_vs_speaker_notes": "Visible slide content should be focus text, main visual, and 2-4 support points. Detailed explanation belongs to speaker notes JSON.",
+    "no_template_default": "Do not default to equal card grids, web dashboards, upload widgets, or a large rounded inner canvas.",
+    "diagram_preference": "Prefer symmetric, HTML/SVG-friendly diagrams unless the page role demands a scene, map, or evidence collage."
+  },
+  "playbooks": {
+    "cover_key_visual": {
+      "page_roles": ["opening_hook"],
+      "design_goal": "Make the project feel memorable and competition-ready in one glance.",
+      "recommended_compositions": ["poster_hero_visual", "scene_montage_title", "product_or_platform_hero"],
+      "must_include": ["project_name", "short_positioning", "2-3_keywords", "team_or_competition_identity"],
+      "forbid": ["web_hero_banner", "plain_centered_title", "dense_body_text", "fake_real_evidence"],
+      "text_budget": {"focus_text_max_chars": 22, "support_blocks": "2-3", "body_text_max_chars": 80},
+      "visual_density": "beauty_first",
+      "quality_checks": ["first_glance_project_memory", "industry_or_domain_signal", "poster_level_hierarchy"]
+    },
+    "agenda_story_map": {
+      "page_roles": ["agenda_map"],
+      "design_goal": "Turn the roadshow structure into a clear chapter map instead of a process timeline.",
+      "recommended_compositions": ["image_header_chapter_row", "chapter_map_with_large_numbers", "route_map_with_sections"],
+      "must_include": ["4-6_chapter_nodes", "chapter_numbers", "page_ranges", "one_line_goal_per_chapter"],
+      "forbid": ["thin_timeline_only", "generic_navigation_cards", "repeating_outer_title", "unclear_chapter_hierarchy"],
+      "text_budget": {"focus_text_max_chars": 10, "support_blocks": "4-6", "body_text_max_chars": 180},
+      "visual_density": "beauty_first",
+      "quality_checks": ["reads_as_directory", "clear_chapter_order", "has_visual_ceremony"]
+    },
+    "policy_evidence_board": {
+      "page_roles": ["policy_context"],
+      "design_goal": "Show policy/industry opportunity with credible evidence and a project bridge.",
+      "recommended_compositions": ["evidence_wall_with_bridge", "document_crop_plus_project_fit", "policy_to_market_split"],
+      "must_include": ["policy_or_context_claim", "source_or_material_slot", "project_relevance", "one_bridge_statement"],
+      "forbid": ["fake_policy_screenshot", "policy_name_list_only", "all_equal_cards", "no_project_bridge"],
+      "text_budget": {"focus_text_max_chars": 22, "support_blocks": "2-4", "body_text_max_chars": 180},
+      "visual_density": "medium",
+      "quality_checks": ["evidence_not_decoration", "source_gap_is_explicit", "project_fit_is_visible"]
+    },
+    "problem_pressure_wall": {
+      "page_roles": ["problem_pressure"],
+      "design_goal": "Make the pain point feel concrete, urgent, and tied to a real user scene.",
+      "recommended_compositions": ["scene_problem_overlay", "pain_metric_wall", "before_state_map"],
+      "must_include": ["pain_scene", "conflict_or_loss", "key_metric_or_example", "why_now"],
+      "forbid": ["abstract_pain_cards", "weak_generic_problem", "no_consequence", "too_many_equal_points"],
+      "text_budget": {"focus_text_max_chars": 24, "support_blocks": "3-4", "body_text_max_chars": 170},
+      "visual_density": "medium_high",
+      "quality_checks": ["pain_is_specific", "problem_has_consequence", "user_context_visible"]
+    },
+    "solution_big_picture": {
+      "page_roles": ["solution_overview", "business_value_loop"],
+      "design_goal": "Explain the full solution in one big picture, not as a list of modules.",
+      "recommended_compositions": ["closed_loop_solution_map", "left_scene_right_platform", "center_platform_surrounded_by_users"],
+      "must_include": ["user_or_scene", "core_platform", "input_data", "decision_or_action_output", "feedback_loop"],
+      "forbid": ["module_cards_only", "same_as_architecture_page", "no_business_loop", "generic_platform_words"],
+      "text_budget": {"focus_text_max_chars": 24, "support_blocks": "3-5", "body_text_max_chars": 190},
+      "visual_density": "medium_high",
+      "quality_checks": ["solution_loop_visible", "business_value_not_only_tech", "primary_visual_large_enough"]
+    },
+    "architecture_system_map": {
+      "page_roles": ["technical_architecture"],
+      "design_goal": "Prove the system is complete, layered, and runnable.",
+      "recommended_compositions": ["layered_architecture", "swimlane_architecture", "system_boundary_with_data_flow"],
+      "must_include": ["system_boundary", "layers", "core_modules", "data_flow_direction", "input_output"],
+      "forbid": ["module_name_cards_only", "no_arrow_direction", "more_than_6_equal_nodes", "horizontal_flow_when_architecture"],
+      "text_budget": {"focus_text_max_chars": 22, "support_blocks": "3-5", "body_text_max_chars": 160},
+      "visual_density": "medium_high",
+      "quality_checks": ["layers_are_readable", "main_path_is_clear", "no_isolated_nodes"]
+    },
+    "data_pipeline_trace": {
+      "page_roles": ["data_pipeline"],
+      "design_goal": "Show how data moves, changes quality, and becomes usable output.",
+      "recommended_compositions": ["swimlane_data_flow", "step_pipeline_with_quality_gates", "closed_loop_pipeline"],
+      "must_include": ["input_data", "processing_steps", "quality_gate", "analysis_output", "feedback_or_storage"],
+      "forbid": ["generic_input_process_output", "no_transformation_labels", "crossing_lines", "tiny_pipeline"],
+      "text_budget": {"focus_text_max_chars": 22, "support_blocks": "3-5", "body_text_max_chars": 160},
+      "visual_density": "medium_high",
+      "quality_checks": ["transformation_is_visible", "output_is_not_abstract", "line_crossing_avoided"]
+    },
+    "algorithm_proof_panel": {
+      "page_roles": ["algorithm_proof"],
+      "design_goal": "Explain algorithm capability through input, model, output, and validation.",
+      "recommended_compositions": ["model_pipeline", "input_model_output_validation", "metric_center_algorithm_panel"],
+      "must_include": ["input_sample_type", "model_or_method", "output_result", "validation_metric_or_method"],
+      "forbid": ["algorithm_name_only", "no_validation", "fake_accuracy", "dense_formula_wall"],
+      "text_budget": {"focus_text_max_chars": 22, "support_blocks": "3-4", "body_text_max_chars": 170},
+      "visual_density": "medium",
+      "quality_checks": ["validation_visible", "algorithm_role_clear", "no_unverifiable_claim"]
+    },
+    "practice_demo_stage": {
+      "page_roles": ["practice_demo"],
+      "design_goal": "Make the demo feel real by showing action, evidence, and result.",
+      "recommended_compositions": ["demo_stage_with_evidence", "operation_flow_plus_result", "screen_wall_with_action_path"],
+      "must_include": ["demo_action", "input_or_device", "system_output", "result_or_verification"],
+      "forbid": ["empty_screenshot_placeholder", "abstract_demo_cards", "no_result", "fake_real_screenshot"],
+      "text_budget": {"focus_text_max_chars": 24, "support_blocks": "3-4", "body_text_max_chars": 180},
+      "visual_density": "medium_high",
+      "quality_checks": ["demo_action_visible", "evidence_slot_professional", "result_is_explicit"]
+    },
+    "evidence_chain_proof": {
+      "page_roles": ["technical_evidence"],
+      "design_goal": "Connect evidence nodes into a proof chain that supports one conclusion.",
+      "recommended_compositions": ["answer_first_three_proofs", "center_proof_chain", "evidence_to_value_path"],
+      "must_include": ["claim", "3-4_evidence_nodes", "proof_relationship", "result_or_value"],
+      "forbid": ["wave_path_chain", "many_crossing_lines", "equal_nodes_without_claim", "upload_widget"],
+      "text_budget": {"focus_text_max_chars": 24, "support_blocks": "3-4", "body_text_max_chars": 170},
+      "visual_density": "medium_high",
+      "quality_checks": ["claim_is_first_visual", "evidence_nodes_are_bound", "result_node_is_emphasized"]
+    },
+    "metric_dashboard_focus": {
+      "page_roles": ["metric_dashboard", "economic_value"],
+      "design_goal": "Use one primary metric or result to anchor supporting metrics.",
+      "recommended_compositions": ["big_number_with_support_metrics", "dashboard_wall", "calculation_center_with_side_metrics"],
+      "must_include": ["primary_metric", "unit", "calculation_or_source_logic", "support_metrics"],
+      "forbid": ["decorative_numbers", "no_unit", "too_many_equal_metrics", "fake_precision"],
+      "text_budget": {"focus_text_max_chars": 20, "support_blocks": "3-5", "body_text_max_chars": 160},
+      "visual_density": "medium",
+      "quality_checks": ["primary_number_dominates", "unit_visible", "calculation_logic_present"]
+    },
+    "risk_response_matrix": {
+      "page_roles": ["risk_control"],
+      "design_goal": "Show risk, trigger, response, and recovery as an operational mechanism.",
+      "recommended_compositions": ["risk_matrix_with_response_band", "defense_layers", "trigger_response_recovery"],
+      "must_include": ["risk_categories", "trigger_conditions", "response_actions", "recovery_or_owner"],
+      "forbid": ["plain_table_only", "generic_safety_words", "no_response_path", "cross_industry_terms"],
+      "text_budget": {"focus_text_max_chars": 24, "support_blocks": "3-5", "body_text_max_chars": 180},
+      "visual_density": "medium_high",
+      "quality_checks": ["risk_to_response_clear", "industry_terms_clean", "matrix_not_plain_report"]
+    },
+    "innovation_comparison": {
+      "page_roles": ["innovation_summary"],
+      "design_goal": "Make innovation visible by comparing old and new methods.",
+      "recommended_compositions": ["before_after_split", "innovation_ladder", "comparison_matrix_with_breakthrough"],
+      "must_include": ["old_method_or_baseline", "new_method", "difference", "benefit_or_evidence"],
+      "forbid": ["innovation_buzzwords_only", "no_baseline", "all_equal_points", "unsupported_breakthrough"],
+      "text_budget": {"focus_text_max_chars": 24, "support_blocks": "3-4", "body_text_max_chars": 170},
+      "visual_density": "medium",
+      "quality_checks": ["difference_is_visible", "benefit_is_specific", "comparison_not_list"]
+    },
+    "team_execution_map": {
+      "page_roles": ["team_execution"],
+      "design_goal": "Prove the team can execute through roles, workflow, and delivery rhythm.",
+      "recommended_compositions": ["role_to_workflow_map", "team_delivery_pipeline", "collaboration_matrix"],
+      "must_include": ["roles", "handoff_flow", "delivery_outputs", "collaboration_mechanism"],
+      "forbid": ["name_list_only", "fake_team_photo", "no_workflow", "generic_team_spirit"],
+      "text_budget": {"focus_text_max_chars": 22, "support_blocks": "3-5", "body_text_max_chars": 170},
+      "visual_density": "medium",
+      "quality_checks": ["roles_link_to_outputs", "workflow_visible", "execution_credibility"]
+    },
+    "roadmap_growth_path": {
+      "page_roles": ["roadmap"],
+      "design_goal": "Show future growth as staged milestones with realistic outputs.",
+      "recommended_compositions": ["milestone_path", "three_stage_growth", "roadmap_with_capability_layers"],
+      "must_include": ["stages", "milestones", "outputs", "validation_or_condition"],
+      "forbid": ["empty_future_words", "no_time_order", "unrealistic_claims", "decorative_path_only"],
+      "text_budget": {"focus_text_max_chars": 24, "support_blocks": "3-4", "body_text_max_chars": 170},
+      "visual_density": "medium",
+      "quality_checks": ["stage_logic_clear", "outputs_specific", "future_not_empty"]
+    },
+    "closing_memory_point": {
+      "page_roles": ["closing_memory"],
+      "design_goal": "Leave one final memorable value statement.",
+      "recommended_compositions": ["single_memory_statement", "value_echo_with_orbit", "final_vision_scene"],
+      "must_include": ["final_value_statement", "project_name_or_slogan", "thanks_or_call_to_action"],
+      "forbid": ["generic_thanks_only", "dense_summary", "new_evidence", "image_placeholder"],
+      "text_budget": {"focus_text_max_chars": 28, "support_blocks": "0-2", "body_text_max_chars": 80},
+      "visual_density": "beauty_first",
+      "quality_checks": ["one_sentence_memorable", "strong_visual_closure", "no_new_complex_content"]
+    },
+    "content_support_focus": {
+      "page_roles": ["content_support"],
+      "design_goal": "Turn ordinary support content into one focused argument with a simple visual structure.",
+      "recommended_compositions": ["focus_statement_with_supports", "center_concept_with_three_supports", "left_claim_right_proof"],
+      "must_include": ["focus_claim", "2-4_support_points", "small_evidence_or_logic"],
+      "forbid": ["paragraph_dump", "equal_card_grid_default", "no_focus_text", "large_empty_middle"],
+      "text_budget": {"focus_text_max_chars": 24, "support_blocks": "2-4", "body_text_max_chars": 170},
+      "visual_density": "medium",
+      "quality_checks": ["focus_claim_visible", "support_points_not_excessive", "layout_not_empty"]
+    }
+  }
+}

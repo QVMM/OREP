@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    width: 1280px; height: 720px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+    background: #0f1923;
+}
+
+/* ═══════════════════════════════════════════
+   背景层：斜切色块 + 暗纹
+   ═══════════════════════════════════════════ */
+
+/* 右侧斜切蓝色块 */
+.bg-clip {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 55%;
+    background: linear-gradient(135deg, #1a3a5c 0%, #0d2640 100%);
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 0;
+}
+
+/* 左下角光晕 */
+.bg-glow {
+    position: absolute;
+    left: -100px; bottom: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,90,200,0.1) 0%, transparent 70%);
+    z-index: 0;
+}
+
+/* 全局细网格 */
+.bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 48px 48px;
+    z-index: 0;
+}
+
+/* ═══════════════════════════════════════════
+   左侧主标题区
+   ═══════════════════════════════════════════ */
+
+.left {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 45%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 72px;
+    padding-right: 40px;
+}
+
+/* 超大装饰数字 */
+.big-num {
+    font-size: 140px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    font-family: 'Inter', 'SF Pro Display', sans-serif;
+    margin-bottom: -30px;
+    user-select: none;
+}
+
+/* 主标题 */
+.left h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+}
+
+/* 分隔线 */
+.sep {
+    width: 40px; height: 3px;
+    background: #3b82f6;
+    border-radius: 2px;
+    margin-bottom: 24px;
+}
+
+/* 描述文字 */
+.desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+    max-width: 340px;
+}
+
+/* ═══════════════════════════════════════════
+   右侧步骤区
+   ═══════════════════════════════════════════ */
+
+.right {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 55%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 72px 60px 60px;
+    gap: 0;
+}
+
+/* 单步 */
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 22px 0;
+    position: relative;
+}
+
+/* 分隔线 */
+.step + .step::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 56px; right: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+}
+
+/* 编号 */
+.step-num {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border: 2px solid rgba(59,130,246,0.35);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: rgba(59,130,246,0.7);
+    font-family: 'Inter', sans-serif;
+    margin-top: 2px;
+}
+
+/* 内容 */
+.step-content {
+    flex: 1;
+}
+
+.step-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
+}
+
+.step-sub {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.65;
+}
+
+/* 强调色文字 */
+.em-kp { color: #f59e0b; font-weight: 600; }
+.em-rs { color: #34d399; font-weight: 600; }
+
+/* ═══════════════════════════════════════════
+   页脚
+   ═══════════════════════════════════════════ */
+.page-num {
+    position: absolute;
+    bottom: 28px; left: 72px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.15);
+    z-index: 20;
+    letter-spacing: 0.08em;
+    font-family: 'Inter', sans-serif;
+}
+
+/* 右下角小标签 */
+.badge {
+    position: absolute;
+    bottom: 28px; right: 72px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    z-index: 20;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-clip"></div>
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+
+<!-- 左侧 -->
+<div class="left">
+    <div class="big-num">04</div>
+    <h1>核心技能操作<br>AI辅助诊断流程</h1>
+    <div class="sep"></div>
+    <p class="desc">从数据采集到模型迭代的完整闭环，覆盖4个标准化操作步骤，每步标注关键控制点与预期结果。</p>
+</div>
+
+<!-- 右侧 -->
+<div class="right">
+
+    <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+            <div class="step-title">患者数据采集与预处理</div>
+            <div class="step-sub">
+                <span class="em-kp">关键点：</span>DICOM标准格式，数据完整率≥99.5%&emsp;
+                <span class="em-rs">结果：</span>结构化数据入库，供AI调用&emsp;
+                工具：PACS · PostgreSQL
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+            <div class="step-title">AI模型推理与诊断</div>
+            <div class="step-sub">
+                <span class="em-kp">关键点：</span>ResNet-50 + 注意力机制，推理＜3秒&emsp;
+                <span class="em-rs">结果：</span>诊断报告 + 置信度 + 病灶标注&emsp;
+                工具：TF Serving · GPU集群
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+            <div class="step-title">医生复核与结果确认</div>
+            <div class="step-sub">
+                <span class="em-kp">关键点：</span>AI建议 + 医生双签制度，安全双保障&emsp;
+                <span class="em-rs">结果：</span>最终诊断报告，误差＜0.5%&emsp;
+                工具：Web工作台 · HIS对接
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+            <div class="step-title">数据回流与模型迭代</div>
+            <div class="step-sub">
+                <span class="em-kp">关键点：</span>医生反馈自动标注，每周增量训练&emsp;
+                <span class="em-rs">结果：</span>准确率月均提升0.3%，持续优化&emsp;
+                工具：MLflow · A/B测试
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="page-num">14 / 33</div>
+<div class="badge">Skill Operation</div>
+
+</body>
+</html>

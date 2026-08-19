@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OREP AI评分整改周期工作台</title>
+  <style>
+    :root {
+      --blue: #145dff;
+      --blue-700: #0a43d6;
+      --blue-50: #edf4ff;
+      --ink: #071536;
+      --text: #17233f;
+      --muted: #66728a;
+      --line: #dfe6f2;
+      --line-soft: #edf1f7;
+      --bg: #f7faff;
+      --green: #0aa66a;
+      --green-50: #e9f9f1;
+      --orange: #ff7a1a;
+      --orange-50: #fff3e8;
+      --red: #f04438;
+      --red-50: #fff0ee;
+      --purple: #6b5cff;
+      --purple-50: #f1efff;
+      --shadow: 0 14px 34px rgba(30, 55, 95, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: linear-gradient(180deg, #fff 0, #f8fbff 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 14px;
+    }
+
+    button { font: inherit; }
+
+    .top-nav {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      padding: 0 34px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.96);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: #04143a;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .brand-mark {
+      width: 31px;
+      height: 31px;
+      border: 8px solid var(--blue);
+      border-right-color: #8cb2ff;
+      border-radius: 50%;
+    }
+
+    .main-menu {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      height: 100%;
+    }
+
+    .main-menu a {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: #11182e;
+      border-bottom: 4px solid transparent;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .main-menu a.active {
+      color: #06194b;
+      border-bottom-color: var(--blue);
+    }
+
+    .top-spacer { flex: 1; }
+
+    .project-pill,
+    .user-pill {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      white-space: nowrap;
+    }
+
+    .thumb,
+    .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #d7f4ce, #7da05a);
+    }
+
+    .avatar {
+      border-radius: 50%;
+      background: linear-gradient(135deg, #232936, #d9a270);
+    }
+
+    .shell {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 22px 28px 34px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 30px;
+      letter-spacing: -.03em;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: #52617d;
+      font-size: 15px;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .btn {
+      height: 39px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      color: #15213c;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      border-color: var(--blue);
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 8px 22px rgba(20, 93, 255, .18);
+    }
+
+    .cycle-tabs {
+      display: flex;
+      gap: 32px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 18px;
+    }
+
+    .cycle-tabs button {
+      height: 43px;
+      padding: 0;
+      border: 0;
+      border-bottom: 3px solid transparent;
+      color: #253454;
+      background: transparent;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cycle-tabs button.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .health-strip {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      overflow: hidden;
+      background: #fff;
+      margin-bottom: 14px;
+    }
+
+    .health-item {
+      min-height: 86px;
+      padding: 18px 22px;
+      border-right: 1px solid var(--line);
+    }
+
+    .health-item:last-child { border-right: 0; }
+    .health-item label { display: block; margin-bottom: 8px; color: var(--muted); }
+    .health-item strong { color: var(--ink); font-size: 27px; line-height: 1; }
+    .health-item small { display: block; margin-top: 8px; color: #52617d; }
+
+    .blue { color: var(--blue) !important; }
+    .green { color: var(--green) !important; }
+    .orange { color: var(--orange) !important; }
+    .red { color: var(--red) !important; }
+
+    .grid-2 { display: grid; grid-template-columns: 1.35fr .75fr; gap: 14px; }
+    .grid-2.equal { grid-template-columns: 1fr 1fr; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 1px 0 rgba(30,55,95,.02);
+    }
+
+    .section + .section,
+    .grid-2 + .section,
+    .grid-2 + .grid-2,
+    .health-strip + .grid-2 { margin-top: 14px; }
+
+    .section-head {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .section-head h2 { margin: 0; color: var(--ink); font-size: 17px; }
+    .section-head span { color: var(--muted); }
+    .section-body { padding: 16px; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 22px;
+      padding: 0 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .badge.green { color: #087849 !important; background: var(--green-50); }
+    .badge.blue { color: var(--blue) !important; background: var(--blue-50); }
+    .badge.orange { color: #d95b00 !important; background: var(--orange-50); }
+    .badge.red { color: var(--red) !important; background: var(--red-50); }
+    .badge.purple { color: var(--purple) !important; background: var(--purple-50); }
+    .badge.gray { color: #52617d !important; background: #f0f3f8; }
+
+    .roadmap {
+      position: relative;
+      display: grid;
+      grid-template-columns: 154px repeat(5, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .roadmap-cell {
+      min-height: 102px;
+      padding: 14px;
+      border-right: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      background: #fff;
+    }
+
+    .roadmap-head {
+      min-height: 65px;
+      text-align: center;
+      font-weight: 900;
+      background: #fbfcff;
+    }
+
+    .roadmap-lane {
+      display: grid;
+      align-content: center;
+      color: var(--ink);
+      font-weight: 900;
+      background: #fbfcff;
+    }
+
+    .roadmap-lane small { display: block; margin-top: 4px; color: var(--muted); font-weight: 600; }
+
+    .issue-pill {
+      display: inline-grid;
+      gap: 4px;
+      min-width: 146px;
+      max-width: 210px;
+      margin: 3px 0;
+      padding: 9px 10px;
+      border: 1px solid #ffd1ae;
+      border-radius: 7px;
+      color: #e7540a;
+      background: #fff8f2;
+      box-shadow: 0 4px 12px rgba(255,122,26,.08);
+    }
+
+    .issue-pill b { font-size: 12px; }
+    .issue-pill span { color: #15213c; font-size: 13px; font-weight: 800; }
+    .issue-pill small { color: #52617d; }
+    .issue-pill.p1 { border-color: #ffdba8; color: #d97800; background: #fffaf0; }
+    .issue-pill.p2 { border-color: #bfd3ff; color: var(--blue); background: #f3f7ff; }
+    .issue-pill.done { border-color: #bfead7; color: var(--green); background: #f3fff8; }
+
+    .risk-list { display: grid; gap: 4px; }
+    .risk-row,
+    .priority-row,
+    .check-row,
+    .action-row {
+      display: grid;
+      grid-template-columns: 32px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .risk-row:last-child,
+    .priority-row:last-child,
+    .check-row:last-child,
+    .action-row:last-child { border-bottom: 0; }
+
+    .icon-dot {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-weight: 900;
+      color: var(--orange);
+      background: var(--orange-50);
+    }
+
+    .icon-dot.red { color: var(--red); background: var(--red-50); }
+    .icon-dot.blue { color: var(--blue); background: var(--blue-50); }
+    .icon-dot.green { color: var(--green); background: var(--green-50); }
+
+    .dependency-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .flow-node {
+      position: relative;
+      min-height: 92px;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .flow-node.blocked { border-color: var(--orange); background: #fffaf3; }
+    .flow-node:not(:last-child)::after { content: "→"; position: absolute; right: -18px; color: #8190aa; font-size: 22px; z-index: 2; }
+    .flow-node b { display: block; margin-bottom: 6px; color: var(--ink); }
+    .flow-node strong { font-size: 22px; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 11px 10px; border-bottom: 1px solid var(--line-soft); text-align: left; vertical-align: middle; }
+    th { color: var(--muted); font-size: 12px; font-weight: 800; background: #fbfcff; }
+    td { color: #17233f; }
+    tr.highlight { background: #eef5ff; }
+
+    .dimension-list { display: grid; gap: 0; }
+    .dimension-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 72px 90px;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .dimension-row:last-child { border-bottom: 0; }
+
+    .bar { height: 8px; border-radius: 999px; overflow: hidden; background: #e8edf5; }
+    .bar span { display: block; height: 100%; background: var(--blue); }
+    .bar.orange span { background: var(--orange); }
+
+    .radar-mock,
+    .line-mock {
+      height: 240px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed #cbd6e8;
+      border-radius: 8px;
+      color: #52617d;
+      background:
+        radial-gradient(circle, transparent 0 34px, #e7edf7 35px 36px, transparent 37px 76px, #e7edf7 77px 78px, transparent 79px),
+        #fff;
+    }
+
+    .line-mock { place-items: stretch; padding: 14px; background: #fff; }
+    .line-mock svg { width: 100%; height: 100%; }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 128px repeat(5, minmax(120px, 1fr));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: auto;
+    }
+
+    .matrix > div {
+      min-height: 62px;
+      padding: 12px;
+      border-right: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .matrix .head { color: var(--muted); font-weight: 900; background: #fbfcff; }
+
+    .evidence-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .timeline { display: grid; gap: 0; }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 72px 34px 1fr 92px 92px;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .timeline-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--orange); }
+    .timeline-dot.red { background: var(--red); }
+    .timeline-dot.blue { background: var(--blue); }
+    .timeline-dot.green { background: var(--green); }
+
+    .evidence-detail { display: grid; grid-template-columns: 230px 1fr; gap: 18px; }
+    .frame {
+      height: 166px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(218,242,255,.72), rgba(125,169,92,.72));
+    }
+    .frame::before { content: "智慧农业温室解决方案"; position: absolute; left: 16px; top: 18px; padding: 8px 10px; border-radius: 5px; color: #10213f; background: rgba(255,255,255,.9); font-weight: 900; }
+    .frame::after { content: "02:18"; position: absolute; right: 12px; bottom: 12px; padding: 4px 8px; border-radius: 999px; color: #fff; background: rgba(0,0,0,.68); }
+
+    .coverage-grid { display: grid; grid-template-columns: 120px repeat(7, 1fr); border: 1px solid var(--line); border-radius: 8px; overflow: auto; }
+    .coverage-grid div { min-height: 46px; padding: 10px; border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+    .coverage-grid .head { color: var(--muted); font-weight: 900; background: #fbfcff; }
+
+    .video-layout { display: grid; grid-template-columns: 1fr 1.05fr .72fr; gap: 14px; }
+    .video-frame {
+      height: 248px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #eef7ff, #8fbd71);
+    }
+    .video-frame b { position: absolute; left: 18px; top: 24px; font-size: 20px; color: #10213f; }
+    .video-bar { position: absolute; left: 18px; right: 18px; bottom: 16px; height: 34px; border-radius: 5px; background: rgba(0,0,0,.72); }
+    .video-bar::after { content: "04:31 / 12:45"; position: absolute; right: 12px; top: 8px; color: #fff; font-size: 12px; }
+
+    .sentence-diff { display: grid; grid-template-columns: 1fr 54px 1fr; gap: 14px; align-items: center; }
+    .diff-box { min-height: 150px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: #fbfcff; }
+    .diff-box.good { border-color: #bfead7; background: #f6fffa; }
+
+    .score-ruler { padding: 10px 8px 26px; }
+    .ruler-line { position: relative; height: 76px; margin: 18px 8px 12px; border-bottom: 2px solid #91a4c4; }
+    .point { position: absolute; bottom: -10px; transform: translateX(-50%); text-align: center; }
+    .point::before { content: ""; display: block; width: 9px; height: 9px; margin: 0 auto 8px; border-radius: 50%; background: var(--blue); }
+    .point.red::before { background: var(--red); }
+    .point.dark::before { background: #11182e; }
+    .point-card { padding: 6px 9px; border: 1px solid var(--line); border-radius: 6px; background: #fff; box-shadow: var(--shadow); }
+
+    .note {
+      padding: 13px 16px;
+      border: 1px solid #ffd9b8;
+      border-radius: 7px;
+      color: #8a3b00;
+      background: #fff8ef;
+    }
+
+    .note.green-note { border-color: #bfead7; color: #075d3b; background: #f5fffa; }
+
+    .rank {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--orange);
+      font-weight: 900;
+    }
+    .rank.blue { background: var(--blue); }
+    .rank.gray { background: #94a0b5; }
+
+    @media (max-width: 1180px) {
+      .top-nav { gap: 18px; padding: 0 18px; }
+      .main-menu { gap: 18px; }
+      .project-pill { display: none; }
+      .health-strip { grid-template-columns: repeat(2, 1fr); }
+      .grid-2, .grid-2.equal, .grid-3, .evidence-layout, .video-layout, .sentence-diff { grid-template-columns: 1fr; }
+      .roadmap, .matrix, .coverage-grid { min-width: 920px; }
+      .section-body.scroll { overflow-x: auto; }
+      .cycle-tabs { overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-nav">
+    <div class="brand"><span class="brand-mark"></span>OREP</div>
+    <nav class="main-menu">
+      <a href="#">首页</a>
+      <a href="#">AI教练</a>
+      <a href="#">项目空间</a>
+      <a class="active" href="#">模拟路演</a>
+      <a href="#">能力画像</a>
+    </nav>
+    <div class="top-spacer"></div>
+    <div class="project-pill"><span class="thumb"></span><strong>智慧农业温室项目</strong><span>· T-6天⌄</span></div>
+    <div class="user-pill"><span class="avatar"></span><strong>学生队员⌄</strong></div>
+  </header>
+
+  <main class="shell">
+    <div class="page-header">
+      <div>
+        <h1 id="pageTitle">AI评分整改周期工作台</h1>
+        <p class="subtitle" id="pageSubtitle">AI评分会话 S-020 · 当前 72.5 · 目标重评 T-3天 · 核心闭环：扣分项 → 证据锚点 → 整改任务 → 验收标准 → 下一轮重评</p>
+      </div>
+      <div class="header-actions" id="pageActions">
+        <button class="btn primary">新建周期任务</button>
+        <button class="btn">同步团队看板</button>
+        <button class="btn">下载PDF</button>
+      </div>
+    </div>
+
+    <nav class="cycle-tabs" aria-label="AI评分页面导航">
+      <button class="active" data-tab="overview">总览</button>
+      <button data-tab="dimensions">五维评分</button>
+      <button data-tab="evidence">证据链</button>
+      <button data-tab="expression">表达节奏</button>
+      <button data-tab="presentation">现场呈现</button>
+      <button data-tab="plan">改进方案</button>
+      <button data-tab="jury">AI评审团</button>
+    </nav>
+
+    <section class="page active" id="overview">
+      <div class="health-strip">
+        <div class="health-item"><label>当前分</label><strong>72.5</strong><small>良好，卡在证据与商业闭环</small></div>
+        <div class="health-item"><label>目标分</label><strong>88</strong><small>进入高分档</small></div>
+        <div class="health-item"><label>可追回分</label><strong class="green">+18~24</strong><small>基于历史回收率 72%</small></div>
+        <div class="health-item"><label>未解决 P0</label><strong class="red">3</strong><small>高影响未处理</small></div>
+        <div class="health-item"><label>证据置信度</label><strong class="green">86%</strong><small>较上次 +6%</small></div>
+        <div class="health-item"><label>评审团共识</label><strong>82%</strong><small>中等一致</small></div>
+      </div>
+
+      <div class="grid-2">
+        <section class="section">
+          <div class="section-head"><h2>三天整改 Roadmap</h2><span>P0先做，任务之间有依赖关系</span></div>
+          <div class="section-body scroll">
+            <div class="roadmap">
+              <div class="roadmap-cell roadmap-head"></div>
+              <div class="roadmap-cell roadmap-head">今天<br><small>06/26</small></div>
+              <div class="roadmap-cell roadmap-head">Day 1<br><small>06/27</small></div>
+              <div class="roadmap-cell roadmap-head">Day 2<br><small>06/28</small></div>
+              <div class="roadmap-cell roadmap-head">Day 3<br><small>06/29</small></div>
+              <div class="roadmap-cell roadmap-head">重评<br><small>06/30</small></div>
+
+              <div class="roadmap-cell roadmap-lane">证据补齐<small>修复弱证据</small></div>
+              <div class="roadmap-cell"><div class="issue-pill"><b>OREP-121 · P0 · +8</b><span>补用户痛点证据</span><small>来源 SCORE-01</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p2"><b>OREP-125 · P1 · +4</b><span>补试点数据与效果</span><small>依赖 OREP-121</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p2"><b>OREP-126 · P1 · +3</b><span>整理证据包与引用页</span><small>验收前置</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill done"><b>验收 · 已准备</b><span>证据链完整性复核</span><small>置信度目标 90%</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill done"><b>重评</b><span>对比得分变化</span><small>目标 +8~12</small></div></div>
+
+              <div class="roadmap-cell roadmap-lane">材料修改<small>PPT与讲稿</small></div>
+              <div class="roadmap-cell"><div class="issue-pill"><b>OREP-122 · P0 · +6.5</b><span>重写收费路径</span><small>来源 SCORE-02</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p1"><b>OREP-129 · P1 · +2</b><span>PPT第6页改版</span><small>商业模型页</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p1"><b>OREP-130 · P1 · +2</b><span>商业模式页优化</span><small>交付闭环</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p2"><b>OREP-131 · P2 · +1.5</b><span>演示证明页制作</span><small>图表引用</small></div></div>
+              <div class="roadmap-cell"></div>
+
+              <div class="roadmap-cell roadmap-lane">彩排训练<small>表达与呈现</small></div>
+              <div class="roadmap-cell"><div class="issue-pill"><b>OREP-123 · P0 · +4</b><span>录制演示证据</span><small>来源 SCORE-03</small></div><div class="issue-pill p1"><b>OREP-124 · P1 · +3</b><span>开场60秒重写</span><small>表达节奏</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p1"><b>OREP-127 · P1 · +2</b><span>三拍表达训练</span><small>技术段</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p2"><b>OREP-128 · P2 · +2</b><span>演示段彩排</span><small>音画同步</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p2"><b>OREP-132 · P1 · +2</b><span>答辩问题演练</span><small>评审团追问</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill done"><b>彩排复核</b><span>完整路演录制</span><small>>=2次</small></div></div>
+
+              <div class="roadmap-cell roadmap-lane">答辩准备<small>评审团问题</small></div>
+              <div class="roadmap-cell"></div>
+              <div class="roadmap-cell"><div class="issue-pill p2"><b>JURY-01</b><span>投资人追问准备</span><small>谁付费？为什么？</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p2"><b>JURY-02</b><span>用户视角追问</span><small>痛点是否真实</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill p2"><b>JURY-03</b><span>技术可行性追问</span><small>数据可靠性</small></div></div>
+              <div class="roadmap-cell"><div class="issue-pill done"><b>答辩验收</b><span>追问通过率 80%</span><small>进入重评</small></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>风险与阻塞</h2><span class="badge red">4项</span></div>
+          <div class="section-body risk-list">
+            <div class="risk-row"><span class="icon-dot red">!</span><div><b>用户痛点证据未上传</b><br><small>影响：可追回 +8~12 分，负责人：张同学</small></div><span class="badge red">P0</span></div>
+            <div class="risk-row"><span class="icon-dot">!</span><div><b>收费路径缺少交付对象说明</b><br><small>影响：商业逻辑 -6.5 分，负责人：王同学</small></div><span class="badge red">P0</span></div>
+            <div class="risk-row"><span class="icon-dot">!</span><div><b>评审团存在分歧焦点</b><br><small>影响：答辩说服力，负责人：李同学</small></div><span class="badge orange">P1</span></div>
+            <div class="risk-row"><span class="icon-dot blue">i</span><div><b>彩排未安排时间</b><br><small>影响：现场呈现稳定性，负责人：全员</small></div><span class="badge blue">待安排</span></div>
+            <button class="btn primary" style="width:100%;margin-top:8px">让 Agent 重新排序</button>
+          </div>
+        </section>
+      </div>
+
+      <section class="section">
+        <div class="section-head"><h2>评分依据依赖图</h2><span>当前阻塞节点：证据锚点不足</span></div>
+        <div class="section-body">
+          <div class="dependency-flow">
+            <div class="flow-node"><b>扣分项</b><strong class="red">18.5分</strong><small>3个P0未解决</small></div>
+            <div class="flow-node blocked"><b>证据锚点</b><strong class="orange">12个</strong><small>证据补齐是瓶颈</small></div>
+            <div class="flow-node"><b>任务</b><strong class="blue">9个</strong><small>已规划本周期</small></div>
+            <div class="flow-node"><b>验收</b><strong>5项</strong><small>标准已就绪</small></div>
+            <div class="flow-node"><b>下一轮评分</b><strong class="green">88分</strong><small>预计 +18~24</small></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="dimensions">
+      <div class="health-strip">
+        <div class="health-item"><label>当前评分</label><strong class="blue">72.5</strong><small>良好</small></div>
+        <div class="health-item"><label>目标评分</label><strong>88</strong><small>冲击优秀</small></div>
+        <div class="health-item"><label>最大差距</label><strong>商业逻辑 <span class="orange">-6.5</span></strong><small>优先修复</small></div>
+        <div class="health-item"><label>最易追回</label><strong>证据补齐 <span class="green">+8</span></strong><small>回报最高</small></div>
+        <div class="health-item"><label>待验收维度</label><strong>3个</strong><small>需重点突破</small></div>
+        <div class="health-item"><label>维度任务</label><strong>9个</strong><small>已映射到周期</small></div>
+      </div>
+
+      <div class="grid-2" style="grid-template-columns:390px 1fr">
+        <div>
+          <section class="section">
+            <div class="section-head"><h2>五维能力地图</h2><span>得分 /20</span></div>
+            <div class="section-body dimension-list">
+              <div class="dimension-row"><b>项目价值</b><div class="bar"><span style="width:80%"></span></div><strong>16</strong><span class="badge green">已稳定</span></div>
+              <div class="dimension-row"><b>商业逻辑</b><div class="bar orange"><span style="width:67.5%"></span></div><strong>13.5</strong><span class="badge orange">待补证</span></div>
+              <div class="dimension-row"><b>技术可行性</b><div class="bar"><span style="width:75%"></span></div><strong>15</strong><span class="badge green">已稳定</span></div>
+              <div class="dimension-row"><b>表达节奏</b><div class="bar orange"><span style="width:70%"></span></div><strong>14</strong><span class="badge orange">待训练</span></div>
+              <div class="dimension-row"><b>评委说服力</b><div class="bar orange"><span style="width:70%"></span></div><strong>14</strong><span class="badge orange">待复核</span></div>
+            </div>
+          </section>
+          <section class="section">
+            <div class="section-head"><h2>能力结构雷达</h2><span>本轮/目标/上轮</span></div>
+            <div class="section-body"><div class="radar-mock">ECharts Radar 区域：本轮 72.5 / 目标 88 / 上轮 66.5</div></div>
+          </section>
+        </div>
+        <section class="section">
+          <div class="section-head"><h2>维度整改周期</h2><span>每个维度如何被修复</span></div>
+          <div class="section-body scroll">
+            <div class="matrix">
+              <div class="head">维度</div><div class="head">今天</div><div class="head">Day1</div><div class="head">Day2</div><div class="head">Day3</div><div class="head">重评</div>
+              <div>项目价值</div><div><span class="issue-pill done"><b>SCORE-05</b><span>强化应用价值 +3</span></span></div><div></div><div></div><div></div><div></div>
+              <div>商业逻辑</div><div><span class="issue-pill"><b>SCORE-01</b><span>用户痛点证据 +8</span></span></div><div><span class="issue-pill"><b>SCORE-02</b><span>收费路径 +6.5</span></span></div><div><span class="issue-pill"><b>SCORE-06</b><span>商业闭环补完 +2</span></span></div><div></div><div></div>
+              <div>技术可行性</div><div><span class="issue-pill done"><b>SCORE-03</b><span>演示证据 +4</span></span></div><div></div><div><span class="issue-pill done"><b>SCORE-07</b><span>技术数据补充 +2</span></span></div><div></div><div></div>
+              <div>表达节奏</div><div><span class="issue-pill p1"><b>SCORE-04</b><span>转场话术优化 +2.5</span></span></div><div></div><div><span class="issue-pill p1"><b>SCORE-08</b><span>节奏训练 +1.5</span></span></div><div></div><div></div>
+              <div>评委说服力</div><div></div><div></div><div><span class="issue-pill p1"><b>SCORE-09</b><span>结尾行动请求 +1.5</span></span></div><div></div><div></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="section">
+        <div class="section-head"><h2>评分项到任务映射</h2><span>验收标准必须明确</span></div>
+        <div class="section-body">
+          <table>
+            <tr><th>评分项</th><th>当前得分</th><th>扣分原因</th><th>对应任务</th><th>验收标准</th></tr>
+            <tr><td>目标客户清晰度</td><td>3.0 / 4</td><td>缺少明确用户画像与验证数据</td><td><span class="badge red">SCORE-01 用户痛点证据 +8</span></td><td>完成 >=10 份访谈或问卷，明确目标客户与核心痛点</td></tr>
+            <tr><td>收费路径</td><td>2.0 / 4</td><td>收费对象、价格区间与交付方式不清晰</td><td><span class="badge red">SCORE-02 收费路径 +6.5</span></td><td>说明收费模型、价格区间与实付依据</td></tr>
+            <tr><td>竞品差异</td><td>2.5 / 4</td><td>差异化不够具体，缺少量化对比</td><td><span class="badge orange">SCORE-06 商业闭环 +2</span></td><td>完成1页竞品对比，突出量化差异与壁垒</td></tr>
+            <tr><td>讲述节奏</td><td>2.0 / 4</td><td>转场与铺垫过长，关键信息延后</td><td><span class="badge orange">SCORE-04 转场优化 +2.5</span></td><td>结论前置，15秒内讲清每段核心价值</td></tr>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="evidence">
+      <div class="health-strip">
+        <div class="health-item"><label>证据快照</label><strong class="green">已固定</strong><small>用于正式评分与复盘</small></div>
+        <div class="health-item"><label>转写片段</label><strong>42</strong><small>段</small></div>
+        <div class="health-item"><label>关键帧</label><strong>18</strong><small>帧</small></div>
+        <div class="health-item"><label>证据锚点</label><strong>12</strong><small>个</small></div>
+        <div class="health-item"><label>媒体资产</label><strong>6</strong><small>个</small></div>
+        <div class="health-item"><label>弱证据阻塞</label><strong class="orange">3</strong><small>项</small></div>
+      </div>
+
+      <div class="evidence-layout">
+        <section class="section">
+          <div class="section-head"><h2>证据时间线</h2><span>按时间与影响排序</span></div>
+          <div class="section-body timeline">
+            <div class="timeline-row"><b>02:18</b><span class="timeline-dot blue"></span><div><b>技术校准</b><br><small>系统自动校准</small></div><span>86%</span><span>SCORE-00</span></div>
+            <div class="timeline-row"><b>02:18</b><span class="timeline-dot"></span><div><b>用户痛点证据不足</b><br><small>缺少真实调研或试点数据支撑</small></div><span>78%</span><span class="red">SCORE-01</span></div>
+            <div class="timeline-row"><b>04:31</b><span class="timeline-dot"></span><div><b>收费路径不清</b><br><small>未明确收费对象与价格</small></div><span>74%</span><span class="red">SCORE-02</span></div>
+            <div class="timeline-row"><b>06:47</b><span class="timeline-dot"></span><div><b>演示证据不足</b><br><small>关键数据未在屏幕呈现</small></div><span>72%</span><span class="red">SCORE-03</span></div>
+            <div class="timeline-row"><b>08:55</b><span class="timeline-dot red"></span><div><b>音视频冲突</b><br><small>讲解收益数据时屏幕未切换</small></div><span>65%</span><span class="red">SCORE-04</span></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>当前证据详情</h2><span>SCORE-01 用户痛点证据不足</span></div>
+          <div class="section-body evidence-detail">
+            <div>
+              <div class="frame"></div>
+              <button class="btn" style="width:100%;margin-top:10px">查看全部关键帧（18）</button>
+            </div>
+            <div>
+              <table>
+                <tr><td>关键帧</td><td><b>02:18</b></td></tr>
+                <tr><td>证据类型</td><td>关键帧 + OCR</td></tr>
+                <tr><td>证据置信度</td><td class="orange"><b>78%</b></td></tr>
+                <tr><td>OCR识别文本</td><td>传感器宣称存在温控不准、能耗高、产量不稳定等问题。</td></tr>
+                <tr><td>AI结论</td><td>缺少真实用户验证或试点数据，导致论证可信度不足。</td></tr>
+                <tr><td>需要补充</td><td>用户调研样本、试点数据、效果对比与量化结果。</td></tr>
+              </table>
+              <p><button class="btn">查看关联任务</button> <button class="btn primary">定位到讲稿片段</button></p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="section">
+        <div class="section-head"><h2>技术校准</h2><button class="btn">查看校准详情</button></div>
+        <div class="section-body">
+          <div class="health-strip" style="margin-bottom:0">
+            <div class="health-item"><label>技能水平</label><strong>43</strong><small>/60 中等</small></div>
+            <div class="health-item"><label>现场演示</label><strong>主流程跑通</strong><small><span class="badge green">稳定</span></small></div>
+            <div class="health-item"><label>技术上限</label><strong>78.0</strong><small>/100</small></div>
+            <div class="health-item"><label>修正幅度</label><strong class="orange">-4.3</strong><small>分</small></div>
+            <div class="health-item"><label>修正原因</label><strong>证据不足</strong><small>现场演示不足以支撑更高分档</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>证据覆盖与整改依赖</h2><span>点击可定位对应内容</span></div>
+        <div class="section-body scroll">
+          <div class="coverage-grid">
+            <div class="head">维度</div><div class="head">转写</div><div class="head">关键帧</div><div class="head">PPT页面</div><div class="head">历史对比</div><div class="head">证据完整度</div><div class="head">阻塞问题</div><div class="head">依赖整改任务</div>
+            <div>项目价值</div><div><span class="badge green">强</span></div><div><span class="badge green">强</span></div><div><span class="badge orange">中</span></div><div><span class="badge orange">中</span></div><div><span class="badge orange">中等</span></div><div>-</div><div>T-101 补充用户验证页</div>
+            <div>商业逻辑</div><div><span class="badge red">弱</span></div><div><span class="badge orange">中</span></div><div><span class="badge red">弱</span></div><div><span class="badge red">缺失</span></div><div><span class="badge red">弱</span></div><div class="red">SCORE-01, SCORE-02</div><div>T-102 完善收费路径</div>
+            <div>技术可行性</div><div><span class="badge green">强</span></div><div><span class="badge green">强</span></div><div><span class="badge orange">中</span></div><div><span class="badge orange">中</span></div><div><span class="badge orange">中等</span></div><div>-</div><div>T-103 补充实测数据</div>
+            <div>表达节奏</div><div><span class="badge green">强</span></div><div>-</div><div>-</div><div>-</div><div><span class="badge orange">中等</span></div><div>SCORE-04</div><div>T-201 转场与停顿训练</div>
+            <div>评委说服力</div><div><span class="badge orange">中</span></div><div><span class="badge orange">中</span></div><div><span class="badge orange">中</span></div><div><span class="badge red">弱</span></div><div><span class="badge orange">中等</span></div><div>-</div><div>T-301 结尾行动请求优化</div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="expression">
+      <div class="health-strip">
+        <div class="health-item"><label>表达稳定性</label><strong>78</strong><small>B / 100</small></div>
+        <div class="health-item"><label>平均语速</label><strong>238</strong><small>字/分钟，适中</small></div>
+        <div class="health-item"><label>严重停顿</label><strong>3</strong><small>需减少</small></div>
+        <div class="health-item"><label>最长停顿</label><strong class="orange">5.8s</strong><small>偏长</small></div>
+        <div class="health-item"><label>口头禅</label><strong class="orange">17</strong><small>偏多</small></div>
+        <div class="health-item"><label>可追回分</label><strong class="green">+4~6</strong><small>历史回收率68%</small></div>
+      </div>
+
+      <div class="grid-2 equal">
+        <section class="section">
+          <div class="section-head"><h2>表达训练排期</h2><span>3天恢复周期</span></div>
+          <div class="section-body scroll">
+            <div class="matrix">
+              <div class="head">句段</div><div class="head">今天</div><div class="head">Day1</div><div class="head">Day2</div><div class="head">Day3</div><div class="head">重评</div>
+              <div>开场60秒</div><div><span class="issue-pill p1"><b>TALK-01</b><span>开场价值前置</span></span></div><div></div><div></div><div></div><div></div>
+              <div>技术讲解</div><div><span class="issue-pill p2"><b>TALK-02</b><span>技术段三拍表达</span></span></div><div></div><div></div><div></div><div></div>
+              <div>商业闭环</div><div></div><div><span class="issue-pill p1"><b>TALK-02</b><span>商业闭环压缩</span></span></div><div></div><div></div><div></div>
+              <div>转场衔接</div><div><span class="issue-pill p1"><b>TALK-03</b><span>转场提示词</span></span></div><div></div><div><span class="issue-pill p2"><b>TALK-03</b><span>转场自然衔接</span></span></div><div></div><div></div>
+              <div>结尾请求</div><div></div><div></div><div><span class="issue-pill p1"><b>TALK-04</b><span>结尾行动请求</span></span></div><div></div><div>重新评分 +4~6分</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>当前选中 TALK-02 技术段三拍表达</h2><span class="badge orange">P0 高优先级</span></div>
+          <div class="section-body">
+            <table>
+              <tr><td>时间点</td><td><b>03:42</b></td><td>视频片段</td><td>02:18 - 03:48</td></tr>
+              <tr><td>影响分值</td><td class="orange"><b>-4.0分</b></td><td>证据置信度</td><td>78%</td></tr>
+            </table>
+            <h3>问题描述</h3>
+            <p>技术解释过长，出现 5.8 秒停顿，导致信息密度不足，影响理解。</p>
+            <h3>原句转写</h3>
+            <div class="note">我们这个系统主要是基于物联网传感器采集...（停顿 5.8s）...然后通过边缘计算网关进行数据处理，再上传到云端进行模型分析...</div>
+            <h3>教练建议</h3>
+            <p>三拍式表达：先给结论，再给证据，最后给价值。技术流程压缩为可验证的关键步骤。</p>
+            <button class="btn primary">生成替换话术</button>
+            <button class="btn">加入彩排计划</button>
+          </div>
+        </section>
+      </div>
+
+      <section class="section">
+        <div class="section-head"><h2>语音节奏轨迹</h2><span>全程 15:32 · 严重停顿 3 个 · 口头禅 17 次</span></div>
+        <div class="section-body"><div class="line-mock"><svg viewBox="0 0 900 210" preserveAspectRatio="none"><polyline fill="none" stroke="#145dff" stroke-width="4" points="0,125 35,75 72,118 112,72 150,128 192,102 232,110 270,48 315,122 355,100 397,94 440,142 480,78 520,96 565,145 610,106 655,118 700,60 746,114 790,140 835,86 900,126"/><polyline fill="none" stroke="#ff7a1a" stroke-width="3" points="0,160 80,158 160,166 240,126 320,160 400,155 480,158 560,135 640,168 720,150 800,170 900,160"/><line x1="270" y1="30" x2="270" y2="185" stroke="#f04438" stroke-dasharray="4 4"/><line x1="610" y1="30" x2="610" y2="185" stroke="#ff7a1a" stroke-dasharray="4 4"/><line x1="790" y1="30" x2="790" y2="185" stroke="#f04438" stroke-dasharray="4 4"/></svg></div></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><h2>关键句替换</h2><span>before / after</span></div>
+        <div class="section-body sentence-diff">
+          <div class="diff-box"><b>原句（问题句）</b><p>我们这个系统主要是基于物联网传感器采集数据，然后通过边缘计算网关进行数据处理，再上传到云端进行模型分析...</p><small>时长 38s / 停顿 5.8s</small></div>
+          <div style="text-align:center;color:var(--muted);font-size:26px">→</div>
+          <div class="diff-box good"><b>建议替换（高效句）</b><p>结论：我们的系统可以实时识别棚内异常。证据：已在3个温室试点，准确率92%。价值：帮助种植户节省约3.2万元。</p><small>时长 19s / 停顿 1.6s</small></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="presentation">
+      <div class="health-strip">
+        <div class="health-item"><label>视觉综合</label><strong>7.2</strong><small>/10 中等</small></div>
+        <div class="health-item"><label>音画冲突</label><strong>4</strong><small>个，偏多</small></div>
+        <div class="health-item"><label>关键帧</label><strong>18</strong><small>已采集</small></div>
+        <div class="health-item"><label>主要屏幕类型</label><strong>PPT</strong><small>页面占比82%</small></div>
+        <div class="health-item"><label>可追回分</label><strong class="green">+5~8</strong><small>历史回收率67%</small></div>
+      </div>
+
+      <div class="video-layout">
+        <section class="section">
+          <div class="section-head"><h2>当前选中 PRES-01</h2><span class="badge red">P0 高风险</span></div>
+          <div class="section-body">
+            <div class="video-frame"><b>智慧农业温室解决方案</b><div class="video-bar"></div></div>
+            <p><b>问题：</b>讲解收益数据时，屏幕仍停留在功能介绍页。</p>
+            <button class="btn">查看关键证据链</button>
+            <button class="btn">生成替换话术</button>
+            <button class="btn primary">加入彩排计划</button>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-head"><h2>现场呈现整改周期</h2><span>3天恢复周期</span></div>
+          <div class="section-body scroll">
+            <div class="matrix" style="grid-template-columns:120px repeat(5, 1fr)">
+              <div class="head">阶段</div><div class="head">今天</div><div class="head">Day1</div><div class="head">Day2</div><div class="head">Day3</div><div class="head">重评</div>
+              <div>开场定位</div><div><span class="issue-pill">PRES-01 数据页与讲解不同步</span></div><div><span class="issue-pill p1">切换数据页指引</span></div><div><span class="issue-pill p2">开场视觉锚点训练</span></div><div>-</div><div>-</div>
+              <div>方案演示</div><div><span class="issue-pill">PRES-02 演示证据不足</span></div><div><span class="issue-pill p1">演示录屏补录</span></div><div><span class="issue-pill p2">关键步骤拍点训练</span></div><div>-</div><div>-</div>
+              <div>总结收束</div><div><span class="issue-pill">PRES-04 结尾无行动请求</span></div><div><span class="issue-pill p1">行动请求话术重写</span></div><div><span class="issue-pill p2">答辩收尾训练</span></div><div>-</div><div>目标 +5~8分</div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-head"><h2>动作处方</h2><span>教练建议动作清单</span></div>
+          <div class="section-body">
+            <table>
+              <tr><th>场景</th><th>标准动作</th><th>建议话术/要点</th></tr>
+              <tr><td>指向数据页</td><td>切换到数据页并指向关键指标</td><td>这里是实际收益数据，平均节能23%。</td></tr>
+              <tr><td>演示前置</td><td>展示演示片段再讲原理</td><td>先看效果，再看我们怎么做到的。</td></tr>
+              <tr><td>屏幕停留</td><td>每页停留≤60秒</td><td>一屏一个结论，支撑一个观点。</td></tr>
+              <tr><td>故障转场</td><td>卡顿时解释并转场</td><td>设备正在刷新数据，我们看下一项。</td></tr>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <section class="section">
+        <div class="section-head"><h2>音画融合趋势</h2><span>音频表达强度 / 视觉信息强度 / 冲突窗口</span></div>
+        <div class="section-body"><div class="line-mock"><svg viewBox="0 0 900 210" preserveAspectRatio="none"><polyline fill="none" stroke="#145dff" stroke-width="4" points="0,110 45,52 90,125 135,56 180,130 225,94 270,105 315,136 360,72 405,92 450,142 495,102 540,118 585,64 630,112 675,140 720,84 765,52 810,100 855,58 900,126"/><polyline fill="none" stroke="#0aa66a" stroke-width="3" points="0,150 45,130 90,142 135,118 180,160 225,146 270,150 315,162 360,122 405,136 450,165 495,146 540,132 585,115 630,142 675,160 720,132 765,108 810,142 855,120 900,160"/><line x1="230" y1="28" x2="230" y2="185" stroke="#f04438" stroke-dasharray="4 4"/><line x1="520" y1="28" x2="520" y2="185" stroke="#ff7a1a" stroke-dasharray="4 4"/><line x1="705" y1="28" x2="705" y2="185" stroke="#f04438" stroke-dasharray="4 4"/></svg></div></div>
+      </section>
+    </section>
+
+    <section class="page" id="plan">
+      <div class="health-strip">
+        <div class="health-item"><label>预计追回分数</label><strong class="green">+18~24</strong><small>基于历史问题项目</small></div>
+        <div class="health-item"><label>已选工作项</label><strong>6</strong><small>已达 / 共8项</small></div>
+        <div class="health-item"><label>P0任务</label><strong class="orange">3</strong><small>需优先完成</small></div>
+        <div class="health-item"><label>今日应完成</label><strong class="blue">4</strong><small>建议投入90分钟</small></div>
+        <div class="health-item"><label>重评时间</label><strong>T-3天</strong><small>2026/06/29</small></div>
+        <div class="health-item"><label>验收进度</label><strong>2/5</strong><small>待完成3项</small></div>
+      </div>
+
+      <div class="grid-2">
+        <section class="section">
+          <div class="section-head"><h2>团队工作项生成器</h2><span>智慧农业温室项目团队</span></div>
+          <div class="section-body">
+            <table>
+              <tr><th>选择</th><th>ID</th><th>类型</th><th>工作项</th><th>来源扣分项</th><th>预计提分</th><th>负责人</th><th>截止</th></tr>
+              <tr><td>☑</td><td>OREP-121</td><td><span class="badge red">扣</span></td><td>补齐用户痛点证据</td><td>SCORE-01</td><td>+8.0</td><td>张同学</td><td>Day1</td></tr>
+              <tr><td>☑</td><td>OREP-122</td><td><span class="badge red">扣</span></td><td>完善收费路径与交付闭环</td><td>SCORE-02</td><td>+6.5</td><td>李同学</td><td>Day1</td></tr>
+              <tr><td>☑</td><td>OREP-123</td><td><span class="badge red">扣</span></td><td>录制演示证据与流程说明</td><td>SCORE-03</td><td>+4.0</td><td>王同学</td><td>Day2</td></tr>
+              <tr><td>☑</td><td>OREP-124</td><td><span class="badge green">训</span></td><td>重写开场60秒价值主张</td><td>SCORE-04</td><td>+3.0</td><td>赵同学</td><td>Day1</td></tr>
+              <tr><td>☐</td><td>OREP-125</td><td><span class="badge green">训</span></td><td>技术段三拍表达训练</td><td>SCORE-05</td><td>+2.5</td><td>赵同学</td><td>Day2</td></tr>
+            </table>
+            <p><button class="btn primary">生成6个团队工作项</button> 已选择6项，预计提分 +24.0</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>提分优先级</h2><span>按影响力排序</span></div>
+          <div class="section-body">
+            <div class="priority-row"><span class="rank">1</span><div><b>补齐用户痛点证据</b><br><small>预计提分 +8，难度中，需要访谈/数据</small></div><span>SCORE-01</span></div>
+            <div class="priority-row"><span class="rank">2</span><div><b>完善收费路径与交付闭环</b><br><small>预计提分 +6.5，需业务梳理</small></div><span>SCORE-02</span></div>
+            <div class="priority-row"><span class="rank">3</span><div><b>录制演示证据与流程说明</b><br><small>预计提分 +4，需设备/录制</small></div><span>SCORE-03</span></div>
+            <div class="priority-row"><span class="rank blue">4</span><div><b>重写开场60秒价值主张</b><br><small>预计提分 +3，需讲稿更新</small></div><span>SCORE-04</span></div>
+            <div class="priority-row"><span class="rank gray">5</span><div><b>技术段三拍表达训练</b><br><small>预计提分 +2.5，无强依赖</small></div><span>SCORE-05</span></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="grid-2 equal">
+        <section class="section">
+          <div class="section-head"><h2>话术与材料修改</h2><span>PPT材料清单</span></div>
+          <div class="section-body">
+            <table>
+              <tr><th>PPT页</th><th>当前问题</th><th>需修改内容</th><th>完成标准</th><th>状态</th></tr>
+              <tr><td>P6</td><td>用户痛点证据不足</td><td>补充真实访谈与数据</td><td>有来源/可核验</td><td>未开始</td></tr>
+              <tr><td>P7</td><td>算法方案流程不清</td><td>补流程图与关键步骤</td><td>1页看懂流程</td><td>进行中</td></tr>
+              <tr><td>P9</td><td>商业模式收费不清</td><td>明确对象/价格/交付</td><td>闭环完整</td><td>未开始</td></tr>
+              <tr><td>P12</td><td>试点数据不足</td><td>补试点结果与对照</td><td>有对比/可验证</td><td>未开始</td></tr>
+            </table>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-head"><h2>重评前验收清单</h2><span class="green">2/5 完成</span></div>
+          <div class="section-body">
+            <div class="check-row"><span class="icon-dot green">✓</span><div>PPT页已更新并通过自检</div><span class="badge green">已完成</span></div>
+            <div class="check-row"><span class="icon-dot green">✓</span><div>关键证据已上传并关联锚点</div><span class="badge green">已完成</span></div>
+            <div class="check-row"><span class="icon-dot">□</span><div>主讲稿已改写并完成录音</div><span class="badge orange">待完成</span></div>
+            <div class="check-row"><span class="icon-dot">□</span><div>整场彩排已完成（≥2次）</div><span class="badge orange">待完成</span></div>
+            <div class="check-row"><span class="icon-dot">□</span><div>评审团追问已演练并记录</div><span class="badge orange">待完成</span></div>
+            <button class="btn primary" style="width:100%;margin-top:12px">开始今日整改</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="page" id="jury">
+      <div class="health-strip">
+        <div class="health-item"><label>官方评分</label><strong>72.5</strong><small>/100</small></div>
+        <div class="health-item"><label>评审团均分</label><strong>70.8</strong><small>/100</small></div>
+        <div class="health-item"><label>分差</label><strong class="orange">-1.7</strong><small>偏谨慎</small></div>
+        <div class="health-item"><label>评委数</label><strong>9/9</strong><small>已完成</small></div>
+        <div class="health-item"><label>共识度</label><strong class="green">82%</strong><small>中等偏高</small></div>
+        <div class="health-item"><label>追问任务</label><strong>6</strong><small>进入答辩训练</small></div>
+      </div>
+
+      <div class="grid-2">
+        <section class="section">
+          <div class="section-head"><h2>评委分数尺</h2><span>去掉最高分与最低分后均分</span></div>
+          <div class="section-body score-ruler">
+            <div class="ruler-line">
+              <div class="point red" style="left:10%"><div class="point-card">J04<br><b>60.0</b></div></div>
+              <div class="point" style="left:42%"><div class="point-card">J02<br><b>69.0</b></div></div>
+              <div class="point" style="left:57%"><div class="point-card">J03<br><b>71.5</b></div></div>
+              <div class="point dark" style="left:62%"><div class="point-card">官方<br><b>72.5</b></div></div>
+              <div class="point red" style="left:88%"><div class="point-card">J07<br><b>83.0</b></div></div>
+            </div>
+          </div>
+          <div class="section-body" style="padding-top:0">
+            <table>
+              <tr><th>评委</th><th>角色/视角</th><th>评分</th><th>相对官方</th><th>核心关注点</th><th>训练建议</th></tr>
+              <tr><td>J01</td><td>投资人（早期）</td><td>76.0</td><td class="green">+3.5</td><td>用户验证与增长路径不够清晰</td><td>补齐获客与留存数据</td></tr>
+              <tr><td>J02</td><td>投资人（机构）</td><td>69.0</td><td class="red">-3.5</td><td>收费路径与盈利模型不够具体</td><td>明确收费对象与交付闭环</td></tr>
+              <tr class="highlight"><td>J05</td><td>技术股权师</td><td>72.5</td><td>-</td><td>方案可行，落地细节需验证</td><td>补充原型与试点数据</td></tr>
+              <tr><td>J07</td><td>行业专家</td><td>83.0</td><td class="green">+10.5</td><td>行业需求认可</td><td>强化行业痛点与市场空间</td></tr>
+            </table>
+          </div>
+        </section>
+
+        <div>
+          <section class="section">
+            <div class="section-head"><h2>共识与分歧进入整改周期</h2><span>不修改基础分</span></div>
+            <div class="section-body">
+              <div class="note green-note"><b>共识问题（3项）</b><p>1. 方向成立，但证据不足，建议支持高分档</p><p>2. 商业闭环（对象 / 价格 / 交付）需补证</p><p>3. 演示证据需可见（录屏 / 数据 / 效果）</p></div>
+              <br>
+              <div class="note"><b>分歧焦点（2项）</b><p>技术可行性 VS 商业验证充分性</p><p>现场表现 VS PPT材料完整度</p></div>
+              <br>
+              <button class="btn primary" style="width:100%">同步到 Day2 答辩训练</button>
+            </div>
+          </section>
+          <section class="section">
+            <div class="section-head"><h2>答辩追问题库</h2><span>由评审团生成</span></div>
+            <div class="section-body">
+              <table>
+                <tr><th>#</th><th>角色</th><th>问题</th><th>锚点</th></tr>
+                <tr><td>1</td><td><span class="badge red">投资人</span></td><td>谁在付费？为什么愿意在温室付费？</td><td>OREP-122</td></tr>
+                <tr><td>2</td><td><span class="badge red">投资人</span></td><td>你们收费模式和单位经济如何？</td><td>OREP-121</td></tr>
+                <tr><td>3</td><td><span class="badge blue">用户</span></td><td>你们与现有方案相比，核心差异在哪？</td><td>OREP-123</td></tr>
+                <tr><td>4</td><td><span class="badge purple">技术</span></td><td>数据采集准确性和可靠性如何验证？</td><td>OREP-125</td></tr>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const pageMeta = {
+      overview: {
+        title: 'AI评分整改周期工作台',
+        subtitle: 'AI评分会话 S-020 · 当前 72.5 · 目标重评 T-3天 · 核心闭环：扣分项 → 证据锚点 → 整改任务 → 验收标准 → 下一轮重评',
+        actions: ['新建周期任务', '同步团队看板', '下载PDF']
+      },
+      dimensions: {
+        title: '五维评分',
+        subtitle: 'AI评分会话 S-020 · 维度拆解与整改映射 · 每个维度都进入周期任务与验收标准',
+        actions: ['生成维度任务', '同步团队看板', '下载PDF']
+      },
+      evidence: {
+        title: '证据链',
+        subtitle: 'AI评分会话 S-020 · 正式证据快照 · 关键帧、转写与证据锚点共同支撑整改验收',
+        actions: ['生成证据快照', '同步团队看板', '下载PDF']
+      },
+      expression: {
+        title: '表达节奏',
+        subtitle: 'AI评分会话 S-020 · 语速、停顿、口头禅转成可训练任务',
+        actions: ['生成训练任务', '同步团队看板', '下载PDF']
+      },
+      presentation: {
+        title: '现场呈现',
+        subtitle: 'AI评分会话 S-020 · 画面、站位、屏幕内容和音画冲突转成彩排动作',
+        actions: ['生成彩排动作', '同步团队看板', '下载PDF']
+      },
+      plan: {
+        title: '改进方案',
+        subtitle: 'AI评分会话 S-020 · 整改周期执行中心 · 工作项生成、材料修改、彩排排期与验收清单',
+        actions: ['生成团队工作项', '导出任务清单', '下载PDF']
+      },
+      jury: {
+        title: 'AI评审团',
+        subtitle: 'AI评分会话 S-020 · 评审团只做复核，不修改基础分；共识和分歧进入答辩训练',
+        actions: ['生成评审团复核', '同步追问到训练', '下载PDF']
+      }
+    };
+
+    const tabs = [...document.querySelectorAll('[data-tab]')];
+    const pages = [...document.querySelectorAll('.page')];
+    const title = document.querySelector('#pageTitle');
+    const subtitle = document.querySelector('#pageSubtitle');
+    const actions = document.querySelector('#pageActions');
+
+    function activate(id) {
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === id));
+      pages.forEach(page => page.classList.toggle('active', page.id === id));
+      const meta = pageMeta[id];
+      title.textContent = meta.title;
+      subtitle.textContent = meta.subtitle;
+      actions.innerHTML = meta.actions.map((label, index) => `<button class="btn ${index === 0 ? 'primary' : ''}">${label}</button>`).join('');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => activate(tab.dataset.tab)));
+  </script>
+</body>
+</html>

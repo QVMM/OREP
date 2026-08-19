@@ -1,0 +1,235 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: orep-mysql
+    env_file:
+      - ../.env.production
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-time-zone=+08:00
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ../sql/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+      - ../sql/ppt_tables.sql:/docker-entrypoint-initdb.d/02-ppt.sql:ro
+      - ../sql/ppt_history_tables.sql:/docker-entrypoint-initdb.d/03-ppt-history.sql:ro
+      - ../sql/meeting_recording_upgrade.sql:/docker-entrypoint-initdb.d/04-recording.sql:ro
+      - ./sql/backend-resources/create_ai_score_report_table.sql:/docker-entrypoint-initdb.d/11-ai-score-report.sql:ro
+      - ./sql/backend-resources/create_ai_scoring_session_tables.sql:/docker-entrypoint-initdb.d/17-ai-scoring-session.sql:ro
+      - ./sql/backend-resources/upgrade_ai_scoring_session_p7_schema.sql:/docker-entrypoint-initdb.d/18-ai-scoring-session-p7-upgrade.sql:ro
+      - ./sql/backend-resources/upgrade_ai_scoring_p8_rule_engine.sql:/docker-entrypoint-initdb.d/19-ai-scoring-p8-rule-engine-upgrade.sql:ro
+      - ./sql/backend-resources/migrate_ai_score_report_transparent_remediation_v3.sql:/docker-entrypoint-initdb.d/20-ai-score-transparent-remediation-v3.sql:ro
+      - ./sql/backend-resources/upgrade_ai_score_speaker_attribution_v1.sql:/docker-entrypoint-initdb.d/21-ai-score-speaker-attribution-v1.sql:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: orep-redis
+    env_file:
+      - ../.env.production
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD}"]
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a $${REDIS_PASSWORD} ping | grep PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  minio:
+    image: minio/minio:latest
+    container_name: orep-minio
+    env_file:
+      - ../.env.production
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    restart: unless-stopped
+
+  livekit:
+    image: livekit/livekit-server:v1.9.12
+    container_name: orep-livekit
+    command: --config /etc/livekit.yaml
+    volumes:
+      - ./livekit.rendered.yaml:/etc/livekit.yaml:ro
+    ports:
+      - "7881:7881/tcp"
+      - "50100-50200:50100-50200/udp"
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: orep-backend
+    env_file:
+      - ../.env.production
+    environment:
+      JAVA_TOOL_OPTIONS: ${JAVA_OPTS}
+      SERVER_PORT: 8080
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_PASSWORD: ${REDIS_PASSWORD}
+      SPRING_MAIL_HOST: ${MAIL_HOST}
+      SPRING_MAIL_PORT: ${MAIL_PORT}
+      SPRING_MAIL_USERNAME: ${MAIL_USERNAME}
+      SPRING_MAIL_PASSWORD: ${MAIL_PASSWORD}
+      OREP_EMAIL_PYTHON_FALLBACK_ENABLED: ${OREP_EMAIL_PYTHON_FALLBACK_ENABLED}
+      OREP_EMAIL_PYTHON_BIN: ${OREP_EMAIL_PYTHON_BIN}
+      SPRING_MAIL_SMTP_AUTH: ${SPRING_MAIL_SMTP_AUTH}
+      SPRING_MAIL_SMTP_STARTTLS_ENABLE: ${SPRING_MAIL_SMTP_STARTTLS_ENABLE}
+      SPRING_MAIL_SMTP_STARTTLS_REQUIRED: ${SPRING_MAIL_SMTP_STARTTLS_REQUIRED}
+      SPRING_MAIL_SMTP_SSL_ENABLE: ${SPRING_MAIL_SMTP_SSL_ENABLE}
+      SPRING_MAIL_SMTP_SSL_PROTOCOLS: ${SPRING_MAIL_SMTP_SSL_PROTOCOLS}
+      SPRING_MAIL_SMTP_SSL_TRUST: ${SPRING_MAIL_SMTP_SSL_TRUST}
+      SPRING_MAIL_SMTP_SSL_CHECK_SERVER_IDENTITY: ${SPRING_MAIL_SMTP_SSL_CHECK_SERVER_IDENTITY}
+      SPRING_MAIL_SMTP_SOCKET_FACTORY_CLASS: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_CLASS}
+      SPRING_MAIL_SMTP_SOCKET_FACTORY_PORT: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_PORT}
+      SPRING_MAIL_SMTP_SOCKET_FACTORY_FALLBACK: ${SPRING_MAIL_SMTP_SOCKET_FACTORY_FALLBACK}
+      SPRING_MAIL_SMTP_CONNECTION_TIMEOUT: ${SPRING_MAIL_SMTP_CONNECTION_TIMEOUT}
+      SPRING_MAIL_SMTP_TIMEOUT: ${SPRING_MAIL_SMTP_TIMEOUT}
+      SPRING_MAIL_SMTP_WRITE_TIMEOUT: ${SPRING_MAIL_SMTP_WRITE_TIMEOUT}
+      OREP_EMAIL_FROM: ${MAIL_FROM}
+      OREP_JWT_SECRET: ${JWT_SECRET}
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET}
+      LIVEKIT_WS_URL: ${LIVEKIT_WS_URL}
+      LIVEKIT_EGRESS_API_URL: http://livekit:7880
+      LIVEKIT_EGRESS_S3_ENDPOINT: http://minio:9000
+      LIVEKIT_EGRESS_S3_ACCESS_KEY: ${MINIO_ROOT_USER}
+      LIVEKIT_EGRESS_S3_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      LIVEKIT_EGRESS_S3_BUCKET: ${MINIO_BUCKET_RECORDINGS}
+      MINIO_ENDPOINT: http://minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      MINIO_BUCKET: ${MINIO_BUCKET_RECORDINGS}
+      RECORDING_MODE: bot
+      RECORDING_BOT_URL: http://recording-bot:8091
+      RECORDING_BOT_SECRET: ${RECORDING_BOT_SECRET}
+      RECORDING_CALLBACK_BASE_URL: http://backend:8080
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_started
+      livekit:
+        condition: service_started
+    restart: unless-stopped
+
+  ai-scoring:
+    build:
+      context: ../ai-scoring
+      dockerfile: Dockerfile
+    container_name: orep-ai-scoring
+    env_file:
+      - ../.env.production
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8090
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      BACKEND_CALLBACK_URL: http://backend:8080/api/ai-score/callback
+      CHAT_CALLBACK_URL: http://backend:8080/api/ai-chat/callback
+      LIVE_CAMERA_SUBSCRIBER_ENABLED: ${LIVE_CAMERA_SUBSCRIBER_ENABLED:-false}
+      LIVEKIT_INTERNAL_WS_URL: ws://livekit:7880
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET}
+    volumes:
+      # Share backend uploads so /app/uploads/ai-score/... paths resolve in both services
+      - ${OREP_STORAGE_ROOT:-/data/orep-storage}/backend/uploads:/app/uploads
+    depends_on:
+      - minio
+      - backend
+      - livekit
+    restart: unless-stopped
+
+  recording-bot:
+    build:
+      context: ../recording-bot
+      dockerfile: Dockerfile
+    container_name: orep-recording-bot
+    env_file:
+      - ../.env.production
+    environment:
+      LIVEKIT_URL: ws://livekit:7880
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET}
+      BOT_PORT: 8091
+      BACKEND_CALLBACK_BASE_URL: http://backend:8080
+      RECORDING_BOT_SECRET: ${RECORDING_BOT_SECRET}
+    volumes:
+      - recording_bot_data:/app/recordings
+    depends_on:
+      - livekit
+      - backend
+      - minio
+    restart: unless-stopped
+    shm_size: "1gb"
+
+  signaling:
+    build:
+      context: ../signaling
+      dockerfile: Dockerfile
+    container_name: orep-signaling
+    environment:
+      PORT: 3000
+    restart: unless-stopped
+
+  frontend-user:
+    build:
+      context: ../frontend/user
+      dockerfile: Dockerfile
+    container_name: orep-user
+    restart: unless-stopped
+
+  frontend-admin:
+    build:
+      context: ../frontend/admin
+      dockerfile: Dockerfile
+    container_name: orep-admin
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: orep-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.prod.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../certs:/etc/nginx/certs:ro
+    depends_on:
+      - frontend-user
+      - frontend-admin
+      - backend
+      - ai-scoring
+      - signaling
+      - livekit
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+  redis_data:
+  minio_data:
+  ai_uploads:
+  recording_bot_data:

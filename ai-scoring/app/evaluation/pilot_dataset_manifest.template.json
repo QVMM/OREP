@@ -1,0 +1,36 @@
+{
+  "version": "stage7-pilot-manifest-v1",
+  "description": "Template for frozen pilot stability evaluation samples. Do not mark stage 7 ready until each pilot track has at least 20 real frozen samples.",
+  "requiredSampleTypes": [
+    "high_score",
+    "middle_score",
+    "low_score",
+    "low_evidence",
+    "demo_failure",
+    "material_sufficient",
+    "slogan_packaging",
+    "boundary_dispute"
+  ],
+  "tracks": {
+    "track_42_ai": [],
+    "track_27_it": []
+  },
+  "sampleContract": {
+    "sampleId": "stable unique id",
+    "sampleType": "one of requiredSampleTypes",
+    "inputSnapshotHash": "sha256 of frozen evidence snapshot or input bundle",
+    "ruleVersion": "pilot rule version used for evaluation",
+    "humanReferenceScore": "expert reference total score",
+    "humanDeductionNotes": "expert deduction notes",
+    "verifiableEvidencePoints": "at least one evidence anchor or source reference"
+  },
+  "expertCalibrationRecordContract": {
+    "sampleId": "sample id",
+    "reviewer": "expert reviewer name/id",
+    "reviewedAt": "ISO-8601 timestamp",
+    "correctionType": "sample_annotation or rule_change_suggestion",
+    "reason": "correction reason",
+    "affectedObservations": "observation codes affected by the correction",
+    "ruleVersion": "rule version reviewed"
+  }
+}

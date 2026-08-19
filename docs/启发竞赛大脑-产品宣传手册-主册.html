@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>启发·竞赛大脑 · 产品宣传手册</title>
+  <!--
+    品牌：workspace-tokens --ds-orange-500 #E84A1C
+    Logo：competition-brain 橙标（非深蓝 Q）
+    卖点主轴：
+      1) 备-练-演-评-改 项目化闭环
+      2) 小启 AI：备赛场景助手（对话 / 上下文 / 改稿与计划）
+      3) 知识库：资源材料可引用、回答带参考依据
+  -->
+  <style>
+    :root {
+      --o50: #fff7f2; --o100: #fee9df; --o200: #fbd0bf; --o300: #f6aa8f;
+      --o400: #ef7954; --o500: #e84a1c; --o600: #d94319; --o700: #c43a12; --o800: #b12f0a;
+      --ink: #12141a; --ink2: #2c3038; --muted: #6b7280; --faint: #9aa1ad;
+      --line: rgba(28,26,22,.09); --line2: rgba(28,26,22,.13);
+      --canvas: #f3f4f6; --white: #fff;
+      --r8: 8px; --r12: 12px; --r16: 16px; --r20: 20px;
+      --shadow: 0 8px 24px rgba(40,36,32,.06);
+      --shadow2: 0 16px 40px rgba(40,36,32,.08);
+      --font: "PingFang SC","HarmonyOS Sans SC","Microsoft YaHei","Noto Sans SC",-apple-system,system-ui,sans-serif;
+      --num: "DIN Alternate","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      font-family: var(--font); color: var(--ink); background: #e2e3e7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .toolbar {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+      padding: 10px 16px; background: rgba(255,255,255,.95); border-bottom: 1px solid var(--line);
+    }
+    .toolbar strong { font-size: 13px; }
+    .toolbar span { font-size: 12px; color: var(--muted); }
+    .toolbar button {
+      border: 0; background: var(--o700); color: #fff; font: 600 12px var(--font);
+      border-radius: 999px; padding: 8px 16px; cursor: pointer;
+    }
+    .stack { width: min(900px,100%); margin: 18px auto 56px; padding: 0 12px; display: flex; flex-direction: column; gap: 20px; }
+
+    .sheet {
+      width: 100%; aspect-ratio: 210/297; position: relative; overflow: hidden;
+      background: var(--white); box-shadow: 0 18px 48px rgba(18,20,26,.1);
+    }
+
+    /* ===== COVER ===== */
+    .cover {
+      background:
+        radial-gradient(circle at 10% -10%, rgba(232,74,28,.1), transparent 38%),
+        radial-gradient(circle at 100% 0%, rgba(255,255,255,.85), transparent 32%),
+        linear-gradient(180deg, #fcfcfd 0%, #f5f5f7 50%, #f0f1f3 100%);
+    }
+    .cover::after {
+      content: ""; position: absolute; top: 0; right: 0; width: 9px; height: 100%;
+      background: linear-gradient(180deg, var(--o400), var(--o500) 50%, var(--o700));
+    }
+    .cover-pad { position: absolute; inset: 0; padding: 7.5% 9%; display: flex; flex-direction: column; }
+    .cover-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .cover-top img { height: 38px; width: auto; }
+    .pill {
+      font-size: 11px; font-weight: 600; letter-spacing: .1em; color: var(--o700);
+      background: var(--o50); border: 1px solid var(--o100); padding: 6px 12px; border-radius: 999px;
+    }
+    .cover-hero { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 2% 0; max-width: 92%; }
+    .kicker { margin: 0 0 12px; font-size: 13px; color: var(--muted); letter-spacing: .12em; font-weight: 500; }
+    .cover-hero h1 { margin: 0 0 12px; font-size: clamp(34px,5vw,46px); font-weight: 800; line-height: 1.12; letter-spacing: .02em; }
+    .cover-hero h1 em { font-style: normal; color: var(--o500); }
+    .slogan { margin: 0 0 10px; font-size: 24px; font-weight: 700; color: var(--ink2); }
+    .desc { margin: 0; max-width: 34em; font-size: 14.5px; line-height: 1.65; color: var(--muted); }
+
+    /* 三大卖点 — 封面就立住 */
+    .pillars {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 10px;
+      margin-top: 28px;
+    }
+    .pillar {
+      background: var(--white); border: 1px solid var(--line); border-radius: var(--r16);
+      padding: 14px 14px 12px; box-shadow: var(--shadow); min-height: 128px;
+    }
+    .pillar .ico {
+      width: 32px; height: 32px; border-radius: 10px; display: grid; place-items: center;
+      background: var(--o50); border: 1px solid var(--o100); margin-bottom: 10px;
+      font-size: 14px; font-weight: 800; color: var(--o600);
+    }
+    .pillar .ico img { width: 20px; height: 20px; }
+    .pillar strong { display: block; font-size: 14px; font-weight: 800; margin-bottom: 6px; color: var(--ink); }
+    .pillar p { margin: 0; font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+
+    .rhythm {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 22px;
+    }
+    .rhythm b {
+      min-width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+      background: var(--o500); color: #fff; font-size: 17px; font-weight: 800;
+      box-shadow: 0 8px 16px rgba(232,74,28,.22);
+    }
+    .rhythm em { font-style: normal; color: var(--o300); font-weight: 700; font-size: 13px; }
+    .rhythm span { width: 100%; font-size: 11.5px; color: var(--faint); margin-top: 4px; }
+
+    .cover-foot {
+      display: flex; justify-content: space-between; gap: 12px; padding-top: 14px;
+      border-top: 1px solid var(--line); font-size: 11.5px; color: var(--faint);
+    }
+    .cover-foot strong { display: block; color: var(--ink2); font-size: 12.5px; margin-bottom: 3px; }
+
+    /* ===== INNER ===== */
+    .inner {
+      background: radial-gradient(circle at 0 0, rgba(232,74,28,.03), transparent 42%), #fafafa;
+    }
+    .pad { position: absolute; inset: 0; padding: 6% 7%; display: flex; flex-direction: column; }
+    .head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--line);
+    }
+    .head .brand { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; }
+    .head .brand img { height: 26px; width: auto; }
+    .head .brand i { font-style: normal; color: var(--o500); }
+    .head .tag {
+      font-size: 11px; font-weight: 600; letter-spacing: .08em; color: var(--o700);
+      background: var(--o50); border: 1px solid var(--o100); padding: 5px 10px; border-radius: 999px;
+    }
+    .progress { display: flex; gap: 5px; margin-bottom: 14px; }
+    .progress i { flex: 1; height: 3px; border-radius: 99px; background: var(--o100); font-style: normal; }
+    .progress i.on { background: var(--o500); }
+
+    .mods { flex: 1; display: flex; flex-direction: column; gap: 14px; min-height: 0; }
+    .mod {
+      flex: 1; min-height: 0;
+      display: grid; grid-template-columns: 1fr 1.02fr; gap: 14px;
+      background: var(--white); border: 1px solid var(--line); border-radius: var(--r20);
+      box-shadow: var(--shadow); padding: 16px; overflow: hidden;
+    }
+    .mod.flip { grid-template-columns: 1.02fr 1fr; }
+    .mod.flip .t { order: 2; } .mod.flip .m { order: 1; }
+    .idx { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .idx .n {
+      font-family: var(--num); font-size: 12px; font-weight: 700; color: #fff;
+      background: var(--o500); min-width: 34px; height: 26px; border-radius: 7px;
+      display: grid; place-items: center; letter-spacing: .04em;
+    }
+    .idx .l {
+      font-size: 11.5px; font-weight: 700; color: var(--o700);
+      background: var(--o50); border: 1px solid var(--o100); padding: 3px 9px; border-radius: 999px;
+    }
+    .mod h2 { margin: 0 0 6px; font-size: 18px; font-weight: 800; line-height: 1.25; }
+    .mod .lead { margin: 0 0 10px; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+    .mod ul { margin: 0; padding: 0; list-style: none; }
+    .mod li {
+      position: relative; padding: 6px 0 6px 12px; font-size: 12px; line-height: 1.5; color: var(--ink2);
+      border-top: 1px solid rgba(28,26,22,.055);
+    }
+    .mod li:first-of-type { border-top: 0; }
+    .mod li::before {
+      content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px;
+      border-radius: 50%; background: var(--o500);
+    }
+    .mod li b { color: var(--ink); font-weight: 700; margin-right: 3px; }
+    .mod .note {
+      margin-top: 8px; font-size: 10.5px; line-height: 1.45; color: var(--faint);
+      padding: 7px 9px; background: var(--o50); border: 1px solid var(--o100); border-radius: var(--r8);
+    }
+    .m {
+      position: relative; border-radius: var(--r16); overflow: hidden;
+      background: var(--canvas); border: 1px solid var(--line); min-height: 150px; align-self: stretch;
+    }
+    .m img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .m .cap {
+      position: absolute; left: 8px; bottom: 8px; font-size: 10px; font-weight: 600;
+      background: rgba(255,255,255,.94); border: 1px solid var(--line); color: var(--ink2);
+      padding: 3px 7px; border-radius: 6px;
+    }
+
+    /* 小启 hero 模块 */
+    .xiaoqi-hero {
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: 14px;
+      background: linear-gradient(135deg, #fff 0%, var(--o50) 100%);
+      border: 1px solid var(--o100); border-radius: var(--r20);
+      box-shadow: var(--shadow); padding: 18px; flex: 1;
+    }
+    .xiaoqi-hero .brand-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .xiaoqi-hero .brand-row img { width: 36px; height: 36px; }
+    .xiaoqi-hero .brand-row strong { font-size: 20px; font-weight: 800; }
+    .xiaoqi-hero .brand-row span {
+      font-size: 11px; font-weight: 700; color: var(--o700);
+      background: #fff; border: 1px solid var(--o100); padding: 3px 8px; border-radius: 999px;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; }
+    .chips span {
+      font-size: 11px; color: var(--ink2); background: #fff; border: 1px solid var(--line);
+      padding: 6px 10px; border-radius: 999px; line-height: 1.3;
+    }
+
+    .kb-panel {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--r16);
+      padding: 14px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .kb-panel h3 { margin: 0; font-size: 14px; font-weight: 800; }
+    .kb-item {
+      display: grid; grid-template-columns: 28px 1fr; gap: 8px; align-items: start;
+      padding: 8px; border-radius: var(--r12); background: var(--canvas);
+    }
+    .kb-item .dot {
+      width: 28px; height: 28px; border-radius: 8px; background: var(--o50); color: var(--o600);
+      display: grid; place-items: center; font-size: 12px; font-weight: 800;
+    }
+    .kb-item strong { display: block; font-size: 12px; margin-bottom: 2px; }
+    .kb-item p { margin: 0; font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+    .flow {
+      height: 100%; min-height: 160px; padding: 14px; display: flex; flex-direction: column;
+      justify-content: center; gap: 10px;
+      background: radial-gradient(circle at 90% 10%, rgba(232,74,28,.08), transparent 40%), #fff;
+    }
+    .flow-row { display: flex; align-items: center; gap: 6px; }
+    .flow-node {
+      flex: 1; text-align: center; padding: 12px 4px; border-radius: var(--r12);
+      background: var(--o50); border: 1px solid var(--o100);
+    }
+    .flow-node b { display: block; font-size: 16px; color: var(--o600); margin-bottom: 3px; }
+    .flow-node span { font-size: 10.5px; color: var(--muted); }
+    .flow-arr { color: var(--o400); font-weight: 700; flex-shrink: 0; }
+    .flow-foot { text-align: center; font-size: 11px; color: var(--faint); }
+
+    .sell-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;
+    }
+    .sell-card {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--r16);
+      padding: 14px; box-shadow: var(--shadow);
+    }
+    .sell-card h3 { margin: 0 0 6px; font-size: 14px; font-weight: 800; }
+    .sell-card p { margin: 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
+    .sell-card ul { margin: 8px 0 0; padding: 0; list-style: none; }
+    .sell-card li {
+      font-size: 11.5px; color: var(--ink2); padding: 5px 0 5px 12px; position: relative;
+      border-top: 1px solid rgba(28,26,22,.05);
+    }
+    .sell-card li:first-child { border-top: 0; }
+    .sell-card li::before {
+      content: ""; position: absolute; left: 0; top: 11px; width: 5px; height: 5px;
+      border-radius: 50%; background: var(--o500);
+    }
+
+    .cta {
+      margin-top: 12px; padding: 14px 16px; border-radius: var(--r16);
+      background: linear-gradient(135deg, var(--o700), var(--o500)); color: #fff;
+      display: grid; grid-template-columns: 1.4fr auto; gap: 10px; align-items: center;
+      box-shadow: 0 12px 28px rgba(232,74,28,.25);
+    }
+    .cta h3 { margin: 0 0 4px; font-size: 15px; }
+    .cta p { margin: 0; font-size: 12px; opacity: .92; line-height: 1.45; }
+    .cta .side { font-size: 11px; text-align: right; opacity: .95; line-height: 1.6; }
+    .contact {
+      margin-top: 10px; display: flex; justify-content: space-between; gap: 10px;
+      font-size: 11px; color: var(--muted); align-items: flex-end;
+    }
+    .qr {
+      width: 52px; height: 52px; border: 1px dashed var(--o200); border-radius: 8px;
+      display: grid; place-items: center; font-size: 10px; color: var(--faint); background: #fff;
+    }
+    .legal { margin-top: 8px; font-size: 9.5px; color: var(--faint); line-height: 1.45; }
+
+    .diff {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;
+    }
+    .diff div {
+      padding: 10px; border-radius: var(--r8); background: #f8f8fa; border: 1px solid var(--line);
+      font-size: 11px; line-height: 1.45; color: var(--muted);
+    }
+    .diff strong { display: block; color: var(--ink2); font-size: 11.5px; margin-bottom: 3px; }
+
+    @media (max-width: 720px) {
+      .sheet { aspect-ratio: auto; min-height: 100vh; }
+      .mod, .mod.flip, .pillars, .xiaoqi-hero, .sell-grid, .cta { grid-template-columns: 1fr; }
+      .mod.flip .t, .mod.flip .m { order: unset; }
+      .m { min-height: 180px; max-height: 220px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none !important; }
+      .stack { width: auto; margin: 0; padding: 0; gap: 0; }
+      .sheet {
+        width: 210mm; height: 297mm; aspect-ratio: auto; box-shadow: none;
+        page-break-after: always; break-after: page;
+      }
+      .sheet:last-child { page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <strong>启发·竞赛大脑 · 宣传手册</strong>
+    <span>橙品牌 · 备练演评改 + 小启 + 知识库</span>
+    <button type="button" onclick="window.print()">打印 / 导出 PDF</button>
+  </div>
+
+  <div class="stack">
+
+    <!-- ========== 1 封面：三大卖点立住 ========== -->
+    <section class="sheet cover">
+      <div class="cover-pad">
+        <div class="cover-top">
+          <img src="brochure-assets/logo-full.svg" alt="竞赛大脑" />
+          <span class="pill">世界职业院校技能大赛</span>
+        </div>
+
+        <div class="cover-hero">
+          <p class="kicker">给职业院校技能大赛备赛用</p>
+          <h1>启发·<em>竞赛大脑</em></h1>
+          <p class="slogan">以真实成长，赢得比赛。</p>
+          <p class="desc">
+            学生今天练什么、讲稿改哪了、路演说得怎样、老师让改什么——
+            都放在一个地方。旁边有<strong style="color:var(--ink2);font-weight:600">小启</strong>帮忙想，
+            底下有<strong style="color:var(--ink2);font-weight:600">知识库</strong>存资料，改完还能再上场练一遍。
+          </p>
+
+          <div class="pillars">
+            <div class="pillar">
+              <div class="ico">环</div>
+              <strong>备 · 练 · 演 · 评 · 改</strong>
+              <p>备材料 → 每天练 → 上场演 → 看评分 → 按意见改，一条线走完，不散在群里和网盘里。</p>
+            </div>
+            <div class="pillar">
+              <div class="ico"><img src="brochure-assets/xiaoqi-mark.svg" alt="" /></div>
+              <strong>小启 AI</strong>
+              <p>像个随时能问的备赛助手：改讲稿、理训练计划、对着分数帮你改下一版。</p>
+            </div>
+            <div class="pillar">
+              <div class="ico">库</div>
+              <strong>知识库</strong>
+              <p>团队的讲稿、文档、材料都收着。问小启时能点名用哪份资料，不是瞎编。</p>
+            </div>
+          </div>
+
+          <div class="rhythm" aria-label="备练演评改">
+            <b>备</b><em>→</em><b>练</b><em>→</em><b>演</b><em>→</em><b>评</b><em>→</em><b>改</b>
+            <span>五个字记全流程 · 小启和知识库一直跟 · 改完还能再练、再演</span>
+          </div>
+        </div>
+
+        <div class="cover-foot">
+          <div><strong>给谁看</strong>带队老师 · 参赛学生 · 教务 · 校领导</div>
+          <div style="text-align:right"><strong>怎么试</strong>拿你们自己的项目，走一轮试试</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 2 备 / 练 ========== -->
+    <section class="sheet inner">
+      <div class="pad">
+        <div class="head">
+          <div class="brand">
+            <img src="brochure-assets/logo-mark.svg" alt="" />
+            <span><i>启发·</i>竞赛大脑</span>
+          </div>
+          <span class="tag">怎么备 · 怎么练</span>
+        </div>
+        <div class="progress"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+
+        <div class="mods">
+          <article class="mod">
+            <div class="t">
+              <div class="idx"><span class="n">01</span><span class="l">备</span></div>
+              <h2>PPT、讲稿、任务，别再散在微信群里</h2>
+              <p class="lead">一个参赛项目一个地方：谁负责什么、文件在哪、今天要干啥，一眼能看见。后面问小启、查资料，也从这里拿。</p>
+              <ul>
+                <li><b>项目和队友</b>成员、分工、进度都在一起</li>
+                <li><b>今天要做啥</b>待办集中：必做、待处理、进行中</li>
+                <li><b>每天写一点</b>备赛日报能记、能回看</li>
+                <li><b>文件有地方放</b>讲稿、材料收齐，方便以后当知识库用</li>
+              </ul>
+            </div>
+            <div class="m">
+              <img src="brochure-assets/ui-home.jpg" alt="学生首页" />
+              <span class="cap">打开就能看到今天该干啥</span>
+            </div>
+          </article>
+
+          <article class="mod flip">
+            <div class="t">
+              <div class="idx"><span class="n">02</span><span class="l">练</span></div>
+              <h2>今天练什么，对着项目来，不瞎刷课</h2>
+              <p class="lead">老师按天布置：看什么、交什么、谁批改。学生按天完成。看不懂的，可以丢给小启继续问。</p>
+              <ul>
+                <li><b>按天练</b>任务书写清楚，交了老师能批</li>
+                <li><b>学资料</b>平台里看视频、文档，也能嵌 B 站课</li>
+                <li><b>学了有记录</b>在平台里学过多久，大致能看见</li>
+                <li><b>卡住了问小启</b>比如「这段训练我该怎么改讲稿」</li>
+              </ul>
+              <p class="note">B 站等站外视频：按在咱们平台里学的时间记；有的视频不允许外嵌，要换能播的片源。</p>
+            </div>
+            <div class="m">
+              <img src="brochure-assets/ui-training2.jpg" alt="训练日" />
+              <span class="cap">每天练什么，清清楚楚</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3 演 / 评 ========== -->
+    <section class="sheet inner">
+      <div class="pad">
+        <div class="head">
+          <div class="brand">
+            <img src="brochure-assets/logo-mark.svg" alt="" />
+            <span><i>启发·</i>竞赛大脑</span>
+          </div>
+          <span class="tag">怎么演 · 怎么评</span>
+        </div>
+        <div class="progress"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+
+        <div class="mods">
+          <article class="mod">
+            <div class="t">
+              <div class="idx"><span class="n">03</span><span class="l">演</span></div>
+              <h2>先练上场，别等到正式比赛才第一次讲</h2>
+              <p class="lead">线上就能组队路演、录下来。讲砸了也能回看。不方便开会，上传一段视频也行。</p>
+              <ul>
+                <li><b>线上开练</b>多人一起讲、一起听</li>
+                <li><b>录下来能回放</b>老师学生都能再看</li>
+                <li><b>传视频也行</b>录好上传，一样能评</li>
+                <li><b>评完问小启</b>常说：「根据刚才评分，帮我改讲稿」</li>
+              </ul>
+            </div>
+            <div class="m">
+              <div class="flow">
+                <div class="flow-row">
+                  <div class="flow-node"><b>上场</b><span>线上练讲</span></div>
+                  <div class="flow-arr">→</div>
+                  <div class="flow-node"><b>录制</b><span>留着回看</span></div>
+                  <div class="flow-arr">→</div>
+                  <div class="flow-node"><b>回看</b><span>师生一起复盘</span></div>
+                </div>
+                <p class="flow-foot">上场是为了练，不是走过场</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="mod flip">
+            <div class="t">
+              <div class="idx"><span class="n">04</span><span class="l">评</span></div>
+              <h2>不只给一个总分，还告诉你差在哪</h2>
+              <p class="lead">按赛道维度打分，说明为什么、建议改什么。老师和学生看同一份报告，再决定怎么改、要不要让小启帮着改稿。</p>
+              <ul>
+                <li><b>多项分数</b>对照比赛要求，不是拍脑袋</li>
+                <li><b>报告分块看</b>结果、原因、评委视角、整改建议</li>
+                <li><b>改什么列清楚</b>一条条待办，少听「再好好练」</li>
+                <li><b>接着问小启</b>拿着报告继续改讲稿和材料</li>
+              </ul>
+              <p class="note"><strong>这里的 AI 评分是练习用的参考，不是正式比赛成绩。</strong></p>
+            </div>
+            <div class="m">
+              <img src="brochure-assets/ui-score.png" alt="评分报告" />
+              <span class="cap">分数 + 原因 + 怎么改</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4 改 + 小启 + 知识库 ========== -->
+    <section class="sheet inner">
+      <div class="pad">
+        <div class="head">
+          <div class="brand">
+            <img src="brochure-assets/logo-mark.svg" alt="" />
+            <span><i>启发·</i>竞赛大脑</span>
+          </div>
+          <span class="tag">怎么改 · 小启 · 知识库</span>
+        </div>
+        <div class="progress"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+
+        <!-- 改 紧凑一行 -->
+        <article class="mod" style="flex:0 0 auto; min-height:auto; grid-template-columns:1fr 1fr;">
+          <div class="t">
+            <div class="idx"><span class="n">05</span><span class="l">改</span></div>
+            <h2>老师拍板改什么，学生才知道往哪使劲</h2>
+            <p class="lead">AI 先列问题，老师决定改不改、改哪些，再发给学生。学生在待办里做，做完还能再练、再演。</p>
+            <ul>
+              <li><b>作业收得齐</b>谁交了、谁没交，老师看得见</li>
+              <li><b>改的任务发下去</b>学生打开待办就知道要干啥</li>
+              <li><b>改完再验一次</b>不是勾个「已完成」就完事</li>
+            </ul>
+          </div>
+          <div class="m" style="min-height:140px">
+            <img src="brochure-assets/ui-tasks.png" alt="改进任务" />
+            <span class="cap">老师确认后的改法</span>
+          </div>
+        </article>
+
+        <!-- 小启 + 知识库 主卖点 -->
+        <div class="xiaoqi-hero" style="margin-top:12px; flex:1;">
+          <div>
+            <div class="brand-row">
+              <img src="brochure-assets/xiaoqi-mark.svg" alt="小启" />
+              <strong>小启 AI</strong>
+              <span>备赛助手</span>
+            </div>
+            <p class="lead" style="margin:0;font-size:13px;line-height:1.55;color:var(--muted)">
+              随时能聊的备赛帮手。它看得见你们项目里的资料（知识库），也参考最近的评分，
+              帮你改讲稿、理训练计划——不是闲聊，是围着比赛干活。
+            </p>
+            <ul style="margin:10px 0 0;padding:0;list-style:none">
+              <li style="padding:5px 0 5px 12px;position:relative;font-size:12px;color:var(--ink2);border-top:1px solid rgba(28,26,22,.05)">
+                <span style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--o500)"></span>
+                <b>直接开聊</b>点一句常用问题就能开始，比如「按评分帮我改讲稿」
+              </li>
+              <li style="padding:5px 0 5px 12px;position:relative;font-size:12px;color:var(--ink2);border-top:1px solid rgba(28,26,22,.05)">
+                <span style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--o500)"></span>
+                <b>知道你在忙啥</b>待办、训练、分数这些，能当作聊天背景
+              </li>
+              <li style="padding:5px 0 5px 12px;position:relative;font-size:12px;color:var(--ink2);border-top:1px solid rgba(28,26,22,.05)">
+                <span style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--o500)"></span>
+                <b>聊完有东西留下</b>改稿建议、提纲、小文件，能存回资料库
+              </li>
+              <li style="padding:5px 0 5px 12px;position:relative;font-size:12px;color:var(--ink2);border-top:1px solid rgba(28,26,22,.05)">
+                <span style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--o500)"></span>
+                <b>记得你的习惯</b>比如「开场别超过 30 秒」——辅助记忆，不是全自动替你参赛
+              </li>
+            </ul>
+            <div class="chips">
+              <span>根据最近评分，完善我的讲稿</span>
+              <span>结合选中资料，总结成提纲并导出</span>
+              <span>生成本周训练计划要点</span>
+              <span>先给 30 秒开场示例再按项目改</span>
+            </div>
+            <p class="note" style="margin-top:10px">小启是帮手，不能代替老师拍板，也不能保证拿奖。重要操作建议在页面上再确认一遍。</p>
+          </div>
+
+          <div class="kb-panel">
+            <h3>知识库 · 资料有地方放，回答有出处</h3>
+            <p style="margin:0;font-size:12px;line-height:1.5;color:var(--muted)">
+              简单说：团队的文件都收在这儿。问小启时可以指定用哪几份；它回答时尽量带上「参考了哪份资料」，少空口白话。
+            </p>
+            <div class="kb-item">
+              <div class="dot">1</div>
+              <div>
+                <strong>先把文件收好</strong>
+                <p>按文件夹放讲稿、文档、材料，全队共用</p>
+              </div>
+            </div>
+            <div class="kb-item">
+              <div class="dot">2</div>
+              <div>
+                <strong>聊天时能点名用哪份</strong>
+                <p>选中资料再问；回答下面会标参考来源</p>
+              </div>
+            </div>
+            <div class="kb-item">
+              <div class="dot">3</div>
+              <div>
+                <strong>新写的也能存回去</strong>
+                <p>小启帮你弄的提纲、文稿，可以存回资料库</p>
+              </div>
+            </div>
+            <div class="kb-item">
+              <div class="dot">↔</div>
+              <div>
+                <strong>和备赛怎么串起来</strong>
+                <p>平时把资料备好 → 练完演完有分数 → 小启对着资料和分数改 → 再上场</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5 差异 + 开始 ========== -->
+    <section class="sheet inner">
+      <div class="pad">
+        <div class="head">
+          <div class="brand">
+            <img src="brochure-assets/logo-mark.svg" alt="" />
+            <span><i>启发·</i>竞赛大脑</span>
+          </div>
+          <span class="tag">跟别的有啥不一样 · 怎么开始</span>
+        </div>
+
+        <h2 style="margin:0 0 8px;font-size:22px;font-weight:800">三件事合在一起，才叫备赛平台</h2>
+        <p style="margin:0 0 12px;font-size:13px;color:var(--muted);line-height:1.55;max-width:38em">
+          只有网盘：文件有了，但不知道练没练、讲得好不好。<br>
+          只有 AI 聊天：聊得热闹，但和你们项目、分数对不上。<br>
+          只有打分工具：有分，但改完没人管、资料也对不上。
+        </p>
+
+        <div class="sell-grid">
+          <div class="sell-card">
+            <h3>① 备练演评改</h3>
+            <p>从准备到上场到改，一条线</p>
+            <ul>
+              <li>备：文件、任务、日报在一起</li>
+              <li>练：按天练、能交、能批</li>
+              <li>演：线上练讲、能回看</li>
+              <li>评：分数 + 差在哪 + 改什么</li>
+              <li>改：老师确认后再布置下去</li>
+            </ul>
+          </div>
+          <div class="sell-card">
+            <h3>② 小启 AI</h3>
+            <p>围着比赛问、围着比赛改</p>
+            <ul>
+              <li>能连续聊，不是一问一答就断</li>
+              <li>能参考你们的分数和进度</li>
+              <li>帮改讲稿、列提纲、理本周计划</li>
+              <li>记得一点你们的表达习惯</li>
+            </ul>
+          </div>
+          <div class="sell-card">
+            <h3>③ 知识库</h3>
+            <p>资料收得住，回答说得出处</p>
+            <ul>
+              <li>团队材料统一放</li>
+              <li>问小启时可选中某几份</li>
+              <li>回答尽量标参考来源</li>
+              <li>新写的还能存回去接着用</li>
+            </ul>
+          </div>
+          <div class="sell-card">
+            <h3>我们说清楚边界</h3>
+            <p>帮你们把路走顺，不替你们保奖</p>
+            <ul>
+              <li>不承诺金奖 / 名次</li>
+              <li>AI 打分只是练习参考，不是正式比赛成绩</li>
+              <li>小启不能全自动替你们备完赛</li>
+              <li>不承诺一键做出完美 PPT</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="diff">
+          <div>
+            <strong>想试的话，可以这么跑</strong>
+            选一个真实项目 → 把讲稿材料先收好 → 按天布置训练 → 线上演一场 → 看评分 → 老师定改哪些 → 让小启对着资料改一版 → 再演一次。
+          </div>
+          <div>
+            <strong>演示时建议看这些</strong>
+            今天首页 · 交一次训练 · 打开评分报告 · 小启点「根据评分改讲稿」· 选一份资料当参考 · 老师发一条改的任务。
+          </div>
+        </div>
+
+        <div class="cta">
+          <div>
+            <h3>下一步：约一次真项目演示</h3>
+            <p>用你们自己的项目走一遍：备→练→演→评→改，并打开小启和知识库。</p>
+          </div>
+          <div class="side">
+            预约演示<br>聊试点怎么落
+          </div>
+        </div>
+
+        <div class="contact">
+          <div>
+            电话：（待填）　邮箱：（待填）　网站：（待填）<br>
+            <span style="color:var(--faint)">启发·竞赛大脑 · 产品宣传手册</span>
+          </div>
+          <div class="qr">二维码</div>
+        </div>
+        <p class="legal">
+          功能以当前能演示的版本为准。小启会参考资料和进度，但回答不一定全对，重要结论请老师和学生自己判断。
+          AI 评分只作练习参考，不是正式比赛成绩。部署和商务细节以合同为准。
+        </p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

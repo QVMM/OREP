@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-third-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T18:00:00+08:00",
+  "trackId": "03",
+  "trackName": "畜牧与水产赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_03_animal_husbandry_aquaculture_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_03-01-high_score",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:0a29d526b35a4a48f567c1e4e387b7619b214d7adfb9f4f20b3971a9aedf141e",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_03-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 91,
+      "humanDeductionNotes": [
+        "证据链完整，关键现场、数据和结果闭环充分"
+      ],
+      "scenarioEvidenceSummary": "展示养殖现场、疫病防控、生长数据、水质/饲喂记录和产品质检",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-01-high_score:claim-1",
+        "transcript:track_03-01-high_score:claim-2",
+        "material:track_03-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 91,
+          "oldLlmScore": 93,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 91,
+          "oldLlmScore": 93,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 91,
+          "oldLlmScore": 93,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_03-02-high_score",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:21c9e5b0c6565c3ae12bc029fca542e348b7cf26e9a62107709cb582f8c3a52b",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_03-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 88,
+      "humanDeductionNotes": [
+        "现场演示和业务数据一致，可复核材料充分"
+      ],
+      "scenarioEvidenceSummary": "展示养殖现场、疫病防控、生长数据、水质/饲喂记录和产品质检",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-02-high_score:claim-1",
+        "transcript:track_03-02-high_score:claim-2",
+        "material:track_03-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 88,
+          "oldLlmScore": 90,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 88,
+          "oldLlmScore": 90,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 88,
+          "oldLlmScore": 90,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_03-03-middle_score",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:bb2e5ee890b35b78ebab3fe7b4307b5a6306d0f0a8cfc50665c0655547d2532b",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_03-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 67,
+      "humanDeductionNotes": [
+        "有核心场景和部分数据，但缺少长期追踪或第三方验证"
+      ],
+      "scenarioEvidenceSummary": "有养殖现场和部分生长数据，但防疫、质量追溯不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-03-middle_score:claim-1",
+        "transcript:track_03-03-middle_score:claim-2",
+        "material:track_03-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 67,
+          "oldLlmScore": 76,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 67,
+          "oldLlmScore": 76,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 67,
+          "oldLlmScore": 76,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_03-04-middle_score",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:84072dbfc709c24e9540115ea00a38ecc25c935d59863a6283ff106b4a2a9bbb",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_03-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 62,
+      "humanDeductionNotes": [
+        "能证明基本能力，关键质量指标和风险控制仍不完整"
+      ],
+      "scenarioEvidenceSummary": "有养殖现场和部分生长数据，但防疫、质量追溯不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-04-middle_score:claim-1",
+        "transcript:track_03-04-middle_score:claim-2",
+        "material:track_03-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 73,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 73,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 73,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_03-05-low_evidence",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:1b2e10bfdfea2cc07064c5d200ea161c2bbf422e53336e8dc6c8b5c0b42b43b1",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_03-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 38,
+      "humanDeductionNotes": [
+        "材料停留在叙述层，缺少可定位、可复核的原始证据"
+      ],
+      "scenarioEvidenceSummary": "只有产品介绍，缺少养殖现场、疫病防控和水质/饲喂记录",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-05-low_evidence:claim-1",
+        "transcript:track_03-05-low_evidence:claim-2",
+        "material:track_03-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 38,
+          "oldLlmScore": 70,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 38,
+          "oldLlmScore": 70,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 38,
+          "oldLlmScore": 70,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_03-06-low_evidence",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:114a88e8a1be047b0923f91f0cecb29f465e463887a4cac56be15cc2f2f32ec0",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_03-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 34,
+      "humanDeductionNotes": [
+        "展示内容与赛道关键任务弱相关，证据锚点不足"
+      ],
+      "scenarioEvidenceSummary": "只有产品介绍，缺少养殖现场、疫病防控和水质/饲喂记录",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-06-low_evidence:claim-1",
+        "transcript:track_03-06-low_evidence:claim-2",
+        "material:track_03-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 34,
+          "oldLlmScore": 68,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 34,
+          "oldLlmScore": 68,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 34,
+          "oldLlmScore": 68,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_03-07-demo_failure",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:5186894645735de2915a2d620db7e50be2d818563ac3d6224e21e25696ba8c04",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_03-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 28,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "只有产品介绍，缺少养殖现场、疫病防控和水质/饲喂记录",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-07-demo_failure:claim-1",
+        "transcript:track_03-07-demo_failure:claim-2",
+        "material:track_03-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 28,
+          "oldLlmScore": 66,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 28,
+          "oldLlmScore": 66,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 28,
+          "oldLlmScore": 66,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_03-08-low_score",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:0060150112af71010bc32607927c6556729d880ec3fe66e7a99ba06c61716618",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_03-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 45,
+      "humanDeductionNotes": [
+        "有少量材料，但与核心成效之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量材料，但与核心成效之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-08-low_score:claim-1",
+        "transcript:track_03-08-low_score:claim-2",
+        "material:track_03-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 45,
+          "oldLlmScore": 63,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 45,
+          "oldLlmScore": 63,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 45,
+          "oldLlmScore": 63,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_03-09-material_sufficient",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:2386eee678d27048d0c65d09b5f7ba9c0c36480a08019d02d00fe3c5f65f342a",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_03-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 79,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分指标仍需要现场复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分指标仍需要现场复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-09-material_sufficient:claim-1",
+        "transcript:track_03-09-material_sufficient:claim-2",
+        "material:track_03-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 79,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 79,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 79,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_03-10-boundary_dispute",
+      "trackId": "03",
+      "trackName": "畜牧与水产赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/畜牧与水产赛道.md",
+      "inputSnapshotHash": "sha256:a3561b9adc6df015f566d8278f2c21ba9ce732ca547f9acf433ca7e998917e55",
+      "frozenInputFiles": {
+        "video": "frozen://track_03-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_03-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_03-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 56,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义存在争议，需要人工复核归属"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义存在争议，需要人工复核归属",
+      "verifiableEvidencePoints": [
+        "transcript:track_03-10-boundary_dispute:claim-1",
+        "transcript:track_03-10-boundary_dispute:claim-2",
+        "material:track_03-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 56,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 56,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 56,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "养殖现场视频",
+                "水质/饲喂记录",
+                "疫病防控台账"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "INSUFFICIENT_ANCHOR",
+              "points": -12,
+              "reason": "关键证据锚点不足或无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,438 @@
+/**
+ * 竞赛大脑用户端 · 设计 Token
+ * 规则文档：frontend/user/DESIGN.md
+ *
+ * 对比度目标：WCAG AA（正文 ≥4.5:1；大字/UI 边界 ≥3:1）
+ * - 线条轻、层级靠灰阶三明治 + 轻阴影，避免 AAA 过深描边的「草稿」感
+ * - 品牌：Logo / 装饰 #e84a1c；主按钮用 #c43a12 保证白字 ≥4.5:1
+ */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* ——— 画布与表面：浅灰底 + 白卡，层次轻 ——— */
+  --ds-canvas: #f7f7f8;
+  --ds-canvas-deep: #efefef;
+  --ds-canvas-background: none;
+  --ds-page-bg: #f7f7f8;
+  --ds-sidebar-bg: #f3f3f4;
+  --ds-soft: #f3f3f4;
+  --ds-soft-hover: #ebebec;
+  --ds-soft-2: #efefef;
+  --ds-surface: #ffffff;
+  --ds-surface-solid: #ffffff;
+  --ds-card-bg: #ffffff;
+  /* 细线 + 轻阴影：边界清晰但不抢戏 */
+  --ds-card-border: #e4e4e7;
+  --ds-card-border-hover: #d4d4d8;
+  --ds-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 16px rgba(0, 0, 0, 0.04);
+  --ds-card-shadow-hover: 0 2px 6px rgba(0, 0, 0, 0.06), 0 10px 24px rgba(0, 0, 0, 0.06);
+  --ds-card-radius: 16px;
+  --ds-card-padding-y: 16px;
+  --ds-card-padding-x: 16px;
+
+  /*
+   * 文字阶（对 #fff 约）：ink ~19 · ink-2 ~12 · muted ~4.7 · faint ~3.5
+   * muted 达标 AA 正文；faint 仅用于次要辅助/大字
+   */
+  --ds-ink: #0a0a0a;
+  --ds-ink-2: #3f3f46;
+  --ds-muted: #71717a;
+  --ds-faint: #8b8b93;
+
+  --ds-line: #e4e4e7;
+  --ds-line-strong: #d4d4d8;
+  --ds-border: #e4e4e7;
+
+  /* 品牌橙：装饰 500；主按钮 700（白字 AA） */
+  --ds-orange-50: #fff7f2;
+  --ds-orange-100: #fee9df;
+  --ds-orange-200: #fbd0bf;
+  --ds-orange-300: #f6aa8f;
+  --ds-orange-400: #ef7954;
+  --ds-orange-500: #e84a1c;
+  --ds-orange-600: #d94319;
+  --ds-orange-700: #c43a12;
+  --ds-orange-800: #b12f0a;
+  --ds-orange-900: #9a3412;
+  --ds-orange: var(--ds-orange-500);
+  --ds-orange-action: var(--ds-orange-700);
+  --ds-orange-deep: var(--ds-orange-800);
+  --ds-orange-soft: var(--ds-orange-100);
+  --ds-orange-wash: var(--ds-orange-50);
+  /* 状态色：白底 AA 可读 */
+  --ds-green: #0f766e;
+  --ds-green-soft: #ecfdf5;
+  --ds-blue: #2563eb;
+  --ds-blue-soft: #eff6ff;
+  --ds-violet: #6d28d9;
+  --ds-violet-soft: #f5f3ff;
+  --ds-violet-2: #7c3aed;
+  --ds-amber: #b45309;
+  --ds-amber-soft: #fffbeb;
+  --ds-red: #dc2626;
+  --ds-red-soft: #fef2f2;
+
+  /* 图标基础尺寸：按使用层级分档，禁止页面任意缩放 */
+  --ds-icon-size-sm: 16px;
+  --ds-icon-size-md: 20px;
+  --ds-icon-size-lg: 24px;
+  --ds-icon-outline-stroke: 1.8;
+
+  /* 卡片标题图标：线型图形置于弱语义色容器中 */
+  --ds-card-title-icon-box: 34px;
+  --ds-card-title-icon-size: var(--ds-icon-size-md);
+  --ds-card-title-icon-radius: 10px;
+  --ds-card-title-icon-gap: var(--ds-space-2);
+
+  /* 首页线型图标：按模块分色，行动色仍只使用品牌橙 */
+  --ds-icon-training: #e84a1c;
+  --ds-icon-training-soft: #fef0e9;
+  --ds-icon-learning: #3f63f3;
+  --ds-icon-learning-soft: #edf1ff;
+  --ds-icon-roadshow: #7c56c2;
+  --ds-icon-roadshow-soft: #f2edfb;
+  --ds-icon-review: #0f8f72;
+  --ds-icon-review-soft: #e8f6f1;
+  --ds-icon-rhythm: #b77400;
+  --ds-icon-rhythm-soft: #fff4df;
+  --ds-icon-actions: #c94f67;
+  --ds-icon-actions-soft: #fcecf0;
+
+  /* Grok 用 universalSans/Inter；中文回退系统黑体 */
+  --ds-font-sans: Inter, "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei", "Noto Sans SC",
+    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --ds-font-num: "SF Pro Text", "DIN Alternate", "Helvetica Neue", Arial, sans-serif;
+
+  --ds-text-display: clamp(56px, 7vw, 80px);
+  /* 业务页主标题硬规范：24px / 700 / 1.3 */
+  --ds-text-h1: 24px;
+  --ds-text-h2: 17px;
+  --ds-text-h3: 16px;
+  --ds-text-metric: 46px;
+  --ds-text-body: 15px;
+  --ds-text-body-sm: 14px;
+  --ds-text-caption: 13px;
+  --ds-text-label: 12px;
+  --ds-text-micro: 11px;
+
+  --ds-weight-medium: 500;
+  --ds-weight-semibold: 600;
+  --ds-weight-bold: 700;
+
+  --ds-leading-title: 1.28;
+  --ds-leading-body: 1.6;
+
+  /* 4px 基础间距阶梯：页面不得再随手写 7/11/19px 等孤立值 */
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-5: 20px;
+  --ds-space-6: 24px;
+  --ds-space-8: 32px;
+  --ds-space-10: 40px;
+
+  --ds-page-max: 1280px;
+  --ds-page-margin-x: 40px;
+  --ds-page-margin-y: 40px;
+  --ds-page-content-inset-top: 0px;
+  --ds-page-pad-x: var(--ds-page-margin-x);
+  --ds-page-pad-y: var(--ds-page-margin-y);
+  --ds-gutter: clamp(24px, 3vw, 40px);
+  --ds-section-gap: 24px;
+
+  /* Grok：胶囊控件 + 大圆角表面 */
+  --ds-radius-sm: 10px;
+  --ds-radius-md: 14px;
+  --ds-radius-lg: 16px;
+  --ds-radius-xl: 20px;
+  --ds-radius-pill: 999px;
+
+  --ds-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --ds-shadow-stage: 0 4px 16px rgba(0, 0, 0, 0.06), 0 12px 28px rgba(0, 0, 0, 0.05);
+  --ds-shadow-float: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  --ds-btn-height: 40px;
+  --ds-btn-height-sm: 36px;
+  --ds-btn-height-icon: 36px;
+  --ds-btn-font: 14px;
+  --ds-btn-font-sm: 13px;
+  --ds-btn-padding-x: 18px;
+  --ds-btn-padding-x-sm: 14px;
+  --ds-btn-icon-gap: 8px;
+  --ds-btn-border: 1px solid var(--ds-btn-secondary-border);
+  /* 主按钮：#c43a12 + 白字（≈5.3:1 AA） */
+  --ds-btn-primary-bg: var(--ds-orange-700);
+  --ds-btn-primary-bg-hover: var(--ds-orange-800);
+  --ds-btn-primary-bg-active: var(--ds-orange-900);
+  --ds-btn-primary-fg: #ffffff;
+  /* 次按钮：细线，不抢主按钮 */
+  --ds-btn-secondary-bg: #ffffff;
+  --ds-btn-secondary-bg-hover: #f7f7f8;
+  --ds-btn-secondary-bg-active: #efefef;
+  --ds-btn-secondary-fg: #0a0a0a;
+  --ds-btn-secondary-border: #d4d4d8;
+  --ds-btn-secondary-border-hover: #a1a1aa;
+  --ds-btn-secondary-border-active: #71717a;
+  --ds-btn-ghost-bg-hover: #efefef;
+  --ds-btn-ghost-bg-active: #e4e4e7;
+  --ds-btn-danger-bg-hover: #fff3f4;
+  --ds-btn-danger-bg-active: #fde5e7;
+  --ds-btn-danger-fg: #c92f3b;
+  --ds-btn-danger-border: #d78a91;
+  --ds-btn-disabled-bg: #eceef1;
+  --ds-btn-disabled-fg: #707782;
+  --ds-btn-disabled-border: #d3d7dc;
+  --ds-btn-selected-bg: var(--ds-orange-soft);
+  --ds-btn-selected-fg: #9f2c0a;
+  --ds-btn-selected-border: #e39a7e;
+  --ds-focus-outline: 2px solid var(--ds-orange-700);
+  --ds-focus-offset: 2px;
+  --ds-btn-focus-ring: 0 0 0 3px rgba(196, 58, 18, 0.24);
+  --ds-danger-focus-ring: 0 0 0 3px rgba(216, 58, 69, 0.14);
+  /* 动效只表达层级与反馈：短距离、短时长，不参与页面布局。 */
+  --ds-motion-duration-fast: 140ms;
+  --ds-motion-duration-standard: 180ms;
+  /* 页面切换宜短：过长 + translate 叠层易产生「残影」感 */
+  --ds-motion-duration-page: 150ms;
+  --ds-motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ds-motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ds-motion-page-enter-y: 0px;
+  --ds-motion-hover-y: 0px;
+  --ds-motion-press-y: 0px;
+  --ds-motion-card-shadow: none;
+  --ds-control-transition: var(--ds-motion-duration-fast) var(--ds-motion-ease-standard);
+  --ds-input-height: 44px;
+  --ds-input-height-sm: 36px;
+  /* 单行输入用胶囊；多行 textarea 用卡片圆角，避免「大号药丸」 */
+  --ds-input-radius: 999px;
+  --ds-textarea-radius: var(--ds-radius-md);
+  --ds-input-padding-x: 16px;
+  --ds-input-bg: #ffffff;
+  --ds-input-border: #d4d4d8;
+  --ds-input-border-hover: #a1a1aa;
+  --ds-input-focus-border: var(--ds-orange-700);
+  --ds-input-focus-ring: 0 0 0 3px rgba(196, 58, 18, 0.18);
+  --ds-input-error-border: var(--ds-red);
+  --ds-input-error-ring: 0 0 0 3px rgba(220, 38, 38, 0.16);
+  --ds-input-disabled-bg: #f4f4f5;
+  --ds-input-disabled-fg: #71717a;
+  --ds-input-readonly-bg: #f7f7f8;
+  --ds-placeholder: #8b8b93;
+  --ds-status-neutral-bg: #f4f4f5;
+  --ds-status-neutral-fg: #3f3f46;
+  --ds-status-info-bg: var(--ds-blue-soft);
+  --ds-status-info-fg: var(--ds-blue);
+  --ds-status-success-bg: var(--ds-green-soft);
+  --ds-status-success-fg: var(--ds-green);
+  --ds-status-success-border: rgba(6, 95, 70, 0.35);
+  --ds-status-warning-bg: var(--ds-amber-soft);
+  --ds-status-warning-fg: var(--ds-amber);
+  --ds-status-danger-bg: var(--ds-red-soft);
+  --ds-status-danger-fg: var(--ds-red);
+  --ds-transition: var(--ds-motion-duration-standard) var(--ds-motion-ease-out);
+
+  /* 桌面无全局顶栏；侧栏对齐得到大脑量级（窄图标轨） */
+  --ds-header-height: 0px;
+  --ds-sidebar-width: 56px;
+  --ds-sidebar-logo: 28px;
+  --ds-sidebar-icon: 20px;
+  --ds-sidebar-hit: 40px;
+  --ds-ai-width: 340px;
+
+  /* ——— 兼容旧名 workspace-* / orep-*（映射到标杆色）——— */
+  --workspace-canvas: var(--ds-canvas);
+  --workspace-canvas-deep: var(--ds-canvas-deep);
+  --workspace-surface: var(--ds-surface);
+  --workspace-surface-solid: var(--ds-surface-solid);
+  --workspace-surface-subtle: var(--ds-soft);
+  --workspace-line: var(--ds-line);
+  --workspace-line-strong: var(--ds-line-strong);
+  --workspace-ink-900: var(--ds-ink);
+  --workspace-ink-700: var(--ds-ink-2);
+  --workspace-ink-500: var(--ds-muted);
+  --workspace-ink-300: var(--ds-faint);
+  --workspace-orange-700: var(--ds-orange-deep);
+  --workspace-orange-600: var(--ds-orange);
+  --workspace-orange-500: #ff642e;
+  --workspace-orange-100: var(--ds-orange-soft);
+  --workspace-orange-50: var(--ds-orange-wash);
+  --workspace-blue-600: var(--ds-blue);
+  --workspace-blue-100: var(--ds-blue-soft);
+  --workspace-green-600: var(--ds-green);
+  --workspace-green-100: var(--ds-green-soft);
+  --workspace-amber-600: var(--ds-amber);
+  --workspace-amber-100: var(--ds-amber-soft);
+  --workspace-red-600: var(--ds-red);
+  --workspace-red-100: var(--ds-red-soft);
+  --workspace-font-sans: var(--ds-font-sans);
+  --workspace-font-number: var(--ds-font-num);
+  --workspace-radius-card: var(--ds-radius-lg);
+  --workspace-radius-lg: var(--ds-radius-lg);
+  --workspace-radius-md: var(--ds-radius-md);
+  --workspace-radius-sm: var(--ds-radius-sm);
+  --workspace-radius-pill: var(--ds-radius-pill);
+  --workspace-shadow-soft: var(--ds-shadow-soft);
+  --workspace-shadow-stage: var(--ds-shadow-stage);
+  --workspace-header-height: var(--ds-header-height);
+  --workspace-sidebar-width: var(--ds-sidebar-width);
+  --workspace-sidebar-logo: var(--ds-sidebar-logo);
+  --workspace-sidebar-icon: var(--ds-sidebar-icon);
+  --workspace-sidebar-hit: var(--ds-sidebar-hit);
+  --workspace-ai-width: var(--ds-ai-width);
+  --workspace-transition: var(--ds-transition);
+
+  --orep-font-sans: var(--ds-font-sans);
+  --orep-font-display: var(--ds-font-sans);
+  --orep-font-tech: var(--ds-font-num);
+  --orep-bg: var(--ds-canvas);
+  --orep-bg-soft: var(--ds-canvas-deep);
+  --orep-panel: var(--ds-surface);
+  --orep-panel-solid: var(--ds-surface-solid);
+  --orep-card: var(--ds-surface);
+  --orep-card-hover: rgba(255, 255, 255, 0.72);
+  --orep-text: var(--ds-ink-2);
+  --orep-text-strong: var(--ds-ink);
+  --orep-muted: var(--ds-muted);
+  --orep-faint: var(--ds-faint);
+  --orep-border: var(--ds-line);
+  --orep-border-strong: var(--ds-line-strong);
+  --orep-border-soft: rgba(255, 255, 255, 0.72);
+  --orep-accent: var(--ds-orange);
+  --orep-accent-strong: var(--ds-orange-deep);
+  --orep-accent-soft: rgba(232, 74, 28, 0.12);
+  --orep-blue: var(--ds-blue);
+  --orep-blue-hover: #3454d7;
+  --orep-blue-soft: var(--ds-blue-soft);
+  --orep-green: var(--ds-green);
+  --orep-green-soft: var(--ds-green-soft);
+  --orep-orange: var(--ds-orange);
+  --orep-orange-soft: var(--ds-orange-soft);
+  --orep-orange-wash: var(--ds-orange-wash);
+  --orep-warning: var(--ds-amber);
+  --orep-danger: var(--ds-red);
+  --orep-red: var(--ds-red);
+  --orep-red-soft: var(--ds-red-soft);
+  --orep-surface: var(--ds-surface);
+  --orep-surface-raised: rgba(255, 255, 255, 0.72);
+  --orep-shadow: var(--ds-shadow-soft);
+  --orep-shadow-soft: var(--ds-shadow-soft);
+  --orep-shadow-stage: var(--ds-shadow-stage);
+  --orep-radius-sm: var(--ds-radius-sm);
+  --orep-radius-md: var(--ds-radius-md);
+  --orep-radius-lg: var(--ds-radius-lg);
+  --orep-radius-stage: var(--ds-radius-xl);
+  --orep-header-bg: #ffffff;
+  --orep-logo-bg: var(--ds-orange);
+  --orep-logo-text: #ffffff;
+
+  --color-primary: var(--ds-orange-action);
+  --color-primary-hover: var(--ds-orange-deep);
+  --color-primary-active: #a83210;
+  --color-secondary: var(--ds-blue);
+  --color-success: var(--ds-green);
+  --color-warning: var(--ds-amber);
+  --color-error: var(--ds-red);
+  --color-info: var(--ds-blue);
+  --bg-primary: var(--ds-surface-solid);
+  --bg-secondary: var(--ds-soft);
+  --bg-tertiary: var(--ds-soft);
+  --bg-elevated: var(--ds-surface-solid);
+  --text-primary: var(--ds-ink);
+  --text-secondary: var(--ds-muted);
+  --text-tertiary: var(--ds-faint);
+  --text-inverse: #ffffff;
+  --text-link: var(--ds-orange-action);
+  --border-default: var(--ds-line);
+  --border-light: var(--ds-line);
+  --border-focus: var(--ds-orange-action);
+  --border-error: var(--ds-red);
+  --font-sans: var(--ds-font-sans);
+  --shadow-sm: var(--ds-shadow-soft);
+  --shadow-md: var(--ds-shadow-soft);
+  --shadow-lg: var(--ds-shadow-stage);
+
+  --el-color-primary: var(--ds-orange-action);
+  --el-color-primary-light-3: var(--ds-orange-400);
+  --el-color-primary-light-5: var(--ds-orange-300);
+  --el-color-primary-light-7: var(--ds-orange-200);
+  --el-color-primary-light-8: var(--ds-orange-100);
+  --el-color-primary-light-9: var(--ds-orange-wash);
+  --el-color-primary-dark-2: var(--ds-orange-700);
+  --el-bg-color: var(--ds-surface-solid);
+  --el-bg-color-overlay: var(--ds-surface-solid);
+  --el-fill-color-light: var(--ds-soft);
+  --el-border-color: var(--ds-line);
+  --el-border-color-light: var(--ds-line);
+  --el-text-color-primary: var(--ds-ink);
+  --el-text-color-regular: var(--ds-ink-2);
+  --el-text-color-secondary: var(--ds-muted);
+
+  --font-size-xs: var(--ds-text-label);
+  --font-size-sm: var(--ds-text-caption);
+  --font-size-base: var(--ds-text-body);
+  --font-size-lg: var(--ds-text-h3);
+  --font-size-xl: 18px;
+  --font-size-2xl: var(--ds-text-h2);
+  --font-size-3xl: var(--ds-text-h1);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--ds-font-sans);
+  font-style: normal;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--ds-canvas, #f7f7f8);
+  background-image: none;
+  color: var(--ds-ink-2);
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--ds-canvas, #f7f7f8);
+  background-image: none;
+}
+
+::selection {
+  background: var(--ds-orange-soft);
+  color: var(--ds-ink);
+}
+
+/* 通用指示灯（可与页面内联类共存） */
+.ds-led {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  vertical-align: middle;
+  background: #c5c9d1;
+}
+.ds-led-ok {
+  background: var(--ds-green);
+  box-shadow: 0 0 0 2px rgba(15, 159, 110, 0.12);
+}
+.ds-led-warn {
+  background: var(--ds-orange);
+  box-shadow: 0 0 0 2px rgba(232, 74, 28, 0.12);
+}
+.ds-led-idle {
+  background: #c5c9d1;
+}
+.ds-led-pulse {
+  background: var(--ds-green);
+  box-shadow: 0 0 0 0 rgba(15, 159, 110, 0.35);
+  animation: ds-led-pulse 2.4s ease infinite;
+}
+@keyframes ds-led-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(15, 159, 110, 0.35); }
+  70% { box-shadow: 0 0 0 6px rgba(15, 159, 110, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(15, 159, 110, 0); }
+}

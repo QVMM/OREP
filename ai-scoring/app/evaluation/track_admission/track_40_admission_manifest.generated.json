@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-fifth-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T22:00:00+08:00",
+  "trackId": "40",
+  "trackName": "教育与体育赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_40_education_sports_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_40-01-high_score",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:7e1093c106e204b3cd59705accbb022715cd2729a0875567d9b18bee315913fb",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_40-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，用户/成果证明、过程记录和价值验证充分"
+      ],
+      "scenarioEvidenceSummary": "展示教学/训练方案、学习数据、现场组织、安全保障和效果评估",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-01-high_score:claim-1",
+        "transcript:track_40-01-high_score:claim-2",
+        "material:track_40-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_40-02-high_score",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:dbc101b1932b2bad9565a71173dacfbb3b877f43acb19238dae1962a219bcf03",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_40-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 87,
+      "humanDeductionNotes": [
+        "现场、数据和材料一致，成本效益或成果边界清楚"
+      ],
+      "scenarioEvidenceSummary": "展示教学/训练方案、学习数据、现场组织、安全保障和效果评估",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-02-high_score:claim-1",
+        "transcript:track_40-02-high_score:claim-2",
+        "material:track_40-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_40-03-middle_score",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:46922e7ad843e0f0e3a5acb37cc8416b5526cc25a179169f7ebba43eef5788ab",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_40-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "有核心流程和部分数据，但缺少长期运营或第三方复核"
+      ],
+      "scenarioEvidenceSummary": "有方案和部分数据，但效果评估、安全保障不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-03-middle_score:claim-1",
+        "transcript:track_40-03-middle_score:claim-2",
+        "material:track_40-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_40-04-middle_score",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:e2797f936ad37566c6535814cad5df1e7cd12152a9038a15ec2bd3ffe13f9e7d",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_40-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 61,
+      "humanDeductionNotes": [
+        "能证明基本能力，用户反馈、质量控制或版权边界仍不完整"
+      ],
+      "scenarioEvidenceSummary": "有方案和部分数据，但效果评估、安全保障不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-04-middle_score:claim-1",
+        "transcript:track_40-04-middle_score:claim-2",
+        "material:track_40-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_40-05-low_evidence",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:b458731a8390438f585275ca16a49e051a03ab016ab2aecd2420f45f217cfb26",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_40-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 36,
+      "humanDeductionNotes": [
+        "材料停留在模式描述或成果展示层，缺少可定位原始证据"
+      ],
+      "scenarioEvidenceSummary": "只有课程或训练理念，缺少现场组织、数据和安全保障证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-05-low_evidence:claim-1",
+        "transcript:track_40-05-low_evidence:claim-2",
+        "material:track_40-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_40-06-low_evidence",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:c5f3c6b35a5b2312b199e1b96601f7ce3ca8b799c64dda6dd64601ea4683633f",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_40-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 33,
+      "humanDeductionNotes": [
+        "展示内容与服务/财经/文体关键任务弱相关，用户或成果证据不足"
+      ],
+      "scenarioEvidenceSummary": "只有课程或训练理念，缺少现场组织、数据和安全保障证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-06-low_evidence:claim-1",
+        "transcript:track_40-06-low_evidence:claim-2",
+        "material:track_40-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_40-07-demo_failure",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:3de7a8d620107a4b424166d58e8d11bd9f3d4268fc5faad1ea0704b440a97284",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_40-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 27,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "只有课程或训练理念，缺少现场组织、数据和安全保障证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-07-demo_failure:claim-1",
+        "transcript:track_40-07-demo_failure:claim-2",
+        "material:track_40-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_40-08-low_score",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:b92f9d211cffe581e7ac4eba2f1f43ca07a68ff9d7023ebcd863f805b2a5215d",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_40-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 44,
+      "humanDeductionNotes": [
+        "有少量过程材料，但与最终价值或成果之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量过程材料，但与最终价值或成果之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-08-low_score:claim-1",
+        "transcript:track_40-08-low_score:claim-2",
+        "material:track_40-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_40-09-material_sufficient",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:9d02b4820ce7a3b7a86b6eb3791bd6392a0bacd3bb36b9db8e68d1ebe2d0f12b",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_40-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分版权、合规或经营边界仍需人工复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分版权、合规或经营边界仍需人工复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-09-material_sufficient:claim-1",
+        "transcript:track_40-09-material_sufficient:claim-2",
+        "material:track_40-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_40-10-boundary_dispute",
+      "trackId": "40",
+      "trackName": "教育与体育赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/教育与体育赛道.md",
+      "inputSnapshotHash": "sha256:d5eb4420bb00860d406adb859d96fe35acaf96c8d50ae14809266d4aa0d4b467",
+      "frozenInputFiles": {
+        "video": "frozen://track_40-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_40-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_40-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 55,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义、服务对象或成果归属存在争议"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义、服务对象或成果归属存在争议",
+      "verifiableEvidencePoints": [
+        "transcript:track_40-10-boundary_dispute:claim-1",
+        "transcript:track_40-10-boundary_dispute:claim-2",
+        "material:track_40-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "教学或训练方案",
+                "学习/训练数据",
+                "现场组织记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

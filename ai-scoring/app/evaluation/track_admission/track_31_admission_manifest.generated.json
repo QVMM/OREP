@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-fourth-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T20:00:00+08:00",
+  "trackId": "31",
+  "trackName": "健康养老与婴幼儿托育赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_31_elderly_childcare_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_31-01-high_score",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:355c0c434af1bd50910009d3ed796148c5aa468085a7f6e3165716bfab240d2e",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_31-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键合规边界、过程记录和结果验证充分"
+      ],
+      "scenarioEvidenceSummary": "展示服务流程、对象评估、安全照护、人员资质、持续记录和应急处置闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-01-high_score:claim-1",
+        "transcript:track_31-01-high_score:claim-2",
+        "material:track_31-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_31-02-high_score",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:33b4aff4dc2c5b7acb7f9207d26de71ca665b36d6544a92105e1f9a389131277",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_31-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 87,
+      "humanDeductionNotes": [
+        "现场/材料证据一致，风险提示和服务边界清楚"
+      ],
+      "scenarioEvidenceSummary": "展示服务流程、对象评估、安全照护、人员资质、持续记录和应急处置闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-02-high_score:claim-1",
+        "transcript:track_31-02-high_score:claim-2",
+        "material:track_31-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_31-03-middle_score",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:6a7471799d0101c9f03ea48155ba05861fbdf85f2dd4d5bfe5f394e902fc2936",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_31-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "有核心流程和部分数据，但缺少第三方复核或长期跟踪"
+      ],
+      "scenarioEvidenceSummary": "有服务流程和部分照护记录，但应急处置、持续记录或监护反馈不足",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-03-middle_score:claim-1",
+        "transcript:track_31-03-middle_score:claim-2",
+        "material:track_31-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_31-04-middle_score",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:4fe67fb847de7e725344a938f6fa2a38bf600eb0b17b312f1bb4414f3bb68611",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_31-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 61,
+      "humanDeductionNotes": [
+        "能证明基本能力，合规边界和质量控制仍不完整"
+      ],
+      "scenarioEvidenceSummary": "有服务流程和部分照护记录，但应急处置、持续记录或监护反馈不足",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-04-middle_score:claim-1",
+        "transcript:track_31-04-middle_score:claim-2",
+        "material:track_31-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_31-05-low_evidence",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:f1274768a9ac3af7127907e599c65d02f5e346d665ce8070e54aba33f7df1d36",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_31-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 36,
+      "humanDeductionNotes": [
+        "材料停留在效果承诺或服务描述层，缺少可定位原始证据"
+      ],
+      "scenarioEvidenceSummary": "只有养老托育服务介绍，缺少对象评估、安全照护和人员资质证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-05-low_evidence:claim-1",
+        "transcript:track_31-05-low_evidence:claim-2",
+        "material:track_31-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_31-06-low_evidence",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:a95d81e9afa06800c7d379e5f81839734b084b34085285306973135171ab725a",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_31-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 33,
+      "humanDeductionNotes": [
+        "展示内容与医药健康关键任务弱相关，隐私/伦理/安全证据不足"
+      ],
+      "scenarioEvidenceSummary": "只有养老托育服务介绍，缺少对象评估、安全照护和人员资质证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-06-low_evidence:claim-1",
+        "transcript:track_31-06-low_evidence:claim-2",
+        "material:track_31-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_31-07-demo_failure",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:feb75367bc00db1ee2fbec65bc0309a917879f8293c461d7caf94d2b9548c1b8",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_31-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 27,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "只有养老托育服务介绍，缺少对象评估、安全照护和人员资质证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-07-demo_failure:claim-1",
+        "transcript:track_31-07-demo_failure:claim-2",
+        "material:track_31-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_31-08-low_score",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:2dadfa17df300d621a8730775add0fc3ee023e80f1d420d05db6a012e233a7eb",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_31-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 44,
+      "humanDeductionNotes": [
+        "有少量过程材料，但与核心效果之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量过程材料，但与核心效果之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-08-low_score:claim-1",
+        "transcript:track_31-08-low_score:claim-2",
+        "material:track_31-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_31-09-material_sufficient",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:c56feb4d6027dcfa1a1e14afc43114e6fb7238eff6e6ec98c9d23aa104233801",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_31-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分合规和适用边界仍需人工复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分合规和适用边界仍需人工复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-09-material_sufficient:claim-1",
+        "transcript:track_31-09-material_sufficient:claim-2",
+        "material:track_31-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_31-10-boundary_dispute",
+      "trackId": "31",
+      "trackName": "健康养老与婴幼儿托育赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/健康养老与婴幼儿托育赛道.md",
+      "inputSnapshotHash": "sha256:2d57ecd08d69e57dac6779b5b04d4d8e7d78aede34271a3c10b987d242a39f51",
+      "frozenInputFiles": {
+        "video": "frozen://track_31-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_31-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_31-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 55,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义或医疗健康服务边界存在争议"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义或医疗健康服务边界存在争议",
+      "verifiableEvidencePoints": [
+        "transcript:track_31-10-boundary_dispute:claim-1",
+        "transcript:track_31-10-boundary_dispute:claim-2",
+        "material:track_31-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "服务流程记录",
+                "对象评估表",
+                "安全照护清单"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

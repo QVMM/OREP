@@ -1,0 +1,21 @@
+{
+  "auditId": "audit-track-11-generated-v1",
+  "trackId": "11",
+  "trackName": "水利赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_11_water_conservancy_v1_2_engine_draft.json",
+  "ruleHash": "sha256:26952b084c98d04aeaa0913dfac1ba2664be9f0a7bf93cab0bf5b18658a3e93b",
+  "status": "approved",
+  "reviewer": "stage8-generated-admission-auditor",
+  "reviewedAt": "2026-07-05T17:00:00+08:00",
+  "scope": "draft rule structure and generated admission assets",
+  "conclusion": "可进入pilot演练；不得直接active，需真实样本复验后再上线准入。",
+  "checks": [
+    "15 observations present",
+    "E0-E5 evidence caps present",
+    "track-specific evidence present",
+    "deduction and recovery rules present",
+    "10 generated admission samples present"
+  ],
+  "sourceMode": "synthetic_from_local_markdown",
+  "pilotPromotionStatus": "pilot_generated"
+}

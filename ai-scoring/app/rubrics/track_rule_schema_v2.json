@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://orep.local/schemas/track_rule_schema_v2.json",
+  "title": "OREP Track Rule Schema v2",
+  "type": "object",
+  "required": [
+    "trackId",
+    "trackName",
+    "ruleVersion",
+    "ruleHash",
+    "status",
+    "dimensions",
+    "observations",
+    "evidenceLevels",
+    "evidenceCaps",
+    "deductionRules",
+    "recoveryRules",
+    "riskPatterns",
+    "sourceType"
+  ],
+  "properties": {
+    "trackId": {
+      "type": "string"
+    },
+    "trackName": {
+      "type": "string"
+    },
+    "ruleVersion": {
+      "type": "string"
+    },
+    "ruleHash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "pilot",
+        "active",
+        "retired"
+      ]
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": [
+        "official",
+        "track_inference",
+        "orep_training"
+      ]
+    },
+    "dimensions": {
+      "type": "array",
+      "minItems": 5
+    },
+    "observations": {
+      "type": "array",
+      "minItems": 15
+    },
+    "evidenceLevels": {
+      "type": "array",
+      "minItems": 6
+    },
+    "evidenceCaps": {
+      "type": "object"
+    },
+    "deductionRules": {
+      "type": "array"
+    },
+    "recoveryRules": {
+      "type": "array"
+    },
+    "riskPatterns": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-fifth-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T22:00:00+08:00",
+  "trackId": "38",
+  "trackName": "表演艺术赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_38_performing_arts_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_38-01-high_score",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:26cd5121226735b918efd9a7a19a876d4058769084b10046123ed612e9320d3f",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_38-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，用户/成果证明、过程记录和价值验证充分"
+      ],
+      "scenarioEvidenceSummary": "展示表演片段、训练过程、舞台呈现、协作记录和观众反馈",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-01-high_score:claim-1",
+        "transcript:track_38-01-high_score:claim-2",
+        "material:track_38-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_38-02-high_score",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:28e18f21c9e006030608733ce250a570ec04c206863ad5a69dc46c1107b41bdc",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_38-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 87,
+      "humanDeductionNotes": [
+        "现场、数据和材料一致，成本效益或成果边界清楚"
+      ],
+      "scenarioEvidenceSummary": "展示表演片段、训练过程、舞台呈现、协作记录和观众反馈",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-02-high_score:claim-1",
+        "transcript:track_38-02-high_score:claim-2",
+        "material:track_38-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_38-03-middle_score",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:7fe545e61129274c1416d7b778f47b191ea65a109d01143918902746dd46101d",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_38-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "有核心流程和部分数据，但缺少长期运营或第三方复核"
+      ],
+      "scenarioEvidenceSummary": "有表演片段和训练材料，但协作记录、观众反馈不足",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-03-middle_score:claim-1",
+        "transcript:track_38-03-middle_score:claim-2",
+        "material:track_38-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_38-04-middle_score",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:fe4dab038ab339a03e6a899c5d49e64d72c7ae94e653fb24e737808f166d602e",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_38-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 61,
+      "humanDeductionNotes": [
+        "能证明基本能力，用户反馈、质量控制或版权边界仍不完整"
+      ],
+      "scenarioEvidenceSummary": "有表演片段和训练材料，但协作记录、观众反馈不足",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-04-middle_score:claim-1",
+        "transcript:track_38-04-middle_score:claim-2",
+        "material:track_38-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_38-05-low_evidence",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:0985e15b627f0b271834e3e388c680c1359485c09fefc547804d037659d11cdf",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_38-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 36,
+      "humanDeductionNotes": [
+        "材料停留在模式描述或成果展示层，缺少可定位原始证据"
+      ],
+      "scenarioEvidenceSummary": "只有作品介绍，缺少表演片段、训练过程和舞台呈现证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-05-low_evidence:claim-1",
+        "transcript:track_38-05-low_evidence:claim-2",
+        "material:track_38-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_38-06-low_evidence",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:7910195a946c2f904888e0cc0afba395d65b4aa791465513e349e201ab5fce51",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_38-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 33,
+      "humanDeductionNotes": [
+        "展示内容与服务/财经/文体关键任务弱相关，用户或成果证据不足"
+      ],
+      "scenarioEvidenceSummary": "只有作品介绍，缺少表演片段、训练过程和舞台呈现证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-06-low_evidence:claim-1",
+        "transcript:track_38-06-low_evidence:claim-2",
+        "material:track_38-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_38-07-demo_failure",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:49f483039b3ad723ed54a1b48e140fd104ffb2cc92ec8218d17e0f608731e8fe",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_38-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 27,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "只有作品介绍，缺少表演片段、训练过程和舞台呈现证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-07-demo_failure:claim-1",
+        "transcript:track_38-07-demo_failure:claim-2",
+        "material:track_38-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_38-08-low_score",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:fe86d4e7cd0994e07a7ad815285e3ddbccdb310afd46059e7c8c303b7f93cbf9",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_38-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 44,
+      "humanDeductionNotes": [
+        "有少量过程材料，但与最终价值或成果之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量过程材料，但与最终价值或成果之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-08-low_score:claim-1",
+        "transcript:track_38-08-low_score:claim-2",
+        "material:track_38-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_38-09-material_sufficient",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:fe74fabe0e05b330e46890bcd2d9fe15b6a044d4878655faf8535fbf17e79255",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_38-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分版权、合规或经营边界仍需人工复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分版权、合规或经营边界仍需人工复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-09-material_sufficient:claim-1",
+        "transcript:track_38-09-material_sufficient:claim-2",
+        "material:track_38-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_38-10-boundary_dispute",
+      "trackId": "38",
+      "trackName": "表演艺术赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/表演艺术赛道.md",
+      "inputSnapshotHash": "sha256:2ea110683f1b730963872a600b13a6afa2d02ac6a91c6e223b0990e30dfab511",
+      "frozenInputFiles": {
+        "video": "frozen://track_38-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_38-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_38-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 55,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义、服务对象或成果归属存在争议"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义、服务对象或成果归属存在争议",
+      "verifiableEvidencePoints": [
+        "transcript:track_38-10-boundary_dispute:claim-1",
+        "transcript:track_38-10-boundary_dispute:claim-2",
+        "material:track_38-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "表演视频片段",
+                "训练记录",
+                "舞台呈现资料"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

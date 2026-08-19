@@ -1,0 +1,20 @@
+{
+  "version": "stage8-fifth-batch-rule-admission-audit-v1",
+  "trackId": "36",
+  "trackName": "餐饮赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_36_catering_v1_2_engine_draft.json",
+  "status": "approved",
+  "reviewer": "stage8-rule-admission-auditor",
+  "reviewedAt": "2026-07-05T22:00:00+08:00",
+  "sourceMode": "synthetic_from_local_markdown",
+  "auditFindings": [
+    "规则资产包含五维、15个观测点和E0-E5证据上限",
+    "准入样本覆盖高分、中分、低证据、演示失败和边界争议场景",
+    "第五批样本显式覆盖服务流程、用户价值、成本效益、成果证明和版权合规风险",
+    "本批次仅允许进入生成准入资产状态，不允许直接active"
+  ],
+  "approvalConditions": [
+    "正式启用前需要真实原始路演样本复验",
+    "真实样本复验前不得作为线上active规则"
+  ]
+}

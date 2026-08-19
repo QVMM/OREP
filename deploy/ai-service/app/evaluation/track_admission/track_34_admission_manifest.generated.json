@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-fifth-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T22:00:00+08:00",
+  "trackId": "34",
+  "trackName": "物流与供应链赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_34_logistics_supply_chain_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_34-01-high_score",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:9dad09d9eebaef97feeb791988b8dc65355ebe713639a6b8a32a5596473bcda5",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_34-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，用户/成果证明、过程记录和价值验证充分"
+      ],
+      "scenarioEvidenceSummary": "展示仓配流程、物流轨迹、供应链协同、时效成本和异常处理闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-01-high_score:claim-1",
+        "transcript:track_34-01-high_score:claim-2",
+        "material:track_34-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_34-02-high_score",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:6bb1e62c346e06f669f340935f2b2bdea7cde25e83e992a2cfbf4092f9484667",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_34-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 87,
+      "humanDeductionNotes": [
+        "现场、数据和材料一致，成本效益或成果边界清楚"
+      ],
+      "scenarioEvidenceSummary": "展示仓配流程、物流轨迹、供应链协同、时效成本和异常处理闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-02-high_score:claim-1",
+        "transcript:track_34-02-high_score:claim-2",
+        "material:track_34-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_34-03-middle_score",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:efd3c8b6bcc56aea0daad36d44d60576aba8c6324fe471966efc5aedb70c9705",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_34-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "有核心流程和部分数据，但缺少长期运营或第三方复核"
+      ],
+      "scenarioEvidenceSummary": "有仓配流程和部分轨迹数据，但时效成本、异常处理不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-03-middle_score:claim-1",
+        "transcript:track_34-03-middle_score:claim-2",
+        "material:track_34-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_34-04-middle_score",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:c131cb766cc668daced400e0acd4383bcfba56b46c3f413693f8fcaa6657e793",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_34-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 61,
+      "humanDeductionNotes": [
+        "能证明基本能力，用户反馈、质量控制或版权边界仍不完整"
+      ],
+      "scenarioEvidenceSummary": "有仓配流程和部分轨迹数据，但时效成本、异常处理不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-04-middle_score:claim-1",
+        "transcript:track_34-04-middle_score:claim-2",
+        "material:track_34-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_34-05-low_evidence",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:1e2f1ed46ef0db95acc9b289fa54e709e85bda21d44a17066fe97bbbc72dce84",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_34-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 36,
+      "humanDeductionNotes": [
+        "材料停留在模式描述或成果展示层，缺少可定位原始证据"
+      ],
+      "scenarioEvidenceSummary": "只有供应链方案，缺少仓配流程、物流轨迹和异常处理证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-05-low_evidence:claim-1",
+        "transcript:track_34-05-low_evidence:claim-2",
+        "material:track_34-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_34-06-low_evidence",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:0e7c4c7838c880c0c519ef5e46e04d320b9d4f02d90b2889a0cef48b7ac73cd3",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_34-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 33,
+      "humanDeductionNotes": [
+        "展示内容与服务/财经/文体关键任务弱相关，用户或成果证据不足"
+      ],
+      "scenarioEvidenceSummary": "只有供应链方案，缺少仓配流程、物流轨迹和异常处理证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-06-low_evidence:claim-1",
+        "transcript:track_34-06-low_evidence:claim-2",
+        "material:track_34-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_34-07-demo_failure",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:46cf14bc49b41be6070c2335e18066be4dd73068307158e7723fb1809f129e75",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_34-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 27,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "只有供应链方案，缺少仓配流程、物流轨迹和异常处理证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-07-demo_failure:claim-1",
+        "transcript:track_34-07-demo_failure:claim-2",
+        "material:track_34-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_34-08-low_score",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:bd772edbb79844e08b56f70fc9b65ab79589a5aa0e729f54b683439a90b94e73",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_34-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 44,
+      "humanDeductionNotes": [
+        "有少量过程材料，但与最终价值或成果之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量过程材料，但与最终价值或成果之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-08-low_score:claim-1",
+        "transcript:track_34-08-low_score:claim-2",
+        "material:track_34-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_34-09-material_sufficient",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:b8a34ff26d68433eeef592171f3041b334b120eae26ca7f640527a05b3077581",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_34-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分版权、合规或经营边界仍需人工复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分版权、合规或经营边界仍需人工复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-09-material_sufficient:claim-1",
+        "transcript:track_34-09-material_sufficient:claim-2",
+        "material:track_34-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_34-10-boundary_dispute",
+      "trackId": "34",
+      "trackName": "物流与供应链赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/物流与供应链赛道.md",
+      "inputSnapshotHash": "sha256:a8df45885c38fd8c8eaf1e6cb3bab7e4f14f451f88d3e35d7ac00a6f2a67a24a",
+      "frozenInputFiles": {
+        "video": "frozen://track_34-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_34-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_34-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 55,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义、服务对象或成果归属存在争议"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义、服务对象或成果归属存在争议",
+      "verifiableEvidencePoints": [
+        "transcript:track_34-10-boundary_dispute:claim-1",
+        "transcript:track_34-10-boundary_dispute:claim-2",
+        "material:track_34-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "仓配流程记录",
+                "物流轨迹数据",
+                "供应链协同记录"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "SERVICE_VALUE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或用户/成果/合规边界无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

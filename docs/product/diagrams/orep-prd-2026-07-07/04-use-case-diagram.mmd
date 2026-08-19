@@ -1,0 +1,54 @@
+flowchart TB
+  Student((学生))
+  Teacher((教师))
+  Reviewer((评审员))
+  Expert((专家))
+  Admin((管理员))
+
+  UC1[学习课程]
+  UC2[参加练习/考试]
+  UC3[参与项目团队]
+  UC4[准备PPT和讲稿]
+  UC5[加入路演会议]
+  UC6[查看AI评分报告]
+  UC7[执行整改任务]
+
+  UC8[创建课程/题库]
+  UC9[管理项目团队]
+  UC10[创建并控制会议]
+  UC11[查看评分与问题]
+  UC12[人工评分]
+  UC13[AI评审团复核]
+
+  UC14[管理用户组织]
+  UC15[管理资源/PPT/轮播]
+  UC16[查看数据监控]
+  UC17[配置AI评审画像]
+
+  Student --> UC1
+  Student --> UC2
+  Student --> UC3
+  Student --> UC4
+  Student --> UC5
+  Student --> UC6
+  Student --> UC7
+
+  Teacher --> UC8
+  Teacher --> UC9
+  Teacher --> UC10
+  Teacher --> UC11
+  Teacher --> UC12
+
+  Reviewer --> UC5
+  Reviewer --> UC12
+  Reviewer --> UC11
+
+  Expert --> UC5
+  Expert --> UC11
+  Expert --> UC13
+
+  Admin --> UC14
+  Admin --> UC15
+  Admin --> UC16
+  Admin --> UC17
+  Admin --> UC8

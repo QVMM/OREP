@@ -1,0 +1,366 @@
+/**
+ * 评分报告（结果 / 待办 / 依据）统一布局
+ * 对齐 DESIGN.md + workspace-tokens：
+ * - 页边距只由 .workspace-main 提供，页面内不再套一层 gutter
+ * - 只用 --ds-* 间距/字号/色
+ * - 开放排版，少卡片堆叠
+ */
+
+.coach-report-page {
+  --coach-gap: var(--ds-space-6);
+  --coach-gap-sm: var(--ds-space-4);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--ds-page-max, 1280px);
+  margin: 0 auto;
+  padding: 0;
+  color: var(--ds-ink);
+  font-family: var(--ds-font-sans);
+  font-size: var(--ds-text-body);
+  line-height: var(--ds-leading-body);
+}
+
+.coach-report-scroll {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--ds-page-max, 1280px);
+  margin: 0 auto;
+  padding: 0 0 var(--ds-space-8);
+}
+
+/*
+ * 结果/依据：页本身不滚动，交给内部 .coach-report-scroll。
+ * 禁止在此层 overflow:auto + 无定高，否则会与 overscroll-behavior:contain 形成滚轮陷阱。
+ */
+.coach-report-page.is-scrollable {
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.coach-report-page.is-scrollable > .coach-report-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+.coach-report-page.is-split {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.coach-report-page.is-split .coach-report-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.coach-section {
+  margin: 0 0 var(--coach-gap);
+}
+
+.coach-section:last-child {
+  margin-bottom: 0;
+}
+
+.coach-section__label {
+  margin: 0 0 var(--ds-space-2);
+  color: var(--ds-faint);
+  font-size: var(--ds-text-label);
+  font-weight: var(--ds-weight-semibold);
+  letter-spacing: 0.02em;
+}
+
+.coach-section__title {
+  margin: 0;
+  color: var(--ds-ink);
+  font-size: var(--ds-text-h2);
+  font-weight: var(--ds-weight-bold);
+  line-height: var(--ds-leading-title);
+}
+
+.coach-section__desc {
+  margin: var(--ds-space-2) 0 0;
+  max-width: 40em;
+  color: var(--ds-muted);
+  font-size: var(--ds-text-body-sm);
+  line-height: var(--ds-leading-body);
+}
+
+.coach-verdict {
+  margin: 0 0 var(--coach-gap);
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.coach-verdict p {
+  margin: var(--ds-space-2) 0 0;
+  max-width: 48em;
+  color: var(--ds-ink-2);
+  font-size: var(--ds-text-body);
+  line-height: 1.7;
+  font-weight: var(--ds-weight-medium);
+}
+
+.coach-issue-list {
+  display: grid;
+  gap: var(--ds-space-3);
+  margin-top: var(--ds-space-4);
+}
+
+.coach-issue-card {
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-surface-solid);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.coach-issue-card.is-open {
+  border-color: var(--ds-line-strong);
+}
+
+.coach-issue-card__main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  gap: var(--ds-space-3);
+  align-items: start;
+  padding: var(--ds-space-4);
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.coach-issue-card__index {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-orange-wash);
+  color: var(--ds-orange-deep);
+  font-size: var(--ds-text-caption);
+  font-weight: var(--ds-weight-bold);
+}
+
+.coach-issue-card__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-2);
+}
+
+.coach-issue-card__title-row h3 {
+  margin: 0;
+  color: var(--ds-ink);
+  font-size: var(--ds-text-h3);
+  font-weight: var(--ds-weight-bold);
+  line-height: 1.4;
+}
+
+.coach-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 var(--ds-space-2);
+  border-radius: var(--ds-radius-pill);
+  font-size: var(--ds-text-micro);
+  font-weight: var(--ds-weight-semibold);
+  background: var(--ds-canvas-deep);
+  color: var(--ds-muted);
+}
+
+.coach-pill.is-p0 {
+  background: var(--ds-orange-soft);
+  color: var(--ds-orange-deep);
+}
+
+.coach-issue-card__desc {
+  margin: var(--ds-space-2) 0 0;
+  color: var(--ds-ink-2);
+  font-size: var(--ds-text-body-sm);
+  line-height: 1.65;
+}
+
+.coach-issue-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+  margin-top: var(--ds-space-3);
+}
+
+.coach-issue-card__tags span {
+  color: var(--ds-faint);
+  font-size: var(--ds-text-caption);
+  font-weight: var(--ds-weight-medium);
+}
+
+.coach-issue-card__tags span:not(:last-child)::after {
+  content: "·";
+  margin-left: var(--ds-space-2);
+  color: var(--ds-line-strong);
+}
+
+.coach-issue-card__toggle {
+  color: var(--ds-muted);
+  font-size: var(--ds-text-caption);
+  font-weight: var(--ds-weight-semibold);
+  white-space: nowrap;
+  padding-top: 4px;
+}
+
+.coach-issue-card__detail {
+  padding: 0 var(--ds-space-4) var(--ds-space-4) calc(28px + var(--ds-space-3) + var(--ds-space-4));
+  border-top: 1px solid var(--ds-line);
+}
+
+.coach-mini-steps__title,
+.coach-detail-line b {
+  display: block;
+  margin: var(--ds-space-3) 0 var(--ds-space-2);
+  color: var(--ds-ink);
+  font-size: var(--ds-text-caption);
+  font-weight: var(--ds-weight-bold);
+}
+
+.coach-mini-steps ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.coach-mini-steps li {
+  margin: 0 0 var(--ds-space-2);
+  color: var(--ds-ink-2);
+  font-size: var(--ds-text-body-sm);
+  line-height: 1.6;
+}
+
+.coach-mini-steps em {
+  display: block;
+  margin-top: 2px;
+  color: var(--ds-faint);
+  font-style: normal;
+  font-size: var(--ds-text-caption);
+}
+
+.coach-detail-line {
+  margin: var(--ds-space-2) 0;
+  color: var(--ds-ink-2);
+  font-size: var(--ds-text-body-sm);
+  line-height: 1.65;
+}
+
+.coach-issue-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+  margin-top: var(--ds-space-3);
+}
+
+.coach-action-primary,
+.coach-action-ghost {
+  min-height: 36px;
+  padding: 0 var(--ds-space-4);
+  border-radius: var(--ds-radius-sm);
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: var(--ds-text-body-sm);
+  font-weight: var(--ds-weight-semibold);
+  cursor: pointer;
+}
+
+.coach-action-primary {
+  color: #fff;
+  background: var(--ds-btn-primary-bg, var(--ds-orange-deep));
+}
+
+.coach-action-primary:hover {
+  background: var(--ds-btn-primary-bg-hover, var(--ds-orange-800));
+}
+
+.coach-action-ghost {
+  border-color: var(--ds-line-strong);
+  color: var(--ds-ink);
+  background: var(--ds-surface-solid);
+}
+
+.coach-empty {
+  margin-top: var(--ds-space-4);
+  padding: var(--ds-space-6);
+  border: 1px dashed var(--ds-line-strong);
+  border-radius: var(--ds-radius-md);
+  color: var(--ds-muted);
+  text-align: center;
+  font-size: var(--ds-text-body-sm);
+}
+
+.coach-more-link {
+  display: inline-flex;
+  margin-top: var(--ds-space-4);
+  color: var(--ds-orange-deep);
+  font-size: var(--ds-text-body-sm);
+  font-weight: var(--ds-weight-semibold);
+  text-decoration: none;
+}
+
+.coach-more-link:hover {
+  text-decoration: underline;
+}
+
+.coach-secondary {
+  margin-top: var(--ds-space-8);
+  padding-top: var(--ds-space-6);
+  border-top: 1px solid var(--ds-line);
+}
+
+.coach-todo-workspace {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ds-line);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-surface-solid);
+  overflow: hidden;
+}
+
+.coach-todo-workspace .report-cycle-card__notices {
+  margin: 0;
+  padding: var(--ds-space-3) var(--ds-space-4);
+  border-bottom: 1px solid var(--ds-line);
+  background: var(--ds-canvas);
+}
+
+@media (max-width: 900px) {
+  .coach-issue-card__main {
+    grid-template-columns: 28px minmax(0, 1fr);
+  }
+
+  .coach-issue-card__toggle {
+    grid-column: 2;
+    padding-top: 0;
+  }
+
+  .coach-issue-card__detail {
+    padding-left: var(--ds-space-4);
+  }
+}

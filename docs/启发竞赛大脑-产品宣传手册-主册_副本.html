@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>启发·竞赛大脑 · 产品宣传手册</title>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #5c5c5c;
+      --line: #e6e2d8;
+      --paper: #faf9f6;
+      --white: #ffffff;
+      --gold: #b8954a;
+      --gold-soft: #d4b56a;
+      --gold-bg: #f7f1e4;
+      --accent: #c45c26;
+      --blue: #2c4a6e;
+      --ok: #2f6b4f;
+      --shadow: 0 12px 40px rgba(26, 26, 26, 0.06);
+      --page-w: 210mm;
+      --page-h: 297mm;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+        "Noto Sans SC", system-ui, sans-serif;
+      color: var(--ink);
+      background: #eceae4;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    /* Screen chrome */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: rgba(250, 249, 246, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .toolbar strong { font-size: 14px; letter-spacing: 0.02em; }
+    .toolbar nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .toolbar a, .toolbar button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .toolbar a:hover, .toolbar button:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .toolbar button.primary {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .deck {
+      max-width: 920px;
+      margin: 24px auto 64px;
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .page {
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 4px;
+      min-height: 1120px;
+      padding: 56px 56px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 10px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--gold), var(--gold-soft));
+    }
+
+    .page-no {
+      position: absolute;
+      left: 56px;
+      bottom: 28px;
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 0.08em;
+    }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .brand-mark .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffd98a, var(--gold) 45%, #8a6528);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.35);
+    }
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: none;
+      color: var(--gold);
+      font-weight: 600;
+      margin: 0 0 10px;
+    }
+    h1 {
+      font-size: 40px;
+      line-height: 1.2;
+      margin: 0 0 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 28px;
+      line-height: 1.25;
+      margin: 0 0 14px;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+    p { margin: 0 0 12px; color: var(--ink); }
+    .lead {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 38em;
+    }
+    .muted { color: var(--muted); }
+    .small { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+    .rhythm {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 18px 0;
+    }
+    .rhythm .step {
+      min-width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      font-weight: 700;
+      background: var(--gold-bg);
+      color: #7a5a1e;
+      border: 1px solid #ead9b0;
+    }
+    .rhythm .step.active {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+    .rhythm .arrow {
+      color: var(--gold);
+      font-weight: 700;
+      opacity: 0.8;
+    }
+    .rhythm.compact .step {
+      min-width: 40px;
+      height: 40px;
+      font-size: 16px;
+      border-radius: 10px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+    }
+    .card.white {
+      background: var(--white);
+    }
+    .card h3 { margin-bottom: 8px; }
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .card li { margin: 4px 0; }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--gold-bg);
+      color: #7a5a1e;
+      border: 1px solid #ead9b0;
+      margin-bottom: 8px;
+    }
+
+    .module {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .module:last-child { border-bottom: 0; }
+    .module .num {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .module .num span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 6px;
+      letter-spacing: 0.06em;
+    }
+    .module h3 { margin: 0 0 6px; }
+    .module p { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
+    .module ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: var(--ink);
+    }
+    .module li { margin: 3px 0; }
+
+    table.clean {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    table.clean th,
+    table.clean td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table.clean th {
+      background: var(--gold-bg);
+      font-weight: 600;
+      color: #5a4314;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin: 24px 0 12px;
+    }
+    .flow-item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+      position: relative;
+    }
+    .flow-item .char {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 8px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .flow-item strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .flow-item span {
+      display: block;
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .base-bar {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 10px;
+      border: 1px dashed #d8d0be;
+      border-radius: 10px;
+      background: #fffdf8;
+    }
+
+    .quote {
+      margin: 20px 0 0;
+      padding: 16px 18px;
+      border-left: 3px solid var(--gold);
+      background: var(--gold-bg);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .boundary {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid #e0d2b2;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fffdf8, #faf4e8);
+    }
+    .boundary h3 { font-size: 14px; margin-bottom: 10px; color: #7a5a1e; }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn-ghost {
+      background: #fff;
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      min-height: 1000px;
+      justify-content: space-between;
+      padding-top: 80px;
+    }
+    .cover .hero-block { max-width: 18em; }
+    .cover h1 {
+      font-size: 52px;
+      margin-bottom: 8px;
+    }
+    .cover .sub {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .cover .slogan {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+    .cover-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .pillar {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: #fff;
+      min-height: 180px;
+    }
+    .pillar .idx {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .qr-box {
+      border: 1px dashed #d0c7b0;
+      border-radius: var(--radius);
+      min-height: 160px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 13px;
+      background: var(--paper);
+      text-align: center;
+      padding: 16px;
+    }
+
+    .steps-list {
+      counter-reset: s;
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+    }
+    .steps-list li {
+      counter-increment: s;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .steps-list li::before {
+      content: counter(s);
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--gold-bg);
+      color: #7a5a1e;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    .note-bar {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 10px 12px;
+      background: var(--paper);
+      border-radius: 8px;
+    }
+
+    @media (max-width: 820px) {
+      .page { padding: 36px 22px 56px; min-height: auto; }
+      .page::before { width: 6px; }
+      .page-no { left: 22px; }
+      h1 { font-size: 30px; }
+      h2 { font-size: 22px; }
+      .cover h1 { font-size: 36px; }
+      .grid-2, .grid-3, .grid-5, .flow, .pillars, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .flow { gap: 10px; }
+      .module { grid-template-columns: 56px 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none !important; }
+      .deck {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+      }
+      .page {
+        width: var(--page-w);
+        min-height: var(--page-h);
+        height: var(--page-h);
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+        padding: 16mm 16mm 18mm;
+      }
+      .page:last-child { page-break-after: auto; }
+      .page::before { width: 6px; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <strong>启发·竞赛大脑 · 产品宣传手册主册</strong>
+    <nav>
+      <a href="#p01">封面</a>
+      <a href="#p02">为什么</a>
+      <a href="#p03">节奏</a>
+      <a href="#p04">学生</a>
+      <a href="#p05">教师</a>
+      <a href="#p06">备·练</a>
+      <a href="#p07">演·评·改</a>
+      <a href="#p08">组织</a>
+      <a href="#p09">学校</a>
+      <a href="#p10">开始</a>
+      <button class="primary" type="button" onclick="window.print()">打印 / 导出 PDF</button>
+    </nav>
+  </div>
+
+  <main class="deck">
+    <!-- 01 COVER -->
+    <section class="page" id="p01">
+      <div class="cover">
+        <div>
+          <div class="brand-mark">
+            <div class="left">
+              <div class="logo-dot" aria-hidden="true"></div>
+              <span>启发 · 竞赛大脑</span>
+            </div>
+            <span>世界职业院校技能大赛 · 项目化备赛平台</span>
+          </div>
+          <div class="hero-block">
+            <p class="eyebrow">PRODUCT BROCHURE</p>
+            <h1>启发·竞赛大脑</h1>
+            <p class="sub">项目化备赛与路演迭代平台</p>
+            <p class="slogan">以真实成长，赢得比赛。</p>
+            <p class="lead">同一参赛项目上，跑通备 · 练 · 演 · 评 · 改。</p>
+          </div>
+
+          <div class="rhythm" style="margin-top:36px" aria-label="备练演评改">
+            <div class="step">备</div><div class="arrow">→</div>
+            <div class="step">练</div><div class="arrow">→</div>
+            <div class="step">演</div><div class="arrow">→</div>
+            <div class="step">评</div><div class="arrow">→</div>
+            <div class="step">改</div>
+          </div>
+          <p class="small" style="margin-top:8px">改完回到备 / 练 / 演，多轮验证 · 教师作判断 · 反馈有依据</p>
+        </div>
+
+        <div class="cover-footer">
+          <div>
+            项目在中心　｜　反馈有依据　｜　教师作判断　｜　下一轮再验证
+          </div>
+          <div>主册 v1.2 · 2026</div>
+        </div>
+      </div>
+      <div class="page-no">01 / 10</div>
+    </section>
+
+    <!-- 02 WHY -->
+    <section class="page" id="p02">
+      <div class="brand-mark">
+        <div class="left"><div class="logo-dot"></div><span>启发·竞赛大脑</span></div>
+        <span>为什么改变</span>
+      </div>
+      <p class="eyebrow">先问学生有没有真正学会</p>
+      <h2>材料改了，不等于学生会了。</h2>
+      <p class="lead">真正有底气走上赛场的，不是更漂亮的文件，而是学生知道问题在哪里、为什么这样改，并敢把下一版带回现场验证。</p>
+      <p>一套更完整的 PPT，可能只是材料更完整；一次更高的分数，也可能只是当轮表现更好。备赛若停在「交了、改了、勾选了」，成长往往还没发生。</p>
+      <p>启发·竞赛大脑不把「完成」当作终点。它把备赛收成一条可复查的节奏——<strong>备、练、演、评、改</strong>——让每一次关键修改，有机会回到下一轮真实表现中接受检验。</p>
+
+      <div class="grid-2" style="margin-top:24px">
+        <div class="card">
+          <h3>三个常见误区</h3>
+          <table class="clean">
+            <tr><th>误区</th><th>真相</th></tr>
+            <tr><td>材料完成度 = 学生能力</td><td><strong>备</strong>完了材料，未必<strong>练</strong>会了、也未必<strong>演</strong>得清</td></tr>
+            <tr><td>一次分数 = 问题已解决</td><td><strong>评</strong>是当轮快照，不是<strong>改</strong>已经到位的证明</td></tr>
+            <tr><td>任务勾选 = 学习已发生</td><td>勾选证明执行过，不证明理解与迁移</td></tr>
+          </table>
+        </div>
+        <div class="card white">
+          <h3>我们相信什么</h3>
+          <ol style="margin:0;padding-left:18px;color:var(--muted)">
+            <li style="margin-bottom:10px"><strong style="color:var(--ink)">备得实</strong> — 判断能写成可检查的讲稿、材料与版本。</li>
+            <li style="margin-bottom:10px"><strong style="color:var(--ink)">练得准</strong> — 对准项目短板练，而不是盲目加练。</li>
+            <li><strong style="color:var(--ink)">改得明</strong> — 看得懂评的依据，说得清为何改，再演一轮验证。</li>
+          </ol>
+          <div class="note-bar">金奖是努力方向，不是产品承诺。备赛节奏是 <strong>备-练-演-评-改</strong>，不是「交完即止」。</div>
+        </div>
+      </div>
+      <div class="page-no">02 / 10</div>
+    </section>
+
+    <!-- 03 RHYTHM -->
+    <section class="page" id="p03">
+      <div class="brand-mark">
+        <div class="left"><div class="logo-dot"></div><span>启发·竞赛大脑</span></div>
+        <span>产品全景</span>
+      </div>
+      <p class="eyebrow">一条带队老师一听就懂的备赛节奏</p>
+      <h2>备 · 练 · 演 · 评 · 改</h2>
+      <p class="lead">同一参赛项目上，把上场前的备、对准短板的练、这一轮的演、有依据的评、改完再验证，收成一条可复查路径。</p>
+
+      <div class="flow" aria-label="五字闭环">
+        <div class="flow-item">
+          <div class="char">备</div>
+          <strong>把成果备齐</strong>
+          <span>材料、讲稿、待办、协作、日报</span>
+        </div>
+        <div class="flow-item">
+          <div class="char">练</div>
+          <strong>对准短板练</strong>
+          <span>训练日学习、提交、批改</span>
+        </div>
+        <div class="flow-item">
+          <div class="char">演</div>
+          <strong>真实上场</strong>
+          <span>在线路演、录制可回看</span>
+        </div>
+        <div class="flow-item">
+          <div class="char">评</div>
+          <strong>反馈有据</strong>
+          <span>多维 AI 报告与整改线索</span>
+        </div>
+        <div class="flow-item">
+          <div class="char">改</div>
+          <strong>判断后改</strong>
+          <span>教师审核发布，再验证</span>
+        </div>
+      </div>
+      <div class="base-bar">参赛项目是底座　·　改完可再进入 备 / 练 / 演　·　多轮闭环</div>
+
+      <div class="grid-5" style="margin-top:22px">
+        <div class="card"><span class="tag">01 备</span><p class="small" style="margin:0">该交的、该讲的，备在同一项目里。</p></div>
+        <div class="card"><span class="tag">02 练</span><p class="small" style="margin:0">今天该练什么，对着项目来。</p></div>
+        <div class="card"><span class="tag">03 演</span><p class="small" style="margin:0">上场不是一次性表演，是可回看的样本。</p></div>
+        <div class="card"><span class="tag">04 评</span><p class="small" style="margin:0">不只给分，还给改的线索。</p></div>
+        <div class="card"><span class="tag">05 改</span><p class="small" style="margin:0">AI 建议，教师裁决；改完，再验证。</p></div>
+      </div>
+
+      <div class="quote">
+        项目是底座；备-练-演-评-改是节奏；路演证据是依据；教师确认的任务是行动接口；下一轮表现是检验。
+      </div>
+      <p class="small" style="margin-top:14px">平台组织的是可复查的备赛路径；学生是否真正形成能力，仍由作品变化、行为记录、专业评价与赛场表现共同证明。</p>
+      <div class="page-no">03 / 10</div>
+    </section>
+
+    <!-- 04 STUDENT -->
+    <section class="page" id="p04">
+      <div class="brand-mark">
+        <div class="left"><div class="logo-dot"></div><span>启发·竞赛大脑</span></div>
+        <span>学生获得什么</span>
+      </div>
+      <p class="eyebrow">学生真正带走什么 · 对应节奏：备 / 练 / 改</p>
+      <h2>不是多做一遍，而是多会一点。</h2>
+      <p class="lead">在备-练-演-评-改的节奏里，平台为学生形成「把成果备扎实、对准短板练、依据评价再改」创造条件。</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="idx">01 · 备得实</div>
+          <h3>把知识做成成果</h3>
+          <p class="small">项目任务推动讲稿、材料与版本向前走。学生不只是「交文件」，而是把项目判断写进可以检查、可以说明的成果里。</p>
+          <ul>
+            <li>项目任务、材料与阶段管理</li>
+            <li>路演讲稿与备赛材料集中管理</li>
+            <li>待办与备赛日报，过程留在项目里</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <div class="idx">02 · 练得准</div>
+          <h3>围绕真实短板</h3>
+          <p class="small">训练日、学习资源与阶段任务围绕当前项目推进。时间花在眼前要解决的问题上。</p>
+          <ul>
+            <li>按训练日查看与完成任务</li>
+            <li>本地视频、文档与 B 站内嵌学习</li>
+            <li>成果按日提交，进入教师批改</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <div class="idx">03 · 改得明</div>
+          <h3>依据证据再来一轮</h3>
+          <p class="small">路演留下录像与评分报告。学生回看评的依据、完成改，并准备下一轮演。</p>
+          <ul>
+            <li>路演录制回看与历史场次</li>
+            <li>多维评分报告与整改项</li>
+            <li>改进进入任务，再练再演</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note-bar" style="margin-top:24px">
+        上述方向是产品希望服务的成长路径。实际学习与能力是否形成，需要学生行动、教师指导、成果变化与迁移表现共同证明。
+      </div>
+      <div class="page-no">04 / 10</div>
+    </section>
+
+    <!-- 05 TEACHER -->
+    <section class="page" id="p05">
+      <div class="brand-mark">
+        <div class="left"><div class="logo-dot"></div><span>启发·竞赛大脑</span></div>
+        <span>教师如何判断</span>
+      </div>
+      <p class="eyebrow">落在节奏里的「评」与「改」· AI 识别 · 教师裁决</p>
+      <h2>把有限精力，留给真正需要判断的地方。</h2>
+      <p class="lead">学生侧先备再练再演；系统给出评的线索；改的关键判断在教师——什么值得改、为什么改、改到什么程度、怎样验收。</p>
+
+      <div class="rhythm compact" style="margin:20px 0 8px">
+        <div class="step">备</div><div class="arrow">→</div>
+        <div class="step">练</div><div class="arrow">→</div>
+        <div class="step">演</div><div class="arrow">→</div>
+        <div class="step active">评</div><div class="arrow">→</div>
+        <div class="step active">改</div>
+      </div>
+      <p class="small">教师主战场：评有据可依 · 改有令可发 · 再验证可跟进</p>
+
+      <div class="grid-2" style="margin-top:18px">
+        <div class="card">
+          <h3>教师工作流</h3>
+          <ol class="steps-list">
+            <li><div><strong>备</strong><br><span class="small">查看材料、待办与项目进度</span></div></li>
+            <li><div><strong>练</strong><br><span class="small">查看训练提交与学习进度</span></div></li>
+            <li><div><strong>演</strong><br><span class="small">回看路演录制或视频</span></div></li>
+            <li><div><strong>评</strong><br><span class="small">阅读 AI 多维报告与整改项</span></div></li>
+            <li><div><strong>改</strong><br><span class="small">审核发布任务 → 学生再备/再练/再演</span></div></li>
+          </ol>
+        </div>
+        <div>
+          <div class="card white" style="margin-bottom:12px">
+            <h3>平台为教师提供</h3>
+            <ul>
+              <li><strong>备与练可管</strong> — 配置训练营、学习资源，批改提交，查看进度</li>
+              <li><strong>演可回看</strong> — 场次、材料、录制与同源评分报告</li>
+              <li><strong>评可对照、改可裁决</strong> — AI 建议经教师审核后发布</li>
+              <li><strong>整条节奏可统筹</strong> — 项目、成员、路演入口一处管理</li>
+            </ul>
+          </div>
+          <div class="boundary">
+            <h3>可信边界</h3>
+            <table class="clean">
+              <tr><th>我们这样用 AI</th><th>我们不这样承诺</th></tr>
+              <tr><td>辅助分析，生成多维报告与整改线索</td><td>AI 直接作为正式竞赛成绩</td></tr>
+              <tr><td>多评委视角参考，供教师对照</td><td>全自动督学、无人批改结营</td></tr>
+              <tr><td>教师审核后再形成学生改进任务</td><td>「有 AI 就等于有名师」</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="quote">教师不是被替代的人，而是整条改进路径中不可让渡的判断者。</div>
+      <div class="page-no">05 / 10</div>
+    </section>
+
+    <!-- 06 MODULES 备 练 -->
+    <section class="page" id="p06">
+      <div class="brand-mark">
+        <div class="left"><div class="logo-dot"></div><span>启发·竞赛大脑</span></div>
+        <span>能力模块 · 备 / 练</span>
+      </div>
+      <div class="rhythm compact">
+        <div class="step active">备</div><div class="arrow">→</div>
+        <div class="step active">练</div><div class="arrow">→</div>
+        <div class="step">演</div><div class="arrow">→</div>
+        <div class="step">评</div><div class="arrow">→</div>
+        <div class="step">改</div>
+      </div>
+      <p class="eyebrow" style="margin-top:8px">关键能力 · 上半</p>
+      <h2>先把项目备在一起，再对准短板练。</h2>
+
+      <div class="module">
+        <div class="num">1/<span>备 · 底座</span></div>
+        <div>
+          <h3>项目备赛工作台</h3>
+          <p>以参赛项目为上下文，把人、任务、材料与阶段放回同一工作台。</p>
+          <ul>
+            <li>项目团队：成员、任务、材料、阶段集中管理</li>
+            <li>备赛主导航：首页、训练营、路演、资源、AI 应用、待办与个人中心</li>
+            <li>待办中心：今日必做、待我处理、进行中、我发起的</li>
+            <li>学生 / 教师 / 管理分端，学校级数据隔离</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="num">2/<span>练</span></div>
+        <div>
+          <h3>训练日与今日学习</h3>
+          <p>按训练日推进学习与提交，让「今天该练什么」可见、可完成、可批改。</p>
+          <ul>
+            <li>训练计划时间线；按日进入任务书与成果提交</li>
+            <li>教师配置每日计划与学习资源，支持训练日提前开放</li>
+            <li>本地视频学习进度、文档资料、外部链接</li>
+            <li>支持 B 站等课程视频平台内嵌播放，并统计平台内学习时长</li>
+            <li>提交进入教师批改，并与任务体系联动</li>
+          </ul>
+          <p class="small" style="margin-top:8px">说明：站外视频按平台内学习时长规则累计；个别禁外嵌稿件需更换片源。题库考试是否作为某校主路径，以配置为准。</p>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="num">3/<span>备 · 留痕</span></div>
+        <div>
+          <h3>待办 · 协作 · 日报</h3>
+          <p>今日事一眼清，协作有回音，备赛过程留得下。</p>
+          <ul>
+            <li>待办中心聚合今日训练、日报与协作处理</li>
+            <li>支持向队友发起协作任务，跟踪待处理与进行中</li>
+            <li>备赛日报：图文填写（含插图）、历史回看</li>
+            <li>个人统计：连续打卡、近 7 / 30 日投入线索</li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-no">06 / 10</div>
+    </section>
+
+    <!-- 07 MODULES 演 评 改 -->
+    <section class="page" id="p07">
+      <div class="brand-mark">
+        <div class="left"><div class="logo-dot"></div><span>启发·竞赛大脑</span></div>
+        <span>能力模块 · 演 / 评 / 改</span>
+      </div>
+      <div class="rhythm compact">
+        <div class="step">备</div><div class="arrow">→</div>
+        <div class="step">练</div><div class="arrow">→</div>
+        <div class="step active">演</div><div class="arrow">→</div>
+        <div class="step active">评</div><div class="arrow">→</div>
+        <div class="step active">改</div>
+      </div>
+      <p class="eyebrow" style="margin-top:8px">关键能力 · 下半</p>
+      <h2>上场留下样本，评价给出线索，改由教师落地。</h2>
+
+      <div class="module">
+        <div class="num">4/<span>演</span></div>
+        <div>
+          <h3>在线路演与回看</h3>
+          <p>把演变成可回看的训练样本，而不是一次性的临场发挥。</p>
+          <ul>
+            <li>发起与加入在线路演，多方音视频训练</li>
+            <li>路演录制与回放库，历史场次可回看</li>
+            <li>支持上传路演视频进行评分</li>
+            <li>教师可管理场次、材料与回放入口</li>
+          </ul>
+          <p class="small" style="margin-top:8px">演示前建议预检浏览器权限与网络；长视频处理需预留时间。</p>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="num">5/<span>评</span></div>
+        <div>
+          <h3>AI 评分与证据复盘</h3>
+          <p>基于赛道规则给出多维分析，让评不止于一个总分。</p>
+          <ul>
+            <li>会议路演或上传视频后，生成多维度 AI 评分与总结</li>
+            <li>报告分栏：结果、依据线索、评委视角参考、整改项等</li>
+            <li>结构化改进清单，减少「只知道不够好」</li>
+            <li>师生查看同源报告，便于对齐问题</li>
+          </ul>
+          <p class="small" style="margin-top:8px"><strong>AI 评分为辅助分析，不作为正式竞赛成绩。</strong> 长视频可能排队；演示建议使用成功样例。</p>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="num">6/<span>改</span></div>
+        <div>
+          <h3>教师判断与改进落地</h3>
+          <p>从「看到问题」到「改在路上」：建议经过教师，任务回到学生，再进入下一轮备/练/演。</p>
+          <ul>
+            <li>配置训练营、批改提交、查看团队进度</li>
+            <li>阅读 AI 评分报告，把握共性与个性问题</li>
+            <li>将改进建议整理、审核后发布为学生可执行任务</li>
+            <li>学生在待办与后续训练、路演中继续推进</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note-bar">
+        另具备：备赛场景 AI 助手、AI 应用聚合入口、键盘跟打与排位等辅助训练；讲稿与 PPT 支持 AI 辅助生成并需人工继续打磨（服务「备」，非一键完赛）。
+      </div>
+      <div class="page-no">07 / 10</div>
+    </section>
+
+    <!-- 08 ORG -->
+    <section class="page" id="p08">
+      <div class="brand-mark">
+        <div class="left"><div class="logo-dot"></div><span>启发·竞赛大脑</span></div>
+        <span>组织与过程</span>
+      </div>
+      <p class="eyebrow">给教务与二级学院负责人</p>
+      <h2>看见备赛是否真正发生，而不只等待最后结果。</h2>
+      <p class="lead">当备-练-演-评-改被系统承接，学院有机会看见过程，而不只在赛后看见名次。</p>
+
+      <table class="clean" style="margin-top:18px">
+        <thead>
+          <tr><th>节奏</th><th>可以看见的过程信号</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>备</strong></td><td>项目任务、协作、待办与日报</td><td>减少「只在群里说了」</td></tr>
+          <tr><td><strong>练</strong></td><td>训练日任务、学习记录、成果提交与批改</td><td>过程可查，不等于能力已成</td></tr>
+          <tr><td><strong>演</strong></td><td>场次、录制回放</td><td>便于抽查与复盘</td></tr>
+          <tr><td><strong>评</strong></td><td>评分报告是否生成、是否被查看</td><td>反馈有无据可查</td></tr>
+          <tr><td><strong>改</strong></td><td>教师批改、改进任务发布与跟进</td><td>强调人工判断环节</td></tr>
+        </tbody>
+      </table>
+
+      <div class="grid-2" style="margin-top:20px">
+        <div class="card">
+          <h3>管理与治理</h3>
+          <ul>
+            <li>学校 / 租户级数据隔离</li>
+            <li>学生、教师、管理角色分端</li>
+            <li>用户与组织治理；会议与评分等运营查看</li>
+            <li>支持容器化部署与校内部署形态</li>
+          </ul>
+        </div>
+        <div class="card white">
+          <h3>对学院的价值（克制）</h3>
+          <p class="small">把「备赛管理」从口头协调与文件收集，部分转为可检查的过程资产：谁在练、练到哪、演过几轮、改没改、教师有没有确认。</p>
+          <div class="note-bar" style="margin-top:12px">过程可见，不等于育人质量自动提高。质量仍取决于课程设计、教师投入、学生行动与评价体系。</div>
+        </div>
+      </div>
+      <div class="page-no">08 / 10</div>
+    </section>
+
+    <!-- 09 SCHOOL -->
+    <section class="page" id="p09">
+      <div class="brand-mark">
+        <div class="left"><div class="logo-dot"></div><span>启发·竞赛大脑</span></div>
+        <span>学校价值与边界</span>
+      </div>
+      <p class="eyebrow">给关心人才培养与投入成效的决策者</p>
+      <h2>一次参赛，应留下可以继续生长的育人方法。</h2>
+      <p class="lead">奖项属于一届比赛；若过程被认真组织，学校更有机会留下可复用的训练方式、指导经验与项目资产。</p>
+
+      <div class="grid-2" style="margin-top:18px">
+        <div class="card">
+          <h3>学校可能沉淀什么</h3>
+          <ol style="margin:0;padding-left:18px;color:var(--muted);font-size:14px">
+            <li style="margin-bottom:8px">学生如何从问题出发完成学习、实践与表达</li>
+            <li style="margin-bottom:8px">教师如何识别问题、形成判断并设计改进</li>
+            <li style="margin-bottom:8px">项目如何从早期版本走到可上场呈现</li>
+            <li>下一届能否少从零开始</li>
+          </ol>
+        </div>
+        <div class="card white">
+          <h3>能证明 / 仍需一起证明</h3>
+          <table class="clean">
+            <tr><th>平台机制可以支撑</th><th>仍需学校与真实使用证明</th></tr>
+            <tr><td>训练、材料、路演、评分、任务被组织与留痕</td><td>学生能力是否实质提升</td></tr>
+            <tr><td>教师判断可以写入改进路径</td><td>指导质量与效率是否提高</td></tr>
+            <tr><td>学院可查看关键过程信号</td><td>赛场成绩与长期育人成效</td></tr>
+            <tr><td>多校租户隔离与分端治理</td><td>规模化推广中的组织适配</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="boundary" style="margin-top:18px">
+        <h3>明确不做的承诺</h3>
+        <div class="grid-2">
+          <ul style="margin:0;padding-left:18px;font-size:14px">
+            <li>不承诺金奖或名次</li>
+            <li>不以一次 AI 分数代替成长</li>
+          </ul>
+          <ul style="margin:0;padding-left:18px;font-size:14px">
+            <li>不把 AI 建议当作教师的最终裁决</li>
+            <li>不把任务完成单独宣传为「已经学会」</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quote">
+        不替学生赢一场比赛，而是帮助学生长出赢得比赛的能力。<br>
+        <span class="small" style="font-weight:500;display:inline-block;margin-top:6px">「帮助」指创造训练、交付、反馈与复验条件；能力形成仍需学生行动、教师指导与真实证据共同证明。</span>
+      </div>
+      <div class="page-no">09 / 10</div>
+    </section>
+
+    <!-- 10 CTA -->
+    <section class="page" id="p10">
+      <div class="brand-mark">
+        <div class="left"><div class="logo-dot"></div><span>启发·竞赛大脑</span></div>
+        <span>如何开始</span>
+      </div>
+      <p class="eyebrow">下一步只做一件能验证的事</p>
+      <h2>带着一个真实项目，走一轮可验证的备赛。</h2>
+      <p class="lead">不从「听完功能」开始，而从「用你们自己的项目跑通一小段备-练-演-评-改」开始。</p>
+
+      <div class="rhythm compact" style="margin:16px 0">
+        <div class="step">备</div><div class="arrow">→</div>
+        <div class="step">练</div><div class="arrow">→</div>
+        <div class="step">演</div><div class="arrow">→</div>
+        <div class="step">评</div><div class="arrow">→</div>
+        <div class="step">改</div>
+      </div>
+
+      <table class="clean" style="margin-top:8px">
+        <thead>
+          <tr><th>步骤</th><th>做什么</th><th>建议周期</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1. 选项目</strong></td><td>确定 1 个参赛项目、指导教师与核心学生</td><td>2–3 天</td></tr>
+          <tr><td><strong>2. 建节奏</strong></td><td>先建材料/待办习惯（备），再配训练营（练）</td><td>3–5 天</td></tr>
+          <tr><td><strong>3. 跑五字</strong></td><td>备齐材料与待办 → 练提交 → 演一场 → 评看报告 → 改由教师发布任务 → 再推进</td><td>1–2 周</td></tr>
+          <tr><td><strong>4. 复盘</strong></td><td>对照过程：改了什么、依据是什么、下一轮备/练/演计划</td><td>1 次工作坊</td></tr>
+        </tbody>
+      </table>
+
+      <div class="contact-grid">
+        <div class="card white">
+          <h3>三种开始方式</h3>
+          <ol style="margin:0;padding-left:18px;color:var(--muted);font-size:14px">
+            <li style="margin-bottom:10px"><strong style="color:var(--ink)">预约演示</strong><br>按 备→练→演→评→改 走真界面：待办/日报与材料 → 训练日 → 路演或报告 → 教师批改与任务</li>
+            <li style="margin-bottom:10px"><strong style="color:var(--ink)">带项目试点</strong><br>用本校真实备赛项目试跑五字节奏</li>
+            <li><strong style="color:var(--ink)">方案与部署沟通</strong><br>校内部署、账号组织、与现有教学安排衔接</li>
+          </ol>
+          <div class="cta-row">
+            <span class="btn btn-primary">预约真实项目演示</span>
+            <span class="btn btn-ghost">咨询试点方案</span>
+          </div>
+          <p class="small" style="margin-top:14px">欢迎院校、实训基地与区域渠道伙伴一起，将项目化备赛能力纳入技能大赛与专业建设场景。</p>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:12px">
+            <h3>联系方式（待填）</h3>
+            <p class="small" style="margin:0">
+              产品：启发·竞赛大脑<br>
+              电话：（待填）<br>
+              邮箱：（待填）<br>
+              网站：（待填）<br>
+              地址：（待填）
+            </p>
+          </div>
+          <div class="qr-box">
+            二维码位<br>
+            演示预约 / 顾问微信 / 电子手册
+          </div>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:18px">
+        本手册所载能力以现行可演示版本为准；示意图片仅供参考。AI 分析为辅助建议，不构成竞赛正式成绩。产品功能参数与部署方案以合同及实施方案为准。
+      </p>
+      <div class="page-no">10 / 10</div>
+    </section>
+  </main>
+</body>
+</html>

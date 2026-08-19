@@ -1,0 +1,21 @@
+{
+  "auditId": "audit-track-14-generated-v1",
+  "trackId": "14",
+  "trackName": "智能装备应用赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_14_smart_equipment_v1_2_engine_draft.json",
+  "ruleHash": "sha256:9d420fea87289eca8f4b273c0ce5e6fa90d2b5d730a90fe0462bb551f94dd262",
+  "status": "approved",
+  "reviewer": "stage8-generated-admission-auditor",
+  "reviewedAt": "2026-07-05T16:00:00+08:00",
+  "scope": "draft rule structure and generated admission assets",
+  "conclusion": "可进入pilot演练；不得直接active，需真实样本复验后再上线准入。",
+  "checks": [
+    "15 observations present",
+    "E0-E5 evidence caps present",
+    "track-specific evidence present",
+    "deduction and recovery rules present",
+    "10 generated admission samples present"
+  ],
+  "sourceMode": "synthetic_from_local_markdown",
+  "pilotPromotionStatus": "pilot_generated"
+}

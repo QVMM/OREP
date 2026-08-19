@@ -1,0 +1,134 @@
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --admin-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+  --admin-bg: #f8f4ee;
+  --admin-surface: #ffffff;
+  --admin-surface-soft: #fff8f3;
+  --admin-surface-muted: #f5f1ea;
+  --admin-text: #151515;
+  --admin-text-strong: #0f0f0f;
+  --admin-muted: #6f6a64;
+  --admin-faint: #9a948c;
+  --admin-border: #e8dfd5;
+  --admin-border-soft: #f0e8df;
+  --admin-primary: #f36b17;
+  --admin-primary-hover: #d95f14;
+  --admin-primary-soft: #fff1e8;
+  --admin-black: #171717;
+  --admin-green: #2f9e5f;
+  --admin-green-soft: #ecf8f1;
+  --admin-red: #d64545;
+  --admin-red-soft: #fff0f0;
+  --admin-sidebar: #171717;
+  --admin-sidebar-logo: #111111;
+  --admin-sidebar-text: #d7d2cc;
+  --admin-sidebar-muted: #8e8984;
+  --admin-sidebar-active: #f36b17;
+  --admin-radius-sm: 8px;
+  --admin-radius-md: 14px;
+  --admin-radius-lg: 22px;
+  --admin-shadow: 0 18px 48px rgba(40, 24, 12, 0.08);
+  --admin-shadow-soft: 0 8px 24px rgba(40, 24, 12, 0.06);
+  --admin-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --el-bg-color: var(--admin-surface);
+  --el-bg-color-overlay: var(--admin-surface);
+  --el-text-color-primary: var(--admin-text);
+  --el-text-color-regular: var(--admin-muted);
+  --el-border-color: var(--admin-border);
+  --el-border-color-light: var(--admin-border-soft);
+  --el-color-primary: var(--admin-primary);
+  --el-color-primary-light-3: #f68b4b;
+  --el-color-primary-light-5: #f9ab7a;
+  --el-color-primary-light-7: #ffd1b8;
+  --el-color-primary-light-9: var(--admin-primary-soft);
+  --el-color-primary-dark-2: var(--admin-primary-hover);
+  --el-border-radius-base: var(--admin-radius-sm);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --admin-bg: #080b10;
+  --admin-surface: #10151d;
+  --admin-surface-soft: #151b24;
+  --admin-surface-muted: #151b24;
+  --admin-text: #eef2f8;
+  --admin-text-strong: #ffffff;
+  --admin-muted: #9aa6b8;
+  --admin-faint: #748195;
+  --admin-border: rgba(238, 242, 248, 0.12);
+  --admin-border-soft: rgba(238, 242, 248, 0.08);
+  --admin-primary: #f36b17;
+  --admin-primary-hover: #ff8537;
+  --admin-primary-soft: rgba(243, 107, 23, 0.16);
+  --admin-black: #f8fafc;
+  --admin-green: #72d498;
+  --admin-green-soft: rgba(114, 212, 152, 0.14);
+  --admin-red: #ff7b7b;
+  --admin-red-soft: rgba(255, 123, 123, 0.14);
+  --admin-sidebar: #111827;
+  --admin-sidebar-logo: #0b111b;
+  --admin-sidebar-text: #aeb9ca;
+  --admin-sidebar-muted: #748195;
+  --admin-sidebar-active: #f36b17;
+  --admin-radius-sm: 8px;
+  --admin-radius-md: 14px;
+  --admin-radius-lg: 22px;
+  --admin-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  --admin-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.22);
+  --admin-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --el-bg-color: var(--admin-surface);
+  --el-bg-color-overlay: var(--admin-surface);
+  --el-text-color-primary: var(--admin-text);
+  --el-text-color-regular: var(--admin-muted);
+  --el-border-color: var(--admin-border);
+  --el-border-color-light: var(--admin-border-soft);
+  --el-color-primary: var(--admin-primary);
+}
+
+.el-popper.is-light,
+.el-select__popper.el-popper,
+.el-picker__popper.el-popper,
+.el-popover.el-popper {
+  background: var(--admin-surface) !important;
+  border: 1px solid var(--admin-border) !important;
+  box-shadow: var(--admin-shadow) !important;
+}
+
+.el-select-dropdown,
+.el-picker-panel,
+.el-dropdown-menu {
+  background: var(--admin-surface) !important;
+  color: var(--admin-text) !important;
+  border: 0 !important;
+}
+
+.el-select-dropdown__wrap,
+.el-select-dropdown__list {
+  background: var(--admin-surface) !important;
+}
+
+.el-select-dropdown__item,
+.el-dropdown-menu__item {
+  color: var(--admin-muted) !important;
+}
+
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover,
+.el-select-dropdown__item.is-hovering,
+.el-select-dropdown__item.is-selected,
+.el-dropdown-menu__item:hover,
+.el-dropdown-menu__item:focus {
+  color: var(--admin-text) !important;
+  background: color-mix(in oklch, var(--el-color-primary) 14%, transparent) !important;
+}
+
+.el-select-dropdown__item.is-disabled,
+.el-dropdown-menu__item.is-disabled {
+  color: color-mix(in oklch, var(--admin-muted) 45%, transparent) !important;
+}
+
+.el-popper.is-light > .el-popper__arrow::before {
+  background: var(--admin-surface) !important;
+  border-color: var(--admin-border) !important;
+}

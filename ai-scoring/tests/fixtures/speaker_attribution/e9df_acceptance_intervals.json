@@ -1,0 +1,47 @@
+{
+  "fixtureVersion": "speaker-attribution-acceptance-v1",
+  "sourceMedia": "e9df998256bca0a6cbba604c1390330e.mp4",
+  "trainingUseForbidden": true,
+  "intervals": [
+    {
+      "startMs": 0,
+      "endMs": 60000,
+      "scenario": "opening_four_person_roster",
+      "expectedState": "MULTI_PERSON_VISIBLE",
+      "allowUnknown": true,
+      "forbidForcedContestantBinding": true
+    },
+    {
+      "startMs": 57000,
+      "endMs": 62000,
+      "scenario": "roster_to_presentation_handoff",
+      "expectedState": "HANDOFF_OR_OCCLUSION",
+      "allowUnknown": true,
+      "forbidNearestFaceAssignment": true
+    },
+    {
+      "startMs": 1320000,
+      "endMs": 1340000,
+      "scenario": "short_acoustic_cluster_without_visual_confirmation",
+      "expectedState": "OFFSCREEN_OR_UNKNOWN",
+      "allowUnknown": true,
+      "forbidForcedContestantBinding": true
+    },
+    {
+      "startMs": 1980000,
+      "endMs": 2010000,
+      "scenario": "late_session_short_interruption",
+      "expectedState": "VISITOR_OFFSCREEN_OR_UNKNOWN",
+      "allowUnknown": true,
+      "forbidForcedContestantBinding": true
+    },
+    {
+      "startMs": 2840000,
+      "endMs": 2870000,
+      "scenario": "late_unverified_voice_fragment",
+      "expectedState": "OFFSCREEN_OR_UNKNOWN",
+      "allowUnknown": true,
+      "forbidForcedContestantBinding": true
+    }
+  ]
+}

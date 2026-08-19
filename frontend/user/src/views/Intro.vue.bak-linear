@@ -1,0 +1,1146 @@
+<template>
+  <main class="linear-intro">
+    <header class="intro-header">
+      <button class="brand" type="button" @click="go('/intro')">
+        <img src="/brand/competition-brain-mark.svg?v=20260723" alt="" aria-hidden="true" />
+        <strong>竞赛大脑</strong>
+      </button>
+      <nav aria-label="产品介绍导航">
+        <a href="#value" :class="{ active: activeSection === 'value' }" @click.prevent="scrollToSection('value')">产品价值</a>
+        <a href="#score" :class="{ active: activeSection === 'score' }" @click.prevent="scrollToSection('score')">智能评分</a>
+        <a href="#ppt" :class="{ active: activeSection === 'ppt' }" @click.prevent="scrollToSection('ppt')">PPT生成</a>
+        <a href="#jury" :class="{ active: activeSection === 'jury' }" @click.prevent="scrollToSection('jury')">评审团</a>
+        <a href="#learn" :class="{ active: activeSection === 'learn' }" @click.prevent="scrollToSection('learn')">学习考试</a>
+      </nav>
+      <button class="login-button" type="button" @click="go('/login')">进入登录</button>
+    </header>
+
+    <section id="value" class="hero-section reveal-block">
+      <div class="hero-copy">
+        <span class="eyebrow">竞赛大脑</span>
+        <h1 class="hero-title" aria-label="面向世界职业院校技能大赛的智能备赛平台">
+          <span>面向世界职业院校技能大赛的</span><strong>智能备赛平台</strong>
+        </h1>
+        <p class="hero-lead">
+          围绕
+          <span>自主确定项目</span>
+          <span>真问题真场景</span>
+          <span>技能操作与现场讲解同步</span>
+          的核心要求，提供从项目定位到项目设计、从技能训练到讲解演练的全流程备赛支持。
+        </p>
+        <p class="hero-proof">
+          让每一支参赛队伍都能找到最适合自己的赛道，设计出最具竞争力的项目，以最高效的方式完成备赛。
+        </p>
+        <div class="hero-actions">
+          <button type="button" @click="go('/login')">开始使用</button>
+          <a href="#score" @click.prevent="scrollToSection('score')">查看能力介绍</a>
+        </div>
+      </div>
+      <figure class="hero-visual visual-shell">
+        <span class="stage-rim" aria-hidden="true"></span>
+        <img :src="homeImage" alt="竞赛大脑首页备赛工作台" />
+      </figure>
+    </section>
+
+    <section id="score" class="feature-section reveal-block">
+      <div class="feature-copy">
+        <span class="eyebrow">路演智能评分</span>
+        <h2>让每一次演练都能看见问题，也看见下一步。</h2>
+        <p>围绕视频路演、在线会议和评分报告，帮助团队快速看清表达、证据、节奏和现场呈现上的关键短板。</p>
+        <ul>
+          <li>看清综合得分和高风险问题</li>
+          <li>定位扣分项背后的关键证据</li>
+          <li>把复盘建议继续转成改进任务</li>
+        </ul>
+      </div>
+      <figure class="feature-visual visual-shell">
+        <span class="stage-rim" aria-hidden="true"></span>
+        <img :src="scoreImage" alt="竞赛大脑路演评分总结与改进待办页面" />
+      </figure>
+    </section>
+
+    <section id="ppt" class="feature-section feature-section--reverse reveal-block">
+      <div class="feature-copy">
+        <span class="eyebrow">PPT 生成</span>
+        <h2>从项目资料到路演 PPT，少走重复整理的弯路。</h2>
+        <p>围绕项目背景、方案亮点、技能操作、成果展示和应用价值，帮助团队快速形成可继续打磨的路演材料。</p>
+        <ul>
+          <li>自动生成路演展示结构</li>
+          <li>讲稿和页面内容同步准备</li>
+          <li>适合多轮路演前持续修改</li>
+        </ul>
+      </div>
+      <figure class="feature-visual visual-shell">
+        <span class="stage-rim" aria-hidden="true"></span>
+        <img :src="pptImage" alt="竞赛大脑PPT资料准备与生成设置页面" />
+      </figure>
+    </section>
+
+    <section id="jury" class="feature-section reveal-block">
+      <div class="feature-copy">
+        <span class="eyebrow">16 评审团</span>
+        <h2>从不同评审视角检查项目表达是否足够有竞争力。</h2>
+        <p>让团队不只看总分，也能理解不同评审关注什么，从而补强项目价值、技能呈现和落地表达。</p>
+        <ul>
+          <li>多视角发现表达盲区</li>
+          <li>聚合共识问题和改进方向</li>
+          <li>为下一轮展示准备问题清单</li>
+        </ul>
+      </div>
+      <figure class="feature-visual visual-shell">
+        <span class="stage-rim" aria-hidden="true"></span>
+        <img :src="scoreImage" alt="竞赛大脑多维评分与改进报告页面" />
+      </figure>
+    </section>
+
+    <section id="learn" class="feature-section feature-section--reverse reveal-block">
+      <div class="feature-copy">
+        <span class="eyebrow">学习中心与考试中心</span>
+        <h2>把课程、资料、训练题和错题复盘放进同一条备赛节奏。</h2>
+        <p>团队可以按章节推进学习，围绕测评、练习和错题复盘发现短板，把复习从“凭感觉”变成“有依据”。</p>
+        <ul>
+          <li>课程目录和资料集中查看</li>
+          <li>训练题、错题和收藏题目连续复习</li>
+          <li>学习记录自动沉淀，方便团队复盘</li>
+        </ul>
+      </div>
+      <figure class="feature-visual visual-shell">
+        <span class="stage-rim" aria-hidden="true"></span>
+        <img :src="trainingImage" alt="竞赛大脑训练营任务周期页面" />
+      </figure>
+    </section>
+
+    <section class="final-section reveal-block">
+      <div class="final-inner">
+        <div class="final-copy">
+          <span class="eyebrow">现在开始</span>
+          <h2>把备赛流程，整理成一条清晰路线。</h2>
+          <p>从学习、材料、演练到评分复盘，围绕项目节奏持续推进。</p>
+          <button type="button" @click="go('/login')">进入登录页</button>
+          <div class="final-points" aria-label="平台特点">
+            <span>全流程覆盖</span>
+            <span>数据化驱动</span>
+            <span>团队协同</span>
+          </div>
+        </div>
+        <div class="final-flow" aria-label="备赛流程">
+          <article>
+            <span class="step-index">01</span>
+            <div>
+              <strong>学习</strong>
+              <p>课程、资料和训练题集中推进。</p>
+            </div>
+            <em>进行中</em>
+          </article>
+          <article>
+            <span class="step-index">02</span>
+            <div>
+              <strong>材料</strong>
+              <p>整理项目资料，生成 PPT 和讲稿。</p>
+            </div>
+            <em>待完成</em>
+          </article>
+          <article>
+            <span class="step-index">03</span>
+            <div>
+              <strong>演练</strong>
+              <p>上传路演记录，查看评分反馈。</p>
+            </div>
+            <em>待完成</em>
+          </article>
+          <article>
+            <span class="step-index">04</span>
+            <div>
+              <strong>复盘</strong>
+              <p>按问题清单持续复盘和调整。</p>
+            </div>
+            <em>未开始</em>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</template>
+
+<script setup>
+import { onMounted, onUnmounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import homeImage from '../assets/intro/competition-brain-home-real.webp'
+import trainingImage from '../assets/intro/competition-brain-training-real.webp'
+import scoreImage from '../assets/intro/competition-brain-score-real.webp'
+import pptImage from '../assets/intro/competition-brain-ppt-real.webp'
+
+const router = useRouter()
+const activeSection = ref('value')
+let observer
+let scrollAnimationFrame
+let pointerAnimationFrame
+let introScroller
+let handlePointerMove
+
+onMounted(() => {
+  const blocks = Array.from(document.querySelectorAll('.reveal-block'))
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return
+      entry.target.classList.add('is-visible')
+      if (entry.target.id) activeSection.value = entry.target.id
+    })
+  }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' })
+  blocks.forEach((block) => observer.observe(block))
+
+  introScroller = document.querySelector('.linear-intro')
+  handlePointerMove = (event) => {
+    if (!introScroller || pointerAnimationFrame) return
+    pointerAnimationFrame = requestAnimationFrame(() => {
+      const rect = introScroller.getBoundingClientRect()
+      const x = ((event.clientX - rect.left) / rect.width) * 100
+      const y = ((event.clientY - rect.top) / rect.height) * 100
+      introScroller.style.setProperty('--intro-pointer-x', `${Math.max(0, Math.min(100, x)).toFixed(2)}%`)
+      introScroller.style.setProperty('--intro-pointer-y', `${Math.max(0, Math.min(100, y)).toFixed(2)}%`)
+      pointerAnimationFrame = null
+    })
+  }
+  introScroller?.addEventListener('pointermove', handlePointerMove, { passive: true })
+
+  const initialSection = window.location.hash.replace('#', '')
+  if (initialSection) {
+    requestAnimationFrame(() => scrollToSection(initialSection, false))
+  }
+})
+
+onUnmounted(() => {
+  observer?.disconnect()
+  if (scrollAnimationFrame) cancelAnimationFrame(scrollAnimationFrame)
+  if (pointerAnimationFrame) cancelAnimationFrame(pointerAnimationFrame)
+  if (introScroller && handlePointerMove) {
+    introScroller.removeEventListener('pointermove', handlePointerMove)
+  }
+})
+
+function go(path) {
+  router.push(path)
+}
+
+function scrollToSection(sectionId, syncHash = false) {
+  const scroller = document.querySelector('.linear-intro')
+  const target = document.getElementById(sectionId)
+  if (!scroller || !target) return
+
+  const headerHeight = document.querySelector('.intro-header')?.offsetHeight || 72
+  const targetTop = Math.max(target.offsetTop - headerHeight - 12, 0)
+  activeSection.value = sectionId
+  document.querySelectorAll('.reveal-block').forEach((block) => {
+    if (block.offsetTop <= target.offsetTop + window.innerHeight) {
+      block.classList.add('is-visible', 'is-nav-visible')
+    }
+  })
+  animateIntroScroll(scroller, targetTop)
+
+  if (syncHash) {
+    window.history.replaceState(null, '', `${window.location.pathname}#${sectionId}`)
+  }
+
+  window.setTimeout(() => {
+    document.querySelectorAll('.reveal-block.is-nav-visible').forEach((block) => {
+      block.classList.remove('is-nav-visible')
+    })
+  }, 900)
+}
+
+function animateIntroScroll(scroller, targetTop) {
+  if (scrollAnimationFrame) cancelAnimationFrame(scrollAnimationFrame)
+
+  const startTop = scroller.scrollTop
+  const distance = targetTop - startTop
+  if (Math.abs(distance) < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    scroller.scrollTop = targetTop
+    return
+  }
+
+  const duration = Math.min(820, Math.max(460, Math.abs(distance) * 0.32))
+  const startTime = performance.now()
+  const easeOutQuint = (progress) => 1 - Math.pow(1 - progress, 5)
+
+  const step = (now) => {
+    const progress = Math.min((now - startTime) / duration, 1)
+    scroller.scrollTop = startTop + distance * easeOutQuint(progress)
+
+    if (progress < 1) {
+      scrollAnimationFrame = requestAnimationFrame(step)
+    } else {
+      scrollAnimationFrame = null
+    }
+  }
+
+  scrollAnimationFrame = requestAnimationFrame(step)
+}
+</script>
+
+<style scoped>
+:global(html.is-public-shell),
+:global(body.is-public-shell),
+:global(body.is-public-shell #app) {
+  height: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  overscroll-behavior-y: none;
+  background: #fffaf6;
+}
+
+.linear-intro {
+  --intro-pointer-x: 50%;
+  --intro-pointer-y: 18%;
+  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: none;
+  scroll-behavior: auto;
+  background:
+    radial-gradient(circle at var(--intro-pointer-x) var(--intro-pointer-y), rgba(255, 116, 61, 0.12), transparent 24%),
+    radial-gradient(circle at 50% -12%, rgba(255, 230, 210, 0.88), transparent 34%),
+    radial-gradient(circle at 88% 34%, rgba(238, 246, 255, 0.84), transparent 30%),
+    linear-gradient(180deg, #fffaf6 0%, #ffffff 46%, #fff7f0 100%);
+  color: #20242c;
+  font-family: "PingFang SC", "SF Pro Display", Inter, system-ui, sans-serif;
+}
+
+.intro-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  width: 100%;
+  height: 72px;
+  padding: 0 clamp(24px, 7.5vw, 156px);
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid rgba(33, 37, 44, 0.08);
+  background: rgba(255, 250, 246, 0.88);
+  box-shadow: 0 14px 40px rgba(35, 28, 22, 0.06);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+}
+
+.intro-header::before,
+.intro-header::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.intro-header::before {
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 108, 64, 0.08), transparent),
+    rgba(255, 250, 246, 0.82);
+  opacity: 0.8;
+}
+
+.intro-header::after {
+  left: clamp(24px, 7.5vw, 156px);
+  right: clamp(24px, 7.5vw, 156px);
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 118, 70, 0.36), transparent);
+  animation: headerTrace 6.5s ease-in-out infinite;
+}
+
+.brand,
+.login-button,
+.hero-actions button,
+.final-section button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: start;
+  color: #20242c;
+  background: transparent;
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+  display: block;
+  object-fit: contain;
+}
+
+.brand strong {
+  font-size: 16px;
+}
+
+.intro-header nav {
+  display: flex;
+  gap: 26px;
+  justify-content: center;
+}
+
+.intro-header a,
+.hero-actions a {
+  position: relative;
+  color: rgba(32, 36, 44, 0.58);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.intro-header a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff5a2f, #ffb088);
+  box-shadow: 0 0 18px rgba(255, 95, 48, 0.45);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.intro-header a:hover,
+.intro-header a.active,
+.hero-actions a:hover {
+  color: #20242c;
+}
+
+.intro-header a:hover::after,
+.intro-header a.active::after {
+  transform: scaleX(1);
+}
+
+.login-button {
+  justify-self: end;
+  min-height: 38px;
+  padding: 0 17px;
+  border: 1px solid rgba(32, 36, 44, 0.12);
+  border-radius: 999px;
+  color: #20242c;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.hero-section,
+.feature-section {
+  z-index: 1;
+  width: min(1180px, calc(100% - 48px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 112px 0 88px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(480px, 1fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+.hero-section {
+  padding-top: 150px;
+}
+
+.feature-section {
+  position: relative;
+}
+
+.feature-section::before,
+.final-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(33, 37, 44, 0.1), transparent);
+}
+
+.feature-section--reverse .feature-copy {
+  order: 2;
+}
+
+.feature-section--reverse .feature-visual {
+  order: 1;
+}
+
+.eyebrow {
+  color: #ff895a;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.hero-copy h1,
+.feature-copy h2,
+.final-section h2 {
+  margin: 18px 0 0;
+  max-width: 900px;
+  color: #20242c;
+  font-size: clamp(38px, 4.1vw, 64px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.hero-title {
+  max-width: 900px;
+  color: #20242c;
+  font-weight: 950;
+  text-shadow: 0 18px 70px rgba(255, 110, 64, 0.12);
+}
+
+.hero-title strong {
+  display: block;
+  color: transparent;
+  background: linear-gradient(135deg, #ff7a45 0%, #ff5a2f 42%, #d93f16 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: inherit;
+  text-shadow: none;
+}
+
+.feature-copy h2,
+.final-section h2 {
+  font-size: clamp(34px, 3.8vw, 54px);
+}
+
+.hero-copy p,
+.feature-copy p,
+.final-section p {
+  margin: 24px 0 0;
+  max-width: 700px;
+  color: rgba(32, 36, 44, 0.62);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.hero-copy .hero-lead {
+  max-width: 640px;
+  margin-top: 30px;
+}
+
+.hero-lead span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  margin: 0 4px 8px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 126, 79, 0.2);
+  border-radius: 8px;
+  color: #c84920;
+  background: rgba(255, 102, 58, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  font-size: 0.88em;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.hero-copy .hero-proof {
+  position: relative;
+  max-width: 560px;
+  margin-top: 18px;
+  padding-left: 18px;
+  color: rgba(32, 36, 44, 0.56);
+  font-size: 16px;
+}
+
+.hero-copy .hero-proof::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  bottom: 0.45em;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ff6b3d, rgba(255, 107, 61, 0.08));
+}
+
+.hero-actions {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.hero-actions button,
+.final-section button {
+  min-height: 46px;
+  padding: 0 24px;
+  border-radius: 999px;
+  color: #fff8f1;
+  background: linear-gradient(135deg, #ff5a2f, #ff7747);
+  font-weight: 900;
+  box-shadow: 0 18px 54px rgba(255, 90, 47, 0.28);
+}
+
+.hero-actions a {
+  position: relative;
+  color: rgba(32, 36, 44, 0.58);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.feature-copy ul {
+  margin: 30px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 13px;
+  list-style: none;
+}
+
+.feature-copy li {
+  position: relative;
+  padding-left: 24px;
+  color: rgba(32, 36, 44, 0.68);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.feature-copy li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #ff6b3d;
+  box-shadow: 0 0 0 5px rgba(255, 107, 61, 0.12);
+}
+
+.visual-shell {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  padding-bottom: 38px;
+  isolation: isolate;
+  perspective: 1200px;
+}
+
+.hero-visual {
+  margin-right: 0;
+  margin-top: 0;
+}
+
+.visual-shell::before {
+  content: "";
+  position: absolute;
+  inset: 7% 2% 0;
+  z-index: 0;
+  border-radius: 24px;
+  background:
+    conic-gradient(from 220deg at 50% 50%, rgba(255, 128, 72, 0.18), rgba(255, 202, 166, 0.1), rgba(255, 128, 72, 0.14), rgba(255, 128, 72, 0.02)),
+    radial-gradient(circle at 42% 22%, rgba(255, 140, 80, 0.16), transparent 34%);
+  filter: blur(34px);
+  opacity: 0.72;
+  animation: stageAura 7.8s ease-in-out infinite;
+}
+
+.visual-shell::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 4px;
+  z-index: 0;
+  height: 76px;
+  border-radius: 999px;
+  background:
+    radial-gradient(ellipse at center, rgba(255, 145, 86, 0.22), rgba(255, 145, 86, 0.1) 34%, rgba(255, 145, 86, 0) 72%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 179, 128, 0.18), rgba(255, 255, 255, 0));
+  filter: blur(11px);
+  opacity: 0.72;
+  transform: rotateX(68deg) scaleX(0.96);
+  transform-origin: center;
+  animation: stageBase 5.8s ease-in-out infinite;
+}
+
+.visual-shell img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow:
+    0 36px 100px rgba(38, 30, 24, 0.16),
+    0 24px 86px rgba(255, 116, 61, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: perspective(1200px) rotateX(2deg) rotateY(-3deg);
+  transform-origin: center bottom;
+  animation: visualDrift 8s ease-in-out infinite, visualGlow 7.4s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+.stage-rim {
+  position: absolute;
+  left: 13%;
+  right: 13%;
+  bottom: 31px;
+  z-index: 2;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 134, 82, 0.56), transparent);
+  box-shadow: 0 0 18px rgba(255, 102, 58, 0.22);
+  opacity: 0.78;
+  pointer-events: none;
+  animation: rimSweep 5.2s ease-in-out infinite;
+}
+
+.visual-shell:hover img {
+  filter: saturate(1.08) brightness(1.04);
+}
+
+.feature-visual img {
+  transform: perspective(1200px) rotateX(1deg) rotateY(-2deg);
+}
+
+.feature-section--reverse .feature-visual img {
+  transform: perspective(1200px) rotateX(1deg) rotateY(2deg);
+}
+
+.final-section {
+  position: relative;
+  width: min(1240px, calc(100% - 48px));
+  min-height: 78vh;
+  margin: 0 auto;
+  padding: 118px 0 136px;
+}
+
+.final-section::after {
+  content: "";
+  position: absolute;
+  inset: 72px -7vw 86px;
+  z-index: 0;
+  background:
+    linear-gradient(rgba(33, 37, 44, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 37, 44, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 20% 26%, rgba(255, 95, 48, 0.12), transparent 30%),
+    radial-gradient(circle at 72% 48%, rgba(255, 190, 150, 0.16), transparent 34%),
+    linear-gradient(180deg, transparent 0%, rgba(255, 238, 224, 0.28) 44%, transparent 100%);
+  background-size: 42px 42px, 42px 42px, auto, auto, auto;
+  mask-image: radial-gradient(ellipse at center, #000 0%, #000 58%, transparent 78%);
+  pointer-events: none;
+}
+
+.final-inner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(34px, 5vw, 66px) 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(430px, 0.94fr);
+  gap: clamp(48px, 7vw, 104px);
+  align-items: center;
+}
+
+.final-copy h2 {
+  max-width: 620px;
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 1.06;
+}
+
+.final-copy p {
+  max-width: 610px;
+}
+
+.final-section button {
+  margin-top: 32px;
+}
+
+.final-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 28px;
+}
+
+.final-points span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  color: rgba(32, 36, 44, 0.52);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.final-points span + span::before {
+  content: "";
+  width: 1px;
+  height: 14px;
+  margin: 0 14px;
+  background: rgba(32, 36, 44, 0.14);
+}
+
+.final-flow {
+  position: relative;
+  display: grid;
+  min-height: 460px;
+  padding: 10px 0 10px 26px;
+}
+
+.final-flow::before {
+  content: "";
+  position: absolute;
+  top: 38px;
+  bottom: 38px;
+  left: 26px;
+  z-index: 1;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(255, 95, 48, 0.8) 12%, rgba(255, 95, 48, 0.34) 68%, transparent);
+  box-shadow: 0 0 16px rgba(255, 95, 48, 0.24);
+}
+
+.final-flow article {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  min-height: 108px;
+  padding: 22px 0 22px 62px;
+  border-bottom: 1px solid rgba(32, 36, 44, 0.08);
+}
+
+.final-flow article::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -6px;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(255, 137, 90, 0.72);
+  border-radius: 999px;
+  background: #fffaf6;
+  box-shadow:
+    0 0 0 5px rgba(255, 95, 48, 0.08),
+    0 0 18px rgba(255, 95, 48, 0.24);
+  transform: translateY(-50%);
+}
+
+.final-flow article:first-child::before {
+  border-color: #ffb088;
+  background: #ff6b3d;
+}
+
+.final-flow article:last-child {
+  border-bottom: 0;
+}
+
+.final-flow .step-index {
+  position: absolute;
+  top: 20px;
+  left: 34px;
+  color: #ff895a;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.final-flow article strong {
+  display: block;
+  color: #20242c;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.final-flow article p {
+  max-width: 280px;
+  margin: 8px 0 0;
+  color: rgba(32, 36, 44, 0.56);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.final-flow article em {
+  justify-self: end;
+  color: rgba(32, 36, 44, 0.48);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.final-flow article:first-child em {
+  color: #ff9f78;
+}
+
+.reveal-block .hero-copy,
+.reveal-block .feature-copy,
+.reveal-block .visual-shell,
+.reveal-block.final-section > div {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1), transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-block .visual-shell {
+  transition-delay: 110ms;
+}
+
+.reveal-block.is-visible .hero-copy,
+.reveal-block.is-visible .feature-copy,
+.reveal-block.is-visible .visual-shell,
+.reveal-block.is-visible.final-section > div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-block.is-nav-visible .hero-copy,
+.reveal-block.is-nav-visible .feature-copy,
+.reveal-block.is-nav-visible .visual-shell,
+.reveal-block.is-nav-visible.final-section > div {
+  opacity: 1;
+  transform: translateY(0);
+  transition: none;
+}
+
+@keyframes visualDrift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -4px;
+  }
+}
+
+@keyframes visualGlow {
+  0%,
+  100% {
+    filter: saturate(1) brightness(1);
+  }
+  50% {
+    filter: saturate(1.08) brightness(1.035);
+  }
+}
+
+@keyframes stageAura {
+  0%,
+  100% {
+    opacity: 0.62;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes stageBase {
+  0%,
+  100% {
+    opacity: 0.58;
+    transform: rotateX(68deg) scaleX(0.92);
+  }
+  50% {
+    opacity: 0.84;
+    transform: rotateX(68deg) scaleX(1.02);
+  }
+}
+
+@keyframes rimSweep {
+  0%,
+  100% {
+    opacity: 0.46;
+    transform: scaleX(0.76);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes headerTrace {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scaleX(0.7);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 1020px) {
+  .intro-header nav {
+    display: none;
+  }
+
+  .intro-header {
+    grid-template-columns: 1fr auto;
+    padding: 0 24px;
+  }
+
+  .hero-section,
+  .feature-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 94px 0 72px;
+  }
+
+  .hero-section {
+    padding-top: 132px;
+  }
+
+  .hero-visual {
+    margin-right: 0;
+  }
+
+  .feature-section--reverse .feature-copy,
+  .feature-section--reverse .feature-visual {
+    order: initial;
+  }
+
+  .final-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .final-flow article p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section,
+  .feature-section,
+  .final-section {
+    width: min(100% - 28px, 420px);
+  }
+
+  .final-section {
+    padding: 82px 0 90px;
+  }
+
+  .final-section::after {
+    inset: 58px -42px 66px;
+  }
+
+  .final-inner {
+    padding: 28px 0;
+  }
+
+  .final-points {
+    row-gap: 8px;
+  }
+
+  .final-flow {
+    min-height: auto;
+    padding: 8px 0 8px 24px;
+  }
+
+  .final-flow::before {
+    top: 34px;
+    bottom: 34px;
+    left: 24px;
+  }
+
+  .final-flow article {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    min-height: 128px;
+    padding: 22px 0 22px 56px;
+  }
+
+  .final-flow article::before {
+    left: -6px;
+  }
+
+  .final-flow .step-index {
+    left: 32px;
+  }
+
+  .final-flow article em {
+    justify-self: start;
+  }
+
+  .intro-header {
+    width: 100%;
+    height: 66px;
+    padding: 0 18px;
+  }
+
+  .login-button {
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .hero-copy h1,
+  .feature-copy h2,
+  .final-section h2 {
+    font-size: 32px;
+  }
+
+  .hero-title {
+    max-width: 100%;
+  }
+
+  .hero-copy p,
+  .feature-copy p,
+  .final-section p {
+    font-size: 15px;
+  }
+
+  .hero-lead span {
+    min-height: 24px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0 8px;
+    white-space: normal;
+  }
+
+  .hero-copy .hero-proof {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .visual-shell img,
+  .feature-visual img,
+  .feature-section--reverse .feature-visual img {
+    border-radius: 20px;
+    transform: none;
+  }
+
+  .visual-shell {
+    padding-bottom: 24px;
+  }
+
+  .visual-shell::after {
+    bottom: 0;
+    height: 48px;
+  }
+
+  .stage-rim {
+    bottom: 20px;
+  }
+}
+</style>

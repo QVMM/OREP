@@ -1,0 +1,72 @@
+{
+  "version": "rapidesign_mimo_prompt_library_v1",
+  "generated_at": "2026-05-09",
+  "source": {
+    "site": "https://www.rapidesign.cn/case.html",
+    "method": "case detail pages, mid-video frames plus static slide images",
+    "local_contact_sheet": "/Users/liuyixing/项目/OREP/ai-scoring/output/rapidesign_reference_study/20260509/rapidesign_14_case_contact_sheet.jpg",
+    "local_manifest": "/Users/liuyixing/项目/OREP/ai-scoring/output/rapidesign_reference_study/20260509/case_media_manifest.json"
+  },
+  "instant_comprehension_model": {
+    "one_second": "one dominant claim/object/number/focus",
+    "three_seconds": "clear relationship between focus and support",
+    "ten_seconds": "evidence details and secondary labels",
+    "failure_rule": "If the page requires reading 4+ equal-weight boxes within 3 seconds, redraw it."
+  },
+  "visual_patterns": [
+    {
+      "id": "cinematic_stage_or_scene",
+      "prompt": "Make the slide feel like a premium launch-event final frame: stage/space background, one dominant object or claim, very little text, labels close to the object, no web cards."
+    },
+    {
+      "id": "poster_slogan_first",
+      "prompt": "Start with a 12-18 Chinese-character claim as the largest visual element. Use industry scene, city, device, map or material texture as atmosphere; keep supporting information secondary."
+    },
+    {
+      "id": "hero_object_plus_sparse_labels",
+      "prompt": "Use one oversized product/device/model/photo as the main visual. Place only 3-5 short labels near the object. Do not distribute content as equal cards."
+    },
+    {
+      "id": "photo_map_data_overlay",
+      "prompt": "Use a photo, map, city, factory, energy field or domain scene as the base layer. Float data labels at meaningful positions, like a strategic evidence map, not a table."
+    },
+    {
+      "id": "one_big_number_or_one_big_result",
+      "prompt": "Choose one result or number as the visual hero. Make all other metrics smaller proof points. Avoid four equal metric cards."
+    },
+    {
+      "id": "material_strip_not_upload_box",
+      "prompt": "Evidence should feel like real material cropped into a PPT: source, use, conclusion. Never draw upload icons, dashed placeholders or ratio suggestions."
+    }
+  ],
+  "page_type_prompts": {
+    "cover_keynote": {
+      "prompt": "Design as an industry poster, not a web hero. Full-bleed montage, title as protagonist, far/mid/foreground depth, one sentence positioning, no cards or buttons."
+    },
+    "agenda_navigation": {
+      "prompt": "Design as a thematic directory page. Use image band or scene base, large 01-05 chapter numbers, chapter name, page range and one short objective. Avoid timeline navigation."
+    },
+    "architecture_system": {
+      "prompt": "Design a hero diagram explaining how the system works. One large architecture/model/path/topology, labels attached to the diagram, clear boundaries and data flow, one bottom conclusion."
+    },
+    "practice_evidence": {
+      "prompt": "Use answer-first proof. One huge claim, 2-3 evidence blocks, one result seal or conclusion bar. The viewer must understand the result in 1 second and the proof in 3 seconds."
+    },
+    "evidence_chain": {
+      "prompt": "Do not draw a wavy process line. Use a huge claim such as '数据证据 → 生产动作', then three proof blocks: source, processing, result. One result badge only. No equal cards."
+    },
+    "value_matrix": {
+      "prompt": "Start with one big value result or number, then use small proof metrics. Scene or material background is preferred. Avoid dashboard metric cards."
+    }
+  },
+  "hard_bans": [
+    "equal card grid as main layout",
+    "web dashboard panels",
+    "upload-style image placeholder",
+    "dashed ratio placeholder",
+    "many equal-weight nodes",
+    "tiny SVG in a container",
+    "first glance without a clear claim",
+    "meta language about scoring or prompts"
+  ]
+}

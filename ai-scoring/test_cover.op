@@ -1,0 +1,132 @@
+{
+  "version": "0.7.0",
+  "name": "V9 PPT Cover",
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Cover Page",
+      "width": 1280,
+      "height": 720,
+      "nodes": [
+        {
+          "id": "bg",
+          "type": "RECT",
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720,
+          "fill": {
+            "type": "GRADIENT_LINEAR",
+            "stops": [
+              {"offset": 0, "color": "#0a0a1a"},
+              {"offset": 1, "color": "#0a1b3d"}
+            ]
+          }
+        },
+        {
+          "id": "glow",
+          "type": "ELLIPSE",
+          "x": 880,
+          "y": 210,
+          "width": 280,
+          "height": 280,
+          "fill": {
+            "type": "GRADIENT_RADIAL",
+            "stops": [
+              {"offset": 0, "color": "rgba(0,86,211,0.4)"},
+              {"offset": 1, "color": "transparent"}
+            ]
+          },
+          "opacity": 0.4
+        },
+        {
+          "id": "circle1",
+          "type": "ELLIPSE",
+          "x": 580,
+          "y": 60,
+          "width": 600,
+          "height": 600,
+          "stroke": "#0056d3",
+          "strokeWidth": 1,
+          "fill": "transparent",
+          "opacity": 0.08
+        },
+        {
+          "id": "circle2",
+          "type": "ELLIPSE",
+          "x": 620,
+          "y": 100,
+          "width": 520,
+          "height": 520,
+          "stroke": "#0056d3",
+          "strokeWidth": 1,
+          "fill": "transparent",
+          "opacity": 0.12
+        },
+        {
+          "id": "title-accent",
+          "type": "RECT",
+          "x": 80,
+          "y": 180,
+          "width": 4,
+          "height": 100,
+          "fill": "#0056d3",
+          "borderRadius": 2
+        },
+        {
+          "id": "title",
+          "type": "TEXT",
+          "x": 100,
+          "y": 200,
+          "width": 650,
+          "text": "智能PPT生成系统",
+          "fontSize": 56,
+          "fontWeight": 900,
+          "fill": "#FFFFFF",
+          "fontFamily": "Noto Sans SC"
+        },
+        {
+          "id": "subtitle",
+          "type": "TEXT",
+          "x": 100,
+          "y": 360,
+          "width": 600,
+          "text": "AI驱动的演示文稿自动化方案",
+          "fontSize": 20,
+          "fontWeight": 400,
+          "fill": "rgba(255,255,255,0.85)",
+          "fontFamily": "Noto Sans SC"
+        },
+        {
+          "id": "team-bg",
+          "type": "ELLIPSE",
+          "x": 100,
+          "y": 592,
+          "width": 48,
+          "height": 48,
+          "fill": "#0056d3"
+        },
+        {
+          "id": "team-name",
+          "type": "TEXT",
+          "x": 168,
+          "y": 610,
+          "width": 200,
+          "text": "OREP团队",
+          "fontSize": 18,
+          "fontWeight": 500,
+          "fill": "#FFFFFF",
+          "fontFamily": "Noto Sans SC"
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {"name": "bg-primary", "type": "color", "value": "#0a0a1a"},
+    {"name": "bg-secondary", "type": "color", "value": "#0a1b3d"},
+    {"name": "accent", "type": "color", "value": "#0056d3"},
+    {"name": "glow-color", "type": "color", "value": "rgba(0,86,211,0.4)"},
+    {"name": "text-primary", "type": "color", "value": "#FFFFFF"},
+    {"name": "text-body", "type": "color", "value": "rgba(255,255,255,0.85)"}
+  ]
+}

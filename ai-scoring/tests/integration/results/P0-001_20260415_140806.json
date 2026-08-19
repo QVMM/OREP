@@ -1,0 +1,31 @@
+{
+  "case_id": "P0-001",
+  "task_id": 66,
+  "status": "failed",
+  "start_time": "2026-04-15T14:06:50.884825",
+  "end_time": "2026-04-15T14:08:06.227925",
+  "duration_seconds": 75.3431,
+  "baseline_passed": false,
+  "metrics": {
+    "total_pages": 7,
+    "effective_pages": 0,
+    "empty_pages": 7,
+    "svg_charts": 0,
+    "skill_pages": 0,
+    "garbled_chars": 0,
+    "kpi_pages": 0,
+    "timeline_pages": 0,
+    "content_pages": 0,
+    "team_pages": 0,
+    "cover_pages": 0,
+    "toc_pages": 0,
+    "ending_pages": 0
+  },
+  "issues": [
+    "有效页数不足: 0 < 35",
+    "空壳页过多: 7 > 3",
+    "SVG图表不足: 0 < 10",
+    "技能操作页不足: 0 < 10"
+  ],
+  "error_message": null
+}

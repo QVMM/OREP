@@ -1,0 +1,526 @@
+{
+  "version": "v5_diagram_prompt_library_20260510_v3",
+  "purpose": "Provide type-specific diagram extraction and rendering prompts for MiMo body-region PPT generation. MiMo should not invent diagram rules from scratch; the pipeline should select the closest diagram type and inject its contract.",
+  "execution_model": {
+    "recommended": "preset_library_selected_by_page_type",
+    "reason": "Different diagrams optimize different semantics. A universal prompt makes MiMo mix flow, architecture, evidence, matrix and dashboard rules, causing drift, overlap and generic layouts.",
+    "steps": [
+      "classify_diagram_type_from_page",
+      "extract_diagram_json_with_selected_schema",
+      "render_html_svg_with_selected_visual_contract",
+      "audit_geometry_density_focus",
+      "repair_with_same_diagram_contract"
+    ],
+    "mimo_should_self_generate_prompt": false,
+    "fallback_policy": "If classification confidence is low, use semantic_infographic, not generic card grid."
+  },
+  "global_contract": {
+    "role": "You are a senior PPT information-graphics designer and technical diagramming expert. Output must look like a competition-grade presentation diagram, not a web widget, report table, or AI sketch.",
+    "output": {
+      "extract_step": "JSON only. No explanation.",
+      "render_step": "HTML fragment only. Root node must be .mimo-body-root. Inline style and SVG are allowed. No script."
+    },
+    "root_attrs": [
+      "data-page-archetype",
+      "data-visual-motif",
+      "data-dominant-visual",
+      "data-focus-text"
+    ],
+    "slide_density": {
+      "content_page": "Use focus statement + main diagram/evidence + 2-4 supporting labels. Avoid one diagram plus one sentence. Avoid speaker-script paragraphs.",
+      "visible_text_target_cn": "70-170 Chinese chars for normal pages; 120-240 for dense technical/evidence pages.",
+      "focus_text": "8-18 Chinese chars, visible on slide, not a repeat of the outer title."
+    },
+    "geometry": {
+      "preferred_structures": [
+        "center_ring_or_hub_spoke",
+        "layered_stack_or_tower",
+        "2x2_or_3x2_matrix",
+        "mirror_compare",
+        "vertical_or_horizontal_swimlane",
+        "dashboard_wall",
+        "single_clear_path"
+      ],
+      "safe_bounds": "Body internal elements: left/right inset about 1.8%, top/bottom inset about 3.5%. SVG viewBox internal graphic inset 6%-8%.",
+      "max_primary_nodes": 6,
+      "max_decision_nodes": 2,
+      "max_support_labels": 4,
+      "forbid": [
+        "random floating nodes",
+        "more than 5 freeform paths unless they are part of a simple chart",
+        "crossing connectors",
+        "text placed on top of lines or arrows",
+        "negative coordinates",
+        "elements outside body region",
+        "large empty inner whiteboard",
+        "upload-placeholder styling",
+        "score/evaluator meta language"
+      ]
+    },
+    "typography": {
+      "focus_statement_px": "24-34",
+      "node_title_px": "18-24",
+      "node_body_px": "13-16",
+      "evidence_label_px": "12-14",
+      "min_px": 12,
+      "line_rule": "Short labels only. If text does not fit, reduce words before reducing font size."
+    },
+    "style": {
+      "color_rule": "Choose colors from the deck theme. Use one dominant accent, one secondary accent, tinted neutral surfaces and clear contrast.",
+      "shape_rule": "Use rectangles, rounded rectangles, diamonds, circles, bands and rings deliberately. Cards are support elements, not the default main structure.",
+      "depth_rule": "Use line weight, scale, transparency and spacing for hierarchy. Do not rely on decorative gradients alone."
+    },
+    "render_contract_v2": {
+      "purpose": "A precise construction contract for first-pass MiMo diagram rendering. This should prevent table-like architecture, drifting lines, tiny text, crowded nodes and generic card grids before audit/repair.",
+      "canvas": {
+        "root": ".mimo-body-root must fill the body region, overflow hidden, no root padding, no root background, no large inner whiteboard.",
+        "safe_area": "All visible diagram elements stay inside x=1.8%-98.2%, y=3.5%-96.5%. SVG internal viewBox keeps 6%-8% inset.",
+        "occupied_area": "Main diagram should occupy 62%-82% of body area on core diagram pages. If it occupies less than 58%, enlarge the main structure before adding decoration.",
+        "grid": "Use an 8px visual grid. Node x/y/w/h should align to 8px increments when using CSS pixels."
+      },
+      "composition_strength": {
+        "principle": "The first pass must create a strong PPT composition, not merely a correct diagram. One visual object must dominate the body region.",
+        "main_visual_ratio": "Architecture, evidence_chain, data_flow and flowchart pages: main visual target 65%-82% of body area; minimum acceptable 58%.",
+        "focal_hierarchy": "Use 1 dominant focus, 2-4 support elements, and 1 conclusion/result accent. Avoid equal-weight nodes unless the diagram type is explicitly matrix.",
+        "scale_contrast": "Dominant node/result/value should be 1.35x-1.8x larger or visually stronger than support nodes.",
+        "empty_space_rule": "Whitespace must wrap the main visual; it cannot appear as unused top/side blank. If a large blank area remains, expand the main diagram or add a controlled conclusion rail.",
+        "result_emphasis": "Every technical diagram needs a visible destination/result node, seal, stage or output band; it should not be a small tag."
+      },
+      "typography": {
+        "focus_text_px": "26-34px, weight 760-850, max 18 Chinese chars.",
+        "node_title_px": "18-24px, weight 700-820, max 10 Chinese chars per line, max 2 lines.",
+        "node_body_px": "14-16px, weight 500-650, max 16 Chinese chars per line, max 2 lines.",
+        "label_px": "12-14px, weight 600-750, evidence/source tags only.",
+        "min_px": 13,
+        "overflow_policy": "Never solve fitting by using text below 13px. First shorten copy, then wrap to 2 lines, then move detail to speaker notes."
+      },
+      "node_geometry": {
+        "primary_node": "Width 190-300px, height 84-132px. Use for claim/result/core layer.",
+        "normal_node": "Width 150-230px, height 64-104px. Use for steps/modules/proofs.",
+        "tag_node": "Width 72-132px, height 26-40px. Use for source, metric or protocol tags.",
+        "corner_radius": "Large structural bands 6-10px; small tags 4-8px; avoid 18px+ web-card radius.",
+        "stroke": "1.2-2px normal, 2.4-3.5px emphasis. Do not use hairlines below 1px.",
+        "inner_padding": "12-18px for nodes. Text baseline must not touch borders."
+      },
+      "spacing": {
+        "node_gap": "Horizontal/vertical gap 24-48px. Dense diagrams may go to 18px only if no connector crosses text.",
+        "lane_gap": "Layer/lane gap 16-28px, but bands must stay visually connected by bus/axis.",
+        "callout_gap": "Callouts sit 12-24px from the shape they explain.",
+        "top_empty_limit": "Do not leave more than 18% of body height empty above the main diagram on content pages."
+      },
+      "connectors": {
+        "line_width": "2.2-3.2px normal, 4-6px for one main flow/bus/path.",
+        "arrow_head": "8-12px. Arrowheads must not overlap node text or borders.",
+        "routing": "Prefer straight, orthogonal or one gentle curve. Max one dashed feedback line.",
+        "label_rule": "Connector labels never sit on the line. Place labels in small tags beside the connector or attach to nodes.",
+        "crossing_policy": "No crossing connectors. If crossing would happen, switch to lanes, stack or hub-spoke."
+      },
+      "table_and_matrix_style": {
+        "allowed_when": "Only comparison_matrix, risk_matrix or metric_dashboard may use table/matrix grammar.",
+        "visual_table": "If using a matrix, make headers/bands/axes explicit; use 2-4 columns and 3-5 rows; cell text max 12 Chinese chars.",
+        "not_allowed": "Architecture, data_flow, evidence_chain and flowchart must not become report tables or row lists.",
+        "matrix_strokes": "Outer boundary 1.5-2px; inner separators 1px with 25%-45% opacity; highlighted cell/band 2-3px."
+      },
+      "special_case_policy": {
+        "too_many_nodes": "If >6 nodes, group into 3-4 clusters/layers and show representative labels.",
+        "long_labels": "If label >12 Chinese chars, split into title + tiny evidence tag or rewrite to verb-object phrase.",
+        "missing_metrics": "Do not fabricate precise numbers. Use qualitative levels, source tags or relative arrows.",
+        "unclear_order": "If order is unclear, use matrix/hub-spoke instead of forcing a false flow.",
+        "dense_evidence": "If evidence sources >4, make a proof wall with 3 visible anchors + one folded source strip.",
+        "small_body_region": "Reduce support labels before shrinking diagram; keep main visual readable."
+      }
+    },
+    "type_specific_render_contract_v2": {
+      "architecture": {
+        "layout": "Use system boundary + 3-4 full-width layers or tower. Layers are broad stacked bands with depth and a dominant data bus, not table rows. Each band must contain modules plus an explicit data bus/flow crossing layers.",
+        "composition": "The system boundary/layer-stack-stage must occupy 65%-80% of the body area. The data bus must be the visual spine, and the application/output node must be the clear destination.",
+        "sizes": "Layer band height 84-128px; system boundary inset 14-24px; module chips 86-150px by 28-42px; output/application node 1.45x-1.8x larger than module chips.",
+        "connectors": "One main data-flow/bus 6-8px, vertical or horizontal, with 2-4 short branch arrows. No more than 8 visible branch connectors. Branch arrows 2-3px.",
+        "anti_table": "Do not draw four plain rows with tiny chips at the right. If the result looks like a table, convert rows into layered bands with a central bus crossing them and a large destination/output node.",
+        "special": "If modules are many, show 2-3 module chips per layer and group the rest as '+N 能力'."
+      },
+      "data_flow": {
+        "layout": "Use pipeline band, swimlane or funnel-to-output. Separate source, processing, storage/model and output zones.",
+        "sizes": "Step nodes 150-220px by 70-100px; output node 220-320px by 96-132px; lane labels 78-120px wide.",
+        "connectors": "One continuous main path 4-6px. Quality-control tags attach to steps with 1.5-2px short leader lines.",
+        "special": "If feedback exists, use exactly one dashed feedback arrow outside the main path, opacity 45%-65%."
+      },
+      "flowchart": {
+        "layout": "Use 3-6 main steps in horizontal, vertical, swimlane or loop form. Decision nodes are diamonds and max 2.",
+        "sizes": "Step nodes 150-230px by 68-108px; decision diamond 92-128px; start/end nodes may be pill shapes.",
+        "connectors": "Straight or orthogonal arrows 2.2-3.2px, arrowhead 8-12px. Branch labels sit beside the branch, not on the line.",
+        "special": "If branches exceed 2, collapse them into an exception lane instead of drawing a complex tree."
+      },
+      "evidence_chain": {
+        "layout": "Start with a large claim/value stage, then 2-4 evidence anchors, then result/action seal. Use proof wall, stage, bracket or rail; never upload boxes.",
+        "composition": "The claim/value stage must be the largest object and occupy 30%-45% of the body width or 18%-28% of body area. Evidence anchors are subordinate and must not become equal cards. Result seal must be visually attached to the stage or rail.",
+        "sizes": "Claim/value stage 360-620px by 110-190px; proof nodes 160-230px by 72-108px; result seal 150-220px by 88-132px and at least 1.25x stronger than a proof node.",
+        "connectors": "Evidence connects by one rail/bracket/axis. Use max 1 main arrow or rail at 5-7px and max 3 short proof leaders at 1.5-2.5px.",
+        "visual_finish": "Claim stage should feel like a presentation stage plate with layered gradient, thin highlight edge, soft glow and one bold internal arrow. Result seal should use concentric ring/check/value badge treatment. Evidence rail should use a continuous axis with ticks/brackets and proof connectors.",
+        "legibility": "Result seal and proof-node text must remain high contrast. Text contrast >=4.5, result seal background alpha >=0.88, proof-node colored/tinted non-white surface alpha 0.64-0.82, proof-title >=16px/650 weight, source-tag >=12px, evidence-snippet >=13px, result seal main text 20-28px/800 weight. Never use pale low-opacity text for evidence.",
+        "anti_card": "Proof nodes must not be ordinary white cards, card panels or independent tiles. They should look like rail-attached material anchors: a small numbered dot, a source-tag, a short evidence snippet and a connector to the rail. Avoid rgba(255,255,255,*), #fff/#f8fafc/neutral gray fills, box-shadow, full rectangle borders and large rounded rectangles.",
+        "proof_node_visual": "Each proof-node must choose exactly one allowed structure and include its modifier class: spine_label uses proof-node--spine-label + proof-anchor-spine; bracket_anchor uses proof-node--bracket-anchor + rail-attached-bracket; cut_corner_tag uses proof-node--cut-corner-tag + proof-material-chip. Do not invent other proof-node structures. Bind each proof-node to proof_node_bboxes by data-proof-id and keep the wrapper fully inside that bbox. Each proof-node must include proof-title, source-tag and evidence-snippet. The visual surface height must be >=72px and >=62% of the mapped proof_node_bboxes height; if using percentage height inside evidence-flow, height must be >=62%, never 17%-30%. proof-title font-size >=16px and weight >=650; source-tag >=12px; evidence-snippet >=13px. Shorten copy instead of shrinking text. Connectors and decorative spines/brackets must be short and inside the bbox or evidence rail only: use left:0/top:0 or positive inset values, never left:-4px or negative pseudo-element offsets. Result seal must stay inside its bbox with non-negative left/top/width/height; rings, icons and glow belong inside SVG viewBox padding, not CSS negative offsets. Use colored/tinted non-white surfaces, no box-shadow, radius 0-8px, no full four-side border, and no card/panel/tile/box class names.",
+        "special": "If no real image is available, evidence anchors look like material snippets/log cards with source-tag, not empty screenshot placeholders. If evidence anchors exceed 4, fold extra sources into a slim source strip."
+      },
+      "metric_dashboard": {
+        "layout": "One hero metric dominates; 2-4 support metrics and one chart/trend/composition explain it.",
+        "sizes": "Hero metric numeral 54-88px; support metric numeral 30-44px; chart area at least 28% body area.",
+        "connectors": "Charts need axis/category labels or explicit legend. Do not use decorative fake bars without meaning.",
+        "special": "If exact data is weak, show qualitative trend/level and source label instead of fake precision."
+      },
+      "comparison_matrix": {
+        "layout": "Use mirror comparison, before-after bridge or 2x2 matrix. Axes/dimensions must be explicit.",
+        "sizes": "Column width 180-310px; row height 56-88px; winning side 1.1-1.25x stronger by fill/stroke/scale.",
+        "connectors": "Central bridge arrow 4-6px if showing upgrade. Keep row separators subtle.",
+        "special": "If text is dense, keep only row labels + short deltas; move explanations to notes."
+      },
+      "timeline": {
+        "layout": "Use milestone rail, stair-step or roadmap band. Each milestone shows order/time plus output.",
+        "sizes": "Milestone nodes 130-210px by 58-92px; rail 4-6px; current/key milestone 1.15x larger.",
+        "connectors": "Clean rail, no crossing vertical lines. Output tags sit above/below rail with 12-24px gap.",
+        "special": "If more than 6 milestones, group into phases and show 3-5 phase nodes."
+      },
+      "risk_matrix": {
+        "layout": "Use 2x2 matrix, response lanes, shield layers or control loop. Encode level by position/size/color.",
+        "sizes": "Risk cell 150-230px by 70-110px; response band height 54-84px; shield layers 64-96px.",
+        "connectors": "Trigger to response arrows 2-3px. Avoid alarm red covering the whole page.",
+        "special": "Each risk needs trigger + response. If missing, show checkpoint/status rather than inventing."
+      },
+      "value_loop": {
+        "layout": "Use ring/cycle/hub-spoke. Central value or final destination is largest.",
+        "sizes": "Center node 220-340px by 100-150px; loop nodes 130-190px by 56-86px; outcome tags 90-140px by 28-42px.",
+        "connectors": "Cycle arrows 3-5px, evenly spaced. Max 6 loop nodes.",
+        "special": "If actors >6, group into platform/user/partner/resource clusters."
+      },
+      "semantic_infographic": {
+        "layout": "Choose exactly one metaphor: ring, matrix, tower, stage or split compare.",
+        "sizes": "Main visual at least 45% body area; support labels max 4.",
+        "connectors": "Use minimal explicit relations. No random decorative network.",
+        "special": "If unsure, use focus statement + 3 support groups + result badge."
+      }
+    }
+  },
+  "diagram_types": {
+    "technical_route": {
+      "aliases": ["technology_route", "research_route", "roadmap_flow"],
+      "when_to_use": "Research plan, implementation route, technical route, methodology sequence, project path.",
+      "extract_schema": {
+        "topic_name": "Project or research topic name, or summarize from content.",
+        "research_object": "10-20 Chinese chars.",
+        "core_problem": "30-50 Chinese chars.",
+        "research_contents": "3-5 logically ordered items.",
+        "main_methods": "3-5 key methods.",
+        "expected_results": "2-4 outcomes.",
+        "academic_or_business_field": "Field label.",
+        "route_stages": "3-6 stages from problem to result.",
+        "validation_or_feedback": "Feedback/validation relation, optional."
+      },
+      "layout_options": ["vertical_route", "horizontal_route", "layered_tree", "center_radiation"],
+      "render_contract": [
+        "Diagram type: technical route map.",
+        "Use 3-6 route stages. Each stage must contain action + method/result label.",
+        "Use a clear beginning and ending. The final result node must be visually stronger.",
+        "If methods and contents are parallel, show them as side bands feeding into the main route.",
+        "Use standard flowchart shapes: rectangle for stage, rounded rectangle for method, diamond for decision/validation.",
+        "Feedback loop, if present, must be one dashed arrow only."
+      ],
+      "forbid": ["generic input-process-output chain", "more than 6 equal nodes", "academic paragraph blocks"]
+    },
+    "flowchart": {
+      "aliases": ["process_flow", "operation_flow", "workflow"],
+      "when_to_use": "Operational steps, execution process, demo flow, data handling sequence, problem solving steps.",
+      "extract_schema": {
+        "diagram_title": "12-20 Chinese chars.",
+        "process_goal": "20-40 Chinese chars.",
+        "start_state": "8-16 Chinese chars.",
+        "end_state": "8-16 Chinese chars.",
+        "main_steps": "3-6 steps in true execution order.",
+        "step_inputs": "Input for each step.",
+        "step_outputs": "Output for each step.",
+        "key_decisions": "0-2 decision nodes.",
+        "feedback_loop": "Source and target of feedback, optional.",
+        "evidence_labels": "2-4 data/source labels.",
+        "risk_or_exception": "0-2 exception handling nodes.",
+        "preferred_layout": "vertical|horizontal|swimlane|loop|radial"
+      },
+      "layout_options": ["horizontal_flow", "vertical_flow", "swimlane_flow", "closed_loop_flow"],
+      "render_contract": [
+        "Use 3-6 main nodes. Do not exceed 6.",
+        "Use stable structures: horizontal flow, vertical flow, swimlane, or loop.",
+        "Decision nodes must be diamonds, max 2.",
+        "Connectors must be short, clear and mostly straight. Use one dashed feedback arrow only.",
+        "Nodes should align on a grid. One node may be emphasized, but the structure cannot collapse into random cards.",
+        "Evidence labels must sit near related steps, not on the connector line."
+      ],
+      "forbid": ["S-curve chain", "random node positions", "text over arrows", "too many branches"]
+    },
+    "architecture": {
+      "aliases": ["system_architecture", "technical_architecture", "platform_architecture"],
+      "when_to_use": "System structure,端-边-云, modules, platform layers, technology stack, deployment topology.",
+      "extract_schema": {
+        "system_goal": "What the architecture proves.",
+        "layers": "3-5 layers, ordered from source/device to application/user.",
+        "modules": "2-4 modules per layer.",
+        "data_flow": "Main data/control flow labels.",
+        "boundary": "System boundary, external systems, user/device side.",
+        "key_interfaces": "0-4 interfaces or protocols.",
+        "security_or_ops": "Optional support layer.",
+        "output_value": "Final capability/result."
+      },
+      "layout_options": ["layered_stack", "end_edge_cloud_swimlane", "hub_spoke_topology", "tower_architecture", "control_plane_data_plane"],
+      "render_contract": [
+        "Show layers and boundaries first; modules are secondary.",
+        "Use horizontal or vertical bands, tower, or hub-spoke. Avoid equal horizontal step chain.",
+        "Data flow arrows must show direction from source to value.",
+        "Keep modules inside their layer boundary. No floating modules.",
+        "If there are many modules, group them into clusters rather than drawing all nodes.",
+        "Highlight one output value or core capability as the visual destination."
+      ],
+      "forbid": ["flowchart disguised as architecture", "modules without boundaries", "more than 12 visible module boxes"]
+    },
+    "data_flow": {
+      "aliases": ["pipeline", "etl_flow", "data_pipeline"],
+      "when_to_use": "Data collection, cleaning, storage, analysis, query, feedback, pipeline pages.",
+      "extract_schema": {
+        "source_data": "1-4 data sources.",
+        "processing_steps": "3-6 processing steps.",
+        "storage_or_model": "Database/model/service nodes.",
+        "outputs": "2-4 output results.",
+        "quality_controls": "Validation, cleaning, anomaly filtering.",
+        "latency_or_metric": "Optional metric.",
+        "feedback_target": "Optional feedback target."
+      },
+      "layout_options": ["pipeline_band", "vertical_swimlane", "funnel_to_output", "closed_data_loop"],
+      "render_contract": [
+        "Make the data path visually continuous. Use one strong line or band.",
+        "Separate source, processing, storage/model and output by bands or lanes.",
+        "Quality control labels should attach to the exact processing step.",
+        "Use feedback arrow only when page content explicitly supports feedback.",
+        "The output/result zone must be the final focal point."
+      ],
+      "forbid": ["generic four-card data process", "unlabeled arrows", "database icon as decoration only"]
+    },
+    "evidence_chain": {
+      "aliases": ["proof_chain", "proof_board", "technical_evidence"],
+      "when_to_use": "Proof, verification, demo evidence, screenshots/logs/results proving a claim.",
+      "extract_schema": {
+        "claim": "What has been proven, 12-24 Chinese chars.",
+        "evidence_sources": "2-4 sources, e.g. log, screenshot, benchmark, field record.",
+        "evidence_actions": "What was done to produce evidence.",
+        "evidence_results": "What result each evidence item proves.",
+        "trust_labels": "Source/time/metric labels.",
+        "final_value": "How evidence turns into action/value.",
+        "missing_asset_policy": "Whether image slot or generated asset is needed."
+      },
+      "layout_options": ["claim_first_board", "source_process_result", "evidence_wall", "data_to_action"],
+      "render_contract": [
+        "Start with the claim. The claim must be the first visual reading point.",
+        "Use 2-4 evidence anchors. Each anchor must include source + action/result.",
+        "Evidence anchors may look like material cards, logs, small dashboard pieces or photo crops, but not upload boxes.",
+        "If using a path, use one simple arrow from evidence to value. No wave chains.",
+        "Final value/action must be visibly connected to the claim."
+      ],
+      "forbid": ["scoring point language", "empty screenshot boxes", "three-column generic mechanism", "complex wave path"]
+    },
+    "metric_dashboard": {
+      "aliases": ["kpi_dashboard", "indicator_board", "data_dashboard"],
+      "when_to_use": "KPIs, metrics, performance, experimental result, efficiency/cost/accuracy pages.",
+      "extract_schema": {
+        "main_metric": "The one metric that must dominate.",
+        "unit": "Metric unit.",
+        "baseline_or_comparison": "Baseline, target or comparison value.",
+        "support_metrics": "2-4 secondary metrics.",
+        "trend_or_distribution": "Trend, distribution or composition, optional.",
+        "evidence_source": "Data source label.",
+        "interpretation": "Short conclusion from the numbers."
+      },
+      "layout_options": ["hero_metric_with_support", "dashboard_wall", "trend_plus_metrics", "gauge_and_breakdown"],
+      "render_contract": [
+        "One main metric must be visually dominant. Do not make four equal KPI cards.",
+        "Every metric needs unit or source context.",
+        "Secondary metrics must support the main conclusion.",
+        "If drawing a chart, include axis/label logic; do not use decorative fake charts.",
+        "Use a bottom or side interpretation label to state what the metric means."
+      ],
+      "forbid": ["four equal KPI cards", "percentage without unit/source", "decorative chart with no data meaning"]
+    },
+    "comparison_matrix": {
+      "aliases": ["before_after", "competitor_compare", "option_matrix"],
+      "when_to_use": "Before/after,方案对比, pain point vs solution, old vs new, option selection.",
+      "extract_schema": {
+        "comparison_subject": "What is being compared.",
+        "columns": "2-4 comparison columns.",
+        "rows": "3-5 dimensions.",
+        "winning_or_target_column": "Which side should stand out.",
+        "delta_labels": "Concrete improvements or differences.",
+        "evidence_or_metric": "Optional metric per row.",
+        "takeaway": "Conclusion."
+      },
+      "layout_options": ["two_column_mirror", "2x2_matrix", "score_matrix", "before_after_bridge"],
+      "render_contract": [
+        "Axes or comparison dimensions must be explicit.",
+        "Use alignment and contrast to show difference quickly.",
+        "Highlight the winning/target side, but keep comparison credible.",
+        "Use short row labels. Avoid paragraph cells.",
+        "If there is an upgrade path, show a central arrow or bridge."
+      ],
+      "forbid": ["ordinary report table", "dense paragraphs inside cells", "unclear comparison baseline"]
+    },
+    "timeline": {
+      "aliases": ["milestone", "project_timeline", "roadmap"],
+      "when_to_use": "Development history, project plan, milestones, phased implementation.",
+      "extract_schema": {
+        "time_scope": "Overall period or phase scope.",
+        "milestones": "3-6 milestones.",
+        "outputs": "Output for each milestone.",
+        "review_points": "Validation/review points.",
+        "current_status": "Current phase, optional.",
+        "future_next": "Next step, optional."
+      },
+      "layout_options": ["milestone_rail", "stair_step", "timeline_with_outputs", "roadmap_band"],
+      "render_contract": [
+        "Timeline must show time/order and output, not only event names.",
+        "Use 3-6 milestones.",
+        "The current or key milestone should be emphasized.",
+        "Outputs may sit below/above the rail as short tags.",
+        "Keep rail clean. Avoid many crossing vertical lines."
+      ],
+      "forbid": ["tiny dots with no outputs", "too many milestones", "decorative timeline with no chronology"]
+    },
+    "risk_matrix": {
+      "aliases": ["risk_control", "safety_matrix", "response_matrix"],
+      "when_to_use": "Risk, safety, exception handling, quality control, security pages.",
+      "extract_schema": {
+        "risk_categories": "3-5 risks.",
+        "risk_level": "High/medium/low or numeric level.",
+        "trigger_conditions": "Trigger for each risk.",
+        "response_actions": "Response or mitigation.",
+        "owner_or_checkpoint": "Optional owner/checkpoint.",
+        "residual_result": "Expected controlled state."
+      },
+      "layout_options": ["2x2_risk_matrix", "risk_response_lanes", "shield_layers", "control_loop"],
+      "render_contract": [
+        "Risk level must be visually encoded by color, size or position.",
+        "Each risk needs trigger + response, not just a name.",
+        "Use matrix, lanes, shield layers or loop. Avoid plain tables.",
+        "The controlled-state conclusion should be visible."
+      ],
+      "forbid": ["risk list only", "all risks same visual weight", "alarm colors covering the whole page"]
+    },
+    "value_loop": {
+      "aliases": ["value_chain", "business_loop", "ecosystem_loop"],
+      "when_to_use": "Value creation, business closed loop, ecological relationship, stakeholder loop.",
+      "extract_schema": {
+        "central_value": "Core value proposition.",
+        "actors_or_nodes": "3-6 actors/nodes.",
+        "value_exchanges": "What flows between nodes.",
+        "metrics_or_outcomes": "2-4 outcome labels.",
+        "feedback_mechanism": "How value loops back.",
+        "scale_condition": "Replication/scale condition, optional."
+      },
+      "layout_options": ["center_ring", "hub_spoke", "cycle_loop", "ecosystem_map"],
+      "render_contract": [
+        "Put central value in the center or final destination.",
+        "Use ring/cycle/hub-spoke. Nodes must be evenly spaced.",
+        "Show exchange direction with simple arrows.",
+        "Use 2-4 outcome labels around the loop.",
+        "The loop must explain why the system improves over time."
+      ],
+      "forbid": ["random radial scatter", "loop with no exchange labels", "too many actors"]
+    },
+    "pyramid": {
+      "aliases": ["hierarchy", "capability_tower", "layered_pyramid"],
+      "when_to_use": "Capability hierarchy, maturity model, layered goals, from foundation to outcome.",
+      "extract_schema": {
+        "top_goal": "Top outcome or north-star goal.",
+        "levels": "3-5 hierarchy levels from foundation to top.",
+        "level_meanings": "Meaning of each level.",
+        "support_evidence": "1-3 support labels.",
+        "transition_logic": "How lower level supports upper level."
+      },
+      "layout_options": ["vertical_pyramid", "layered_tower", "stepped_stack"],
+      "render_contract": [
+        "Use 3-5 layers. Wider foundation, narrower top.",
+        "Top goal must be visually clear.",
+        "Layer labels should be short and centered.",
+        "Side callouts may explain evidence, max 3.",
+        "Use consistent layer spacing and no overlapping text."
+      ],
+      "forbid": ["more than 5 layers", "paragraph text inside layers", "pure decorative triangle"]
+    },
+    "radar": {
+      "aliases": ["ability_radar", "evaluation_radar", "capability_model"],
+      "when_to_use": "Capability dimensions, maturity evaluation, multi-dimensional comparison.",
+      "extract_schema": {
+        "dimensions": "4-6 dimensions.",
+        "scores_or_levels": "Score/level for each dimension.",
+        "benchmark": "Optional benchmark or target.",
+        "strongest_dimension": "Dominant strength.",
+        "weakest_dimension": "Improvement point.",
+        "takeaway": "Conclusion."
+      },
+      "layout_options": ["radar_chart_with_callouts", "polar_capability_map", "radar_plus_summary"],
+      "render_contract": [
+        "Use 4-6 axes only.",
+        "Labels must be outside the radar, not overlapping the polygon.",
+        "Highlight strongest and weakest dimensions with callouts.",
+        "If exact scores are unavailable, use qualitative levels instead of fake precision."
+      ],
+      "forbid": ["8+ axes", "unreadable small labels", "fake decimal scores"]
+    },
+    "route_map": {
+      "aliases": ["market_route", "deployment_route", "promotion_path"],
+      "when_to_use": "推广路径, regional deployment, rollout plan, market route, implementation path.",
+      "extract_schema": {
+        "start_region_or_state": "Start point.",
+        "target_region_or_state": "Destination.",
+        "route_steps": "3-5 rollout stages.",
+        "key_conditions": "Conditions required at each stage.",
+        "resource_or_partner": "Important resources/partners.",
+        "result_at_destination": "Expected outcome."
+      },
+      "layout_options": ["map_route", "road_path", "stage_gate_route", "regional_expansion"],
+      "render_contract": [
+        "Use route, map, road or stage-gate metaphor.",
+        "Route must have a visible destination.",
+        "Each stage should include condition + result.",
+        "If no real map is available, use abstract map/road, not fake geography.",
+        "Destination/result node should be emphasized."
+      ],
+      "forbid": ["timeline mistaken as route", "route with no destination", "random map markers"]
+    },
+    "semantic_infographic": {
+      "aliases": ["default_infographic", "custom_diagram"],
+      "when_to_use": "Fallback when no specialized diagram type fits.",
+      "extract_schema": {
+        "main_argument": "Core point to prove.",
+        "semantic_groups": "2-4 groups.",
+        "relationships": "How groups relate.",
+        "proof_or_result": "Evidence/result labels.",
+        "recommended_shape": "ring|matrix|tower|stage|dashboard|split_compare"
+      },
+      "layout_options": ["ring", "matrix", "tower", "stage", "split_compare"],
+      "render_contract": [
+        "Choose one simple visual metaphor and commit to it.",
+        "Do not fall back to equal card grid.",
+        "Use one focal statement and 2-4 support labels.",
+        "Keep relationships explicit with minimal lines."
+      ],
+      "forbid": ["generic card page", "unrelated decorative shapes", "no relationship between groups"]
+    }
+  },
+  "classification_rules": {
+    "architecture": ["架构", "端-边-云", "端边云", "技术栈", "系统结构", "模块", "平台层"],
+    "flowchart": ["流程", "步骤", "环节", "操作", "处理", "闭环", "链路"],
+    "data_flow": ["数据处理", "采集", "清洗", "入库", "查询", "分析", "ETL", "pipeline"],
+    "evidence_chain": ["证据", "验证", "实操", "日志", "截图", "测试", "证明", "成果"],
+    "metric_dashboard": ["指标", "准确率", "效率", "耗时", "成本", "收益", "%", "KPI"],
+    "comparison_matrix": ["对比", "前后", "传统", "升级", "差异", "方案选择"],
+    "timeline": ["历程", "时间", "阶段", "里程碑", "计划", "路线"],
+    "risk_matrix": ["风险", "安全", "质量", "异常", "预案", "控制"],
+    "value_loop": ["价值", "闭环", "生态", "协同", "循环", "复用"],
+    "pyramid": ["层级", "能力", "成熟度", "基础", "支撑", "目标"],
+    "radar": ["雷达", "能力评估", "多维", "成熟度"],
+    "route_map": ["推广", "路径", "落地", "区域", "复制", "路线"]
+  }
+}

@@ -1,0 +1,60 @@
+erDiagram
+  TENANT ||--o{ USER : owns
+  TENANT ||--o{ MEETING : owns
+  USER ||--o{ MEETING : creates
+  USER ||--o{ MEETING_PARTICIPANT : joins
+  MEETING ||--o{ MEETING_PARTICIPANT : has
+  MEETING ||--o{ CHAT_MESSAGE : has
+  MEETING ||--o{ MEETING_RECORDING : records
+
+  MEETING ||--o{ SCORE_RECORD : scored_by
+  USER ||--o{ SCORE_RECORD : submits
+  SCORE_RECORD ||--o{ SCORE_DETAIL : contains
+  SCORE_ITEM ||--o{ SCORE_DETAIL : item
+  SCORE_TEMPLATE ||--o{ SCORE_ITEM : defines
+  SCORE_DETAIL ||--o{ ISSUE : creates
+
+  USER ||--o{ COURSE_LEARNING_PROGRESS : learns
+  COURSE ||--o{ COURSE_CHAPTER : contains
+  COURSE_CHAPTER ||--o{ COURSE_LESSON : contains
+  COURSE ||--o{ COURSE_ATTACHMENT : has
+  COURSE ||--o{ COURSE_LEARNING_PROGRESS : progress
+
+  EXAM_PAPER ||--o{ EXAM_PAPER_QUESTION : includes
+  EXAM_QUESTION ||--o{ EXAM_PAPER_QUESTION : used_in
+  EXAM_PAPER ||--o{ EXAM_ATTEMPT : attempted
+  USER ||--o{ EXAM_ATTEMPT : takes
+  EXAM_ATTEMPT ||--o{ EXAM_ATTEMPT_ANSWER : has
+  EXAM_QUESTION ||--o{ EXAM_ATTEMPT_ANSWER : answered
+  USER ||--o{ EXAM_FAVORITE : favorites
+  USER ||--o{ EXAM_WRONG_QUESTION : owns
+
+  PROJECT_TEAM ||--o{ PROJECT_TEAM_MEMBER : has
+  USER ||--o{ PROJECT_TEAM_MEMBER : member
+  PROJECT_TEAM ||--o{ PROJECT_TASK : owns
+  PROJECT_TASK ||--o{ PROJECT_TASK_SUBMISSION : submitted
+  PROJECT_TEAM ||--o{ PROJECT_MATERIAL : owns
+  PROJECT_TEAM ||--o{ PROJECT_ROADSHOW_BINDING : binds
+  MEETING ||--o{ PROJECT_ROADSHOW_BINDING : linked
+
+  AI_SCORING_SESSION ||--o| AI_SCORE_REPORT : generates
+  MEETING ||--o{ AI_SCORING_SESSION : source
+  MEETING_RECORDING ||--o{ AI_SCORING_SESSION : source
+  AI_SCORING_SESSION ||--o{ AI_SCORE_MEDIA_ASSET : has
+  AI_SCORING_SESSION ||--o{ AI_SCORE_TRANSCRIPT_SEGMENT : has
+  AI_SCORING_SESSION ||--o{ AI_SCORE_FRAME : has
+  AI_SCORING_SESSION ||--o{ AI_SCORE_EVIDENCE_ANCHOR : has
+  AI_SCORE_REPORT ||--o{ AI_SCORE_OBSERVATION : includes
+  AI_SCORE_REPORT ||--o{ AI_SCORE_DEDUCTION : includes
+
+  AI_SCORE_REPORT ||--o{ AI_JURY_SESSION : reviewed_by
+  AI_JURY_SESSION ||--o{ AI_JURY_MEMBER : has
+  AI_JURY_MEMBER ||--o{ AI_JUDGE_REPORT : writes
+  AI_JURY_SESSION ||--o| AI_JURY_AGGREGATE : aggregates
+  AI_JUDGE_PERSONA ||--o{ AI_JURY_MEMBER : persona
+
+  PPT_TASK ||--o{ PPT_HTML_PAGE : pages
+  PPT_TASK ||--o{ PPT_GENERATION_SNAPSHOT : snapshots
+  PPT_TASK ||--o{ PPT_PAGE_QUALITY_REPORT : quality
+  PPT_TASK ||--o{ PPT_SCRIPT_PAGE : script_pages
+  SCRIPT ||--o{ PPT_SCRIPT_PAGE : contains

@@ -1,0 +1,17 @@
+flowchart TD
+  Start([进入OREP]) --> Auth{是否登录}
+  Auth -- 否 --> Intro[引导页/登录]
+  Intro --> Login[登录/注册]
+  Login --> Home[备赛工作台]
+  Auth -- 是 --> Home
+  Home --> Learn[课程学习]
+  Learn --> Exam[练习/考试]
+  Exam --> Team[项目团队]
+  Team --> Prep[项目准备/赛道匹配]
+  Prep --> Material[PPT/讲稿]
+  Material --> Meeting[在线路演]
+  Meeting --> Score[人工评分/AI评分]
+  Score --> Report[评分报告]
+  Report --> Action[整改任务]
+  Action --> Team
+  Action --> Meeting

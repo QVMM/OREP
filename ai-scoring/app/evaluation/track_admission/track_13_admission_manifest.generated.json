@@ -1,0 +1,1010 @@
+{
+  "version": "stage8-first-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T16:00:00+08:00",
+  "trackId": "13",
+  "trackName": "机电设备安装与运维赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_13_mechatronic_installation_maintenance_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_13-01-high_score",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:639132bbf941f0bbd70a514db4df4732adfcfee6897f19dd3616b4fff312a1c0",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_13-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键任务、结果和边界说明充分"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-01-high_score:claim-1",
+        "transcript:track_13-01-high_score:claim-2",
+        "transcript:track_13-01-high_score:claim-3"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_13-02-high_score",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:b31b58c60463a24a511de1e80daa44ed8ff0737127065693a2945bd6ebbd5ce6",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_13-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键任务、结果和边界说明充分"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-02-high_score:claim-1",
+        "transcript:track_13-02-high_score:claim-2",
+        "transcript:track_13-02-high_score:claim-3"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_13-03-middle_score",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:d8e2f2f3f601f7c29b7e6980f4dcc1c072a0cff5720237bde2c4f106e86f6a77",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_13-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "核心流程可验证，但对比指标和复盘证据仍需补强"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-03-middle_score:claim-1",
+        "transcript:track_13-03-middle_score:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-middle_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-middle_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-middle_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_13-04-middle_score",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:88dc3709124b339053f4a1fd89ff6f273ff1b88023e3a4ffd03759462e37cfc2",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_13-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "核心流程可验证，但对比指标和复盘证据仍需补强"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-04-middle_score:claim-1",
+        "transcript:track_13-04-middle_score:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-middle_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-middle_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-middle_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_13-05-low_evidence",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:26cf858e7d57364ef6d720462efcf078d6fb7d4f6b4c467fbfed95f47a547141",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_13-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "主张较强但证据锚点不足，需要人工复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-05-low_evidence:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-low_evidence"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-low_evidence"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-low_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_13-06-low_evidence",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:05a52d4b9e2b4316cf521b778dcd32635ee2194712cc1bf1159958d62718dc17",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_13-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "主张较强但证据锚点不足，需要人工复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-06-low_evidence:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-low_evidence"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-low_evidence"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-low_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_13-07-demo_failure",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:95b6e3f2f1defbdc2aed528482a4ea62c8230403e9e052e52903182f03c10c6a",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_13-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 62,
+      "humanDeductionNotes": [
+        "现场演示失败或缺少连续运行证据"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-07-demo_failure:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-demo_failure"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-demo_failure"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 62,
+          "oldLlmScore": 64,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-demo_failure"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_13-08-low_score",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:cc974a35e9b02682b9eefacaf0c8066b0baed546c9a346f2f587dbdae6033d7c",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_13-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 58,
+      "humanDeductionNotes": [
+        "任务链条和核心证据均不足"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-08-low_score:claim-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-low_score"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-low_score"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 59,
+          "oldLlmScore": 61,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-low_score"
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_13-09-material_sufficient",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:e71d403b1daaadfa76b3b16aae66b2cceaf6430df10c11d03a84146ace03b4ab",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_13-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 84,
+      "humanDeductionNotes": [
+        "材料较充分，但现场表达和证据定位仍可优化"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-09-material_sufficient:claim-1",
+        "transcript:track_13-09-material_sufficient:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 84,
+          "oldLlmScore": 86,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_13-10-boundary_dispute",
+      "trackId": "13",
+      "trackName": "机电设备安装与运维赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/机电设备安装与运维赛道.md",
+      "inputSnapshotHash": "sha256:d2561e96b6a14adc1882e32e62c8ece98a16b72d7b8c218583169b93e98091e6",
+      "frozenInputFiles": {
+        "video": "frozen://track_13-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_13-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_13-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 76,
+      "humanDeductionNotes": [
+        "分数接近边界，需专家校准复核"
+      ],
+      "verifiableEvidencePoints": [
+        "transcript:track_13-10-boundary_dispute:claim-1",
+        "transcript:track_13-10-boundary_dispute:claim-2"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-boundary_dispute"
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-boundary_dispute"
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 76,
+          "oldLlmScore": 81,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "接线图",
+                "调试记录",
+                "点检表"
+              ]
+            }
+          ],
+          "deductions": [
+            "D-13-boundary_dispute"
+          ]
+        }
+      ]
+    }
+  ]
+}

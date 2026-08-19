@@ -1,0 +1,1080 @@
+{
+  "version": "stage8-fourth-batch-admission-generated-v1",
+  "generatedAt": "2026-07-05T20:00:00+08:00",
+  "trackId": "20",
+  "trackName": "生物技术赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_20_biotechnology_v1_2_engine_draft.json",
+  "sourceMode": "synthetic_from_local_markdown",
+  "samples": [
+    {
+      "sampleId": "track_20-01-high_score",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:00a65f130d465c7c95c4ce9c7dcbf118d701ad3e315c41c1a8cdba29465f3ef6",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-01-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_20-01-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-01-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 90,
+      "humanDeductionNotes": [
+        "证据链完整，关键合规边界、过程记录和结果验证充分"
+      ],
+      "scenarioEvidenceSummary": "展示样本来源、实验流程、检测原始数据、生物安全记录和应用验证闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-01-high_score:claim-1",
+        "transcript:track_20-01-high_score:claim-2",
+        "material:track_20-01-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 90,
+          "oldLlmScore": 92,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_20-02-high_score",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "high_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:c25aa06c4fcf3db7168a913d27b493a765e8b7577757c5d4dd9b5af1586bdf82",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-02-high_score/roadshow_video.mp4",
+        "transcript": "frozen://track_20-02-high_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-02-high_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 87,
+      "humanDeductionNotes": [
+        "现场/材料证据一致，风险提示和服务边界清楚"
+      ],
+      "scenarioEvidenceSummary": "展示样本来源、实验流程、检测原始数据、生物安全记录和应用验证闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-02-high_score:claim-1",
+        "transcript:track_20-02-high_score:claim-2",
+        "material:track_20-02-high_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 87,
+          "oldLlmScore": 89,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E5",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_20-03-middle_score",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:6f79684153daeadc804f5ee218b3e3fcbf1fd734dd97adf9c9c3d11ad9c51936",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-03-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_20-03-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-03-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 66,
+      "humanDeductionNotes": [
+        "有核心流程和部分数据，但缺少第三方复核或长期跟踪"
+      ],
+      "scenarioEvidenceSummary": "提供实验流程和部分检测数据，但质控复核、伦理合规或应用验证不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-03-middle_score:claim-1",
+        "transcript:track_20-03-middle_score:claim-2",
+        "material:track_20-03-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 66,
+          "oldLlmScore": 75,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_20-04-middle_score",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "middle_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:b7e278fabcfc57255f6ee3883e6d0e095134f808c330f93c1541608ce0c417f8",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-04-middle_score/roadshow_video.mp4",
+        "transcript": "frozen://track_20-04-middle_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-04-middle_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 61,
+      "humanDeductionNotes": [
+        "能证明基本能力，合规边界和质量控制仍不完整"
+      ],
+      "scenarioEvidenceSummary": "提供实验流程和部分检测数据，但质控复核、伦理合规或应用验证不完整",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-04-middle_score:claim-1",
+        "transcript:track_20-04-middle_score:claim-2",
+        "material:track_20-04-middle_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 61,
+          "oldLlmScore": 72,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E3",
+              "anchorCount": 2,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_20-05-low_evidence",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:bbbdeffd6e31ed93d0e62fb65084e76cc727d850fed9f012f413d237f283d844",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-05-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_20-05-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-05-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 36,
+      "humanDeductionNotes": [
+        "材料停留在效果承诺或服务描述层，缺少可定位原始证据"
+      ],
+      "scenarioEvidenceSummary": "只有技术愿景和应用口号，缺少样本来源、实验流程和生物安全边界证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-05-low_evidence:claim-1",
+        "transcript:track_20-05-low_evidence:claim-2",
+        "material:track_20-05-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 36,
+          "oldLlmScore": 69,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_20-06-low_evidence",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "low_evidence",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:a009ff137939bf66ac8977c8945ca444be524701e1b0275238ae57c3ca9baf59",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-06-low_evidence/roadshow_video.mp4",
+        "transcript": "frozen://track_20-06-low_evidence/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-06-low_evidence/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 33,
+      "humanDeductionNotes": [
+        "展示内容与医药健康关键任务弱相关，隐私/伦理/安全证据不足"
+      ],
+      "scenarioEvidenceSummary": "只有技术愿景和应用口号，缺少样本来源、实验流程和生物安全边界证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-06-low_evidence:claim-1",
+        "transcript:track_20-06-low_evidence:claim-2",
+        "material:track_20-06-low_evidence:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 33,
+          "oldLlmScore": 67,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E1",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_20-07-demo_failure",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "demo_failure",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:5b9c56bbfa042c219d26bd964c0712bcab8d091357557ca494c9ba6dc7b0a5c7",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-07-demo_failure/roadshow_video.mp4",
+        "transcript": "frozen://track_20-07-demo_failure/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-07-demo_failure/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 27,
+      "humanDeductionNotes": [
+        "现场演示失败，关键流程无法完成或无法复现"
+      ],
+      "scenarioEvidenceSummary": "只有技术愿景和应用口号，缺少样本来源、实验流程和生物安全边界证据",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-07-demo_failure:claim-1",
+        "transcript:track_20-07-demo_failure:claim-2",
+        "material:track_20-07-demo_failure:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 27,
+          "oldLlmScore": 65,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E0",
+              "anchorCount": 0,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_20-08-low_score",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "low_score",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:a3ad41624c22feca85f039acc87752e594cc601d7c2b574193bfb06575ac546d",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-08-low_score/roadshow_video.mp4",
+        "transcript": "frozen://track_20-08-low_score/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-08-low_score/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 44,
+      "humanDeductionNotes": [
+        "有少量过程材料，但与核心效果之间缺少因果闭环"
+      ],
+      "scenarioEvidenceSummary": "有少量过程材料，但与核心效果之间缺少因果闭环",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-08-low_score:claim-1",
+        "transcript:track_20-08-low_score:claim-2",
+        "material:track_20-08-low_score:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 44,
+          "oldLlmScore": 62,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 1,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sampleId": "track_20-09-material_sufficient",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "material_sufficient",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:63fc1282599e96de52fcc689bdbda2615c0dab1f94c4dfcb02629087183500cb",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-09-material_sufficient/roadshow_video.mp4",
+        "transcript": "frozen://track_20-09-material_sufficient/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-09-material_sufficient/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 78,
+      "humanDeductionNotes": [
+        "材料比较充分，但部分合规和适用边界仍需人工复核"
+      ],
+      "scenarioEvidenceSummary": "材料比较充分，但部分合规和适用边界仍需人工复核",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-09-material_sufficient:claim-1",
+        "transcript:track_20-09-material_sufficient:claim-2",
+        "material:track_20-09-material_sufficient:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 78,
+          "oldLlmScore": 80,
+          "jsonParsed": true,
+          "unsupportedClaims": 0,
+          "needsHumanReview": false,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E4",
+              "anchorCount": 3,
+              "anchorAccurate": true,
+              "lowConfidence": false,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": []
+        }
+      ]
+    },
+    {
+      "sampleId": "track_20-10-boundary_dispute",
+      "trackId": "20",
+      "trackName": "生物技术赛道",
+      "sampleType": "boundary_dispute",
+      "sourceMode": "synthetic_from_local_markdown",
+      "sourceMarkdown": "42赛道梯度评分规则v1.2-证据审查版/生物技术赛道.md",
+      "inputSnapshotHash": "sha256:fd98d40fe02c11ffc406e3f92bec5623d5b9d4315928de5f8ea36ee455916794",
+      "frozenInputFiles": {
+        "video": "frozen://track_20-10-boundary_dispute/roadshow_video.mp4",
+        "transcript": "frozen://track_20-10-boundary_dispute/transcript.jsonl",
+        "materials": [
+          "frozen://track_20-10-boundary_dispute/project_material.md"
+        ]
+      },
+      "ruleVersion": "v1.2-engine-draft",
+      "humanReferenceScore": 55,
+      "humanDeductionNotes": [
+        "项目边界与赛道定义或医疗健康服务边界存在争议"
+      ],
+      "scenarioEvidenceSummary": "项目边界与赛道定义或医疗健康服务边界存在争议",
+      "verifiableEvidencePoints": [
+        "transcript:track_20-10-boundary_dispute:claim-1",
+        "transcript:track_20-10-boundary_dispute:claim-2",
+        "material:track_20-10-boundary_dispute:table-1"
+      ],
+      "runs": [
+        {
+          "runNo": 1,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 2,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        },
+        {
+          "runNo": 3,
+          "ruleEngineScore": 55,
+          "oldLlmScore": 71,
+          "jsonParsed": true,
+          "unsupportedClaims": 1,
+          "needsHumanReview": true,
+          "observationEvidence": [
+            {
+              "observationCode": "O01",
+              "evidenceLevel": "E2",
+              "anchorCount": 2,
+              "anchorAccurate": false,
+              "lowConfidence": true,
+              "evidenceItems": [
+                "实验流程记录",
+                "检测原始数据",
+                "样本来源说明"
+              ]
+            }
+          ],
+          "deductions": [
+            {
+              "code": "HEALTH_COMPLIANCE_OR_EVIDENCE_GAP",
+              "points": -12,
+              "reason": "关键证据锚点不足或合规/风险边界无法核验"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

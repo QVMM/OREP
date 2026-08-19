@@ -1,0 +1,21 @@
+{
+  "auditId": "audit-track-09-generated-v1",
+  "trackId": "09",
+  "trackName": "土木建筑设计与管理赛道",
+  "ruleFile": "ai-scoring/app/rubrics/track_09_civil_design_management_v1_2_engine_draft.json",
+  "ruleHash": "sha256:a01a3d1bb8c66a00e340983573bf6c5a6ae810e3be60b201c865d30b461e5b9e",
+  "status": "approved",
+  "reviewer": "stage8-generated-admission-auditor",
+  "reviewedAt": "2026-07-05T17:00:00+08:00",
+  "scope": "draft rule structure and generated admission assets",
+  "conclusion": "可进入pilot演练；不得直接active，需真实样本复验后再上线准入。",
+  "checks": [
+    "15 observations present",
+    "E0-E5 evidence caps present",
+    "track-specific evidence present",
+    "deduction and recovery rules present",
+    "10 generated admission samples present"
+  ],
+  "sourceMode": "synthetic_from_local_markdown",
+  "pilotPromotionStatus": "pilot_generated"
+}

@@ -1,0 +1,205 @@
+{
+  "ruleHash": "sha256:cad28518702e251c307d0c0473e2fe51f92d37ee95c54693245235d5124e7920",
+  "scoringFingerprint": "4488efa9024f348cde03dd55be86c70baf57388a764da2ea350f75961de70b59",
+  "observations": [
+    {
+      "observationCode": "O01",
+      "observationName": "操作规范性",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 10.0,
+      "baseScore": 10.0,
+      "scoreCap": 5.0,
+      "performanceReason": "表现理由受证据缺失语义污染，本项未据此扣减表现分，需重新评估现场表现",
+      "evidenceReason": "口头提及遵循标准，但未展示具体标准文档、合规对照表或测试报告。",
+      "evidenceAnchorIds": [1]
+    },
+    {
+      "observationCode": "O02",
+      "observationName": "技能熟练度",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 15.0,
+      "baseScore": 7.5,
+      "scoreCap": 7.5,
+      "performanceReason": "大部分演示流畅，但AI问答模块出现严重故障，需要现场修改代码。",
+      "evidenceAnchorIds": [2]
+    },
+    {
+      "observationCode": "O03",
+      "observationName": "任务难易度",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 15.0,
+      "baseScore": 12.0,
+      "scoreCap": 10.5,
+      "performanceReason": "项目涉及多技术栈集成，但AI演示故障降低了完整性。",
+      "evidenceReason": "当前证据只能支持到较低确认上限。",
+      "evidenceAnchorIds": [3]
+    },
+    {
+      "observationCode": "O04",
+      "observationName": "技术先进性",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 15.0,
+      "baseScore": 7.5,
+      "scoreCap": 7.5,
+      "performanceReason": "使用了较新技术栈，但AI问答模块故障表明技术应用不成熟。",
+      "evidenceAnchorIds": [4]
+    },
+    {
+      "observationCode": "O05",
+      "observationName": "现场讲解效果",
+      "dimensionCode": "skill_level",
+      "dimensionName": "技能水平",
+      "maxScore": 5.0,
+      "baseScore": 2.5,
+      "scoreCap": 2.5,
+      "performanceReason": "讲解结构完整，但语速过快、停顿多、填充词多。",
+      "evidenceAnchorIds": [5]
+    },
+    {
+      "observationCode": "O06",
+      "observationName": "职业道德与行为规范",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 4.0,
+      "baseScore": 0.0,
+      "scoreCap": 1.2,
+      "performanceReason": "仅口头提及安全规范，未展示具体法律法规或开源许可信息。",
+      "evidenceAnchorIds": [6]
+    },
+    {
+      "observationCode": "O07",
+      "observationName": "工匠精神",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 3.0,
+      "baseScore": 1.5,
+      "scoreCap": 1.5,
+      "performanceReason": "缺乏迭代过程描述，现场故障暴露细节不足。",
+      "evidenceAnchorIds": [7]
+    },
+    {
+      "observationCode": "O08",
+      "observationName": "安全意识",
+      "dimensionCode": "professionalism",
+      "dimensionName": "职业素养",
+      "maxScore": 3.0,
+      "baseScore": 1.5,
+      "scoreCap": 1.5,
+      "performanceReason": "未展示安全测试结果或应急预案。",
+      "evidenceAnchorIds": [8]
+    },
+    {
+      "observationCode": "O09",
+      "observationName": "实用性",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 4.0,
+      "baseScore": 2.0,
+      "scoreCap": 2.0,
+      "performanceReason": "应用数据不完整且缺乏用户反馈原文。",
+      "evidenceAnchorIds": [9]
+    },
+    {
+      "observationCode": "O10",
+      "observationName": "经济性",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 3.0,
+      "baseScore": 1.5,
+      "scoreCap": 1.5,
+      "performanceReason": "成本构成不清晰，缺乏详细对比表。",
+      "evidenceAnchorIds": [10]
+    },
+    {
+      "observationCode": "O11",
+      "observationName": "可持续性",
+      "dimensionCode": "application_value",
+      "dimensionName": "应用价值",
+      "maxScore": 3.0,
+      "baseScore": 0.0,
+      "scoreCap": 2.7,
+      "performanceReason": "缺乏具体路线图或商业化规划。",
+      "evidenceAnchorIds": [11]
+    },
+    {
+      "observationCode": "O12",
+      "observationName": "团队精神",
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 5.0,
+      "baseScore": 4.0,
+      "scoreCap": 3.5,
+      "performanceReason": "分工明确，但本轮仍未完全达到观测点要求。",
+      "evidenceReason": "当前证据只能支持到较低确认上限。",
+      "evidenceAnchorIds": [12]
+    },
+    {
+      "observationCode": "O13",
+      "observationName": "沟通协作",
+      "dimensionCode": "teamwork",
+      "dimensionName": "团队合作",
+      "maxScore": 5.0,
+      "baseScore": 4.0,
+      "scoreCap": 3.5,
+      "performanceReason": "沟通协作良好，但本轮仍未完全达到观测点要求。",
+      "evidenceReason": "当前证据只能支持到较低确认上限。",
+      "evidenceAnchorIds": [13]
+    },
+    {
+      "observationCode": "O14",
+      "observationName": "创新意识",
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 4.0,
+      "baseScore": 2.0,
+      "scoreCap": 2.0,
+      "performanceReason": "部分创新点在演示中未充分体现。",
+      "evidenceAnchorIds": [14]
+    },
+    {
+      "observationCode": "O15",
+      "observationName": "创新成效",
+      "dimensionCode": "innovation",
+      "dimensionName": "创新创意",
+      "maxScore": 6.0,
+      "baseScore": 3.0,
+      "scoreCap": 3.0,
+      "performanceReason": "量化数据来源未说明，现场故障削弱可信度。",
+      "evidenceAnchorIds": [15]
+    }
+  ],
+  "deductions": [
+    {
+      "deductionId": "27-O02-D01",
+      "deductionRuleCode": "27-O02-D01",
+      "penaltyRuleCode": "SKILL_DEMO_FAILURE",
+      "penaltyType": "hard_violation",
+      "scoreEffect": "subtractive",
+      "causeCode": "O02:27-O02-D01",
+      "observationCode": "O02",
+      "dimensionCode": "skill_level",
+      "deductedPoints": 2.0,
+      "maxRecoverablePoints": 2.0,
+      "reason": "技能熟练度缺少可定位证据，无法支撑高分主张",
+      "requiredFix": "补齐现场操作脚本、异常处理预案和关键工具配置说明。",
+      "acceptanceCriteria": "证据可定位且能支撑观测点",
+      "status": "new",
+      "evidenceAnchorIds": [2]
+    }
+  ],
+  "expected": {
+    "currentScore": 49.5,
+    "fullGap": 50.5,
+    "observationCount": 15,
+    "lossItemCount": 19,
+    "lossTypeCounts": {
+      "performance_gap": 14,
+      "evidence_limited": 4,
+      "hard_violation": 1
+    }
+  }
+}

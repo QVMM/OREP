@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    width: 1280px; height: 720px;
+    overflow: hidden;
+    background: #0c1a2e;
+    position: relative;
+    font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+}
+
+/* ─── 背景：左侧大色块 ─── */
+.bg-block {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 420px;
+    background: linear-gradient(165deg, #003d8f 0%, #0056d3 40%, #0070e0 100%);
+    z-index: 0;
+}
+.bg-block::after {
+    content: '';
+    position: absolute;
+    right: -80px; top: 0; bottom: 0;
+    width: 160px;
+    background: linear-gradient(90deg, #0056d3, transparent);
+    opacity: 0.3;
+}
+
+/* ─── 背景：右侧底色 ─── */
+.bg-right {
+    position: absolute;
+    left: 420px; top: 0; right: 0; bottom: 0;
+    background: #0c1a2e;
+    z-index: 0;
+}
+
+/* ─── 左侧信息栏 ─── */
+.left-panel {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 420px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 48px;
+}
+
+.left-panel .chapter-num {
+    font-size: 72px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    margin-bottom: -20px;
+    font-family: 'Inter', monospace;
+}
+
+.left-panel h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.left-panel h1::after {
+    content: '';
+    display: block;
+    width: 32px; height: 3px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 2px;
+    margin-top: 16px;
+}
+
+.left-panel .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.left-panel .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+}
+
+.left-panel .meta-item .num {
+    width: 28px; height: 28px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+}
+
+/* ─── 右侧步骤列表 ─── */
+.right-panel {
+    position: absolute;
+    left: 452px; top: 60px; right: 56px; bottom: 52px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* 单步 */
+.step {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    position: relative;
+}
+
+/* 步骤之间的分隔线 */
+.step + .step {
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* 左侧：大号编号 */
+.step-idx {
+    width: 80px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 900;
+    color: rgba(59,130,246,0.15);
+    font-family: 'Inter', monospace;
+}
+
+/* 右侧：内容区 */
+.step-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 0;
+    gap: 10px;
+}
+
+.step-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+}
+
+/* 三行信息，横向排列 */
+.step-info {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.info-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+}
+
+.info-chip .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.dot-kp { background: #f59e0b; }
+.dot-rs { background: #10b981; }
+.dot-tl { background: rgba(255,255,255,0.2); }
+
+.info-chip .label {
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* ─── 页脚 ─── */
+.footer {
+    position: absolute;
+    bottom: 20px; right: 56px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.15);
+    z-index: 20;
+    letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-block"></div>
+<div class="bg-right"></div>
+
+<!-- 左侧信息 -->
+<div class="left-panel">
+    <div class="chapter-num">03</div>
+    <h1>核心技能操作<br>AI辅助诊断流程</h1>
+    <div class="meta">
+        <div class="meta-item">
+            <span class="num">4</span>
+            <span>操作步骤</span>
+        </div>
+        <div class="meta-item">
+            <span class="num">⚡</span>
+            <span>关键得分点标注</span>
+        </div>
+        <div class="meta-item">
+            <span class="num">🔧</span>
+            <span>工具链与结果说明</span>
+        </div>
+    </div>
+</div>
+
+<!-- 右侧步骤 -->
+<div class="right-panel">
+
+    <div class="step">
+        <div class="step-idx">01</div>
+        <div class="step-body">
+            <div class="step-title">患者数据采集与预处理</div>
+            <div class="step-info">
+                <span class="info-chip"><span class="dot dot-kp"></span><span class="label">关键点</span> DICOM标准，完整率≥99.5%</span>
+                <span class="info-chip"><span class="dot dot-rs"></span><span class="label">结果</span> 结构化数据入库</span>
+                <span class="info-chip"><span class="dot dot-tl"></span><span class="label">工具</span> PACS · PostgreSQL</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-idx">02</div>
+        <div class="step-body">
+            <div class="step-title">AI模型推理与诊断</div>
+            <div class="step-info">
+                <span class="info-chip"><span class="dot dot-kp"></span><span class="label">关键点</span> ResNet-50，推理＜3秒</span>
+                <span class="info-chip"><span class="dot dot-rs"></span><span class="label">结果</span> 诊断报告 + 置信度 + 病灶标注</span>
+                <span class="info-chip"><span class="dot dot-tl"></span><span class="label">工具</span> TF Serving · GPU集群</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-idx">03</div>
+        <div class="step-body">
+            <div class="step-title">医生复核与结果确认</div>
+            <div class="step-info">
+                <span class="info-chip"><span class="dot dot-kp"></span><span class="label">关键点</span> AI建议 + 医生双签制度</span>
+                <span class="info-chip"><span class="dot dot-rs"></span><span class="label">结果</span> 最终报告，误差＜0.5%</span>
+                <span class="info-chip"><span class="dot dot-tl"></span><span class="label">工具</span> Web工作台 · HIS对接</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-idx">04</div>
+        <div class="step-body">
+            <div class="step-title">数据回流与模型迭代</div>
+            <div class="step-info">
+                <span class="info-chip"><span class="dot dot-kp"></span><span class="label">关键点</span> 反馈自动标注，周增量训练</span>
+                <span class="info-chip"><span class="dot dot-rs"></span><span class="label">结果</span> 准确率月均提升0.3%</span>
+                <span class="info-chip"><span class="dot dot-tl"></span><span class="label">工具</span> MLflow · A/B测试</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">14 / 33</div>
+
+</body>
+</html>

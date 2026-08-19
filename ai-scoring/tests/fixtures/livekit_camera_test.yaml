@@ -1,0 +1,9 @@
+port: 17890
+rtc:
+  node_ip: 127.0.0.1
+  tcp_port: 17891
+  port_range_start: 17892
+  port_range_end: 17902
+  use_external_ip: false
+keys:
+  orep-camera-test: OREP_LOCAL_CAMERA_TEST_SECRET_32_CHARS

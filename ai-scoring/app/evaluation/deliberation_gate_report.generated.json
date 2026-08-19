@@ -1,0 +1,55 @@
+{
+  "allowRoadshowDeliberationLabel" : false,
+  "allGreen" : true,
+  "reason" : "现行规则新卷宗三连评已绿；完整片历史卷宗仍相对 40.9 红。席位未点亮，禁止对外说路演评议席。",
+  "gates" : [ {
+    "id" : "G1",
+    "title" : "同卷宗 3 次分差对学生、教师可见",
+    "status" : "green",
+    "unitStatus" : "green",
+    "liveStatus" : "green",
+    "detail" : "单测层：三次分差可算色带且一次不能绿。实况新卷宗 session 50–52 官方 43.2×3、转写钉死、整卷宗绿。旧完整片 45–47 官方 48.3×3 身份绿，相对 run1=40.9 仍红。"
+  }, {
+    "id" : "G2",
+    "title" : "无检索开关时 0 条 retrieved_cited",
+    "status" : "green",
+    "unitStatus" : "green",
+    "liveStatus" : "green",
+    "detail" : "检索关闭时核验条不得标 retrieved_cited。"
+  }, {
+    "id" : "G3",
+    "title" : "套壳样例 wrapper ≠ pass",
+    "status" : "green",
+    "unitStatus" : "green",
+    "liveStatus" : "green",
+    "detail" : "开源改了改且无运行/仓库，不得判通过。"
+  }, {
+    "id" : "G4",
+    "title" : "任务书 0 条加强/优化/提升",
+    "status" : "green",
+    "unitStatus" : "green",
+    "liveStatus" : "green",
+    "detail" : "禁词标题被改写或丢弃，入库标题不含加强|优化|提升。"
+  }, {
+    "id" : "G5",
+    "title" : "闭环率 100% 不能把预测分顶到满分",
+    "status" : "green",
+    "unitStatus" : "green",
+    "liveStatus" : "green",
+    "detail" : "上场全修且本场无运行证据时，官方分必须低于赛道上限。"
+  }, {
+    "id" : "G6",
+    "title" : "全场一份 officialScore",
+    "status" : "green",
+    "unitStatus" : "green",
+    "liveStatus" : "green",
+    "detail" : "scoreGap.officialScore 与账本权威分同一份，不另造第二官方分。"
+  }, {
+    "id" : "G7",
+    "title" : "产品文案无司法腔与越权准度宣称",
+    "status" : "green",
+    "unitStatus" : "green",
+    "liveStatus" : "green",
+    "detail" : "产品源码（排除禁词表与测试夹具）无越权宣称。"
+  } ]
+}
