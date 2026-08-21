@@ -153,7 +153,7 @@ async function consumeSse(res, onEvent) {
 
 export async function streamMessage(sessionId, body, { signal, onEvent } = {}) {
   const token = getUserToken()
-  const res = await fetch(`${base}/sessions/${sessionId}/messages:stream`, {
+  const res = await fetch(`${base}/sessions/${sessionId}/messages/stream`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -176,7 +176,7 @@ export async function streamMessage(sessionId, body, { signal, onEvent } = {}) {
 export async function regenerateMessage(sessionId, userMessageId, { signal, onEvent } = {}) {
   const token = getUserToken()
   const res = await fetch(
-    `${base}/sessions/${sessionId}/messages/${userMessageId}/regenerate:stream`,
+    `${base}/sessions/${sessionId}/messages/${userMessageId}/regenerate/stream`,
     {
       method: 'POST',
       headers: {
@@ -196,7 +196,7 @@ export async function regenerateMessage(sessionId, userMessageId, { signal, onEv
 /** 重连进行中的 run，收实时进度（刷新后恢复） */
 export async function subscribeRun(runId, { signal, onEvent } = {}) {
   const token = getUserToken()
-  const res = await fetch(`${base}/runs/${runId}/events:stream`, {
+  const res = await fetch(`${base}/runs/${runId}/events/stream`, {
     method: 'GET',
     headers: {
       Accept: 'text/event-stream',

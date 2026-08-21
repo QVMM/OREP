@@ -43,8 +43,9 @@ public class AssistantController {
 
     /**
      * 小启技能目录（slash 菜单）。与 ai-scoring skills/catalog 对齐；菜单不依赖 Python 在线。
+     * {@code /v1/skills} 是历史 Python 直连路径，nginx 会打到 Java，必须同样有 handler。
      */
-    @GetMapping("/skills")
+    @GetMapping({"/skills", "/v1/skills"})
     public Result<List<Map<String, Object>>> skills(
             @RequestParam(defaultValue = "student") String audience
     ) {
@@ -164,7 +165,15 @@ public class AssistantController {
         return Result.success(service.listMessages(id, tenantId(request), userId(request), beforeId, limit));
     }
 
-    @PostMapping(value = "/sessions/{id}/messages:stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    /**
+     * SSE 主路径。斜杠形式避免部分代理把 {@code :stream} 编成 {@code %3Astream} 后 404。
+     * 冒号形式与「去后缀」形式保留，兼容旧客户端 / 被剥掉 :stream 的请求。
+     */
+    @PostMapping(value = {
+            "/sessions/{id}/messages/stream",
+            "/sessions/{id}/messages:stream",
+            "/sessions/{id}/messages"
+    }, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public SseEmitter streamMessage(
             @PathVariable Long id,
             @RequestBody Map<String, Object> body,
@@ -173,7 +182,10 @@ public class AssistantController {
         return service.streamMessage(id, tenantId(request), userId(request), role(request), body);
     }
 
-    @PostMapping(value = "/sessions/{id}/messages/{userMessageId}/regenerate:stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @PostMapping(value = {
+            "/sessions/{id}/messages/{userMessageId}/regenerate/stream",
+            "/sessions/{id}/messages/{userMessageId}/regenerate:stream"
+    }, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public SseEmitter regenerate(
             @PathVariable Long id,
             @PathVariable Long userMessageId,
@@ -197,7 +209,10 @@ public class AssistantController {
      * 重连订阅：刷新浏览器后对仍在进行的 run 继续收实时进度。
      * 生成任务在服务端独立运行，与 SSE 连接解耦。
      */
-    @GetMapping(value = "/runs/{runId}/events:stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = {
+            "/runs/{runId}/events/stream",
+            "/runs/{runId}/events:stream"
+    }, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public SseEmitter subscribeRun(@PathVariable Long runId, HttpServletRequest request) {
         return service.subscribeRun(runId, tenantId(request), userId(request));
     }
