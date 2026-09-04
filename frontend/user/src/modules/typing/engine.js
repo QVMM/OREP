@@ -1,20 +1,77 @@
 /**
  * 纯前端打字引擎：支持中文 IME（composition 期间由 UI 暂缓 setCommitted）
+ * 代码练习可选 skipLeadingIndent：行首缩进自动填入，练习流只打 token / 行内空格
  */
 
 export function charsOf(text) {
   return [...String(text || '')]
 }
 
+export function isIndentWs(ch) {
+  return ch === ' ' || ch === '\t'
+}
+
+/** 行首（文首或换行后）连续空格/Tab 中的字符 */
+export function isLeadingIndentChar(target, index) {
+  const chars = Array.isArray(target) ? target : charsOf(target)
+  if (index < 0 || index >= chars.length) return false
+  if (!isIndentWs(chars[index])) return false
+  for (let i = index - 1; i >= 0; i -= 1) {
+    if (chars[i] === '\n') return true
+    if (!isIndentWs(chars[i])) return false
+  }
+  return true
+}
+
+/**
+ * 将用户练习流映射到完整目标：自动插入行首缩进；
+ * 用户多敲的空格/Tab 在行首视为 no-op（对齐 typing.io）。
+ */
+export function expandWithLeadingIndent(practice, targetChars) {
+  const user = charsOf(practice)
+  const target = Array.isArray(targetChars) ? targetChars : charsOf(targetChars)
+  const out = []
+  let ui = 0
+  let ti = 0
+
+  while (ti < target.length) {
+    if (isLeadingIndentChar(target, ti)) {
+      out.push(target[ti])
+      if (ui < user.length && isIndentWs(user[ui])) ui += 1
+      ti += 1
+      continue
+    }
+
+    // 行首缩进已填完后，多余的空格/Tab 仍视为 no-op，不误伤第一个 token
+    if (
+      ui < user.length
+      && isIndentWs(user[ui])
+      && target[ti] !== '\n'
+      && !isIndentWs(target[ti])
+      && (ti === 0 || target[ti - 1] === '\n' || isLeadingIndentChar(target, ti - 1))
+    ) {
+      ui += 1
+      continue
+    }
+
+    if (ui >= user.length) break
+    out.push(user[ui])
+    ui += 1
+    ti += 1
+  }
+  return out.join('')
+}
+
 export function createTypingEngine(targetText, options = {}) {
   const target = charsOf(targetText)
+  const skipLeadingIndent = Boolean(options.skipLeadingIndent)
   const mode = options.mode === 'count' ? 'count' : 'timed'
   const durationSec = Math.max(5, Number(options.durationSec) || 60)
   const targetCount = options.targetCount != null
     ? Math.max(1, Number(options.targetCount) || 1)
     : 100
 
-  let committed = ''
+  let committed = skipLeadingIndent ? expandWithLeadingIndent('', target) : ''
   let startedAt = null
   let endedAt = null
   let pausedAt = null
@@ -147,14 +204,19 @@ export function createTypingEngine(targetText, options = {}) {
     if (status === 'finished') return snapshot(now)
     if (status === 'paused') return snapshot(now)
 
-    const clipped = charsOf(String(nextValue ?? '')).slice(0, target.length).join('')
+    let nextRaw = String(nextValue ?? '')
+    if (skipLeadingIndent) {
+      nextRaw = expandWithLeadingIndent(nextRaw, target)
+    }
+    const clipped = charsOf(nextRaw).slice(0, target.length).join('')
     const prevChars = charsOf(committed)
     const nextChars = charsOf(clipped)
 
-    if (nextChars.length > 0 && status === 'idle') start(now)
+    if (status === 'idle' && clipped !== committed) start(now)
 
     if (nextChars.length > prevChars.length) {
       for (let i = prevChars.length; i < nextChars.length; i += 1) {
+        if (skipLeadingIndent && isLeadingIndentChar(target, i)) continue
         totalKeystrokes += 1
         if (i < target.length && nextChars[i] === target[i]) {
           correctKeystrokes += 1
@@ -166,6 +228,7 @@ export function createTypingEngine(targetText, options = {}) {
     } else if (nextChars.length === prevChars.length && clipped !== committed) {
       for (let i = 0; i < nextChars.length; i += 1) {
         if (nextChars[i] !== prevChars[i]) {
+          if (skipLeadingIndent && isLeadingIndentChar(target, i)) continue
           totalKeystrokes += 1
           if (i < target.length && nextChars[i] === target[i]) {
             correctKeystrokes += 1
@@ -193,6 +256,7 @@ export function createTypingEngine(targetText, options = {}) {
       target: target.join(''),
       targetCharsList: target,
       committed,
+      skipLeadingIndent,
       caret: snap.caret,
       charStates: snap.states,
       startedAt,

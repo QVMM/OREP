@@ -71,7 +71,8 @@
       <!--
         金山打字通形态：
         - 正文即练习区，已打/未打/错误直接着色
-        - 空格用底线提示（不显示 ·）
+        - 空格按 spaceGlyph：bullet · / bar 下划线 / invisible 空隙
+        - 代码模式自动跳过行首缩进
         - 布局随视口动态缩放
       -->
       <div
@@ -92,8 +93,20 @@
           <span v-if="engineStatus === 'idle'">{{ isCodeMode ? '点击编辑器开始输入' : '点击文案开始输入' }}</span>
           <span v-else-if="engineStatus === 'paused'">已暂停 · 点击继续 · Esc 暂停</span>
           <span v-else-if="isRanked">排位赛 · 10 分钟 · 1500 字</span>
-          <span v-else-if="isCodeMode">{{ codeLangLabel }} · Tab={{ codeIndentHint }} · 语法高亮</span>
+          <span v-else-if="isCodeMode">{{ codeLangLabel }} · 自动缩进 · Tab={{ codeIndentHint }}</span>
           <span v-else>自主练习</span>
+          <div class="space-glyph-switch" role="group" aria-label="空格显示">
+            <button
+              v-for="opt in spaceGlyphOptions"
+              :key="opt.value"
+              type="button"
+              class="space-glyph-switch__btn"
+              :class="{ 'is-active': spaceGlyph === opt.value }"
+              :title="opt.hint"
+              :aria-pressed="spaceGlyph === opt.value"
+              @click.stop="setSpaceGlyph(opt.value)"
+            >{{ opt.label }}</button>
+          </div>
           <span v-if="composing" class="typing-play__composing-tag">输入中…</span>
         </div>
 
@@ -122,6 +135,7 @@
             'is-latin': !isCodeMode && (cfg.lang === 'en' || cfg.lang === 'mixed'),
             'is-en': !isCodeMode && cfg.lang === 'en',
             'is-code': isCodeMode,
+            [`space-glyph-${spaceGlyph}`]: true,
           }"
           :style="codeViewportStyle"
         >
@@ -155,11 +169,12 @@
                     'is-space': ch === ' ',
                     'is-tab': ch === '\t',
                     'is-newline': ch === '\n',
+                    'is-auto-indent': isAutoIndentAt(line.start + chIdx),
                   },
                 ]"
                 :data-idx="line.start + chIdx"
-                :aria-label="charAriaLabel(ch)"
-              >{{ displayChar(ch) }}</span>
+                :aria-label="charAriaLabel(ch, line.start + chIdx)"
+              >{{ displayChar(ch, line.start + chIdx) }}</span>
             </div>
           </div>
         </div>
@@ -239,7 +254,7 @@ import {
   looksLikeCode,
   normalizeCodeText,
 } from '@/modules/typing/codePractice'
-import { charsOf, createTypingEngine } from '@/modules/typing/engine'
+import { charsOf, createTypingEngine, isLeadingIndentChar } from '@/modules/typing/engine'
 import { RANKED_TEXT_VERSION } from '@/modules/typing/rankedText'
 import {
   buildTypingSessionPayload,
@@ -247,7 +262,13 @@ import {
   resolveVisibilityAction,
   shouldPersistTypingSession,
 } from '@/modules/typing/sessionPersist'
-import { loadPrefs, saveLastResult } from '@/modules/typing/storage'
+import {
+  loadPrefs,
+  normalizeSpaceGlyph,
+  saveLastResult,
+  savePrefs,
+  SPACE_GLYPH_OPTIONS,
+} from '@/modules/typing/storage'
 import TypingVirtualKeyboard from '@/modules/typing/TypingVirtualKeyboard.vue'
 
 /** 视口默认显示 4 行；代码模式更多上下文 */
@@ -315,6 +336,13 @@ const cfg = reactive({
 /** 代码练习：每个字符的语法 token 类名 */
 const tokenClasses = ref([])
 const showCodeTips = ref(true)
+const spaceGlyph = ref(normalizeSpaceGlyph(loadPrefs().spaceGlyph))
+const spaceGlyphOptions = SPACE_GLYPH_OPTIONS
+
+function setSpaceGlyph(mode) {
+  spaceGlyph.value = normalizeSpaceGlyph(mode)
+  savePrefs({ spaceGlyph: spaceGlyph.value })
+}
 
 const live = reactive({
   cpm: 0,
@@ -484,15 +512,34 @@ function setCharRef(idx, el) {
   else charEls.delete(idx)
 }
 
-function displayChar(ch) {
+function isAutoIndentAt(idx) {
+  return isCodeMode.value && isLeadingIndentChar(targetChars.value, idx)
+}
+
+/** 光标已落在行首缩进之后的第一个实义字符（空格/Tab 视为可选 no-op） */
+function isAfterAutoIndent(idx = caret.value) {
+  if (!isCodeMode.value) return false
+  const target = targetChars.value
+  if (idx <= 0 || idx >= target.length) return false
+  if (isLeadingIndentChar(target, idx)) return false
+  const ch = target[idx]
+  if (ch === '\n') return false
+  return isLeadingIndentChar(target, idx - 1)
+}
+
+function displayChar(ch, idx) {
   if (ch === '\n') return '↵'
-  if (ch === '\t') return '····' // 视觉 4 空格宽的 tab 槽，实际比对仍是 \t
-  // 空格：真实空白 + CSS 底线提示
-  if (ch === ' ') return ' '
+  if (isAutoIndentAt(idx)) return '\u00a0'
+  if (ch === '\t') return '····'
+  if (ch === ' ') {
+    if (spaceGlyph.value === 'bullet') return '·'
+    return '\u00a0'
+  }
   return ch
 }
 
-function charAriaLabel(ch) {
+function charAriaLabel(ch, idx) {
+  if (isAutoIndentAt(idx)) return '自动缩进'
   if (ch === ' ') return '空格'
   if (ch === '\t') return 'Tab'
   if (ch === '\n') return '换行'
@@ -625,6 +672,7 @@ function loadConfig() {
   cfg.durationSec = 300
   cfg.lang = prefs.lang || 'zh'
   cfg.difficulty = prefs.difficulty || 2
+  spaceGlyph.value = normalizeSpaceGlyph(prefs.spaceGlyph)
   try {
     const raw = sessionStorage.getItem('orep_typing_session_cfg')
     if (raw) Object.assign(cfg, JSON.parse(raw))
@@ -663,9 +711,13 @@ function initEngine() {
   clientSessionId = newClientSessionId()
   pauseReason = ''
   lastCheckpointAt = 0
+  const skipLeadingIndent = !isRanked.value && (
+    cfg.playMode === 'code' || cfg.sourceType === 'code' || looksLikeCode(text)
+  )
   engine = createTypingEngine(text, {
     mode: 'timed',
     durationSec: cfg.durationSec,
+    skipLeadingIndent,
   })
   targetChars.value = charsOf(text)
   applySnap(engine.snapshot())
@@ -771,6 +823,17 @@ function onKeydown(e) {
   if (e.key === 'Escape') {
     e.preventDefault()
     pause()
+    return
+  }
+  // 代码练习：行首缩进已自动跳过时，Tab / 空格为可选 no-op
+  if (
+    isCodeMode.value
+    && !composing.value
+    && isAfterAutoIndent()
+    && (e.key === 'Tab' || e.key === ' ')
+  ) {
+    e.preventDefault()
+    lastPhysicalCode = e.key === 'Tab' ? 'Tab' : 'Space'
     return
   }
   // 代码练习：Tab 插入语言约定缩进（空格优先，与样例一致）
@@ -1102,6 +1165,43 @@ onBeforeUnmount(() => {
   font-weight: 650;
 }
 
+.space-glyph-switch {
+  display: inline-flex;
+  margin-left: auto;
+  padding: 2px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid var(--ds-line, #e5e7eb);
+}
+.space-glyph-switch__btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  color: var(--ds-muted);
+  font: 650 11px/1 inherit;
+  cursor: pointer;
+}
+.space-glyph-switch__btn.is-active {
+  background: #fff;
+  color: var(--ds-ink, #111827);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+.typing-play__board.is-code-board .space-glyph-switch {
+  background: rgba(148, 163, 184, 0.12);
+  border-color: #334155;
+}
+.typing-play__board.is-code-board .space-glyph-switch__btn {
+  color: #94a3b8;
+}
+.typing-play__board.is-code-board .space-glyph-switch__btn.is-active {
+  background: #1e293b;
+  color: #e2e8f0;
+  box-shadow: none;
+}
+
 .typing-play__composing-tag {
   color: var(--ds-orange-700, #c2410c);
 }
@@ -1358,17 +1458,28 @@ onBeforeUnmount(() => {
   box-shadow: inset 0 -2px 0 0 #a78bfa;
 }
 
-.typing-viewport.is-code .typing-ch.is-space.is-pending::after {
+.typing-viewport.is-code.space-glyph-bar .typing-ch.is-space.is-pending::after {
   border-bottom-color: rgba(100, 116, 139, 0.7);
 }
-.typing-viewport.is-code .typing-ch.is-space.is-correct::after {
+.typing-viewport.is-code.space-glyph-bar .typing-ch.is-space.is-correct::after {
   border-bottom-color: rgba(148, 163, 184, 0.55);
 }
 .typing-viewport.is-code .typing-ch.is-space.is-caret {
   background: rgba(56, 189, 248, 0.18) !important;
 }
-.typing-viewport.is-code .typing-ch.is-space.is-caret::after {
+.typing-viewport.is-code.space-glyph-bar .typing-ch.is-space.is-caret::after {
   border-bottom-color: #38bdf8;
+}
+.typing-viewport.is-code.space-glyph-bullet .typing-ch.is-space.is-pending {
+  color: #64748b;
+}
+.typing-viewport.is-code.space-glyph-bullet .typing-ch.is-space.is-correct {
+  color: #475569;
+  opacity: 0.55;
+}
+.typing-viewport.is-code.space-glyph-bullet .typing-ch.is-space.is-caret {
+  color: #e2e8f0;
+  font-weight: 700;
 }
 .typing-viewport.is-code .typing-ch.is-tab.is-pending {
   color: #334155;
@@ -1492,51 +1603,121 @@ onBeforeUnmount(() => {
   background: rgba(255, 214, 102, 0.45);
 }
 
-/* 空格：不显示文字/·，但保留明确占位（下划线槽位） */
+/* 空格槽：三种模式共用 1ch 节奏，避免旧版 0.65em 弱下划线 */
 .typing-ch.is-space {
-  min-width: 0.65em;
-  width: 0.65em;
-  color: transparent !important;
-  background: transparent !important;
+  width: 1ch;
+  min-width: 1ch;
+  text-align: center;
 }
-.typing-ch.is-space::after {
+
+/* bullet（默认，Keybr）：浅灰中间点 */
+.space-glyph-bullet .typing-ch.is-space {
+  color: #c5c9d1;
+  background: transparent;
+}
+.space-glyph-bullet .typing-ch.is-space::after {
+  content: none;
+}
+.space-glyph-bullet .typing-ch.is-space.is-pending {
+  color: #c5c9d1;
+}
+.space-glyph-bullet .typing-ch.is-space.is-correct {
+  color: #9ca3af;
+  opacity: 0.42;
+}
+.space-glyph-bullet .typing-ch.is-space.is-wrong {
+  color: #ef4444;
+  opacity: 1;
+  background: rgba(254, 202, 202, 0.7);
+  border-radius: 3px;
+}
+.space-glyph-bullet .typing-ch.is-space.is-caret {
+  color: #4b5563;
+  font-weight: 800;
+  opacity: 1;
+  background: rgba(255, 214, 102, 0.75);
+  border-radius: 3px;
+  box-shadow: inset 0 -2px 0 0 #f59e0b;
+}
+
+/* bar：1ch 下划线槽（改进旧版 underline） */
+.space-glyph-bar .typing-ch.is-space {
+  color: transparent;
+  background: transparent;
+}
+.space-glyph-bar .typing-ch.is-space::after {
   content: '';
   position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: 0.22em;
+  left: 0;
+  right: 0;
+  bottom: 0.18em;
   height: 0;
   border-bottom: 2.5px solid rgba(156, 163, 175, 0.95);
   border-radius: 1px;
   pointer-events: none;
 }
-/* 未敲：浅灰占位线 */
-.typing-ch.is-space.is-pending::after {
+.space-glyph-bar .typing-ch.is-space.is-pending::after {
   border-bottom-color: rgba(156, 163, 175, 0.9);
 }
-/* 已正确：淡实线 */
-.typing-ch.is-space.is-correct::after {
-  border-bottom-color: rgba(75, 85, 99, 0.55);
+.space-glyph-bar .typing-ch.is-space.is-correct::after {
+  border-bottom-color: rgba(75, 85, 99, 0.45);
   border-bottom-width: 2px;
 }
-/* 敲错：红线 + 浅红底 */
-.typing-ch.is-space.is-wrong {
-  background: rgba(254, 202, 202, 0.55) !important;
+.space-glyph-bar .typing-ch.is-space.is-wrong {
+  background: rgba(254, 202, 202, 0.55);
   border-radius: 3px;
 }
-.typing-ch.is-space.is-wrong::after {
+.space-glyph-bar .typing-ch.is-space.is-wrong::after {
   border-bottom-color: #ef4444;
   border-bottom-width: 3px;
 }
-/* 当前待敲：高亮占位 */
-.typing-ch.is-space.is-caret {
-  background: rgba(255, 214, 102, 0.28) !important;
+.space-glyph-bar .typing-ch.is-space.is-caret {
+  background: rgba(255, 214, 102, 0.28);
   border-radius: 3px;
-  box-shadow: none;
 }
-.typing-ch.is-space.is-caret::after {
+.space-glyph-bar .typing-ch.is-space.is-caret::after {
   border-bottom-color: #f59e0b;
   border-bottom-width: 3px;
+}
+
+/* invisible（Monkeytype）：纯空隙，无字形 */
+.space-glyph-invisible .typing-ch.is-space {
+  color: transparent;
+  background: transparent;
+}
+.space-glyph-invisible .typing-ch.is-space::after {
+  content: none;
+}
+.space-glyph-invisible .typing-ch.is-space.is-wrong {
+  background: rgba(254, 202, 202, 0.55);
+  border-radius: 3px;
+}
+.space-glyph-invisible .typing-ch.is-space.is-caret {
+  background: rgba(255, 214, 102, 0.4);
+  border-radius: 3px;
+  box-shadow: inset 0 -2px 0 0 #f59e0b;
+}
+
+/* 代码行首自动缩进：闷色槽，不要求敲 */
+.typing-ch.is-auto-indent {
+  color: transparent !important;
+  background: rgba(148, 163, 184, 0.22) !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  min-width: 1ch;
+}
+.typing-ch.is-auto-indent::after {
+  content: none !important;
+}
+.typing-ch.is-auto-indent.is-tab {
+  min-width: 2.4em;
+}
+.typing-viewport.is-code .typing-ch.is-auto-indent {
+  background: rgba(71, 85, 105, 0.5) !important;
+}
+.typing-viewport.is-code .typing-ch.is-auto-indent.is-caret {
+  background: rgba(56, 189, 248, 0.16) !important;
 }
 
 /* 金山式配色：未打浅灰，已打深色，错字红底 */

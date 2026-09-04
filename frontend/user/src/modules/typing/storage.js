@@ -3,6 +3,18 @@ const PREFS_KEY = 'orep_typing_prefs_v2'
 const LAST_RESULT_KEY = 'orep_typing_last_result_v2'
 const MAX_HISTORY = 50
 
+/** Keybr 风格空格可视化：bullet=中间点 ·（默认） / bar=1ch 下划线槽 / invisible=纯空隙 */
+export const SPACE_GLYPH_OPTIONS = [
+  { value: 'bullet', label: '空格·', hint: '中间点' },
+  { value: 'bar', label: '空格_', hint: '下划线' },
+  { value: 'invisible', label: '空格隐', hint: '不显示' },
+]
+
+export function normalizeSpaceGlyph(value) {
+  if (value === 'bar' || value === 'invisible' || value === 'bullet') return value
+  return 'bullet'
+}
+
 function safeParse(raw, fallback) {
   try {
     return raw ? JSON.parse(raw) : fallback
@@ -23,8 +35,11 @@ export function loadPrefs() {
     difficulty: 2,
     codeLang: 'javascript',
     codeSource: 'sample', // sample | paste
+    spaceGlyph: 'bullet', // bullet | bar | invisible
   }
-  return { ...defaults, ...safeParse(localStorage.getItem(PREFS_KEY), {}) }
+  const merged = { ...defaults, ...safeParse(localStorage.getItem(PREFS_KEY), {}) }
+  merged.spaceGlyph = normalizeSpaceGlyph(merged.spaceGlyph)
+  return merged
 }
 
 export function savePrefs(prefs) {

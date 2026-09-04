@@ -173,7 +173,7 @@
 
           <template v-else-if="playMode === 'code'">
             <p class="th-code-lead">
-              像写代码一样练：语法高亮 · 行号 · 真实缩进 · 规范提示
+              像写代码一样练：语法高亮 · 行号 · 自动跳过行首缩进 · 行内空格仍需敲
             </p>
 
             <div class="th-block">
@@ -271,7 +271,7 @@
 
               <p v-if="codeDetectNote" class="th-hint th-hint--code">{{ codeDetectNote }}</p>
               <p v-else class="th-hint">
-                Tab 按 {{ codeIndentLabel }} 缩进 · Esc 暂停 · 练习区 IDE 暗色主题
+                行首缩进自动跳过 · Tab 可忽略 · 行内空格仍需敲 · Esc 暂停
               </p>
             </div>
 
@@ -291,6 +291,21 @@
               <p class="th-ranked__preview">{{ rankedPreview }}</p>
             </div>
           </template>
+
+          <div class="th-block">
+            <span class="th-label">空格显示</span>
+            <div class="th-chips" role="group" aria-label="空格显示">
+              <button
+                v-for="opt in spaceGlyphOptions"
+                :key="opt.value"
+                type="button"
+                class="th-chip"
+                :class="{ 'is-active': prefs.spaceGlyph === opt.value }"
+                :title="opt.hint"
+                @click="selectSpaceGlyph(opt.value)"
+              >{{ opt.label }}</button>
+            </div>
+          </div>
 
           <div class="th-actions">
             <button
@@ -387,14 +402,18 @@ import {
   listLocalRecentSessions,
   loadHistory,
   loadPrefs,
+  normalizeSpaceGlyph,
   resolvePracticeDurationSec,
   savePrefs,
+  SPACE_GLYPH_OPTIONS,
   summarizeHistory,
   summarizeToday,
 } from '@/modules/typing/storage'
 
 const router = useRouter()
 const prefs = reactive(loadPrefs())
+const spaceGlyphOptions = SPACE_GLYPH_OPTIONS
+prefs.spaceGlyph = normalizeSpaceGlyph(prefs.spaceGlyph)
 const playMode = ref(
   prefs.playMode === 'ranked' ? 'ranked'
     : prefs.playMode === 'code' ? 'code'
@@ -704,6 +723,11 @@ function formatAcc(v) {
   return Math.round(n * 10) / 10
 }
 
+function selectSpaceGlyph(mode) {
+  prefs.spaceGlyph = normalizeSpaceGlyph(mode)
+  savePrefs({ spaceGlyph: prefs.spaceGlyph })
+}
+
 function persistPrefs() {
   savePrefs({
     playMode: playMode.value,
@@ -714,6 +738,7 @@ function persistPrefs() {
     difficulty: prefs.difficulty,
     codeLang: codeLang.value,
     codeSource: codeSource.value,
+    spaceGlyph: normalizeSpaceGlyph(prefs.spaceGlyph),
   })
 }
 

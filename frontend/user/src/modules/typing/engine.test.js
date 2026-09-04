@@ -1,6 +1,10 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createTypingEngine } from './engine.js'
+import {
+  createTypingEngine,
+  expandWithLeadingIndent,
+  isLeadingIndentChar,
+} from './engine.js'
 
 test('counts correct chars and stays running before timed limit', () => {
   const engine = createTypingEngine('你好世界', { mode: 'timed', durationSec: 60 })
@@ -63,4 +67,113 @@ test('snapshot while paused does not grow elapsed as wall clock moves', () => {
   engine.pause(t0 + 5000)
   assert.equal(engine.snapshot(t0 + 5000).elapsedMs, 5000)
   assert.equal(engine.snapshot(t0 + 65_000).elapsedMs, 5000)
+})
+
+const SAMPLE_CODE = 'export function x() {\n  const a = 1\n  return a\n}\n'
+
+test('isLeadingIndentChar only marks spaces/tabs at line start', () => {
+  const target = [...SAMPLE_CODE]
+  const firstIndent = SAMPLE_CODE.indexOf('  const')
+  assert.equal(isLeadingIndentChar(target, firstIndent), true)
+  assert.equal(isLeadingIndentChar(target, firstIndent + 1), true)
+  assert.equal(isLeadingIndentChar(target, firstIndent + 2), false) // 'c'
+  const inlineSpace = SAMPLE_CODE.indexOf(' = 1')
+  assert.equal(isLeadingIndentChar(target, inlineSpace), false)
+  assert.equal(isLeadingIndentChar(target, 0), false)
+})
+
+test('expandWithLeadingIndent auto-inserts line-start indent and keeps inline spaces', () => {
+  assert.equal(expandWithLeadingIndent('', SAMPLE_CODE), '')
+  assert.equal(
+    expandWithLeadingIndent('export function x() {\nconst a = 1', SAMPLE_CODE),
+    'export function x() {\n  const a = 1'
+  )
+  assert.equal(
+    expandWithLeadingIndent('export function x() {\n  const a = 1', SAMPLE_CODE),
+    'export function x() {\n  const a = 1'
+  )
+  // 行首多敲的空格是 no-op
+  assert.equal(
+    expandWithLeadingIndent('export function x() {\n    const a = 1', SAMPLE_CODE),
+    'export function x() {\n  const a = 1'
+  )
+})
+
+test('expandWithLeadingIndent does not invent inline spaces', () => {
+  const expanded = expandWithLeadingIndent('export function x() {\nconsta = 1', SAMPLE_CODE)
+  assert.equal(expanded, 'export function x() {\n  consta = 1')
+  assert.match(expanded, /consta/)
+})
+
+test('skipLeadingIndent seeds first-line indent and parks caret on first token', () => {
+  const engine = createTypingEngine('  const x = 1\n', { skipLeadingIndent: true, mode: 'timed', durationSec: 60 })
+  const snap = engine.snapshot()
+  assert.equal(snap.status, 'idle')
+  assert.equal(snap.committed, '  ')
+  assert.equal(snap.caret, 2)
+  assert.equal(snap.targetCharsList[snap.caret], 'c')
+  assert.deepEqual(snap.charStates, ['correct', 'correct'])
+})
+
+test('skipLeadingIndent accepts the first token without typing indent', () => {
+  const engine = createTypingEngine(SAMPLE_CODE, { skipLeadingIndent: true, mode: 'timed', durationSec: 60 })
+  const t0 = 3_000_000
+  const typed = 'export function x() {\nconst a = 1'
+  const snap = engine.setCommitted(typed, t0)
+  assert.equal(snap.committed, 'export function x() {\n  const a = 1')
+  assert.equal(snap.caret, snap.committed.length)
+  assert.equal(snap.incorrectChars, 0)
+  assert.equal(snap.status, 'running')
+})
+
+test('skipLeadingIndent still requires inline spaces between tokens', () => {
+  const engine = createTypingEngine(SAMPLE_CODE, { skipLeadingIndent: true, mode: 'count', targetCount: 80 })
+  engine.setCommitted('export function x() {\nconsta = 1', 4_000_000)
+  const snap = engine.snapshot(4_000_000)
+  assert.ok(snap.incorrectChars >= 1)
+  assert.ok(snap.errorMap[' '] >= 1 || snap.committed.includes('consta'))
+})
+
+test('skipLeadingIndent counts only user keystrokes, not auto indent', () => {
+  const engine = createTypingEngine('  ab', { skipLeadingIndent: true, mode: 'count', targetCount: 10 })
+  engine.setCommitted('a', 5_000_000)
+  const snap = engine.snapshot(5_000_000)
+  assert.equal(snap.committed, '  a')
+  assert.equal(snap.totalKeystrokes, 1)
+  assert.equal(snap.correctKeystrokes, 1)
+  assert.equal(snap.correctChars, 3)
+})
+
+test('skipLeadingIndent Tab/spaces at line start are optional no-ops', () => {
+  const engine = createTypingEngine('foo\n\tbar', { skipLeadingIndent: true, mode: 'count', targetCount: 20 })
+  const snap = engine.setCommitted('foo\n\t\tbar', 6_000_000)
+  assert.equal(snap.committed, 'foo\n\tbar')
+  assert.equal(snap.incorrectChars, 0)
+})
+
+test('skipLeadingIndent backspace off a new line drops the newline, not the indent slot', () => {
+  const engine = createTypingEngine('foo\n  bar\n  baz', { skipLeadingIndent: true, mode: 'count', targetCount: 80 })
+  engine.setCommitted('foo\nbar', 7_000_000)
+  assert.equal(engine.snapshot().committed, 'foo\n  bar')
+  assert.equal(engine.snapshot().status, 'running')
+  const after = engine.setCommitted('foo', 7_000_100)
+  assert.equal(after.committed, 'foo')
+  assert.equal(after.caret, 3)
+})
+
+test('skipLeadingIndent finishes when tokens and newlines are complete', () => {
+  const text = 'a\n  b\n'
+  const engine = createTypingEngine(text, { skipLeadingIndent: true, mode: 'count', targetCount: 80 })
+  const snap = engine.setCommitted('a\nb\n', 8_000_000)
+  assert.equal(snap.committed, text)
+  assert.equal(snap.status, 'finished')
+  assert.equal(snap.incorrectChars, 0)
+})
+
+test('without skipLeadingIndent leading spaces still must be typed', () => {
+  const engine = createTypingEngine('  ab', { mode: 'count', targetCount: 10 })
+  const snap = engine.setCommitted('ab', Date.now())
+  assert.equal(snap.committed, 'ab')
+  assert.ok(snap.incorrectChars >= 1)
+  assert.notEqual(snap.caret, 4)
 })
