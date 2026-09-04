@@ -5,10 +5,8 @@
       'is-active': active,
       'is-composing': composing,
       'is-hands': showHands,
-      'is-plain': !showHands,
     }"
     :data-hands="showHands ? 'on' : 'off'"
-    :data-expected="targetCode || ''"
   >
     <div class="tvk__glow" />
     <div class="tvk__head">
@@ -22,7 +20,7 @@
         class="tvk__toggle"
         :class="{ 'is-on': showHands }"
         :aria-pressed="showHands"
-        :aria-label="showHands ? '关闭指法标注' : '开启指法标注'"
+        :aria-label="showHands ? '关闭指法手势' : '开启指法手势'"
         @click="showHands = !showHands"
       >
         <span class="tvk__toggle-track" aria-hidden="true" />
@@ -30,11 +28,12 @@
       </button>
     </div>
 
-    <div class="tvk__board">
+    <div ref="boardRef" class="tvk__board">
       <div v-for="(row, ri) in rows" :key="ri" class="tvk__row" :style="{ '--pad': row.pad }">
         <div
           v-for="key in row.keys"
           :key="key.id"
+          :ref="(el) => setKeyEl(key.id, el)"
           class="tvk__key"
           :class="[
             `is-${key.size || 'std'}`,
@@ -45,28 +44,46 @@
               'is-bad': flashId === key.id && flashKind === 'bad',
               'is-mod': key.mod,
               'is-home': isHomeKey(key.id),
-              'is-target': isTargetKey(key.id),
-              'has-badge': Boolean(badgeFor(key)),
+              'is-target': targetCode === key.id,
             },
           ]"
-          :data-target="isTargetKey(key.id) ? '1' : '0'"
           :style="keyFingerStyle(key.id)"
         >
           <span class="tvk__key-face">
             <span class="tvk__main">{{ key.label }}</span>
             <span v-if="key.sub" class="tvk__sub">{{ key.sub }}</span>
           </span>
-          <span
-            v-if="badgeFor(key)"
-            class="tvk__badge"
-            :class="{
-              'is-home': isHomeKey(key.id),
-              'is-aim': isTargetKey(key.id),
-            }"
-            :style="{ background: badgeFor(key).color }"
-            :data-fid="badgeFor(key).id"
-          >{{ badgeFor(key).short }}</span>
           <span class="tvk__ripple" />
+        </div>
+      </div>
+
+      <!-- 标准指法手势层：约 10 个指尖 + 掌心，跟 home / 目标键，而不是每键一枚徽章 -->
+      <div v-if="showHands" class="tvk__hands" aria-hidden="true">
+        <svg class="tvk__palm tvk__palm--left" :style="palmStyle('left')" viewBox="0 0 120 90">
+          <ellipse cx="58" cy="62" rx="46" ry="28" fill="currentColor" opacity="0.14" />
+          <path d="M22 48 C28 28 48 18 62 22 C74 26 86 40 90 54 C78 48 66 46 54 48 C42 50 30 52 22 48Z" fill="currentColor" opacity="0.2" />
+        </svg>
+        <svg class="tvk__palm tvk__palm--right" :style="palmStyle('right')" viewBox="0 0 120 90">
+          <ellipse cx="62" cy="62" rx="46" ry="28" fill="currentColor" opacity="0.14" />
+          <path d="M98 48 C92 28 72 18 58 22 C46 26 34 40 30 54 C42 48 54 46 66 48 C78 50 90 52 98 48Z" fill="currentColor" opacity="0.2" />
+        </svg>
+
+        <div
+          v-for="finger in visibleFingers"
+          :key="finger.id"
+          class="tvk__finger"
+          :class="{
+            'is-press': finger.pressing,
+            'is-left': finger.hand === 'left',
+            'is-right': finger.hand === 'right',
+            'is-thumb': finger.id === 'T',
+          }"
+          :style="fingerStyle(finger)"
+        >
+          <span class="tvk__finger-tip" :style="{ background: finger.color }">
+            <i>{{ finger.short }}</i>
+          </span>
+          <span class="tvk__finger-bone" :style="{ background: finger.color }" />
         </div>
       </div>
     </div>
@@ -80,12 +97,12 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import {
   FINGERS,
   fingerColorForCode,
-  fingerForCode,
   fingerIdForCode,
+  homeCodeForFinger,
 } from './fingerMap'
 
 const props = defineProps({
@@ -101,9 +118,14 @@ const pressed = ref(new Set())
 const hotId = ref('')
 const flashId = ref('')
 const flashKind = ref(null)
+const boardRef = ref(null)
+const keyEls = reactive({})
+const fingerState = reactive({})
 
 let flashTimer = null
 let hotTimer = null
+let layoutRaf = 0
+let boardResizeObserver = null
 
 const HOME_CODES = new Set(['KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Space'])
 
@@ -182,6 +204,13 @@ const activeFingerHint = computed(() => {
   return '跟打反馈'
 })
 
+const visibleFingers = computed(() =>
+  FINGERS.map((f) => {
+    const st = fingerState[f.id] || { x: 0, y: 0, pressing: false, code: f.home }
+    return { ...f, ...st }
+  })
+)
+
 function key(id, label, sub = '', size = 'std', mod = false) {
   return { id, label, sub, size, mod }
 }
@@ -199,24 +228,13 @@ function isHomeKey(id) {
   return HOME_CODES.has(id)
 }
 
-function isTargetKey(id) {
-  return Boolean(targetCode.value) && targetCode.value === id
-}
-
-/** 字母/数字/符号键 + 空格显示指法圆标；Tab/Shift 等功能键只靠色带 */
-function badgeFor(keyItem) {
-  if (!showHands.value || !keyItem) return null
-  if (keyItem.mod && keyItem.id !== 'Space') return null
-  return fingerForCode(keyItem.id)
-}
-
 function keyFingerStyle(id) {
-  if (!showHands.value) {
-    return { '--finger': 'transparent', '--finger-soft': 'transparent' }
-  }
   const color = fingerColorForCode(id)
-  if (!color) return null
-  return { '--finger': color, '--finger-soft': `${color}33` }
+  if (!color || !showHands.value) return null
+  return {
+    '--finger': color,
+    '--finger-soft': `${color}33`,
+  }
 }
 
 function codeLabel(code) {
@@ -226,6 +244,11 @@ function codeLabel(code) {
   if (code === 'Space') return '空格'
   if (code === 'Semicolon') return ';'
   return code
+}
+
+function setKeyEl(id, el) {
+  if (el) keyEls[id] = el
+  else delete keyEls[id]
 }
 
 function normalizeCode(code, keyName) {
@@ -246,9 +269,11 @@ function markDown(id) {
   next.add(id)
   pressed.value = next
   hotId.value = id
+  scheduleFingerLayout()
   clearTimeout(hotTimer)
   hotTimer = setTimeout(() => {
     if (hotId.value === id) hotId.value = ''
+    scheduleFingerLayout()
   }, 220)
 }
 
@@ -257,6 +282,7 @@ function markUp(id) {
   const next = new Set(pressed.value)
   next.delete(id)
   pressed.value = next
+  scheduleFingerLayout()
 }
 
 function onKeyDown(e) {
@@ -276,6 +302,77 @@ function onKeyUp(e) {
   }
 }
 
+function keyCenter(code) {
+  const el = keyEls[code]
+  const board = boardRef.value
+  if (!el || !board) return null
+  const br = board.getBoundingClientRect()
+  const kr = el.getBoundingClientRect()
+  if (!br.width || !br.height) return null
+  return {
+    x: ((kr.left + kr.width / 2) - br.left) / br.width * 100,
+    y: ((kr.top + kr.height / 2) - br.top) / br.height * 100,
+  }
+}
+
+function resolveFingerTargetCode(fingerId) {
+  const activeCodes = [...pressed.value]
+  const pressing = activeCodes.find((c) => fingerIdForCode(c) === fingerId)
+  if (pressing) return pressing
+  if (hotId.value && fingerIdForCode(hotId.value) === fingerId) return hotId.value
+  if (props.expectedKeyCode && fingerIdForCode(props.expectedKeyCode) === fingerId) {
+    return props.expectedKeyCode
+  }
+  return homeCodeForFinger(fingerId)
+}
+
+function layoutFingers() {
+  layoutRaf = 0
+  if (!showHands.value || !boardRef.value) return
+  for (const f of FINGERS) {
+    const code = resolveFingerTargetCode(f.id)
+    const pos = keyCenter(code) || keyCenter(f.home)
+    if (!pos) continue
+    // 拇指略向下；其余指尖略偏下，字母仍露在圆点上方
+    const yBias = f.id === 'T' ? 12 : 6
+    const pressing = pressed.value.has(code) || hotId.value === code
+    fingerState[f.id] = {
+      x: pos.x,
+      y: Math.min(96, Math.max(4, pos.y + yBias * 0.15)),
+      pressing,
+      code,
+    }
+  }
+}
+
+function scheduleFingerLayout() {
+  if (layoutRaf) return
+  layoutRaf = requestAnimationFrame(layoutFingers)
+}
+
+function fingerStyle(finger) {
+  const st = fingerState[finger.id]
+  if (!st) return { opacity: 0 }
+  return {
+    left: `${st.x}%`,
+    top: `${st.y}%`,
+    '--fc': finger.color,
+    opacity: 1,
+  }
+}
+
+function palmStyle(side) {
+  const leftHome = keyCenter('KeyD')
+  const rightHome = keyCenter('KeyK')
+  const pos = side === 'left' ? leftHome : rightHome
+  if (!pos) return { opacity: 0 }
+  return {
+    left: `${pos.x + (side === 'left' ? -6 : 6)}%`,
+    top: `${Math.min(92, pos.y + 18)}%`,
+    opacity: props.active || pressed.value.size ? 0.95 : 0.55,
+  }
+}
+
 watch(
   () => [props.lastHit, props.lastKeyCode],
   ([hit, code]) => {
@@ -292,16 +389,47 @@ watch(
   }
 )
 
-onMounted(() => {
+watch(showHands, async (on) => {
+  if (on) {
+    await nextTick()
+    scheduleFingerLayout()
+  }
+})
+
+watch(
+  () => props.expectedKeyCode,
+  () => scheduleFingerLayout()
+)
+
+function onResize() {
+  scheduleFingerLayout()
+}
+
+onMounted(async () => {
   window.addEventListener('keydown', onKeyDown, true)
   window.addEventListener('keyup', onKeyUp, true)
+  window.addEventListener('resize', onResize)
+  await nextTick()
+  for (const f of FINGERS) {
+    fingerState[f.id] = { x: 50, y: 70, pressing: false, code: f.home }
+  }
+  if (typeof ResizeObserver !== 'undefined' && boardRef.value) {
+    boardResizeObserver = new ResizeObserver(() => scheduleFingerLayout())
+    boardResizeObserver.observe(boardRef.value)
+  }
+  scheduleFingerLayout()
+  setTimeout(scheduleFingerLayout, 80)
+  setTimeout(scheduleFingerLayout, 300)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('keydown', onKeyDown, true)
   window.removeEventListener('keyup', onKeyUp, true)
+  window.removeEventListener('resize', onResize)
+  boardResizeObserver?.disconnect()
   clearTimeout(flashTimer)
   clearTimeout(hotTimer)
+  if (layoutRaf) cancelAnimationFrame(layoutRaf)
 })
 
 defineExpose({
@@ -331,6 +459,8 @@ defineExpose({
   --tvk-key-edge: rgba(15, 23, 42, 0.1);
   --tvk-accent: #f97316;
   --tvk-accent-soft: rgba(249, 115, 22, 0.18);
+  --tvk-ok: #10b981;
+  --tvk-bad: #ef4444;
   --tvk-key-h: 40px;
   --tvk-key-fs: 12.5px;
   --tvk-row-gap: 8px;
@@ -367,7 +497,7 @@ defineExpose({
 
 .tvk__head {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -466,6 +596,7 @@ defineExpose({
   z-index: 1;
   display: grid;
   gap: var(--tvk-row-gap);
+  isolation: isolate;
   width: 100%;
 }
 
@@ -493,29 +624,40 @@ defineExpose({
     0 0 0 1px var(--tvk-key-edge),
     0 3px 0 rgba(15, 23, 42, 0.08),
     0 6px 12px rgba(15, 23, 42, 0.04);
-  overflow: hidden;
+  transform: translateY(0);
+  transition:
+    transform 0.08s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.12s ease,
+    background 0.12s ease;
 }
 
-.tvk:has(.tvk__badge) .tvk__key:not(.is-mod) {
+.tvk:has(.tvk__hands) .tvk__key:not(.is-mod),
+.tvk.is-hands .tvk__key:not(.is-mod) {
   background:
-    linear-gradient(180deg,
-      color-mix(in srgb, var(--finger) 38%, #fff) 0%,
-      color-mix(in srgb, var(--finger) 22%, #f8fafc) 100%);
+    linear-gradient(180deg, color-mix(in srgb, var(--finger-soft) 55%, #fff) 0%, color-mix(in srgb, var(--finger-soft) 35%, #f1f5f9) 100%);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 0 0 1.5px color-mix(in srgb, var(--finger) 42%, var(--tvk-key-edge)),
-    0 3px 0 color-mix(in srgb, var(--finger) 18%, rgba(15, 23, 42, 0.08));
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 0 0 1px color-mix(in srgb, var(--finger) 28%, var(--tvk-key-edge)),
+    0 3px 0 rgba(15, 23, 42, 0.07);
 }
 
-.tvk:has(.tvk__badge) .tvk__key.is-home:not(.is-mod) {
-  background:
-    linear-gradient(180deg,
-      color-mix(in srgb, var(--finger) 52%, #fff) 0%,
-      color-mix(in srgb, var(--finger) 32%, #f8fafc) 100%);
+.tvk:has(.tvk__hands) .tvk__key.is-home:not(.is-mod)::after,
+.tvk.is-hands .tvk__key.is-home:not(.is-mod)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--finger) 70%, #64748b);
+  transform: translateX(-50%);
+  opacity: 0.75;
 }
 
-.tvk:not(:has(.tvk__badge)) .tvk__key:not(.is-mod) {
+.tvk:not(:has(.tvk__hands)) .tvk__key:not(.is-mod) {
   --finger: transparent;
+  --finger-soft: transparent;
   background: var(--tvk-key);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.95) inset,
@@ -530,18 +672,14 @@ defineExpose({
 
 .tvk__key-face {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   height: 100%;
   display: grid;
   place-content: center;
-  padding-bottom: 0;
   color: var(--tvk-ink);
   font-size: var(--tvk-key-fs);
   font-weight: 700;
   user-select: none;
-}
-.tvk__key.has-badge .tvk__key-face {
-  padding-bottom: 13px;
 }
 
 .tvk__key.is-mod .tvk__main {
@@ -553,63 +691,127 @@ defineExpose({
 
 .tvk__sub { display: none; }
 
-/* 指法圆标贴在键帽底边，绝不盖住中间字母 */
-.tvk__badge {
-  pointer-events: none;
-  position: absolute;
-  left: 50%;
-  bottom: 3px;
-  z-index: 1;
-  width: 15px;
-  height: 15px;
-  border-radius: 999px;
-  transform: translateX(-50%);
-  display: grid;
-  place-items: center;
-  font-size: 9px;
-  font-weight: 800;
-  line-height: 1;
-  color: #1f2937;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.7) inset,
-    0 1px 2px rgba(15, 23, 42, 0.18);
-}
-.tvk__badge.is-home,
-.tvk__badge.is-aim {
-  width: 16px;
-  height: 16px;
-  font-size: 10px;
-}
-.tvk__badge.is-aim {
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.85) inset,
-    0 0 0 2px color-mix(in srgb, var(--finger) 55%, transparent),
-    0 0 10px color-mix(in srgb, var(--finger) 45%, transparent);
-}
-
 .tvk__ripple {
   pointer-events: none;
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 50% 60%, rgba(249, 115, 22, 0.35), transparent 62%);
   opacity: 0;
+  transform: scale(0.6);
 }
 
 .tvk__key.is-down {
   transform: translateY(2px) scale(0.98);
   background: linear-gradient(180deg, #fff7ed 0%, #ffedd5 100%);
 }
-.tvk__key.is-down .tvk__ripple { opacity: 1; }
+.tvk__key.is-down .tvk__ripple { opacity: 1; transform: scale(1); }
 
-.tvk:has(.tvk__badge) .tvk__key.is-target:not(.is-down) {
+.tvk__key.is-target:not(.is-down) {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.95) inset,
-    0 0 0 2.5px var(--finger, var(--tvk-accent)),
-    0 0 0 5px color-mix(in srgb, var(--finger, var(--tvk-accent)) 28%, transparent);
+    0 0 0 1.5px color-mix(in srgb, var(--finger, var(--tvk-accent)) 65%, transparent),
+    0 0 16px color-mix(in srgb, var(--finger, var(--tvk-accent)) 35%, transparent);
+}
+
+.tvk__key.is-hot:not(.is-down) {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 0 0 1px rgba(249, 115, 22, 0.28),
+    0 0 16px rgba(249, 115, 22, 0.18);
 }
 
 .tvk__key.is-ok { animation: tvk-ok 0.32s ease; }
 .tvk__key.is-bad { animation: tvk-bad 0.32s ease; }
+
+/* —— 指法手势层：10 个指尖浮在键上，不是每键徽章 —— */
+.tvk__hands {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: visible;
+}
+
+.tvk__palm {
+  position: absolute;
+  width: 88px;
+  height: 66px;
+  color: #64748b;
+  transform: translate(-50%, -30%);
+  transition: left 0.18s cubic-bezier(0.22, 0.9, 0.3, 1), top 0.18s cubic-bezier(0.22, 0.9, 0.3, 1), opacity 0.25s ease;
+}
+
+.tvk__finger {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  transition:
+    left 0.14s cubic-bezier(0.22, 0.9, 0.3, 1),
+    top 0.14s cubic-bezier(0.22, 0.9, 0.3, 1);
+  will-change: left, top;
+}
+
+.tvk__finger-tip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 26px;
+  border-radius: 50% 50% 46% 46%;
+  transform: translate(-50%, -38%);
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.35) inset,
+    0 4px 10px rgba(15, 23, 42, 0.18);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  display: grid;
+  place-items: center;
+  transition: transform 0.1s ease, filter 0.1s ease;
+}
+
+.tvk__finger-tip i {
+  font-style: normal;
+  font-size: 9px;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.78);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.tvk__finger-bone {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 18px;
+  border-radius: 8px;
+  transform: translate(-50%, 18%);
+  opacity: 0.45;
+  filter: saturate(0.9);
+}
+
+.tvk__finger.is-press .tvk__finger-tip {
+  transform: translate(-50%, -28%) scale(0.88);
+  filter: brightness(1.05);
+}
+
+.tvk__finger.is-thumb .tvk__finger-tip {
+  width: 26px;
+  height: 20px;
+  border-radius: 40%;
+  transform: translate(-50%, -28%) rotate(-18deg);
+}
+
+.tvk__finger.is-thumb.is-press .tvk__finger-tip {
+  transform: translate(-50%, -18%) rotate(-18deg) scale(0.9);
+}
+
+.tvk__finger.is-left .tvk__finger-bone {
+  transform: translate(-50%, 14%) rotate(8deg);
+}
+
+.tvk__finger.is-right .tvk__finger-bone {
+  transform: translate(-50%, 14%) rotate(-8deg);
+}
 
 .tvk__legend {
   position: relative;
@@ -621,6 +823,7 @@ defineExpose({
   padding-top: 6px;
   border-top: 1px dashed rgba(15, 23, 42, 0.08);
 }
+
 .tvk__legend-item {
   display: inline-flex;
   align-items: center;
@@ -629,27 +832,36 @@ defineExpose({
   font-weight: 650;
   color: var(--tvk-muted);
 }
+
 .tvk__legend-item i {
   width: 8px;
   height: 8px;
   border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
 }
 
 @keyframes tvk-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.75; transform: scale(0.92); }
 }
+
 @keyframes tvk-ok {
   0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
   40% {
     background: linear-gradient(180deg, #ecfdf5, #d1fae5);
-    box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.45);
+    box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.45), 0 0 20px rgba(16, 185, 129, 0.35);
   }
   100% { box-shadow: 0 3px 0 rgba(15, 23, 42, 0.08); }
 }
+
 @keyframes tvk-bad {
   0% { transform: translateY(0); }
-  25% { transform: translateY(2px) translateX(-1px); background: linear-gradient(180deg, #fef2f2, #fecaca); }
+  25% {
+    transform: translateY(2px) translateX(-1px);
+    background: linear-gradient(180deg, #fef2f2, #fecaca);
+    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.45), 0 0 18px rgba(239, 68, 68, 0.3);
+  }
+  50% { transform: translateY(2px) translateX(1px); }
   100% { transform: translateY(0); }
 }
 
@@ -679,8 +891,10 @@ defineExpose({
   .tvk__key.is-wide { flex: 2.05 1 0; }
   .tvk__key.is-space { flex: 6.6 1 0; --w: auto; }
   .tvk__key.is-mod .tvk__main { font-size: 12px; }
-  .tvk__badge { width: 16px; height: 16px; font-size: 10px; bottom: 4px; }
-  .tvk__key.has-badge .tvk__key-face { padding-bottom: 16px; }
+  .tvk__finger-tip { width: 26px; height: 30px; }
+  .tvk__finger-tip i { font-size: 10px; }
+  .tvk__finger.is-thumb .tvk__finger-tip { width: 30px; height: 22px; }
+  .tvk__palm { width: 100px; height: 74px; }
 }
 
 @media (min-width: 1100px) and (max-height: 920px) {
@@ -703,14 +917,20 @@ defineExpose({
   .tvk__key-face { font-size: 10px; }
   .tvk__key.is-mod .tvk__main { font-size: 9px; }
   .tvk__row { gap: 4px; justify-content: center; }
+  .tvk__finger-tip { width: 18px; height: 22px; }
+  .tvk__finger-tip i { font-size: 8px; }
+  .tvk__palm { width: 64px; height: 48px; }
   .tvk__hint { display: none; }
-  .tvk__badge { width: 12px; height: 12px; font-size: 8px; bottom: 2px; }
-  .tvk__key.has-badge .tvk__key-face { padding-bottom: 11px; }
+  .tvk__legend { gap: 4px 8px; }
   .tvk__toggle { min-height: 32px; font-size: 12px; padding: 0 10px 0 7px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tvk__key { transition-duration: 0.01ms !important; }
+  .tvk__finger,
+  .tvk__palm,
+  .tvk__key {
+    transition-duration: 0.01ms !important;
+  }
   .tvk.is-active .tvk__dot { animation: none; }
 }
 </style>
