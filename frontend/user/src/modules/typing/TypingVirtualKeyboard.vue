@@ -19,10 +19,12 @@
         type="button"
         class="tvk__toggle"
         :class="{ 'is-on': showHands }"
-        :title="showHands ? '隐藏指法手势' : '显示标准指法手势'"
+        :aria-pressed="showHands"
+        :aria-label="showHands ? '关闭指法手势' : '开启指法手势'"
         @click="showHands = !showHands"
       >
-        {{ showHands ? '指法开' : '指法关' }}
+        <span class="tvk__toggle-track" aria-hidden="true" />
+        <span class="tvk__toggle-label">指法{{ showHands ? '开' : '关' }}</span>
       </button>
     </div>
 
@@ -128,6 +130,7 @@ const fingerState = reactive({})
 let flashTimer = null
 let hotTimer = null
 let layoutRaf = 0
+let boardResizeObserver = null
 
 const HOME_CODES = new Set(['KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Space'])
 
@@ -417,6 +420,10 @@ onMounted(async () => {
   for (const f of FINGERS) {
     fingerState[f.id] = { x: 50, y: 70, pressing: false, code: f.home }
   }
+  if (typeof ResizeObserver !== 'undefined' && boardRef.value) {
+    boardResizeObserver = new ResizeObserver(() => scheduleFingerLayout())
+    boardResizeObserver.observe(boardRef.value)
+  }
   scheduleFingerLayout()
   // 布局稳定后再算一次
   setTimeout(scheduleFingerLayout, 80)
@@ -427,6 +434,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('keydown', onKeyDown, true)
   window.removeEventListener('keyup', onKeyUp, true)
   window.removeEventListener('resize', onResize)
+  boardResizeObserver?.disconnect()
   clearTimeout(flashTimer)
   clearTimeout(hotTimer)
   if (layoutRaf) cancelAnimationFrame(layoutRaf)
@@ -544,46 +552,105 @@ defineExpose({
 
 .tvk__toggle {
   flex: 0 0 auto;
-  min-height: 26px;
-  padding: 0 10px;
-  border: 1px solid var(--tvk-line);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 12px 0 8px;
+  border: 1.5px solid #cbd5e1;
   border-radius: 999px;
   background: #fff;
-  color: var(--tvk-muted);
-  font-size: 11px;
+  color: #334155;
+  font: inherit;
+  font-size: 13px;
   font-weight: 750;
+  line-height: 1;
   cursor: pointer;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.tvk__toggle:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.tvk__toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.32);
 }
 
 .tvk__toggle.is-on {
-  border-color: rgba(249, 115, 22, 0.35);
-  background: #fff7ed;
-  color: #c2410c;
+  border-color: #ea580c;
+  background: #f97316;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(234, 88, 12, 0.28);
+}
+
+.tvk__toggle.is-on:hover {
+  background: #ea580c;
+  border-color: #c2410c;
+}
+
+.tvk__toggle-track {
+  position: relative;
+  width: 28px;
+  height: 16px;
+  flex: none;
+  border-radius: 999px;
+  background: #e2e8f0;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.12);
+}
+
+.tvk__toggle-track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.22);
+  transition: left 0.15s ease;
+}
+
+.tvk__toggle.is-on .tvk__toggle-track {
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.tvk__toggle.is-on .tvk__toggle-track::after {
+  left: 14px;
 }
 
 .tvk__board {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 7px;
+  gap: 8px;
   isolation: isolate;
+  width: 100%;
 }
 
 .tvk__row {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 7px;
   padding-left: var(--pad, 0);
   padding-right: var(--pad, 0);
 }
 
 .tvk__key {
-  --w: 34px;
+  --w: 38px;
   --finger: transparent;
   --finger-soft: transparent;
   position: relative;
   width: var(--w);
-  height: 36px;
+  height: 40px;
   flex: 0 0 auto;
   border-radius: 8px;
   background: var(--tvk-key);
@@ -622,9 +689,9 @@ defineExpose({
   opacity: 0.75;
 }
 
-.tvk__key.is-mid { --w: 48px; }
-.tvk__key.is-wide { --w: 68px; }
-.tvk__key.is-space { --w: min(280px, 42vw); }
+.tvk__key.is-mid { --w: 54px; }
+.tvk__key.is-wide { --w: 76px; }
+.tvk__key.is-space { --w: min(320px, 42vw); }
 
 .tvk__key-face {
   position: relative;
@@ -633,13 +700,13 @@ defineExpose({
   display: grid;
   place-content: center;
   color: var(--tvk-ink);
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 700;
   user-select: none;
 }
 
 .tvk__key.is-mod .tvk__main {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 650;
   color: #64748b;
   text-transform: lowercase;
@@ -831,19 +898,57 @@ defineExpose({
   100% { transform: translateY(0); }
 }
 
+@media (min-width: 1100px) {
+  .tvk { padding: 16px 18px 14px; }
+  .tvk__board { gap: 9px; }
+  .tvk__row {
+    justify-content: stretch;
+    gap: 8px;
+    padding-right: 0;
+  }
+  .tvk__key {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    height: 46px;
+    border-radius: 10px;
+  }
+  .tvk__key.is-mid { flex: 1.45 1 0; }
+  .tvk__key.is-wide { flex: 2.05 1 0; }
+  .tvk__key.is-space { flex: 6.6 1 0; --w: auto; }
+  .tvk__key-face { font-size: 14px; }
+  .tvk__key.is-mod .tvk__main { font-size: 12px; }
+  .tvk__finger-tip { width: 26px; height: 30px; }
+  .tvk__finger-tip i { font-size: 10px; }
+  .tvk__finger.is-thumb .tvk__finger-tip { width: 30px; height: 22px; }
+  .tvk__palm { width: 108px; height: 80px; }
+}
+
 @media (max-width: 720px) {
   .tvk { padding: 12px 10px 10px; }
-  .tvk__key { --w: 28px; height: 32px; border-radius: 6px; }
+  .tvk__key {
+    flex: 0 0 auto;
+    --w: 28px;
+    width: var(--w);
+    height: 32px;
+    border-radius: 6px;
+  }
   .tvk__key.is-mid { --w: 38px; }
   .tvk__key.is-wide { --w: 52px; }
   .tvk__key.is-space { --w: min(180px, 38vw); }
   .tvk__key-face { font-size: 10px; }
-  .tvk__row { gap: 4px; }
+  .tvk__key.is-mod .tvk__main { font-size: 9px; }
+  .tvk__row { gap: 4px; justify-content: center; }
   .tvk__finger-tip { width: 18px; height: 22px; }
   .tvk__finger-tip i { font-size: 8px; }
   .tvk__palm { width: 64px; height: 48px; }
   .tvk__hint { display: none; }
   .tvk__legend { gap: 4px 8px; }
+  .tvk__toggle {
+    min-height: 32px;
+    font-size: 12px;
+    padding: 0 10px 0 7px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
