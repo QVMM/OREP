@@ -469,9 +469,12 @@ defineExpose({
   --tvk-accent-soft: rgba(249, 115, 22, 0.18);
   --tvk-ok: #10b981;
   --tvk-bad: #ef4444;
+  --tvk-key-h: 40px;
+  --tvk-key-fs: 12.5px;
+  --tvk-row-gap: 8px;
   position: relative;
   overflow: hidden;
-  padding: 14px 16px 12px;
+  padding: 10px 14px 8px;
   border-radius: 18px;
   border: 1px solid var(--tvk-line);
   background: linear-gradient(145deg, var(--tvk-bg0), var(--tvk-bg1));
@@ -508,7 +511,7 @@ defineExpose({
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .tvk__dot {
@@ -631,7 +634,7 @@ defineExpose({
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 8px;
+  gap: var(--tvk-row-gap);
   isolation: isolate;
   width: 100%;
 }
@@ -650,7 +653,7 @@ defineExpose({
   --finger-soft: transparent;
   position: relative;
   width: var(--w);
-  height: 40px;
+  height: var(--tvk-key-h);
   flex: 0 0 auto;
   border-radius: 8px;
   background: var(--tvk-key);
@@ -700,7 +703,7 @@ defineExpose({
   display: grid;
   place-content: center;
   color: var(--tvk-ink);
-  font-size: 12.5px;
+  font-size: var(--tvk-key-fs);
   font-weight: 700;
   user-select: none;
 }
@@ -852,8 +855,8 @@ defineExpose({
   display: flex;
   flex-wrap: wrap;
   gap: 6px 10px;
-  margin-top: 10px;
-  padding-top: 8px;
+  margin-top: 8px;
+  padding-top: 6px;
   border-top: 1px dashed rgba(15, 23, 42, 0.08);
 }
 
@@ -899,29 +902,44 @@ defineExpose({
 }
 
 @media (min-width: 1100px) {
-  .tvk { padding: 16px 18px 14px; }
-  .tvk__board { gap: 9px; }
+  .tvk {
+    --tvk-key-h: clamp(30px, 4.55vh, 40px);
+    --tvk-key-fs: clamp(11.5px, 1.45vh, 13.5px);
+    --tvk-row-gap: clamp(3px, 0.55vh, 7px);
+    padding: 10px 16px 8px;
+  }
   .tvk__row {
     justify-content: stretch;
-    gap: 8px;
+    gap: clamp(3px, 0.5vh, 7px);
     padding-right: 0;
   }
   .tvk__key {
     flex: 1 1 0;
     width: auto;
     min-width: 0;
-    height: 46px;
-    border-radius: 10px;
+    border-radius: 9px;
   }
   .tvk__key.is-mid { flex: 1.45 1 0; }
   .tvk__key.is-wide { flex: 2.05 1 0; }
   .tvk__key.is-space { flex: 6.6 1 0; --w: auto; }
-  .tvk__key-face { font-size: 14px; }
-  .tvk__key.is-mod .tvk__main { font-size: 12px; }
-  .tvk__finger-tip { width: 26px; height: 30px; }
+  .tvk__key.is-mod .tvk__main { font-size: 11px; }
+  .tvk__finger-tip { width: 24px; height: 28px; }
   .tvk__finger-tip i { font-size: 10px; }
-  .tvk__finger.is-thumb .tvk__finger-tip { width: 30px; height: 22px; }
-  .tvk__palm { width: 108px; height: 80px; }
+  .tvk__finger.is-thumb .tvk__finger-tip { width: 28px; height: 20px; }
+  .tvk__palm { width: 96px; height: 70px; }
+}
+
+@media (min-width: 1100px) and (max-height: 820px) {
+  .tvk {
+    --tvk-key-h: clamp(28px, 4.15vh, 34px);
+    --tvk-key-fs: 12px;
+    --tvk-row-gap: 3px;
+    padding: 8px 14px 6px;
+  }
+  .tvk__head { margin-bottom: 6px; }
+  .tvk__toggle { min-height: 30px; padding: 0 10px 0 7px; }
+  .tvk__legend { display: none; }
+  .tvk__palm { width: 80px; height: 56px; }
 }
 
 @media (max-width: 720px) {
