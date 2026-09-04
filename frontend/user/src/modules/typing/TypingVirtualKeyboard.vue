@@ -31,32 +31,39 @@
     <div ref="boardRef" class="tvk__board">
       <!-- 幽灵手在键帽后面，字母始终可读 -->
       <div v-if="showHands" class="tvk__hands" aria-hidden="true">
-        <svg class="tvk__palm tvk__palm--left" :style="palmStyle('left')" viewBox="0 0 160 150">
-          <ellipse cx="78" cy="118" rx="54" ry="26" fill="currentColor" opacity="0.55" />
-          <path d="M28 108 C22 78 36 58 52 48 C48 28 58 10 70 10 C80 10 84 26 84 44 C88 22 100 8 112 12 C122 16 124 34 120 52 C128 30 144 26 150 40 C156 54 146 78 132 92 C118 104 96 112 78 116 C58 118 38 116 28 108Z" fill="currentColor" opacity="0.72" />
-        </svg>
-        <svg class="tvk__palm tvk__palm--right" :style="palmStyle('right')" viewBox="0 0 160 150">
-          <ellipse cx="82" cy="118" rx="54" ry="26" fill="currentColor" opacity="0.55" />
-          <path d="M132 108 C138 78 124 58 108 48 C112 28 102 10 90 10 C80 10 76 26 76 44 C72 22 60 8 48 12 C38 16 36 34 40 52 C32 30 16 26 10 40 C4 54 14 78 28 92 C42 104 64 112 82 116 C102 118 122 116 132 108Z" fill="currentColor" opacity="0.72" />
-        </svg>
-
-        <div
-          v-for="finger in visibleFingers"
-          :key="finger.id"
-          class="tvk__finger"
-          :class="{
-            'is-press': finger.pressing,
-            'is-aim': finger.id === aimFingerId,
-            'is-rest': finger.id !== aimFingerId && !finger.pressing,
-            'is-left': finger.hand === 'left',
-            'is-right': finger.hand === 'right',
-            'is-thumb': finger.id === 'T',
-          }"
-          :style="fingerStyle(finger)"
+        <svg
+          v-for="side in handSides"
+          :key="side"
+          class="tvk__hand"
+          :class="`tvk__hand--${side}`"
+          :style="handBoxStyle(side)"
+          viewBox="0 0 240 320"
         >
-          <span class="tvk__finger-tip" />
-          <span class="tvk__finger-bone" />
-        </div>
+          <g :transform="side === 'right' ? 'translate(240,0) scale(-1,1)' : undefined">
+            <path class="tvk__hand-wrist" d="M84 286 C76 312 164 312 156 286" />
+            <path class="tvk__hand-palm" d="M44 204 C36 168 54 150 80 146 L90 154 L118 150 L146 152 L172 160 C200 174 212 204 200 236 C188 274 148 292 118 294 C76 296 50 268 44 228 Z" />
+            <g
+              v-for="fid in fingersOf(side)"
+              :key="fid"
+              class="tvk__digit"
+              :class="{
+                'is-aim': isAimDigit(fid),
+                'is-press': isPressDigit(fid),
+                'is-thumb': fid === 'T',
+              }"
+              :style="digitStyle(side, fid)"
+            >
+              <path class="tvk__digit-body" :d="digitPath(fid)" />
+              <ellipse
+                class="tvk__digit-nail"
+                :cx="digitNail(fid).cx"
+                :cy="digitNail(fid).cy"
+                :rx="digitNail(fid).rx"
+                :ry="digitNail(fid).ry"
+              />
+            </g>
+          </g>
+        </svg>
       </div>
 
       <div v-for="(row, ri) in rows" :key="ri" class="tvk__row" :style="{ '--pad': row.pad }">
@@ -204,12 +211,62 @@ const activeFingerHint = computed(() => {
   return '跟打反馈'
 })
 
-const visibleFingers = computed(() =>
-  FINGERS.map((f) => {
-    const st = fingerState[f.id] || { x: 0, y: 0, pressing: false, code: f.home }
-    return { ...f, ...st }
-  })
-)
+const HAND_VB = { w: 240, h: 320 }
+const LEFT_TIPS = {
+  L4: { x: 50, y: 40 },
+  L3: { x: 98, y: 22 },
+  L2: { x: 146, y: 14 },
+  L1: { x: 194, y: 30 },
+  T: { x: 216, y: 186 },
+}
+const DIGIT_PATHS = {
+  L4: 'M50 40 C42 42 38 54 40 72 L46 150 C48 162 68 162 68 148 L62 70 C60 50 58 38 50 40 Z',
+  L3: 'M98 22 C90 24 86 36 88 56 L92 148 C94 160 114 160 114 146 L108 54 C106 34 106 20 98 22 Z',
+  L2: 'M146 14 C138 16 134 28 136 48 L138 146 C140 158 160 158 160 144 L156 46 C154 26 154 12 146 14 Z',
+  L1: 'M194 30 C186 28 178 40 180 60 L172 152 C170 164 190 168 194 154 L200 58 C204 40 202 28 194 30 Z',
+  R4: 'M50 40 C42 42 38 54 40 72 L46 150 C48 162 68 162 68 148 L62 70 C60 50 58 38 50 40 Z',
+  R3: 'M98 22 C90 24 86 36 88 56 L92 148 C94 160 114 160 114 146 L108 54 C106 34 106 20 98 22 Z',
+  R2: 'M146 14 C138 16 134 28 136 48 L138 146 C140 158 160 158 160 144 L156 46 C154 26 154 12 146 14 Z',
+  R1: 'M194 30 C186 28 178 40 180 60 L172 152 C170 164 190 168 194 154 L200 58 C204 40 202 28 194 30 Z',
+  T: 'M168 210 C186 198 206 176 218 160 C228 146 220 134 206 142 C190 156 176 180 168 204 C164 214 164 216 168 210 Z',
+}
+const DIGIT_NAILS = {
+  L4: { cx: 50, cy: 48, rx: 6, ry: 8 },
+  L3: { cx: 98, cy: 30, rx: 6.5, ry: 8.5 },
+  L2: { cx: 146, cy: 22, rx: 6.5, ry: 9 },
+  L1: { cx: 192, cy: 38, rx: 6.5, ry: 8.5 },
+  R4: { cx: 50, cy: 48, rx: 6, ry: 8 },
+  R3: { cx: 98, cy: 30, rx: 6.5, ry: 8.5 },
+  R2: { cx: 146, cy: 22, rx: 6.5, ry: 9 },
+  R1: { cx: 192, cy: 38, rx: 6.5, ry: 8.5 },
+  T: { cx: 214, cy: 154, rx: 7, ry: 6 },
+}
+
+const handSides = ['left', 'right']
+const handMetrics = reactive({
+  left: { hScale: 1, vScale: 1 },
+  right: { hScale: 1, vScale: 1 },
+})
+
+function fingersOf(side) {
+  return side === 'left' ? ['L4', 'L3', 'L2', 'L1', 'T'] : ['R4', 'R3', 'R2', 'R1', 'T']
+}
+
+function digitPath(fid) {
+  return DIGIT_PATHS[fid] || DIGIT_PATHS.L2
+}
+
+function digitNail(fid) {
+  return DIGIT_NAILS[fid] || DIGIT_NAILS.L2
+}
+
+function isAimDigit(fid) {
+  return aimFingerId.value === fid
+}
+
+function isPressDigit(fid) {
+  return Boolean(fingerState[fid]?.pressing)
+}
 
 function key(id, label, sub = '', size = 'std', mod = false) {
   return { id, label, sub, size, mod }
@@ -305,7 +362,7 @@ function onKeyUp(e) {
   }
 }
 
-function keyCenter(code) {
+function keyCenterPx(code) {
   const el = keyEls[code]
   const board = boardRef.value
   if (!el || !board) return null
@@ -313,9 +370,82 @@ function keyCenter(code) {
   const kr = el.getBoundingClientRect()
   if (!br.width || !br.height) return null
   return {
-    x: ((kr.left + kr.width / 2) - br.left) / br.width * 100,
-    y: ((kr.top + kr.height / 2) - br.top) / br.height * 100,
+    x: kr.left + kr.width / 2 - br.left,
+    y: kr.top + kr.height / 2 - br.top,
   }
+}
+
+function spacePoint(side) {
+  const el = keyEls.Space
+  const board = boardRef.value
+  if (!el || !board) return null
+  const br = board.getBoundingClientRect()
+  const kr = el.getBoundingClientRect()
+  return {
+    x: kr.left - br.left + kr.width * (side === 'left' ? 0.28 : 0.72),
+    y: kr.top - br.top + kr.height * 0.42,
+  }
+}
+
+function resolveThumbCode(side) {
+  const code = resolveFingerTargetCode('T')
+  if (!code || code === 'Space') return 'Space'
+  if (side === 'left' && /Left/.test(code)) return code
+  if (side === 'right' && /Right/.test(code)) return code
+  return 'Space'
+}
+
+function pointForDigit(side, fid) {
+  if (fid === 'T') {
+    const code = resolveThumbCode(side)
+    if (code === 'Space') return spacePoint(side)
+    return keyCenterPx(code) || spacePoint(side)
+  }
+  const code = resolveFingerTargetCode(fid)
+  return keyCenterPx(code) || keyCenterPx(homeCodeForFinger(fid))
+}
+
+function homePointForDigit(side, fid) {
+  if (fid === 'T') return spacePoint(side)
+  return keyCenterPx(homeCodeForFinger(fid))
+}
+
+function computeHandScale(side) {
+  const pinky = keyCenterPx(side === 'left' ? 'KeyA' : 'Semicolon')
+  const index = keyCenterPx(side === 'left' ? 'KeyF' : 'KeyJ')
+  const keyEl = keyEls.KeyA || keyEls.KeyJ
+  const keyH = keyEl ? keyEl.getBoundingClientRect().height : 56
+  const hScale = pinky && index
+    ? Math.abs(index.x - pinky.x) / (LEFT_TIPS.L1.x - LEFT_TIPS.L4.x)
+    : 1
+  const vScale = (keyH * 2.75) / 160
+  return { hScale, vScale }
+}
+
+function handBoxStyle(side) {
+  const pinky = keyCenterPx(side === 'left' ? 'KeyA' : 'Semicolon')
+  if (!pinky) return { opacity: 0 }
+  const { hScale, vScale } = handMetrics[side]
+  const tipX = side === 'left' ? LEFT_TIPS.L4.x : (HAND_VB.w - LEFT_TIPS.L4.x)
+  return {
+    left: `${pinky.x - tipX * hScale}px`,
+    top: `${pinky.y - LEFT_TIPS.L4.y * vScale}px`,
+    width: `${HAND_VB.w * hScale}px`,
+    height: `${HAND_VB.h * vScale}px`,
+    opacity: 1,
+  }
+}
+
+function digitStyle(side, fid) {
+  const home = homePointForDigit(side, fid)
+  const target = pointForDigit(side, fid)
+  const { hScale, vScale } = handMetrics[side]
+  if (!home || !target || !hScale) return { transform: 'translate(0px, 0px)' }
+  let dx = (target.x - home.x) / hScale
+  let dy = (target.y - home.y) / vScale
+  if (side === 'right') dx = -dx
+  if (isPressDigit(fid)) dy += 7
+  return { transform: `translate(${dx}px, ${dy}px)` }
 }
 
 /** 根据当前按下的键，为每个手指选目标键：优先本指正在按的键，否则 home */
@@ -333,17 +463,12 @@ function resolveFingerTargetCode(fingerId) {
 function layoutFingers() {
   layoutRaf = 0
   if (!showHands.value || !boardRef.value) return
+  Object.assign(handMetrics.left, computeHandScale('left'))
+  Object.assign(handMetrics.right, computeHandScale('right'))
   for (const f of FINGERS) {
     const code = resolveFingerTargetCode(f.id)
-    const pos = keyCenter(code) || keyCenter(f.home)
-    if (!pos) continue
-    // 指尖落在键帽下方缝隙，手层在键后，不挡字母
-    const yBias = f.id === 'T' ? 16 : 8
-    const pressing = pressed.value.has(code) || hotId.value === code
     fingerState[f.id] = {
-      x: pos.x,
-      y: Math.min(94, Math.max(8, pos.y + yBias * 0.35)),
-      pressing,
+      pressing: pressed.value.has(code) || hotId.value === code,
       code,
     }
   }
@@ -352,32 +477,6 @@ function layoutFingers() {
 function scheduleFingerLayout() {
   if (layoutRaf) return
   layoutRaf = requestAnimationFrame(layoutFingers)
-}
-
-function fingerStyle(finger) {
-  const st = fingerState[finger.id]
-  if (!st) return { opacity: 0 }
-  const aiming = finger.id === aimFingerId.value
-  const pressing = Boolean(st.pressing)
-  return {
-    left: `${st.x}%`,
-    top: `${st.y}%`,
-    '--fc': finger.color,
-    opacity: aiming || pressing ? 1 : 0.72,
-  }
-}
-
-function palmStyle(side) {
-  // 掌心停在 home 行两侧
-  const leftHome = keyCenter('KeyD')
-  const rightHome = keyCenter('KeyK')
-  const pos = side === 'left' ? leftHome : rightHome
-  if (!pos) return { opacity: 0 }
-  return {
-    left: `${pos.x + (side === 'left' ? -6 : 6)}%`,
-    top: `${Math.min(90, pos.y + 22)}%`,
-    opacity: 0.92,
-  }
 }
 
 watch(
@@ -786,91 +885,45 @@ defineExpose({
   overflow: visible;
 }
 
-.tvk__palm {
+.tvk__hand {
   position: absolute;
-  width: 148px;
-  height: 132px;
-  transform: translate(-50%, -18%);
-  transition: left 0.18s cubic-bezier(0.22, 0.9, 0.3, 1), top 0.18s cubic-bezier(0.22, 0.9, 0.3, 1), opacity 0.25s ease;
-  filter: saturate(1.15);
+  overflow: visible;
+  pointer-events: none;
+  transform-box: view-box;
 }
-.tvk__palm--left { color: #6d28d9; }
-.tvk__palm--right { color: #c2410c; }
-
-.tvk__finger {
-  position: absolute;
-  width: 0;
-  height: 0;
-  transform: translate(-50%, -50%);
-  transition:
-    left 0.14s cubic-bezier(0.22, 0.9, 0.3, 1),
-    top 0.14s cubic-bezier(0.22, 0.9, 0.3, 1);
-  will-change: left, top;
+.tvk__hand-palm,
+.tvk__hand-wrist,
+.tvk__digit-body {
+  fill: rgba(248, 250, 252, 0.42);
+  stroke: #3f3f46;
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
-
-.tvk__finger-tip {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 20px;
-  height: 24px;
-  border-radius: 50% 50% 46% 46%;
-  background: var(--fc, #94a3b8);
-  transform: translate(-50%, -12%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.4) inset,
-    0 3px 10px color-mix(in srgb, var(--fc) 40%, transparent);
-  border: 1.5px solid rgba(255, 255, 255, 0.55);
-  transition: transform 0.1s ease, filter 0.1s ease, box-shadow 0.12s ease;
+.tvk__hand-wrist {
+  fill: none;
+  stroke-width: 3;
 }
-
-.tvk__finger-bone {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 12px;
-  height: 34px;
-  border-radius: 9px;
-  background: var(--fc, #94a3b8);
-  transform: translate(-50%, 22%);
-  opacity: 0.7;
-  filter: saturate(1.05);
+.tvk__digit {
+  transform-box: view-box;
+  transform-origin: center bottom;
+  transition: transform 0.16s cubic-bezier(0.22, 0.9, 0.3, 1);
+  will-change: transform;
 }
-
-.tvk__finger.is-aim .tvk__finger-tip,
-.tvk__finger.is-press .tvk__finger-tip {
-  width: 28px;
-  height: 34px;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.55) inset,
-    0 0 0 3px color-mix(in srgb, var(--fc) 70%, #fff),
-    0 0 28px var(--fc);
-  filter: brightness(1.12) saturate(1.2);
-  animation: tvk-aim 1.1s ease-in-out infinite;
+.tvk__digit-nail {
+  fill: rgba(255, 255, 255, 0.55);
+  stroke: #52525b;
+  stroke-width: 1.4;
 }
-
-.tvk__finger.is-press .tvk__finger-tip {
-  transform: translate(-50%, -42%) scale(0.88);
-  filter: brightness(1.05);
+.tvk__digit.is-aim .tvk__digit-body,
+.tvk__digit.is-press .tvk__digit-body {
+  fill: rgba(255, 247, 237, 0.62);
+  stroke: #1f2937;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.45));
 }
-
-.tvk__finger.is-thumb .tvk__finger-tip {
-  width: 26px;
-  height: 20px;
-  border-radius: 40%;
-  transform: translate(-50%, -40%) rotate(-18deg);
-}
-
-.tvk__finger.is-thumb.is-press .tvk__finger-tip {
-  transform: translate(-50%, -28%) rotate(-18deg) scale(0.9);
-}
-
-.tvk__finger.is-left .tvk__finger-bone {
-  transform: translate(-50%, 8%) rotate(8deg);
-}
-
-.tvk__finger.is-right .tvk__finger-bone {
-  transform: translate(-50%, 8%) rotate(-8deg);
+.tvk__digit.is-press {
+  transition-duration: 0.1s;
 }
 
 .tvk__legend {
@@ -957,11 +1010,8 @@ defineExpose({
   .tvk__key.is-wide { flex: 2.05 1 0; }
   .tvk__key.is-space { flex: 6.6 1 0; --w: auto; }
   .tvk__key.is-mod .tvk__main { font-size: 12px; }
-  .tvk__finger-tip { width: 22px; height: 26px; }
-  .tvk__finger.is-aim .tvk__finger-tip,
-  .tvk__finger.is-press .tvk__finger-tip { width: 30px; height: 36px; }
-  .tvk__finger.is-thumb .tvk__finger-tip { width: 28px; height: 20px; }
-  .tvk__palm { width: 168px; height: 150px; }
+  .tvk__hand-palm,
+  .tvk__digit-body { stroke-width: 2.6; }
 }
 
 @media (min-width: 1100px) and (max-height: 920px) {
@@ -985,8 +1035,8 @@ defineExpose({
   .tvk__key-face { font-size: 10px; }
   .tvk__key.is-mod .tvk__main { font-size: 9px; }
   .tvk__row { gap: 4px; justify-content: center; }
-  .tvk__finger-tip { width: 14px; height: 16px; }
-  .tvk__palm { width: 64px; height: 48px; }
+  .tvk__hand-palm,
+  .tvk__digit-body { stroke-width: 2; }
   .tvk__hint { display: none; }
   .tvk__legend { gap: 4px 8px; }
   .tvk__toggle {
@@ -997,13 +1047,10 @@ defineExpose({
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tvk__finger,
-  .tvk__palm,
+  .tvk__digit,
   .tvk__key {
     transition-duration: 0.01ms !important;
   }
-  .tvk.is-active .tvk__dot,
-  .tvk__finger.is-aim .tvk__finger-tip,
-  .tvk__finger.is-press .tvk__finger-tip { animation: none; }
+  .tvk.is-active .tvk__dot { animation: none; }
 }
 </style>
