@@ -929,9 +929,9 @@ defineExpose({
   .tvk__palm { width: 96px; height: 70px; }
 }
 
-@media (min-width: 1100px) and (max-height: 820px) {
+@media (min-width: 1100px) and (max-height: 920px) {
   .tvk {
-    --tvk-key-h: clamp(28px, 4.15vh, 34px);
+    --tvk-key-h: clamp(28px, 4.2vh, 36px);
     --tvk-key-fs: 12px;
     --tvk-row-gap: 3px;
     padding: 8px 14px 6px;
