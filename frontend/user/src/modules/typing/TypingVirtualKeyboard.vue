@@ -904,15 +904,16 @@ defineExpose({
 
 @media (min-width: 1100px) {
   .tvk {
-    /* 宽度铺满卡片；高度保持舒适方键，绝不随视口被压扁 */
-    --tvk-key-h: 42px;
-    --tvk-key-fs: 13.5px;
+    /* 铺满卡片宽度，但键高跟字母键宽度走，避免「又宽又扁」 */
+    --tvk-key-h: 56px;
+    --tvk-key-fs: 14px;
     --tvk-row-gap: 6px;
     flex: 0 0 auto;
-    padding: 10px 16px 10px;
+    padding: 8px 16px 10px;
   }
   .tvk__row {
     justify-content: stretch;
+    align-items: stretch;
     gap: 6px;
     padding-right: 0;
   }
@@ -921,36 +922,21 @@ defineExpose({
     width: auto;
     min-width: 0;
     height: var(--tvk-key-h);
-    min-height: 42px;
-    border-radius: 9px;
+    min-height: 56px;
+    border-radius: 10px;
   }
   .tvk__key.is-mid { flex: 1.45 1 0; }
   .tvk__key.is-wide { flex: 2.05 1 0; }
   .tvk__key.is-space { flex: 6.6 1 0; --w: auto; }
   .tvk__key.is-mod .tvk__main { font-size: 12px; }
-  .tvk__finger-tip { width: 24px; height: 28px; }
+  .tvk__finger-tip { width: 26px; height: 30px; }
   .tvk__finger-tip i { font-size: 10px; }
-  .tvk__finger.is-thumb .tvk__finger-tip { width: 28px; height: 20px; }
-  .tvk__palm { width: 96px; height: 70px; }
-}
-
-@media (min-width: 1100px) and (min-height: 900px) {
-  .tvk {
-    --tvk-key-h: 44px;
-    --tvk-key-fs: 14px;
-    --tvk-row-gap: 7px;
-  }
-  .tvk__key {
-    min-height: 44px;
-    border-radius: 10px;
-  }
+  .tvk__finger.is-thumb .tvk__finger-tip { width: 30px; height: 22px; }
+  .tvk__palm { width: 100px; height: 74px; }
 }
 
 @media (min-width: 1100px) and (max-height: 920px) {
-  /* 矮屏只收图例/内边距，不压键高 */
-  .tvk {
-    padding: 8px 14px 8px;
-  }
+  /* 矮屏只收图例与头栏，绝不压键高 */
   .tvk__head { margin-bottom: 6px; }
   .tvk__legend { display: none; }
 }
