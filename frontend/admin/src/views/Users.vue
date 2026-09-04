@@ -100,7 +100,7 @@
         </el-table-column>
         <el-table-column v-if="userStore.isPlatformAdmin" prop="tenantId" label="租户" width="80" />
         <el-table-column prop="createdAt" label="注册时间" width="170" />
-        <el-table-column label="操作" width="320" fixed="right">
+        <el-table-column label="操作" width="400" fixed="right">
           <template #default="{ row }">
             <el-button size="small" type="primary" link @click="openUsernameDialog(row)">
               <el-icon><EditPen /></el-icon>
@@ -113,6 +113,10 @@
             <el-button size="small" type="primary" link @click="openRoleDialog(row)">
               <el-icon><Edit /></el-icon>
               角色
+            </el-button>
+            <el-button size="small" type="warning" link @click="handleResetPassword(row)">
+              <el-icon><Unlock /></el-icon>
+              重置密码
             </el-button>
             <el-button size="small" type="danger" link @click="handleDelete(row)">
               <el-icon><Delete /></el-icon>
@@ -267,7 +271,7 @@
 <script setup>
 import { computed, reactive, ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Delete, Edit, EditPen, OfficeBuilding, Plus, RefreshRight } from '@element-plus/icons-vue'
+import { Delete, Edit, EditPen, OfficeBuilding, Plus, RefreshRight, Unlock } from '@element-plus/icons-vue'
 import request from '../api/request'
 import { batchDeleteSummary, idsFromRows } from '../utils/batchDelete'
 import { assignableRoleOptions } from '../utils/permissions'
@@ -560,6 +564,23 @@ async function updateRole() {
     console.error(e)
   } finally {
     savingRole.value = false
+  }
+}
+
+async function handleResetPassword(user) {
+  try {
+    await ElMessageBox.confirm(
+      `确认将用户「${user.username}」的密码重置为 123456？重置后请使用该密码登录。`,
+      '重置密码',
+      { type: 'warning', confirmButtonText: '重置', cancelButtonText: '取消' }
+    )
+    ensureSuccess(await request.post(`/api/user/${user.id}/password/reset`))
+    ElMessage.success('已重置为 123456')
+  } catch (e) {
+    if (e !== 'cancel' && e !== 'close') {
+      ElMessage.error(e.message || '重置密码失败')
+      console.error(e)
+    }
   }
 }
 
