@@ -338,7 +338,7 @@ const cfg = reactive({
 
 /** 代码练习：每个字符的语法 token 类名 */
 const tokenClasses = ref([])
-const showCodeTips = ref(true)
+const showCodeTips = ref(false)
 const spaceGlyph = ref(normalizeSpaceGlyph(loadPrefs().spaceGlyph))
 const spaceGlyphOptions = SPACE_GLYPH_OPTIONS
 
@@ -1125,7 +1125,7 @@ onBeforeUnmount(() => {
 /* 金山式主练习板：大字正文，点击即打；随屏缩放 */
 .typing-play__board {
   position: relative;
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-height: 0;
   display: flex;
   flex-direction: column;
@@ -1802,8 +1802,8 @@ onBeforeUnmount(() => {
 }
 
 .typing-play__kb {
-  flex: 0 1 auto;
-  min-height: 0;
+  flex: 0 0 auto;
+  min-height: auto;
   width: 100%;
 }
 
