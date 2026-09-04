@@ -31,13 +31,13 @@
     <div ref="boardRef" class="tvk__board">
       <!-- 幽灵手在键帽后面，字母始终可读 -->
       <div v-if="showHands" class="tvk__hands" aria-hidden="true">
-        <svg class="tvk__palm tvk__palm--left" :style="palmStyle('left')" viewBox="0 0 120 90">
-          <ellipse cx="58" cy="62" rx="46" ry="28" fill="currentColor" opacity="0.18" />
-          <path d="M22 48 C28 28 48 18 62 22 C74 26 86 40 90 54 C78 48 66 46 54 48 C42 50 30 52 22 48Z" fill="currentColor" opacity="0.22" />
+        <svg class="tvk__palm tvk__palm--left" :style="palmStyle('left')" viewBox="0 0 160 150">
+          <ellipse cx="78" cy="118" rx="54" ry="26" fill="currentColor" opacity="0.55" />
+          <path d="M28 108 C22 78 36 58 52 48 C48 28 58 10 70 10 C80 10 84 26 84 44 C88 22 100 8 112 12 C122 16 124 34 120 52 C128 30 144 26 150 40 C156 54 146 78 132 92 C118 104 96 112 78 116 C58 118 38 116 28 108Z" fill="currentColor" opacity="0.72" />
         </svg>
-        <svg class="tvk__palm tvk__palm--right" :style="palmStyle('right')" viewBox="0 0 120 90">
-          <ellipse cx="62" cy="62" rx="46" ry="28" fill="currentColor" opacity="0.18" />
-          <path d="M98 48 C92 28 72 18 58 22 C46 26 34 40 30 54 C42 48 54 46 66 48 C78 50 90 52 98 48Z" fill="currentColor" opacity="0.22" />
+        <svg class="tvk__palm tvk__palm--right" :style="palmStyle('right')" viewBox="0 0 160 150">
+          <ellipse cx="82" cy="118" rx="54" ry="26" fill="currentColor" opacity="0.55" />
+          <path d="M132 108 C138 78 124 58 108 48 C112 28 102 10 90 10 C80 10 76 26 76 44 C72 22 60 8 48 12 C38 16 36 34 40 52 C32 30 16 26 10 40 C4 54 14 78 28 92 C42 104 64 112 82 116 C102 118 122 116 132 108Z" fill="currentColor" opacity="0.72" />
         </svg>
 
         <div
@@ -338,11 +338,11 @@ function layoutFingers() {
     const pos = keyCenter(code) || keyCenter(f.home)
     if (!pos) continue
     // 指尖落在键帽下方缝隙，手层在键后，不挡字母
-    const yBias = f.id === 'T' ? 14 : 11
+    const yBias = f.id === 'T' ? 16 : 8
     const pressing = pressed.value.has(code) || hotId.value === code
     fingerState[f.id] = {
       x: pos.x,
-      y: Math.min(96, Math.max(6, pos.y + yBias * 0.18)),
+      y: Math.min(94, Math.max(8, pos.y + yBias * 0.35)),
       pressing,
       code,
     }
@@ -363,7 +363,7 @@ function fingerStyle(finger) {
     left: `${st.x}%`,
     top: `${st.y}%`,
     '--fc': finger.color,
-    opacity: aiming || pressing ? 1 : 0.28,
+    opacity: aiming || pressing ? 1 : 0.72,
   }
 }
 
@@ -375,8 +375,8 @@ function palmStyle(side) {
   if (!pos) return { opacity: 0 }
   return {
     left: `${pos.x + (side === 'left' ? -6 : 6)}%`,
-    top: `${Math.min(92, pos.y + 18)}%`,
-    opacity: props.active || pressed.value.size ? 0.95 : 0.55,
+    top: `${Math.min(90, pos.y + 22)}%`,
+    opacity: 0.92,
   }
 }
 
@@ -677,11 +677,20 @@ defineExpose({
 
 .tvk.is-hands .tvk__key:not(.is-mod) {
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--finger-soft) 18%, #fff) 0%, color-mix(in srgb, var(--finger-soft) 10%, #f8fafc) 100%);
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--finger) 42%, rgba(255, 255, 255, 0.72)) 0%,
+      color-mix(in srgb, var(--finger) 28%, rgba(248, 250, 252, 0.62)) 100%);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.95) inset,
-    0 0 0 1px color-mix(in srgb, var(--finger) 16%, var(--tvk-key-edge)),
-    0 3px 0 rgba(15, 23, 42, 0.07);
+    0 1px 0 rgba(255, 255, 255, 0.88) inset,
+    0 0 0 1.5px color-mix(in srgb, var(--finger) 48%, var(--tvk-key-edge)),
+    0 3px 0 color-mix(in srgb, var(--finger) 22%, rgba(15, 23, 42, 0.08));
+}
+
+.tvk.is-hands .tvk__key.is-home:not(.is-mod) {
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--finger) 58%, rgba(255, 255, 255, 0.7)) 0%,
+      color-mix(in srgb, var(--finger) 38%, rgba(248, 250, 252, 0.58)) 100%);
 }
 
 .tvk.is-hands .tvk__key.is-home:not(.is-mod)::after {
@@ -689,12 +698,12 @@ defineExpose({
   position: absolute;
   left: 50%;
   bottom: 5px;
-  width: 10px;
-  height: 2px;
+  width: 16px;
+  height: 3px;
   border-radius: 2px;
-  background: color-mix(in srgb, var(--finger) 70%, #64748b);
+  background: var(--finger);
   transform: translateX(-50%);
-  opacity: 0.75;
+  opacity: 0.95;
 }
 
 .tvk__key.is-mid { --w: 54px; }
@@ -711,6 +720,9 @@ defineExpose({
   font-size: var(--tvk-key-fs);
   font-weight: 700;
   user-select: none;
+}
+.tvk.is-hands .tvk__key-face {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
 .tvk__key.is-mod .tvk__main {
@@ -747,11 +759,12 @@ defineExpose({
   transform: scale(1);
 }
 
-.tvk__key.is-target:not(.is-down) {
+.tvk.is-hands .tvk__key.is-target:not(.is-down) {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.95) inset,
-    0 0 0 1.5px color-mix(in srgb, var(--finger, var(--tvk-accent)) 65%, transparent),
-    0 0 16px color-mix(in srgb, var(--finger, var(--tvk-accent)) 35%, transparent);
+    0 0 0 2.5px var(--finger, var(--tvk-accent)),
+    0 0 0 5px color-mix(in srgb, var(--finger, var(--tvk-accent)) 28%, transparent),
+    0 0 22px color-mix(in srgb, var(--finger, var(--tvk-accent)) 55%, transparent);
 }
 
 .tvk__key.is-hot:not(.is-down) {
@@ -775,12 +788,14 @@ defineExpose({
 
 .tvk__palm {
   position: absolute;
-  width: 88px;
-  height: 66px;
-  color: #64748b;
-  transform: translate(-50%, -30%);
+  width: 148px;
+  height: 132px;
+  transform: translate(-50%, -18%);
   transition: left 0.18s cubic-bezier(0.22, 0.9, 0.3, 1), top 0.18s cubic-bezier(0.22, 0.9, 0.3, 1), opacity 0.25s ease;
+  filter: saturate(1.15);
 }
+.tvk__palm--left { color: #6d28d9; }
+.tvk__palm--right { color: #c2410c; }
 
 .tvk__finger {
   position: absolute;
@@ -797,15 +812,15 @@ defineExpose({
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 16px;
-  height: 20px;
+  width: 20px;
+  height: 24px;
   border-radius: 50% 50% 46% 46%;
   background: var(--fc, #94a3b8);
-  transform: translate(-50%, -20%);
+  transform: translate(-50%, -12%);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.28) inset,
-    0 2px 8px rgba(15, 23, 42, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 3px 10px color-mix(in srgb, var(--fc) 40%, transparent);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
   transition: transform 0.1s ease, filter 0.1s ease, box-shadow 0.12s ease;
 }
 
@@ -813,24 +828,25 @@ defineExpose({
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 9px;
-  height: 22px;
-  border-radius: 8px;
+  width: 12px;
+  height: 34px;
+  border-radius: 9px;
   background: var(--fc, #94a3b8);
-  transform: translate(-50%, 18%);
-  opacity: 0.4;
-  filter: saturate(0.85);
+  transform: translate(-50%, 22%);
+  opacity: 0.7;
+  filter: saturate(1.05);
 }
 
 .tvk__finger.is-aim .tvk__finger-tip,
 .tvk__finger.is-press .tvk__finger-tip {
-  width: 20px;
-  height: 24px;
+  width: 28px;
+  height: 34px;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.4) inset,
-    0 0 0 2px color-mix(in srgb, var(--fc) 45%, transparent),
-    0 0 18px color-mix(in srgb, var(--fc) 55%, transparent);
-  filter: brightness(1.08);
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 0 0 3px color-mix(in srgb, var(--fc) 70%, #fff),
+    0 0 28px var(--fc);
+  filter: brightness(1.12) saturate(1.2);
+  animation: tvk-aim 1.1s ease-in-out infinite;
 }
 
 .tvk__finger.is-press .tvk__finger-tip {
@@ -889,6 +905,11 @@ defineExpose({
   50% { opacity: 0.75; transform: scale(0.92); }
 }
 
+@keyframes tvk-aim {
+  0%, 100% { filter: brightness(1.12) saturate(1.2); }
+  50% { filter: brightness(1.28) saturate(1.35); }
+}
+
 @keyframes tvk-ok {
   0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
   40% {
@@ -936,11 +957,11 @@ defineExpose({
   .tvk__key.is-wide { flex: 2.05 1 0; }
   .tvk__key.is-space { flex: 6.6 1 0; --w: auto; }
   .tvk__key.is-mod .tvk__main { font-size: 12px; }
-  .tvk__finger-tip { width: 18px; height: 22px; }
+  .tvk__finger-tip { width: 22px; height: 26px; }
   .tvk__finger.is-aim .tvk__finger-tip,
-  .tvk__finger.is-press .tvk__finger-tip { width: 22px; height: 26px; }
-  .tvk__finger.is-thumb .tvk__finger-tip { width: 24px; height: 18px; }
-  .tvk__palm { width: 100px; height: 74px; }
+  .tvk__finger.is-press .tvk__finger-tip { width: 30px; height: 36px; }
+  .tvk__finger.is-thumb .tvk__finger-tip { width: 28px; height: 20px; }
+  .tvk__palm { width: 168px; height: 150px; }
 }
 
 @media (min-width: 1100px) and (max-height: 920px) {
@@ -981,6 +1002,8 @@ defineExpose({
   .tvk__key {
     transition-duration: 0.01ms !important;
   }
-  .tvk.is-active .tvk__dot { animation: none; }
+  .tvk.is-active .tvk__dot,
+  .tvk__finger.is-aim .tvk__finger-tip,
+  .tvk__finger.is-press .tvk__finger-tip { animation: none; }
 }
 </style>
