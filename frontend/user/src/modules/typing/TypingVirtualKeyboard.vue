@@ -1,12 +1,10 @@
 <template>
   <div
     class="tvk"
-    :class="{
-      'is-active': active,
-      'is-composing': composing,
-      'is-hands': showHands,
-    }"
-    aria-hidden="true"
+    :class="rootClassList"
+    :data-hands="showHands ? 'on' : 'off'"
+    :data-expected="targetCode || ''"
+    :data-aim-finger="aimFingerId || ''"
   >
     <div class="tvk__glow" />
     <div class="tvk__head">
@@ -21,7 +19,7 @@
         :class="{ 'is-on': showHands }"
         :aria-pressed="showHands"
         :aria-label="showHands ? '关闭指法手势' : '开启指法手势'"
-        @click="showHands = !showHands"
+        @click="toggleHands"
       >
         <span class="tvk__toggle-track" aria-hidden="true" />
         <span class="tvk__toggle-label">指法{{ showHands ? '开' : '关' }}</span>
@@ -40,20 +38,20 @@
           viewBox="0 0 240 320"
         >
           <g :transform="side === 'right' ? 'translate(240,0) scale(-1,1)' : undefined">
-            <path class="tvk__hand-wrist" d="M84 286 C76 312 164 312 156 286" />
-            <path class="tvk__hand-palm" d="M44 204 C36 168 54 150 80 146 L90 154 L118 150 L146 152 L172 160 C200 174 212 204 200 236 C188 274 148 292 118 294 C76 296 50 268 44 228 Z" />
+            <path class="tvk__hand-wrist" d="M82 278 C74 308 166 308 158 278" />
+            <path class="tvk__hand-palm" :d="PALM_PATH" />
+            <path class="tvk__hand-palm-line" :d="PALM_CREASE" />
             <g
               v-for="fid in fingersOf(side)"
               :key="fid"
-              class="tvk__digit"
-              :class="{
-                'is-aim': isAimDigit(fid),
-                'is-press': isPressDigit(fid),
-                'is-thumb': fid === 'T',
-              }"
+              :class="digitClassName(fid)"
+              :data-fid="fid"
+              :data-aim="aimFingerId === fid ? '1' : '0'"
+              :data-press="isPressDigit(fid) ? '1' : '0'"
               :style="digitStyle(side, fid)"
             >
               <path class="tvk__digit-body" :d="digitPath(fid)" />
+              <path v-if="digitCrease(fid)" class="tvk__digit-crease" :d="digitCrease(fid)" />
               <ellipse
                 class="tvk__digit-nail"
                 :cx="digitNail(fid).cx"
@@ -81,9 +79,10 @@
               'is-bad': flashId === key.id && flashKind === 'bad',
               'is-mod': key.mod,
               'is-home': isHomeKey(key.id),
-              'is-target': targetCode === key.id,
+              'is-target': isTargetKey(key.id),
             },
           ]"
+          :data-target="isTargetKey(key.id) ? '1' : '0'"
           :style="keyFingerStyle(key.id)"
         >
           <span class="tvk__key-face">
@@ -109,7 +108,9 @@ import {
   FINGERS,
   fingerColorForCode,
   fingerIdForCode,
+  fingerReachDelta,
   homeCodeForFinger,
+  resolveFingerTargetCode as resolveFingerTarget,
 } from './fingerMap'
 
 const props = defineProps({
@@ -128,8 +129,10 @@ const flashId = ref('')
 const flashKind = ref(null)
 const boardRef = ref(null)
 const keyEls = reactive({})
-/** fingerId → { x, y, pressing, code } 相对 board 的中心点 % 或 px */
+/** fingerId → { pressing, code } */
 const fingerState = reactive({})
+/** 布局代数：几何量测完成后强制重绘手指位移 */
+const layoutGen = ref(0)
 
 let flashTimer = null
 let hotTimer = null
@@ -195,12 +198,19 @@ const rows = computed(() => [
 const legendFingers = computed(() => FINGERS.filter((f) => f.id !== 'T').concat(FINGERS.filter((f) => f.id === 'T')))
 
 const targetCode = computed(() => {
-  if (hotId.value) return hotId.value
   if (props.expectedKeyCode) return props.expectedKeyCode
+  if (hotId.value) return hotId.value
   return ''
 })
 
 const aimFingerId = computed(() => fingerIdForCode(targetCode.value) || '')
+
+const rootClassList = computed(() => ({
+  'is-active': props.active,
+  'is-composing': props.composing,
+  'is-hands': showHands.value,
+  'is-plain': !showHands.value,
+}))
 
 const activeFingerHint = computed(() => {
   if (!props.active && !pressed.value.size) return showHands.value ? 'ASDF / JKL; 归位 · 开始输入' : '开始输入后点亮'
@@ -213,33 +223,46 @@ const activeFingerHint = computed(() => {
 
 const HAND_VB = { w: 240, h: 320 }
 const LEFT_TIPS = {
-  L4: { x: 50, y: 40 },
-  L3: { x: 98, y: 22 },
-  L2: { x: 146, y: 14 },
-  L1: { x: 194, y: 30 },
-  T: { x: 216, y: 186 },
+  L4: { x: 48, y: 46 },
+  L3: { x: 96, y: 20 },
+  L2: { x: 144, y: 10 },
+  L1: { x: 192, y: 28 },
+  T: { x: 214, y: 168 },
 }
+const PALM_PATH = 'M40 172 C32 148 52 138 78 136 L92 146 L118 144 L146 146 L172 154 C198 166 214 192 206 226 C196 264 160 286 122 288 C78 290 46 268 38 228 C34 204 36 186 40 172 Z'
+const PALM_CREASE = 'M78 168 C96 186 128 192 158 178'
 const DIGIT_PATHS = {
-  L4: 'M50 40 C42 42 38 54 40 72 L46 150 C48 162 68 162 68 148 L62 70 C60 50 58 38 50 40 Z',
-  L3: 'M98 22 C90 24 86 36 88 56 L92 148 C94 160 114 160 114 146 L108 54 C106 34 106 20 98 22 Z',
-  L2: 'M146 14 C138 16 134 28 136 48 L138 146 C140 158 160 158 160 144 L156 46 C154 26 154 12 146 14 Z',
-  L1: 'M194 30 C186 28 178 40 180 60 L172 152 C170 164 190 168 194 154 L200 58 C204 40 202 28 194 30 Z',
-  R4: 'M50 40 C42 42 38 54 40 72 L46 150 C48 162 68 162 68 148 L62 70 C60 50 58 38 50 40 Z',
-  R3: 'M98 22 C90 24 86 36 88 56 L92 148 C94 160 114 160 114 146 L108 54 C106 34 106 20 98 22 Z',
-  R2: 'M146 14 C138 16 134 28 136 48 L138 146 C140 158 160 158 160 144 L156 46 C154 26 154 12 146 14 Z',
-  R1: 'M194 30 C186 28 178 40 180 60 L172 152 C170 164 190 168 194 154 L200 58 C204 40 202 28 194 30 Z',
-  T: 'M168 210 C186 198 206 176 218 160 C228 146 220 134 206 142 C190 156 176 180 168 204 C164 214 164 216 168 210 Z',
+  L4: 'M48 46 C38 50 34 64 36 86 C38 116 42 146 48 164 C50 176 70 176 72 162 C66 142 62 112 60 86 C58 64 58 44 48 46 Z',
+  L3: 'M96 20 C86 24 82 38 84 60 C86 96 90 136 94 160 C96 172 116 172 118 158 C112 134 108 94 106 60 C104 38 106 18 96 20 Z',
+  L2: 'M144 10 C134 14 130 28 132 50 C134 90 136 138 140 162 C142 174 162 174 164 160 C160 134 156 88 154 50 C152 28 154 8 144 10 Z',
+  L1: 'M192 28 C180 26 174 40 176 62 C170 102 164 144 168 164 C170 176 192 180 196 166 C198 144 202 100 204 62 C206 42 204 26 192 28 Z',
+  R4: 'M48 46 C38 50 34 64 36 86 C38 116 42 146 48 164 C50 176 70 176 72 162 C66 142 62 112 60 86 C58 64 58 44 48 46 Z',
+  R3: 'M96 20 C86 24 82 38 84 60 C86 96 90 136 94 160 C96 172 116 172 118 158 C112 134 108 94 106 60 C104 38 106 18 96 20 Z',
+  R2: 'M144 10 C134 14 130 28 132 50 C134 90 136 138 140 162 C142 174 162 174 164 160 C160 134 156 88 154 50 C152 28 154 8 144 10 Z',
+  R1: 'M192 28 C180 26 174 40 176 62 C170 102 164 144 168 164 C170 176 192 180 196 166 C198 144 202 100 204 62 C206 42 204 26 192 28 Z',
+  T: 'M164 198 C184 182 204 164 216 152 C230 140 234 154 222 164 C206 178 188 198 176 216 C170 226 160 222 164 208 Z',
+}
+const DIGIT_CREASES = {
+  L4: 'M40 88 C50 84 62 84 68 88 M42 124 C52 120 64 120 70 124',
+  L3: 'M86 64 C96 60 110 60 116 64 M88 108 C98 104 112 104 116 108',
+  L2: 'M134 54 C144 50 158 50 164 54 M136 100 C146 96 158 96 162 100',
+  L1: 'M176 68 C186 64 200 64 206 68 M174 112 C184 108 198 110 204 114',
+  R4: 'M40 88 C50 84 62 84 68 88 M42 124 C52 120 64 120 70 124',
+  R3: 'M86 64 C96 60 110 60 116 64 M88 108 C98 104 112 104 116 108',
+  R2: 'M134 54 C144 50 158 50 164 54 M136 100 C146 96 158 96 162 100',
+  R1: 'M176 68 C186 64 200 64 206 68 M174 112 C184 108 198 110 204 114',
+  T: 'M186 176 C196 168 206 162 214 158',
 }
 const DIGIT_NAILS = {
-  L4: { cx: 50, cy: 48, rx: 6, ry: 8 },
-  L3: { cx: 98, cy: 30, rx: 6.5, ry: 8.5 },
-  L2: { cx: 146, cy: 22, rx: 6.5, ry: 9 },
-  L1: { cx: 192, cy: 38, rx: 6.5, ry: 8.5 },
-  R4: { cx: 50, cy: 48, rx: 6, ry: 8 },
-  R3: { cx: 98, cy: 30, rx: 6.5, ry: 8.5 },
-  R2: { cx: 146, cy: 22, rx: 6.5, ry: 9 },
-  R1: { cx: 192, cy: 38, rx: 6.5, ry: 8.5 },
-  T: { cx: 214, cy: 154, rx: 7, ry: 6 },
+  L4: { cx: 48, cy: 54, rx: 6.2, ry: 8.2 },
+  L3: { cx: 96, cy: 28, rx: 6.6, ry: 8.8 },
+  L2: { cx: 144, cy: 18, rx: 6.8, ry: 9.2 },
+  L1: { cx: 192, cy: 36, rx: 6.6, ry: 8.8 },
+  R4: { cx: 48, cy: 54, rx: 6.2, ry: 8.2 },
+  R3: { cx: 96, cy: 28, rx: 6.6, ry: 8.8 },
+  R2: { cx: 144, cy: 18, rx: 6.8, ry: 9.2 },
+  R1: { cx: 192, cy: 36, rx: 6.6, ry: 8.8 },
+  T: { cx: 216, cy: 156, rx: 7.2, ry: 6.2 },
 }
 
 const handSides = ['left', 'right']
@@ -256,16 +279,33 @@ function digitPath(fid) {
   return DIGIT_PATHS[fid] || DIGIT_PATHS.L2
 }
 
+function digitCrease(fid) {
+  return DIGIT_CREASES[fid] || ''
+}
+
 function digitNail(fid) {
   return DIGIT_NAILS[fid] || DIGIT_NAILS.L2
 }
 
-function isAimDigit(fid) {
-  return aimFingerId.value === fid
+function digitClassName(fid) {
+  return [
+    'tvk__digit',
+    aimFingerId.value === fid ? 'is-aim' : '',
+    fingerState[fid]?.pressing ? 'is-press' : '',
+    fid === 'T' ? 'is-thumb' : '',
+  ].filter(Boolean).join(' ')
 }
 
 function isPressDigit(fid) {
   return Boolean(fingerState[fid]?.pressing)
+}
+
+function isTargetKey(id) {
+  return Boolean(targetCode.value) && targetCode.value === id
+}
+
+function toggleHands() {
+  showHands.value = !showHands.value
 }
 
 function key(id, label, sub = '', size = 'std', mod = false) {
@@ -289,8 +329,14 @@ function isHomeKey(id) {
 }
 
 function keyFingerStyle(id) {
+  if (!showHands.value) {
+    return {
+      '--finger': 'transparent',
+      '--finger-soft': 'transparent',
+    }
+  }
   const color = fingerColorForCode(id)
-  if (!color || !showHands.value) return null
+  if (!color) return null
   return {
     '--finger': color,
     '--finger-soft': color + '33',
@@ -437,27 +483,25 @@ function handBoxStyle(side) {
 }
 
 function digitStyle(side, fid) {
+  const _tick = layoutGen.value
   const home = homePointForDigit(side, fid)
   const target = pointForDigit(side, fid)
   const { hScale, vScale } = handMetrics[side]
-  if (!home || !target || !hScale) return { transform: 'translate(0px, 0px)' }
-  let dx = (target.x - home.x) / hScale
-  let dy = (target.y - home.y) / vScale
-  if (side === 'right') dx = -dx
-  if (isPressDigit(fid)) dy += 7
-  return { transform: `translate(${dx}px, ${dy}px)` }
+  const { x, y } = fingerReachDelta(home, target, {
+    hScale,
+    vScale,
+    flipX: side === 'right',
+    press: Boolean(_tick && isPressDigit(fid)),
+  })
+  return { transform: `translate(${x}px, ${y}px)` }
 }
 
-/** 根据当前按下的键，为每个手指选目标键：优先本指正在按的键，否则 home */
 function resolveFingerTargetCode(fingerId) {
-  const activeCodes = [...pressed.value]
-  const pressing = activeCodes.find((c) => fingerIdForCode(c) === fingerId)
-  if (pressing) return pressing
-  if (hotId.value && fingerIdForCode(hotId.value) === fingerId) return hotId.value
-  if (props.expectedKeyCode && fingerIdForCode(props.expectedKeyCode) === fingerId) {
-    return props.expectedKeyCode
-  }
-  return homeCodeForFinger(fingerId)
+  return resolveFingerTarget(fingerId, {
+    pressedCodes: [...pressed.value],
+    hotId: hotId.value,
+    expectedKeyCode: props.expectedKeyCode,
+  })
 }
 
 function layoutFingers() {
@@ -472,6 +516,7 @@ function layoutFingers() {
       code,
     }
   }
+  layoutGen.value += 1
 }
 
 function scheduleFingerLayout() {
@@ -584,6 +629,10 @@ defineExpose({
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tvk.is-hands {
+  padding-bottom: 12px;
 }
 
 .tvk.is-active {
@@ -774,25 +823,41 @@ defineExpose({
   z-index: 1;
 }
 
-.tvk.is-hands .tvk__key:not(.is-mod) {
+.tvk.is-hands[data-hands="on"] .tvk__key:not(.is-mod) {
   background:
     linear-gradient(180deg,
-      color-mix(in srgb, var(--finger) 42%, rgba(255, 255, 255, 0.72)) 0%,
-      color-mix(in srgb, var(--finger) 28%, rgba(248, 250, 252, 0.62)) 100%);
+      color-mix(in srgb, var(--finger) 36%, rgba(255, 255, 255, 0.4)) 0%,
+      color-mix(in srgb, var(--finger) 22%, rgba(248, 250, 252, 0.28)) 100%);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.88) inset,
     0 0 0 1.5px color-mix(in srgb, var(--finger) 48%, var(--tvk-key-edge)),
     0 3px 0 color-mix(in srgb, var(--finger) 22%, rgba(15, 23, 42, 0.08));
 }
 
-.tvk.is-hands .tvk__key.is-home:not(.is-mod) {
+.tvk.is-hands[data-hands="on"] .tvk__key.is-home:not(.is-mod) {
   background:
     linear-gradient(180deg,
-      color-mix(in srgb, var(--finger) 58%, rgba(255, 255, 255, 0.7)) 0%,
-      color-mix(in srgb, var(--finger) 38%, rgba(248, 250, 252, 0.58)) 100%);
+      color-mix(in srgb, var(--finger) 48%, rgba(255, 255, 255, 0.36)) 0%,
+      color-mix(in srgb, var(--finger) 30%, rgba(248, 250, 252, 0.24)) 100%);
 }
 
-.tvk.is-hands .tvk__key.is-home:not(.is-mod)::after {
+.tvk.is-plain,
+.tvk[data-hands="off"] {
+  --finger: transparent;
+  --finger-soft: transparent;
+}
+
+.tvk.is-plain .tvk__key:not(.is-mod),
+.tvk[data-hands="off"] .tvk__key:not(.is-mod) {
+  background: var(--tvk-key);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 0 0 1px var(--tvk-key-edge),
+    0 3px 0 rgba(15, 23, 42, 0.08),
+    0 6px 12px rgba(15, 23, 42, 0.04);
+}
+
+.tvk.is-hands[data-hands="on"] .tvk__key.is-home:not(.is-mod)::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -820,8 +885,8 @@ defineExpose({
   font-weight: 700;
   user-select: none;
 }
-.tvk.is-hands .tvk__key-face {
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.72);
+.tvk.is-hands[data-hands="on"] .tvk__key-face {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.86);
 }
 
 .tvk__key.is-mod .tvk__main {
@@ -858,7 +923,7 @@ defineExpose({
   transform: scale(1);
 }
 
-.tvk.is-hands .tvk__key.is-target:not(.is-down) {
+.tvk.is-hands[data-hands="on"] .tvk__key.is-target:not(.is-down) {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.95) inset,
     0 0 0 2.5px var(--finger, var(--tvk-accent)),
@@ -894,15 +959,28 @@ defineExpose({
 .tvk__hand-palm,
 .tvk__hand-wrist,
 .tvk__digit-body {
-  fill: rgba(248, 250, 252, 0.42);
-  stroke: #3f3f46;
-  stroke-width: 2.4;
+  fill: rgba(255, 255, 255, 0.34);
+  stroke: #27272a;
+  stroke-width: 2.8;
   stroke-linejoin: round;
   stroke-linecap: round;
+  paint-order: stroke fill;
+}
+.tvk__hand-palm,
+.tvk__digit-body {
+  filter: drop-shadow(0 0 0.7px #fff) drop-shadow(0 1px 1px rgba(15, 23, 42, 0.16));
 }
 .tvk__hand-wrist {
   fill: none;
-  stroke-width: 3;
+  stroke-width: 3.2;
+}
+.tvk__hand-palm-line,
+.tvk__digit-crease {
+  fill: none;
+  stroke: #3f3f46;
+  stroke-width: 1.35;
+  stroke-linecap: round;
+  opacity: 0.72;
 }
 .tvk__digit {
   transform-box: view-box;
@@ -911,9 +989,9 @@ defineExpose({
   will-change: transform;
 }
 .tvk__digit-nail {
-  fill: rgba(255, 255, 255, 0.55);
-  stroke: #52525b;
-  stroke-width: 1.4;
+  fill: rgba(255, 255, 255, 0.62);
+  stroke: #3f3f46;
+  stroke-width: 1.35;
 }
 .tvk__digit.is-aim .tvk__digit-body,
 .tvk__digit.is-press .tvk__digit-body {
@@ -1011,7 +1089,7 @@ defineExpose({
   .tvk__key.is-space { flex: 6.6 1 0; --w: auto; }
   .tvk__key.is-mod .tvk__main { font-size: 12px; }
   .tvk__hand-palm,
-  .tvk__digit-body { stroke-width: 2.6; }
+  .tvk__digit-body { stroke-width: 3; }
 }
 
 @media (min-width: 1100px) and (max-height: 920px) {

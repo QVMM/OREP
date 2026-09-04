@@ -61,6 +61,29 @@ export function homeCodeForFinger(fingerId) {
   return FINGER_BY_ID[fingerId]?.home || null
 }
 
+/**
+ * 某根手指此刻该伸向哪颗键：
+ * 正在按下 > 刚落下的热键 > 下一期望键 > 该指 home。
+ */
+export function resolveFingerTargetCode(fingerId, { pressedCodes = [], hotId = '', expectedKeyCode = '' } = {}) {
+  if (!fingerId) return ''
+  const pressing = pressedCodes.find((c) => fingerIdForCode(c) === fingerId)
+  if (pressing) return pressing
+  if (hotId && fingerIdForCode(hotId) === fingerId) return hotId
+  if (expectedKeyCode && fingerIdForCode(expectedKeyCode) === fingerId) return expectedKeyCode
+  return homeCodeForFinger(fingerId) || ''
+}
+
+/** 手指从 home 伸向目标键的 SVG 位移（右手套用 flipX） */
+export function fingerReachDelta(home, target, { hScale = 1, vScale = 1, flipX = false, press = false } = {}) {
+  if (!home || !target || !hScale || !vScale) return { x: 0, y: 0 }
+  let x = (target.x - home.x) / hScale
+  let y = (target.y - home.y) / vScale
+  if (flipX) x = -x
+  if (press) y += 7
+  return { x, y }
+}
+
 /** 供键盘按键染色 */
 export function fingerColorForCode(code) {
   const f = fingerForCode(code)
