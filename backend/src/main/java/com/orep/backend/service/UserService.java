@@ -29,6 +29,8 @@ public class UserService {
     private DataScopeService dataScopeService;
 
     private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    /** 管理端一键重置后的默认密码（明文仅用于哈希，不入库） */
+    static final String DEFAULT_RESET_PASSWORD = "123456";
     private static final List<String> ALLOWED_ROLES = List.of(
             "ADMIN", "SCHOOL_ADMIN", "TEACHER", "STUDENT", "REVIEWER", "EXPERT"
     );
@@ -266,6 +268,34 @@ public class UserService {
         int updated = jdbc.update("UPDATE users SET username = ? WHERE id = ?", next, userId);
         if (updated != 1) {
             throw new RuntimeException("用户名更新失败，请刷新后重试");
+        }
+    }
+
+    /**
+     * 管理端一键将目标用户密码重置为默认值 {@link #DEFAULT_RESET_PASSWORD}。
+     * 使用与注册/新增用户相同的 Hutool BCrypt，保证可用该明文登录。
+     * 仅 UPDATE password 字段，避免 updateById 误伤其它列；不改动用户自助改密。
+     */
+    @Transactional
+    public void resetUserPassword(Long userId, Long operatorUserId, String operatorRole, Long operatorTenantId) {
+        AdminAccess.assertCanManageUsers(operatorRole);
+        if (userId == null) {
+            throw new RuntimeException("用户 ID 无效");
+        }
+        User user = userMapper.selectById(userId);
+        if (user == null) {
+            throw new RuntimeException("用户不存在");
+        }
+        AdminAccess.assertSameTenant(operatorRole, operatorTenantId, user.getTenantId());
+        dataScopeService.assertUserAccess(operatorUserId, operatorRole, user);
+        assertTeacherCanModifyTarget(operatorRole, user.getRole());
+        String hashed = cn.hutool.crypto.digest.BCrypt.hashpw(
+                DEFAULT_RESET_PASSWORD,
+                cn.hutool.crypto.digest.BCrypt.gensalt()
+        );
+        int updated = jdbc.update("UPDATE users SET password = ? WHERE id = ?", hashed, userId);
+        if (updated != 1) {
+            throw new RuntimeException("密码重置失败，请刷新后重试");
         }
     }
 

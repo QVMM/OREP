@@ -65,6 +65,16 @@ public class UserController {
         return Result.success();
     }
 
+    /** 管理端一键重置密码为默认值 123456 */
+    @PostMapping("/{id}/password/reset")
+    public Result<Void> resetPassword(@PathVariable Long id, HttpServletRequest req) {
+        Long tenantId = (Long) req.getAttribute("tenantId");
+        Long operatorUserId = (Long) req.getAttribute("userId");
+        String role = (String) req.getAttribute("role");
+        userService.resetUserPassword(id, operatorUserId, role, tenantId);
+        return Result.success();
+    }
+
     @PostMapping("/{id}/organization")
     public Result<Void> updateOrganization(@PathVariable Long id, @RequestBody Map<String, Object> params, HttpServletRequest req) {
         Long tenantId = (Long) req.getAttribute("tenantId");
