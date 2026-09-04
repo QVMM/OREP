@@ -203,9 +203,10 @@ function isTargetKey(id) {
   return Boolean(targetCode.value) && targetCode.value === id
 }
 
-/** 字母/数字/符号键 + 空格显示指法圆标；功能键只靠色带，避免挡住字 */
+/** 字母/数字/符号键 + 空格显示指法圆标；Tab/Shift 等功能键只靠色带 */
 function badgeFor(keyItem) {
-  if (!showHands.value || !keyItem || keyItem.mod) return null
+  if (!showHands.value || !keyItem) return null
+  if (keyItem.mod && keyItem.id !== 'Space') return null
   return fingerForCode(keyItem.id)
 }
 
