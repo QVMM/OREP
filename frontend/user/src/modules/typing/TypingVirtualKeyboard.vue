@@ -1,8 +1,16 @@
 <template>
   <div
+    class="tvk-host"
+    :class="rootClassList"
+    :data-hands="handsFlag"
+    :data-expected="targetCode || ''"
+    :data-aim-finger="aimFingerId || ''"
+  >
+  <div
+    ref="tvkRef"
     class="tvk"
     :class="rootClassList"
-    :data-hands="showHands ? 'on' : 'off'"
+    :data-hands="handsFlag"
     :data-expected="targetCode || ''"
     :data-aim-finger="aimFingerId || ''"
   >
@@ -48,6 +56,7 @@
               :data-fid="fid"
               :data-aim="aimFingerId === fid ? '1' : '0'"
               :data-press="isPressDigit(fid) ? '1' : '0'"
+              :data-code="resolveFingerTargetCode(fid)"
               :style="digitStyle(side, fid)"
             >
               <path class="tvk__digit-body" :d="digitPath(fid)" />
@@ -100,6 +109,7 @@
       </span>
     </div>
   </div>
+  </div>
 </template>
 
 <script setup>
@@ -122,7 +132,10 @@ const props = defineProps({
   expectedKeyCode: { type: String, default: '' },
 })
 
+defineOptions({ inheritAttrs: false })
+
 const showHands = ref(true)
+const tvkRef = ref(null)
 const pressed = ref(new Set())
 const hotId = ref('')
 const flashId = ref('')
@@ -205,12 +218,15 @@ const targetCode = computed(() => {
 
 const aimFingerId = computed(() => fingerIdForCode(targetCode.value) || '')
 
-const rootClassList = computed(() => ({
-  'is-active': props.active,
-  'is-composing': props.composing,
-  'is-hands': showHands.value,
-  'is-plain': !showHands.value,
-}))
+const rootClassList = computed(() => {
+  const cls = []
+  if (props.active) cls.push('is-active')
+  if (props.composing) cls.push('is-composing')
+  cls.push(showHands.value ? 'is-hands' : 'is-plain')
+  return cls.join(' ')
+})
+
+const handsFlag = computed(() => (showHands.value ? 'on' : 'off'))
 
 const activeFingerHint = computed(() => {
   if (!props.active && !pressed.value.size) return showHands.value ? 'ASDF / JKL; 归位 · 开始输入' : '开始输入后点亮'
@@ -504,19 +520,65 @@ function resolveFingerTargetCode(fingerId) {
   })
 }
 
+function applyHandsChrome(el) {
+  if (!el) return
+  el.classList.toggle('is-hands', showHands.value)
+  el.classList.toggle('is-plain', !showHands.value)
+  el.classList.toggle('is-active', props.active)
+  el.classList.toggle('is-composing', props.composing)
+  el.dataset.hands = showHands.value ? 'on' : 'off'
+  el.dataset.expected = targetCode.value || ''
+  el.dataset.aimFinger = aimFingerId.value || ''
+}
+
+function syncChromeDom() {
+  applyHandsChrome(tvkRef.value)
+  applyHandsChrome(tvkRef.value?.parentElement)
+  const aim = aimFingerId.value
+  const target = targetCode.value
+  boardRef.value?.querySelectorAll('[data-fid]').forEach((node) => {
+    const fid = node.getAttribute('data-fid')
+    const side = node.closest('.tvk__hand--right') ? 'right' : 'left'
+    const press = Boolean(fingerState[fid]?.pressing)
+    node.classList.toggle('is-aim', fid === aim)
+    node.classList.toggle('is-press', press)
+    node.setAttribute('data-aim', fid === aim ? '1' : '0')
+    node.setAttribute('data-press', press ? '1' : '0')
+    node.setAttribute('data-code', resolveFingerTargetCode(fid))
+    const home = homePointForDigit(side, fid)
+    const dest = pointForDigit(side, fid)
+    const { hScale, vScale } = handMetrics[side]
+    const { x, y } = fingerReachDelta(home, dest, {
+      hScale,
+      vScale,
+      flipX: side === 'right',
+      press,
+    })
+    node.style.transform = `translate(${x}px, ${y}px)`
+  })
+  Object.entries(keyEls).forEach(([id, node]) => {
+    if (!node) return
+    const on = Boolean(target) && id === target
+    node.classList.toggle('is-target', on)
+    node.setAttribute('data-target', on ? '1' : '0')
+  })
+}
+
 function layoutFingers() {
   layoutRaf = 0
-  if (!showHands.value || !boardRef.value) return
-  Object.assign(handMetrics.left, computeHandScale('left'))
-  Object.assign(handMetrics.right, computeHandScale('right'))
-  for (const f of FINGERS) {
-    const code = resolveFingerTargetCode(f.id)
-    fingerState[f.id] = {
-      pressing: pressed.value.has(code) || hotId.value === code,
-      code,
+  if (showHands.value && boardRef.value) {
+    Object.assign(handMetrics.left, computeHandScale('left'))
+    Object.assign(handMetrics.right, computeHandScale('right'))
+    for (const f of FINGERS) {
+      const code = resolveFingerTargetCode(f.id)
+      fingerState[f.id] = {
+        pressing: pressed.value.has(code) || hotId.value === code,
+        code,
+      }
     }
+    layoutGen.value += 1
   }
-  layoutGen.value += 1
+  syncChromeDom()
 }
 
 function scheduleFingerLayout() {
@@ -540,11 +602,10 @@ watch(
   }
 )
 
-watch(showHands, async (on) => {
-  if (on) {
-    await nextTick()
-    scheduleFingerLayout()
-  }
+watch(showHands, async () => {
+  await nextTick()
+  scheduleFingerLayout()
+  syncChromeDom()
 })
 
 watch(
@@ -572,7 +633,10 @@ onMounted(async () => {
   scheduleFingerLayout()
   // 布局稳定后再算一次
   setTimeout(scheduleFingerLayout, 80)
-  setTimeout(scheduleFingerLayout, 300)
+  setTimeout(() => {
+    scheduleFingerLayout()
+    syncChromeDom()
+  }, 300)
 })
 
 onBeforeUnmount(() => {
@@ -602,6 +666,10 @@ defineExpose({
 </script>
 
 <style scoped>
+.tvk-host {
+  display: block;
+  width: 100%;
+}
 .tvk {
   --tvk-bg0: rgba(255, 255, 255, 0.72);
   --tvk-bg1: rgba(248, 250, 252, 0.9);
@@ -823,7 +891,7 @@ defineExpose({
   z-index: 1;
 }
 
-.tvk.is-hands[data-hands="on"] .tvk__key:not(.is-mod) {
+.tvk-host:has(.tvk__hands) .tvk__key:not(.is-mod) {
   background:
     linear-gradient(180deg,
       color-mix(in srgb, var(--finger) 36%, rgba(255, 255, 255, 0.4)) 0%,
@@ -834,21 +902,19 @@ defineExpose({
     0 3px 0 color-mix(in srgb, var(--finger) 22%, rgba(15, 23, 42, 0.08));
 }
 
-.tvk.is-hands[data-hands="on"] .tvk__key.is-home:not(.is-mod) {
+.tvk-host:has(.tvk__hands) .tvk__key.is-home:not(.is-mod) {
   background:
     linear-gradient(180deg,
       color-mix(in srgb, var(--finger) 48%, rgba(255, 255, 255, 0.36)) 0%,
       color-mix(in srgb, var(--finger) 30%, rgba(248, 250, 252, 0.24)) 100%);
 }
 
-.tvk.is-plain,
-.tvk[data-hands="off"] {
+.tvk-host:not(:has(.tvk__hands)) .tvk__key {
   --finger: transparent;
   --finger-soft: transparent;
 }
 
-.tvk.is-plain .tvk__key:not(.is-mod),
-.tvk[data-hands="off"] .tvk__key:not(.is-mod) {
+.tvk-host:not(:has(.tvk__hands)) .tvk__key:not(.is-mod) {
   background: var(--tvk-key);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.95) inset,
@@ -857,7 +923,7 @@ defineExpose({
     0 6px 12px rgba(15, 23, 42, 0.04);
 }
 
-.tvk.is-hands[data-hands="on"] .tvk__key.is-home:not(.is-mod)::after {
+.tvk-host:has(.tvk__hands) .tvk__key.is-home:not(.is-mod)::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -876,7 +942,7 @@ defineExpose({
 
 .tvk__key-face {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   height: 100%;
   display: grid;
   place-content: center;
@@ -885,8 +951,11 @@ defineExpose({
   font-weight: 700;
   user-select: none;
 }
-.tvk.is-hands[data-hands="on"] .tvk__key-face {
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.86);
+.tvk-host:has(.tvk__hands) .tvk__key-face {
+  text-shadow:
+    0 0 3px #fff,
+    0 1px 0 #fff,
+    0 0 8px rgba(255, 255, 255, 0.9);
 }
 
 .tvk__key.is-mod .tvk__main {
@@ -923,7 +992,7 @@ defineExpose({
   transform: scale(1);
 }
 
-.tvk.is-hands[data-hands="on"] .tvk__key.is-target:not(.is-down) {
+.tvk-host:has(.tvk__hands) .tvk__key.is-target:not(.is-down) {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.95) inset,
     0 0 0 2.5px var(--finger, var(--tvk-accent)),
