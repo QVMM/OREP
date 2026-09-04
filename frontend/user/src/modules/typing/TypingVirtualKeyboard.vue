@@ -29,7 +29,36 @@
     </div>
 
     <div ref="boardRef" class="tvk__board">
-      <!-- 指法色带键盘 -->
+      <!-- 幽灵手在键帽后面，字母始终可读 -->
+      <div v-if="showHands" class="tvk__hands" aria-hidden="true">
+        <svg class="tvk__palm tvk__palm--left" :style="palmStyle('left')" viewBox="0 0 120 90">
+          <ellipse cx="58" cy="62" rx="46" ry="28" fill="currentColor" opacity="0.18" />
+          <path d="M22 48 C28 28 48 18 62 22 C74 26 86 40 90 54 C78 48 66 46 54 48 C42 50 30 52 22 48Z" fill="currentColor" opacity="0.22" />
+        </svg>
+        <svg class="tvk__palm tvk__palm--right" :style="palmStyle('right')" viewBox="0 0 120 90">
+          <ellipse cx="62" cy="62" rx="46" ry="28" fill="currentColor" opacity="0.18" />
+          <path d="M98 48 C92 28 72 18 58 22 C46 26 34 40 30 54 C42 48 54 46 66 48 C78 50 90 52 98 48Z" fill="currentColor" opacity="0.22" />
+        </svg>
+
+        <div
+          v-for="finger in visibleFingers"
+          :key="finger.id"
+          class="tvk__finger"
+          :class="{
+            'is-press': finger.pressing,
+            'is-aim': finger.id === aimFingerId,
+            'is-rest': finger.id !== aimFingerId && !finger.pressing,
+            'is-left': finger.hand === 'left',
+            'is-right': finger.hand === 'right',
+            'is-thumb': finger.id === 'T',
+          }"
+          :style="fingerStyle(finger)"
+        >
+          <span class="tvk__finger-tip" />
+          <span class="tvk__finger-bone" />
+        </div>
+      </div>
+
       <div v-for="(row, ri) in rows" :key="ri" class="tvk__row" :style="{ '--pad': row.pad }">
         <div
           v-for="key in row.keys"
@@ -55,38 +84,6 @@
             <span v-if="key.sub" class="tvk__sub">{{ key.sub }}</span>
           </span>
           <span class="tvk__ripple" />
-        </div>
-      </div>
-
-      <!-- 标准指法手势层：指尖圆点 + 简化手掌轮廓，位置跟键实时同步 -->
-      <div v-if="showHands" class="tvk__hands" aria-hidden="true">
-        <!-- 左手腕轮廓 -->
-        <svg class="tvk__palm tvk__palm--left" :style="palmStyle('left')" viewBox="0 0 120 90">
-          <ellipse cx="58" cy="62" rx="46" ry="28" fill="currentColor" opacity="0.14" />
-          <path d="M22 48 C28 28 48 18 62 22 C74 26 86 40 90 54 C78 48 66 46 54 48 C42 50 30 52 22 48Z" fill="currentColor" opacity="0.2" />
-        </svg>
-        <!-- 右手腕轮廓 -->
-        <svg class="tvk__palm tvk__palm--right" :style="palmStyle('right')" viewBox="0 0 120 90">
-          <ellipse cx="62" cy="62" rx="46" ry="28" fill="currentColor" opacity="0.14" />
-          <path d="M98 48 C92 28 72 18 58 22 C46 26 34 40 30 54 C42 48 54 46 66 48 C78 50 90 52 98 48Z" fill="currentColor" opacity="0.2" />
-        </svg>
-
-        <div
-          v-for="finger in visibleFingers"
-          :key="finger.id"
-          class="tvk__finger"
-          :class="{
-            'is-press': finger.pressing,
-            'is-left': finger.hand === 'left',
-            'is-right': finger.hand === 'right',
-            'is-thumb': finger.id === 'T',
-          }"
-          :style="fingerStyle(finger)"
-        >
-          <span class="tvk__finger-tip" :style="{ background: finger.color }">
-            <i>{{ finger.short }}</i>
-          </span>
-          <span class="tvk__finger-bone" :style="{ background: finger.color }" />
         </div>
       </div>
     </div>
@@ -195,6 +192,8 @@ const targetCode = computed(() => {
   if (props.expectedKeyCode) return props.expectedKeyCode
   return ''
 })
+
+const aimFingerId = computed(() => fingerIdForCode(targetCode.value) || '')
 
 const activeFingerHint = computed(() => {
   if (!props.active && !pressed.value.size) return showHands.value ? 'ASDF / JKL; 归位 · 开始输入' : '开始输入后点亮'
@@ -338,12 +337,12 @@ function layoutFingers() {
     const code = resolveFingerTargetCode(f.id)
     const pos = keyCenter(code) || keyCenter(f.home)
     if (!pos) continue
-    // 拇指略向下，其余指尖略上移，避免完全挡住键帽字
-    const yBias = f.id === 'T' ? 10 : -8
+    // 指尖落在键帽下方缝隙，手层在键后，不挡字母
+    const yBias = f.id === 'T' ? 14 : 11
     const pressing = pressed.value.has(code) || hotId.value === code
     fingerState[f.id] = {
       x: pos.x,
-      y: Math.min(96, Math.max(4, pos.y + yBias * 0.15)),
+      y: Math.min(96, Math.max(6, pos.y + yBias * 0.18)),
       pressing,
       code,
     }
@@ -358,11 +357,13 @@ function scheduleFingerLayout() {
 function fingerStyle(finger) {
   const st = fingerState[finger.id]
   if (!st) return { opacity: 0 }
+  const aiming = finger.id === aimFingerId.value
+  const pressing = Boolean(st.pressing)
   return {
     left: `${st.x}%`,
     top: `${st.y}%`,
     '--fc': finger.color,
-    opacity: 1,
+    opacity: aiming || pressing ? 1 : 0.28,
   }
 }
 
@@ -640,6 +641,8 @@ defineExpose({
 }
 
 .tvk__row {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   gap: 7px;
@@ -669,14 +672,15 @@ defineExpose({
     box-shadow 0.12s ease,
     background 0.12s ease;
   overflow: hidden;
+  z-index: 1;
 }
 
 .tvk.is-hands .tvk__key:not(.is-mod) {
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--finger-soft) 55%, #fff) 0%, color-mix(in srgb, var(--finger-soft) 35%, #f1f5f9) 100%);
+    linear-gradient(180deg, color-mix(in srgb, var(--finger-soft) 18%, #fff) 0%, color-mix(in srgb, var(--finger-soft) 10%, #f8fafc) 100%);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.95) inset,
-    0 0 0 1px color-mix(in srgb, var(--finger) 28%, var(--tvk-key-edge)),
+    0 0 0 1px color-mix(in srgb, var(--finger) 16%, var(--tvk-key-edge)),
     0 3px 0 rgba(15, 23, 42, 0.07);
 }
 
@@ -760,12 +764,12 @@ defineExpose({
 .tvk__key.is-ok { animation: tvk-ok 0.32s ease; }
 .tvk__key.is-bad { animation: tvk-bad 0.32s ease; }
 
-/* —— 指法手势层 —— */
+/* —— 指法手势层：永远在键帽下面 —— */
 .tvk__hands {
   pointer-events: none;
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 0;
   overflow: visible;
 }
 
@@ -793,37 +797,40 @@ defineExpose({
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 22px;
-  height: 26px;
+  width: 16px;
+  height: 20px;
   border-radius: 50% 50% 46% 46%;
-  transform: translate(-50%, -58%);
+  background: var(--fc, #94a3b8);
+  transform: translate(-50%, -20%);
   box-shadow:
-    0 2px 0 rgba(255, 255, 255, 0.35) inset,
-    0 4px 10px rgba(15, 23, 42, 0.18);
-  border: 1.5px solid rgba(255, 255, 255, 0.55);
-  display: grid;
-  place-items: center;
-  transition: transform 0.1s ease, filter 0.1s ease;
-}
-
-.tvk__finger-tip i {
-  font-style: normal;
-  font-size: 9px;
-  font-weight: 800;
-  color: rgba(15, 23, 42, 0.78);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+    0 1px 0 rgba(255, 255, 255, 0.28) inset,
+    0 2px 8px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.1s ease, filter 0.1s ease, box-shadow 0.12s ease;
 }
 
 .tvk__finger-bone {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 10px;
-  height: 18px;
+  width: 9px;
+  height: 22px;
   border-radius: 8px;
-  transform: translate(-50%, 10%);
-  opacity: 0.45;
-  filter: saturate(0.9);
+  background: var(--fc, #94a3b8);
+  transform: translate(-50%, 18%);
+  opacity: 0.4;
+  filter: saturate(0.85);
+}
+
+.tvk__finger.is-aim .tvk__finger-tip,
+.tvk__finger.is-press .tvk__finger-tip {
+  width: 20px;
+  height: 24px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 0 0 2px color-mix(in srgb, var(--fc) 45%, transparent),
+    0 0 18px color-mix(in srgb, var(--fc) 55%, transparent);
+  filter: brightness(1.08);
 }
 
 .tvk__finger.is-press .tvk__finger-tip {
@@ -929,9 +936,10 @@ defineExpose({
   .tvk__key.is-wide { flex: 2.05 1 0; }
   .tvk__key.is-space { flex: 6.6 1 0; --w: auto; }
   .tvk__key.is-mod .tvk__main { font-size: 12px; }
-  .tvk__finger-tip { width: 26px; height: 30px; }
-  .tvk__finger-tip i { font-size: 10px; }
-  .tvk__finger.is-thumb .tvk__finger-tip { width: 30px; height: 22px; }
+  .tvk__finger-tip { width: 18px; height: 22px; }
+  .tvk__finger.is-aim .tvk__finger-tip,
+  .tvk__finger.is-press .tvk__finger-tip { width: 22px; height: 26px; }
+  .tvk__finger.is-thumb .tvk__finger-tip { width: 24px; height: 18px; }
   .tvk__palm { width: 100px; height: 74px; }
 }
 
@@ -956,8 +964,7 @@ defineExpose({
   .tvk__key-face { font-size: 10px; }
   .tvk__key.is-mod .tvk__main { font-size: 9px; }
   .tvk__row { gap: 4px; justify-content: center; }
-  .tvk__finger-tip { width: 18px; height: 22px; }
-  .tvk__finger-tip i { font-size: 8px; }
+  .tvk__finger-tip { width: 14px; height: 16px; }
   .tvk__palm { width: 64px; height: 48px; }
   .tvk__hint { display: none; }
   .tvk__legend { gap: 4px 8px; }

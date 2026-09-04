@@ -225,6 +225,7 @@
           :composing="composing"
           :last-hit="kbLastHit"
           :last-key-code="kbLastKeyCode"
+          :expected-key-code="expectedKeyCode"
         />
       </div>
     </div>
@@ -261,6 +262,7 @@ import {
   normalizeCodeText,
 } from '@/modules/typing/codePractice'
 import { charsOf, createTypingEngine, isLeadingIndentChar } from '@/modules/typing/engine'
+import { keyCodeForChar } from '@/modules/typing/fingerMap'
 import { RANKED_TEXT_VERSION } from '@/modules/typing/rankedText'
 import {
   buildTypingSessionPayload,
@@ -402,6 +404,12 @@ const codeIndentHint = computed(() => {
 const caretLineDisplay = computed(() => {
   const total = Math.max(1, textLines.value.length)
   return `${(caretLine.value || 0) + 1}/${total}`
+})
+
+/** 下一目标字符对应的物理键，供虚拟键盘指法预示 */
+const expectedKeyCode = computed(() => {
+  if (composing.value || engineStatus.value === 'finished') return ''
+  return keyCodeForChar(targetChars.value[caret.value] || '')
 })
 
 const headerTitle = computed(() => {
