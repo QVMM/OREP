@@ -71,8 +71,8 @@
       <!--
         金山打字通形态：
         - 正文即练习区，已打/未打/错误直接着色
-        - 空格按 spaceGlyph：bullet · / bar 下划线 / invisible 空隙
-        - 代码模式自动跳过行首缩进
+        - 散文空格按 spaceGlyph：bullet · / bar 下划线 / invisible 空隙
+        - 代码模式空格强制 invisible；行首缩进自动跳过
         - 布局随视口动态缩放
       -->
       <div
@@ -95,7 +95,12 @@
           <span v-else-if="isRanked">排位赛 · 10 分钟 · 1500 字</span>
           <span v-else-if="isCodeMode">{{ codeLangLabel }} · 自动缩进 · Tab={{ codeIndentHint }}</span>
           <span v-else>自主练习</span>
-          <div class="space-glyph-switch" role="group" aria-label="空格显示">
+          <div
+            v-if="!isCodeMode"
+            class="space-glyph-switch"
+            role="group"
+            aria-label="空格显示"
+          >
             <button
               v-for="opt in spaceGlyphOptions"
               :key="opt.value"
@@ -135,7 +140,7 @@
             'is-latin': !isCodeMode && (cfg.lang === 'en' || cfg.lang === 'mixed'),
             'is-en': !isCodeMode && cfg.lang === 'en',
             'is-code': isCodeMode,
-            [`space-glyph-${spaceGlyph}`]: true,
+            [`space-glyph-${effectiveSpaceGlyph}`]: true,
           }"
           :style="codeViewportStyle"
         >
@@ -170,6 +175,7 @@
                     'is-tab': ch === '\t',
                     'is-newline': ch === '\n',
                     'is-auto-indent': isAutoIndentAt(line.start + chIdx),
+                    'is-auto-indent-start': isAutoIndentStart(line.start + chIdx),
                   },
                 ]"
                 :data-idx="line.start + chIdx"
@@ -265,6 +271,7 @@ import {
 import {
   loadPrefs,
   normalizeSpaceGlyph,
+  resolveSpaceGlyph,
   saveLastResult,
   savePrefs,
   SPACE_GLYPH_OPTIONS,
@@ -371,6 +378,11 @@ const isCodeMode = computed(() => {
   if (cfg.playMode === 'code' || cfg.sourceType === 'code') return true
   return looksLikeCode(cfg.customText || targetChars.value.join(''))
 })
+
+/** 代码练习强制 invisible，避免空格看起来像 `_` 或真实 `·` */
+const effectiveSpaceGlyph = computed(() =>
+  resolveSpaceGlyph(spaceGlyph.value, { code: isCodeMode.value })
+)
 
 const codeLangLabel = computed(() => {
   const lang = cfg.codeLang || 'javascript'
@@ -516,6 +528,10 @@ function isAutoIndentAt(idx) {
   return isCodeMode.value && isLeadingIndentChar(targetChars.value, idx)
 }
 
+function isAutoIndentStart(idx) {
+  return isAutoIndentAt(idx) && (idx === 0 || !isLeadingIndentChar(targetChars.value, idx - 1))
+}
+
 /** 光标已落在行首缩进之后的第一个实义字符（空格/Tab 视为可选 no-op） */
 function isAfterAutoIndent(idx = caret.value) {
   if (!isCodeMode.value) return false
@@ -532,7 +548,7 @@ function displayChar(ch, idx) {
   if (isAutoIndentAt(idx)) return '\u00a0'
   if (ch === '\t') return '····'
   if (ch === ' ') {
-    if (spaceGlyph.value === 'bullet') return '·'
+    if (effectiveSpaceGlyph.value === 'bullet') return '·'
     return '\u00a0'
   }
   return ch
@@ -1458,28 +1474,9 @@ onBeforeUnmount(() => {
   box-shadow: inset 0 -2px 0 0 #a78bfa;
 }
 
-.typing-viewport.is-code.space-glyph-bar .typing-ch.is-space.is-pending::after {
-  border-bottom-color: rgba(100, 116, 139, 0.7);
-}
-.typing-viewport.is-code.space-glyph-bar .typing-ch.is-space.is-correct::after {
-  border-bottom-color: rgba(148, 163, 184, 0.55);
-}
 .typing-viewport.is-code .typing-ch.is-space.is-caret {
   background: rgba(56, 189, 248, 0.18) !important;
-}
-.typing-viewport.is-code.space-glyph-bar .typing-ch.is-space.is-caret::after {
-  border-bottom-color: #38bdf8;
-}
-.typing-viewport.is-code.space-glyph-bullet .typing-ch.is-space.is-pending {
-  color: #64748b;
-}
-.typing-viewport.is-code.space-glyph-bullet .typing-ch.is-space.is-correct {
-  color: #475569;
-  opacity: 0.55;
-}
-.typing-viewport.is-code.space-glyph-bullet .typing-ch.is-space.is-caret {
-  color: #e2e8f0;
-  font-weight: 700;
+  box-shadow: none;
 }
 .typing-viewport.is-code .typing-ch.is-tab.is-pending {
   color: #334155;
@@ -1698,10 +1695,10 @@ onBeforeUnmount(() => {
   box-shadow: inset 0 -2px 0 0 #f59e0b;
 }
 
-/* 代码行首自动缩进：闷色槽，不要求敲 */
+/* 代码行首自动缩进：连续闷色条，不用 `_` / `·` */
 .typing-ch.is-auto-indent {
   color: transparent !important;
-  background: rgba(148, 163, 184, 0.22) !important;
+  background: rgba(51, 65, 85, 0.28) !important;
   border-radius: 0;
   box-shadow: none !important;
   opacity: 1 !important;
@@ -1709,15 +1706,33 @@ onBeforeUnmount(() => {
 }
 .typing-ch.is-auto-indent::after {
   content: none !important;
+  border: 0 !important;
 }
 .typing-ch.is-auto-indent.is-tab {
   min-width: 2.4em;
 }
 .typing-viewport.is-code .typing-ch.is-auto-indent {
-  background: rgba(71, 85, 105, 0.5) !important;
+  background: rgba(51, 65, 85, 0.42) !important;
+}
+.typing-viewport.is-code .typing-ch.is-auto-indent.is-auto-indent-start {
+  box-shadow: inset 2px 0 0 0 rgba(148, 163, 184, 0.4) !important;
 }
 .typing-viewport.is-code .typing-ch.is-auto-indent.is-caret {
   background: rgba(56, 189, 248, 0.16) !important;
+}
+
+/* 代码空格：永远无字形、无下划线（即使偏好是 bullet/bar） */
+.typing-viewport.is-code .typing-ch.is-space {
+  color: transparent !important;
+  background: transparent;
+}
+.typing-viewport.is-code .typing-ch.is-space::after {
+  content: none !important;
+  border: 0 !important;
+}
+.typing-viewport.is-code .typing-ch.is-space.is-wrong {
+  background: rgba(239, 68, 68, 0.35);
+  border-radius: 3px;
 }
 
 /* 金山式配色：未打浅灰，已打深色，错字红底 */

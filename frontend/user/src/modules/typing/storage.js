@@ -15,6 +15,20 @@ export function normalizeSpaceGlyph(value) {
   return 'bullet'
 }
 
+/**
+ * 代码练习固定 invisible：不下划线（像 `_`）、不中间点（像真实 `·`）。
+ * 散文/排位仍用用户偏好。
+ */
+export function resolveSpaceGlyph(value, { code = false } = {}) {
+  if (code) return 'invisible'
+  return normalizeSpaceGlyph(value)
+}
+
+export function spaceGlyphOptionsForMode({ code = false } = {}) {
+  if (code) return []
+  return SPACE_GLYPH_OPTIONS
+}
+
 function safeParse(raw, fallback) {
   try {
     return raw ? JSON.parse(raw) : fallback

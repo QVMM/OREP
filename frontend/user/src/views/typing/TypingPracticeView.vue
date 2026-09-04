@@ -292,7 +292,7 @@
             </div>
           </template>
 
-          <div class="th-block">
+          <div v-if="playMode !== 'code'" class="th-block">
             <span class="th-label">空格显示</span>
             <div class="th-chips" role="group" aria-label="空格显示">
               <button
