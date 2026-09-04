@@ -10,6 +10,34 @@
         back-label="退出"
         back-to="/typing-practice"
       >
+        <template #localNavigation>
+          <div class="play-hud" aria-live="polite">
+            <div class="play-hud__item is-time">
+              <strong>{{ timeDisplay }}</strong>
+              <span>{{ isRanked ? '剩余时间' : '剩余' }}</span>
+            </div>
+            <div class="play-hud__item">
+              <strong>{{ live.cpm }}</strong>
+              <span>CPM</span>
+            </div>
+            <div class="play-hud__item">
+              <strong>{{ live.accuracy }}%</strong>
+              <span>正确率</span>
+            </div>
+            <div class="play-hud__item">
+              <strong>{{ live.correctChars }}</strong>
+              <span>正确</span>
+            </div>
+            <div class="play-hud__item">
+              <strong>{{ progressLabel }}</strong>
+              <span>进度</span>
+            </div>
+            <div v-if="isCodeMode" class="play-hud__item">
+              <strong>{{ caretLineDisplay }}</strong>
+              <span>行</span>
+            </div>
+          </div>
+        </template>
         <template #actions>
           <button
             v-if="engineStatus === 'running'"
@@ -40,38 +68,11 @@
       :class="{ 'is-code-session': isCodeMode }"
       :style="layoutStyle"
     >
-      <!-- 金山式顶栏指标 -->
-      <div class="typing-play__hud" aria-live="polite">
-        <div class="hud-item hud-item--time">
-          <strong>{{ timeDisplay }}</strong>
-          <span>{{ isRanked ? '剩余时间' : '剩余' }}</span>
-        </div>
-        <div class="hud-item">
-          <strong>{{ live.cpm }}</strong>
-          <span>速度 CPM</span>
-        </div>
-        <div class="hud-item">
-          <strong>{{ live.accuracy }}%</strong>
-          <span>正确率</span>
-        </div>
-        <div class="hud-item">
-          <strong>{{ live.correctChars }}</strong>
-          <span>正确字</span>
-        </div>
-        <div class="hud-item">
-          <strong>{{ progressLabel }}</strong>
-          <span>进度</span>
-        </div>
-        <div v-if="isCodeMode" class="hud-item">
-          <strong>{{ caretLineDisplay }}</strong>
-          <span>当前行</span>
-        </div>
-      </div>
-
       <!--
         金山打字通形态：
         - 正文即练习区，已打/未打/错误直接着色
-        - 空格用底线提示（不显示 ·）
+        - 散文空格按 spaceGlyph：bullet · / bar 下划线 / invisible 空隙
+        - 代码模式空格强制 invisible；行首缩进自动跳过
         - 布局随视口动态缩放
       -->
       <div
@@ -89,11 +90,27 @@
         @click="focusInput"
       >
         <div class="typing-play__status-row">
-          <span v-if="engineStatus === 'idle'">{{ isCodeMode ? '点击编辑器开始输入' : '点击文案开始输入' }}</span>
-          <span v-else-if="engineStatus === 'paused'">已暂停 · 点击继续 · Esc 暂停</span>
-          <span v-else-if="isRanked">排位赛 · 10 分钟 · 1500 字</span>
-          <span v-else-if="isCodeMode">{{ codeLangLabel }} · Tab={{ codeIndentHint }} · 语法高亮</span>
-          <span v-else>自主练习</span>
+          <span v-if="engineStatus === 'idle'" class="typing-play__hint">点击开始</span>
+          <span v-else-if="engineStatus === 'paused'" class="typing-play__hint">已暂停 · 点击继续</span>
+          <span v-else-if="isCodeMode" class="typing-play__hint">{{ codeLangLabel }} · Tab={{ codeIndentHint }}</span>
+          <span v-else class="typing-play__hint">Esc 暂停</span>
+          <div
+            v-if="!isCodeMode"
+            class="space-glyph-switch"
+            role="group"
+            aria-label="空格显示"
+          >
+            <button
+              v-for="opt in spaceGlyphOptions"
+              :key="opt.value"
+              type="button"
+              class="space-glyph-switch__btn"
+              :class="{ 'is-active': spaceGlyph === opt.value }"
+              :title="opt.hint"
+              :aria-pressed="spaceGlyph === opt.value"
+              @click.stop="setSpaceGlyph(opt.value)"
+            >{{ opt.label }}</button>
+          </div>
           <span v-if="composing" class="typing-play__composing-tag">输入中…</span>
         </div>
 
@@ -122,8 +139,8 @@
             'is-latin': !isCodeMode && (cfg.lang === 'en' || cfg.lang === 'mixed'),
             'is-en': !isCodeMode && cfg.lang === 'en',
             'is-code': isCodeMode,
+            [`space-glyph-${effectiveSpaceGlyph}`]: true,
           }"
-          :style="codeViewportStyle"
         >
           <div
             class="typing-lines"
@@ -155,11 +172,13 @@
                     'is-space': ch === ' ',
                     'is-tab': ch === '\t',
                     'is-newline': ch === '\n',
+                    'is-auto-indent': isAutoIndentAt(line.start + chIdx),
+                    'is-auto-indent-start': isAutoIndentStart(line.start + chIdx),
                   },
                 ]"
                 :data-idx="line.start + chIdx"
-                :aria-label="charAriaLabel(ch)"
-              >{{ displayChar(ch) }}</span>
+                :aria-label="charAriaLabel(ch, line.start + chIdx)"
+              >{{ displayChar(ch, line.start + chIdx) }}</span>
             </div>
           </div>
         </div>
@@ -199,13 +218,16 @@
       </div>
 
       <!-- 模拟键盘 + 手势反馈（自主练习 / 代码练习都保留） -->
-      <TypingVirtualKeyboard
-        ref="keyboardRef"
-        :active="engineStatus === 'running' || composing"
-        :composing="composing"
-        :last-hit="kbLastHit"
-        :last-key-code="kbLastKeyCode"
-      />
+      <div class="typing-play__kb">
+        <TypingVirtualKeyboard
+          ref="keyboardRef"
+          :active="engineStatus === 'running' || composing"
+          :composing="composing"
+          :last-hit="kbLastHit"
+          :last-key-code="kbLastKeyCode"
+          :expected-key-code="expectedKeyCode"
+        />
+      </div>
     </div>
   </AiAppShell>
 </template>
@@ -239,7 +261,8 @@ import {
   looksLikeCode,
   normalizeCodeText,
 } from '@/modules/typing/codePractice'
-import { charsOf, createTypingEngine } from '@/modules/typing/engine'
+import { charsOf, createTypingEngine, isLeadingIndentChar } from '@/modules/typing/engine'
+import { keyCodeForChar } from '@/modules/typing/fingerMap'
 import { RANKED_TEXT_VERSION } from '@/modules/typing/rankedText'
 import {
   buildTypingSessionPayload,
@@ -247,12 +270,16 @@ import {
   resolveVisibilityAction,
   shouldPersistTypingSession,
 } from '@/modules/typing/sessionPersist'
-import { loadPrefs, saveLastResult } from '@/modules/typing/storage'
+import {
+  loadPrefs,
+  normalizeSpaceGlyph,
+  resolveSpaceGlyph,
+  saveLastResult,
+  savePrefs,
+  SPACE_GLYPH_OPTIONS,
+} from '@/modules/typing/storage'
 import TypingVirtualKeyboard from '@/modules/typing/TypingVirtualKeyboard.vue'
 
-/** 视口默认显示 4 行；代码模式更多上下文 */
-const VISIBLE_LINES = 4
-const CODE_VISIBLE_LINES = 8
 /** 前 FIXED_LINES 行固定不滚；caret 进入第 FIXED_LINES+1 行起才滚动 */
 const FIXED_LINES = 3
 const CODE_FIXED_LINES = 4
@@ -277,7 +304,6 @@ const boardFontPx = ref(24)
 const layoutStyle = computed(() => ({
   '--line-h': `${lineHeightPx.value}px`,
   '--board-font': `${boardFontPx.value}px`,
-  '--hud-num': `${Math.round(boardFontPx.value * 0.95)}px`,
 }))
 const caretInputStyle = ref({
   left: '16px',
@@ -314,7 +340,14 @@ const cfg = reactive({
 
 /** 代码练习：每个字符的语法 token 类名 */
 const tokenClasses = ref([])
-const showCodeTips = ref(true)
+const showCodeTips = ref(false)
+const spaceGlyph = ref(normalizeSpaceGlyph(loadPrefs().spaceGlyph))
+const spaceGlyphOptions = SPACE_GLYPH_OPTIONS
+
+function setSpaceGlyph(mode) {
+  spaceGlyph.value = normalizeSpaceGlyph(mode)
+  savePrefs({ spaceGlyph: spaceGlyph.value })
+}
 
 const live = reactive({
   cpm: 0,
@@ -344,6 +377,11 @@ const isCodeMode = computed(() => {
   return looksLikeCode(cfg.customText || targetChars.value.join(''))
 })
 
+/** 代码练习强制 invisible，避免空格看起来像 `_` 或真实 `·` */
+const effectiveSpaceGlyph = computed(() =>
+  resolveSpaceGlyph(spaceGlyph.value, { code: isCodeMode.value })
+)
+
 const codeLangLabel = computed(() => {
   const lang = cfg.codeLang || 'javascript'
   return CODE_LANG_OPTIONS.find((o) => o.value === lang)?.label || lang
@@ -368,10 +406,10 @@ const caretLineDisplay = computed(() => {
   return `${(caretLine.value || 0) + 1}/${total}`
 })
 
-const codeViewportStyle = computed(() => {
-  if (!isCodeMode.value) return undefined
-  const lines = CODE_VISIBLE_LINES
-  return { height: `calc(var(--line-h, 48px) * ${lines})` }
+/** 下一目标字符对应的物理键，供虚拟键盘指法预示 */
+const expectedKeyCode = computed(() => {
+  if (composing.value || engineStatus.value === 'finished') return ''
+  return keyCodeForChar(targetChars.value[caret.value] || '')
 })
 
 const headerTitle = computed(() => {
@@ -484,15 +522,38 @@ function setCharRef(idx, el) {
   else charEls.delete(idx)
 }
 
-function displayChar(ch) {
+function isAutoIndentAt(idx) {
+  return isCodeMode.value && isLeadingIndentChar(targetChars.value, idx)
+}
+
+function isAutoIndentStart(idx) {
+  return isAutoIndentAt(idx) && (idx === 0 || !isLeadingIndentChar(targetChars.value, idx - 1))
+}
+
+/** 光标已落在行首缩进之后的第一个实义字符（空格/Tab 视为可选 no-op） */
+function isAfterAutoIndent(idx = caret.value) {
+  if (!isCodeMode.value) return false
+  const target = targetChars.value
+  if (idx <= 0 || idx >= target.length) return false
+  if (isLeadingIndentChar(target, idx)) return false
+  const ch = target[idx]
+  if (ch === '\n') return false
+  return isLeadingIndentChar(target, idx - 1)
+}
+
+function displayChar(ch, idx) {
   if (ch === '\n') return '↵'
-  if (ch === '\t') return '····' // 视觉 4 空格宽的 tab 槽，实际比对仍是 \t
-  // 空格：真实空白 + CSS 底线提示
-  if (ch === ' ') return ' '
+  if (isAutoIndentAt(idx)) return '\u00a0'
+  if (ch === '\t') return '····'
+  if (ch === ' ') {
+    if (effectiveSpaceGlyph.value === 'bullet') return '·'
+    return '\u00a0'
+  }
   return ch
 }
 
-function charAriaLabel(ch) {
+function charAriaLabel(ch, idx) {
+  if (isAutoIndentAt(idx)) return '自动缩进'
   if (ch === ' ') return '空格'
   if (ch === '\t') return 'Tab'
   if (ch === '\n') return '换行'
@@ -530,19 +591,18 @@ async function loadTokenHighlight(text) {
   }
 }
 
-/** 根据视口宽高动态调整字号与行高，大屏放大、小屏收紧 */
+/** 根据视口宽高动态调整字号与行高；矮屏收紧，避免整页滚动 */
 function updateLayoutMetrics() {
   const w = window.innerWidth || 1200
   const h = window.innerHeight || 800
-  // 以宽度为主、高度为辅的字号：大屏可读，小屏不挤
+  const tight = h < 860
   const byW = w / 52
-  const byH = h / 36
-  let font = Math.round(Math.min(40, Math.max(18, Math.min(byW, byH))))
-  // 代码：略小字号、更密行高，多看几行
+  const byH = h / (tight ? 48 : 38)
+  let font = Math.round(Math.min(36, Math.max(16, Math.min(byW, byH))))
   if (isCodeMode.value) {
-    font = Math.round(Math.min(22, Math.max(14, font * 0.72)))
+    font = Math.round(Math.min(tight ? 16 : 20, Math.max(13, font * 0.72)))
   }
-  const line = Math.round(font * (isCodeMode.value ? 1.7 : 1.95))
+  const line = Math.round(font * (isCodeMode.value ? (tight ? 1.5 : 1.65) : (tight ? 1.65 : 1.9)))
   boardFontPx.value = font
   lineHeightPx.value = line
   measureCharsPerLine()
@@ -625,6 +685,7 @@ function loadConfig() {
   cfg.durationSec = 300
   cfg.lang = prefs.lang || 'zh'
   cfg.difficulty = prefs.difficulty || 2
+  spaceGlyph.value = normalizeSpaceGlyph(prefs.spaceGlyph)
   try {
     const raw = sessionStorage.getItem('orep_typing_session_cfg')
     if (raw) Object.assign(cfg, JSON.parse(raw))
@@ -663,9 +724,13 @@ function initEngine() {
   clientSessionId = newClientSessionId()
   pauseReason = ''
   lastCheckpointAt = 0
+  const skipLeadingIndent = !isRanked.value && (
+    cfg.playMode === 'code' || cfg.sourceType === 'code' || looksLikeCode(text)
+  )
   engine = createTypingEngine(text, {
     mode: 'timed',
     durationSec: cfg.durationSec,
+    skipLeadingIndent,
   })
   targetChars.value = charsOf(text)
   applySnap(engine.snapshot())
@@ -771,6 +836,17 @@ function onKeydown(e) {
   if (e.key === 'Escape') {
     e.preventDefault()
     pause()
+    return
+  }
+  // 代码练习：行首缩进已自动跳过时，Tab / 空格为可选 no-op
+  if (
+    isCodeMode.value
+    && !composing.value
+    && isAfterAutoIndent()
+    && (e.key === 'Tab' || e.key === ' ')
+  ) {
+    e.preventDefault()
+    lastPhysicalCode = e.key === 'Tab' ? 'Tab' : 'Space'
     return
   }
   // 代码练习：Tab 插入语言约定缩进（空格优先，与样例一致）
@@ -995,74 +1071,82 @@ onBeforeUnmount(() => {
 .typing-play {
   --line-h: 48px;
   --board-font: 24px;
-  --hud-num: 22px;
-  display: grid;
-  gap: clamp(10px, 1.2vw, 16px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 0.55vh, 8px);
   width: 100%;
-  max-width: min(1100px, 96vw);
+  max-width: min(1180px, 96vw);
   margin: 0 auto;
+  flex: 1 1 auto;
   min-height: 0;
+  height: 100%;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-.typing-play__hud {
+.play-hud {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  border: 1px solid var(--ds-card-border, var(--ds-line));
-  border-radius: var(--ds-radius-lg);
-  background: #fff;
-  box-shadow: var(--ds-card-shadow);
-  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  max-width: 100%;
 }
 
-.hud-item {
-  flex: 1 1 0;
-  min-width: 88px;
-  padding: 12px 14px;
-  border-left: 1px solid var(--ds-line);
+.play-hud__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0 10px;
+  border-left: 1px solid color-mix(in srgb, var(--ds-line) 80%, transparent);
 }
 
-.hud-item:first-child {
+.play-hud__item:first-child {
   border-left: 0;
+  padding-left: 0;
 }
 
-.hud-item strong {
-  display: block;
-  font-size: var(--hud-num, 22px);
-  font-weight: 750;
+.play-hud__item strong {
+  font-size: 16px;
+  font-weight: 720;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--ds-ink);
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
-.hud-item span {
-  display: block;
-  margin-top: 4px;
+.play-hud__item span {
+  margin-top: 1px;
   color: var(--ds-muted);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
-.hud-item--time strong {
+.play-hud__item.is-time strong {
   color: var(--ds-orange-700, #c2410c);
 }
 
 /* 金山式主练习板：大字正文，点击即打；随屏缩放 */
 .typing-play__board {
   position: relative;
-  min-height: calc(var(--line-h, 48px) * 4 + 56px);
-  padding: clamp(12px, 1.4vw, 20px) clamp(14px, 1.8vw, 24px);
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(6px, 0.8vh, 12px) clamp(12px, 1.6vw, 18px);
   border: 1px solid var(--ds-card-border, var(--ds-line));
   border-radius: var(--ds-radius-lg);
   background: #fffef8;
-  box-shadow: var(--ds-card-shadow);
+  box-shadow: none;
   cursor: text;
   user-select: none;
 }
 .typing-play__board.is-code-board {
-  min-height: calc(var(--line-h, 28px) * 8 + 72px);
+  min-height: 0;
 }
 
 /* 代码：IDE 暗色底板 */
@@ -1095,11 +1179,49 @@ onBeforeUnmount(() => {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px;
-  min-height: 22px;
-  margin-bottom: 8px;
+  flex: 0 0 auto;
+  min-height: 18px;
+  margin-bottom: 4px;
   color: var(--ds-muted);
   font-size: clamp(11px, 1.1vw, 13px);
   font-weight: 650;
+}
+
+.space-glyph-switch {
+  display: inline-flex;
+  margin-left: auto;
+  padding: 2px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid var(--ds-line, #e5e7eb);
+}
+.space-glyph-switch__btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  color: var(--ds-muted);
+  font: 650 11px/1 inherit;
+  cursor: pointer;
+}
+.space-glyph-switch__btn.is-active {
+  background: #fff;
+  color: var(--ds-ink, #111827);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+.typing-play__board.is-code-board .space-glyph-switch {
+  background: rgba(148, 163, 184, 0.12);
+  border-color: #334155;
+}
+.typing-play__board.is-code-board .space-glyph-switch__btn {
+  color: #94a3b8;
+}
+.typing-play__board.is-code-board .space-glyph-switch__btn.is-active {
+  background: #1e293b;
+  color: #e2e8f0;
+  box-shadow: none;
 }
 
 .typing-play__composing-tag {
@@ -1108,8 +1230,9 @@ onBeforeUnmount(() => {
 
 .typing-viewport {
   position: relative;
-  /* 默认显示 4 行，行高随屏幕变化 */
-  height: calc(var(--line-h, 48px) * 4);
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
   overflow: hidden;
   font-size: var(--board-font, 24px);
   line-height: var(--line-h, 48px);
@@ -1152,9 +1275,10 @@ onBeforeUnmount(() => {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  flex: 0 0 auto;
   gap: 6px 10px;
-  margin: 0 0 10px;
-  padding: 8px 10px;
+  margin: 0 0 4px;
+  padding: 4px 8px;
   border-radius: 10px;
   background: rgba(251, 191, 36, 0.1);
   border: 1px solid rgba(251, 191, 36, 0.28);
@@ -1224,7 +1348,6 @@ onBeforeUnmount(() => {
   border-radius: 10px;
   padding-left: 0;
   border: 1px solid #1e293b;
-  /* 高度由 codeViewportStyle 覆盖默认 4 行 */
 }
 
 .typing-line.is-active-line {
@@ -1358,17 +1481,9 @@ onBeforeUnmount(() => {
   box-shadow: inset 0 -2px 0 0 #a78bfa;
 }
 
-.typing-viewport.is-code .typing-ch.is-space.is-pending::after {
-  border-bottom-color: rgba(100, 116, 139, 0.7);
-}
-.typing-viewport.is-code .typing-ch.is-space.is-correct::after {
-  border-bottom-color: rgba(148, 163, 184, 0.55);
-}
 .typing-viewport.is-code .typing-ch.is-space.is-caret {
   background: rgba(56, 189, 248, 0.18) !important;
-}
-.typing-viewport.is-code .typing-ch.is-space.is-caret::after {
-  border-bottom-color: #38bdf8;
+  box-shadow: none;
 }
 .typing-viewport.is-code .typing-ch.is-tab.is-pending {
   color: #334155;
@@ -1492,51 +1607,139 @@ onBeforeUnmount(() => {
   background: rgba(255, 214, 102, 0.45);
 }
 
-/* 空格：不显示文字/·，但保留明确占位（下划线槽位） */
+/* 空格槽：三种模式共用 1ch 节奏，避免旧版 0.65em 弱下划线 */
 .typing-ch.is-space {
-  min-width: 0.65em;
-  width: 0.65em;
-  color: transparent !important;
-  background: transparent !important;
+  width: 1ch;
+  min-width: 1ch;
+  text-align: center;
 }
-.typing-ch.is-space::after {
+
+/* bullet（默认，Keybr）：浅灰中间点 */
+.space-glyph-bullet .typing-ch.is-space {
+  color: #c5c9d1;
+  background: transparent;
+}
+.space-glyph-bullet .typing-ch.is-space::after {
+  content: none;
+}
+.space-glyph-bullet .typing-ch.is-space.is-pending {
+  color: #c5c9d1;
+}
+.space-glyph-bullet .typing-ch.is-space.is-correct {
+  color: #9ca3af;
+  opacity: 0.42;
+}
+.space-glyph-bullet .typing-ch.is-space.is-wrong {
+  color: #ef4444;
+  opacity: 1;
+  background: rgba(254, 202, 202, 0.7);
+  border-radius: 3px;
+}
+.space-glyph-bullet .typing-ch.is-space.is-caret {
+  color: #4b5563;
+  font-weight: 800;
+  opacity: 1;
+  background: rgba(255, 214, 102, 0.75);
+  border-radius: 3px;
+  box-shadow: inset 0 -2px 0 0 #f59e0b;
+}
+
+/* bar：1ch 下划线槽（改进旧版 underline） */
+.space-glyph-bar .typing-ch.is-space {
+  color: transparent;
+  background: transparent;
+}
+.space-glyph-bar .typing-ch.is-space::after {
   content: '';
   position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: 0.22em;
+  left: 0;
+  right: 0;
+  bottom: 0.18em;
   height: 0;
   border-bottom: 2.5px solid rgba(156, 163, 175, 0.95);
   border-radius: 1px;
   pointer-events: none;
 }
-/* 未敲：浅灰占位线 */
-.typing-ch.is-space.is-pending::after {
+.space-glyph-bar .typing-ch.is-space.is-pending::after {
   border-bottom-color: rgba(156, 163, 175, 0.9);
 }
-/* 已正确：淡实线 */
-.typing-ch.is-space.is-correct::after {
-  border-bottom-color: rgba(75, 85, 99, 0.55);
+.space-glyph-bar .typing-ch.is-space.is-correct::after {
+  border-bottom-color: rgba(75, 85, 99, 0.45);
   border-bottom-width: 2px;
 }
-/* 敲错：红线 + 浅红底 */
-.typing-ch.is-space.is-wrong {
-  background: rgba(254, 202, 202, 0.55) !important;
+.space-glyph-bar .typing-ch.is-space.is-wrong {
+  background: rgba(254, 202, 202, 0.55);
   border-radius: 3px;
 }
-.typing-ch.is-space.is-wrong::after {
+.space-glyph-bar .typing-ch.is-space.is-wrong::after {
   border-bottom-color: #ef4444;
   border-bottom-width: 3px;
 }
-/* 当前待敲：高亮占位 */
-.typing-ch.is-space.is-caret {
-  background: rgba(255, 214, 102, 0.28) !important;
+.space-glyph-bar .typing-ch.is-space.is-caret {
+  background: rgba(255, 214, 102, 0.28);
   border-radius: 3px;
-  box-shadow: none;
 }
-.typing-ch.is-space.is-caret::after {
+.space-glyph-bar .typing-ch.is-space.is-caret::after {
   border-bottom-color: #f59e0b;
   border-bottom-width: 3px;
+}
+
+/* invisible（Monkeytype）：纯空隙，无字形 */
+.space-glyph-invisible .typing-ch.is-space {
+  color: transparent;
+  background: transparent;
+}
+.space-glyph-invisible .typing-ch.is-space::after {
+  content: none;
+}
+.space-glyph-invisible .typing-ch.is-space.is-wrong {
+  background: rgba(254, 202, 202, 0.55);
+  border-radius: 3px;
+}
+.space-glyph-invisible .typing-ch.is-space.is-caret {
+  background: rgba(255, 214, 102, 0.4);
+  border-radius: 3px;
+  box-shadow: inset 0 -2px 0 0 #f59e0b;
+}
+
+/* 代码行首自动缩进：连续闷色条，不用 `_` / `·` */
+.typing-ch.is-auto-indent {
+  color: transparent !important;
+  background: rgba(51, 65, 85, 0.28) !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  min-width: 1ch;
+}
+.typing-ch.is-auto-indent::after {
+  content: none !important;
+  border: 0 !important;
+}
+.typing-ch.is-auto-indent.is-tab {
+  min-width: 2.4em;
+}
+.typing-viewport.is-code .typing-ch.is-auto-indent {
+  background: rgba(51, 65, 85, 0.42) !important;
+}
+.typing-viewport.is-code .typing-ch.is-auto-indent.is-auto-indent-start {
+  box-shadow: inset 2px 0 0 0 rgba(148, 163, 184, 0.4) !important;
+}
+.typing-viewport.is-code .typing-ch.is-auto-indent.is-caret {
+  background: rgba(56, 189, 248, 0.16) !important;
+}
+
+/* 代码空格：永远无字形、无下划线（即使偏好是 bullet/bar） */
+.typing-viewport.is-code .typing-ch.is-space {
+  color: transparent !important;
+  background: transparent;
+}
+.typing-viewport.is-code .typing-ch.is-space::after {
+  content: none !important;
+  border: 0 !important;
+}
+.typing-viewport.is-code .typing-ch.is-space.is-wrong {
+  background: rgba(239, 68, 68, 0.35);
+  border-radius: 3px;
 }
 
 /* 金山式配色：未打浅灰，已打深色，错字红底 */
@@ -1606,8 +1809,15 @@ onBeforeUnmount(() => {
   transform: translateY(2px);
 }
 
+.typing-play__kb {
+  flex: 0 0 auto;
+  min-height: auto;
+  width: 100%;
+}
+
 .typing-play__progress {
-  height: 6px;
+  flex: 0 0 auto;
+  height: 3px;
   border-radius: 999px;
   background: #f3f4f6;
   overflow: hidden;
@@ -1638,13 +1848,43 @@ onBeforeUnmount(() => {
   color: #b91c1c;
 }
 
-/* 大屏：练习区尽量吃满可用高度 */
-.typing-play-shell :deep(.ai-app-shell__body) {
-  min-height: 0;
+/* 桌面：整页锁在视口内，只允许练习区内部滚行，不出现页面滚动条 */
+.typing-play-shell {
+  --ai-app-workspace-header-height: auto;
+  overflow: hidden;
 }
 .typing-play-shell :deep(.ai-app-content) {
   height: 100%;
   min-height: 0;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.typing-play-shell :deep(.ai-app-shell__body) {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0 8px;
+}
+.typing-play-shell :deep(.ai-app-header.is-workspace) {
+  min-height: 48px;
+  gap: 12px;
+}
+.typing-play-shell :deep(.ai-app-header__main) {
+  flex-wrap: nowrap;
+}
+.typing-play-shell :deep(.ai-app-header__identity) {
+  flex: 0 1 auto;
+}
+.typing-play-shell :deep(.ai-app-header__icon) {
+  display: none;
+}
+.typing-play-shell :deep(.ai-app-header__local-navigation) {
+  flex: 1 1 auto;
+  justify-content: center;
+  min-width: 0;
+}
+.typing-play-shell :deep(.ai-app-header.is-workspace .ai-app-header__copy p) {
+  font-size: 11px;
 }
 
 @media (min-width: 1280px) {
@@ -1653,16 +1893,49 @@ onBeforeUnmount(() => {
   }
 }
 
+@media (max-width: 1100px) {
+  .play-hud__item {
+    padding: 0 7px;
+  }
+  .play-hud__item strong {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .typing-play-shell :deep(.ai-app-shell__body) {
+    overflow-y: auto;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  }
+  .typing-play {
+    height: auto;
+    flex: none;
+  }
+  .typing-play__board {
+    flex: none;
+    min-height: calc(var(--line-h, 48px) * 4 + 48px);
+  }
+  .typing-viewport {
+    flex: none;
+    min-height: calc(var(--line-h, 48px) * 4);
+    height: calc(var(--line-h, 48px) * 4);
+  }
+  .typing-play-shell :deep(.ai-app-header.is-workspace) {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 8px 0 6px;
+  }
+  .play-hud {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+}
+
 @media (max-width: 640px) {
-  .hud-item {
-    min-width: 46%;
+  .play-hud__item {
+    padding: 0 8px 0 0;
     border-left: 0;
-    border-top: 1px solid var(--ds-line);
   }
-
-  .hud-item:nth-child(-n + 2) {
-    border-top: 0;
-  }
-
 }
 </style>
